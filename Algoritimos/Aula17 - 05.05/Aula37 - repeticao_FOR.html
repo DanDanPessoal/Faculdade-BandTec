@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 37 - Laço de Repetição FOR</title>
+
+</head>
+
+<body>
+
+    <div id="div_motivacao"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    /*
+    
+    O 'For' é composto por 3 partes:
+
+    1° Instrução incial. Uma linha de código que será excecutada 1 só vez antes da 1° excecução do 'for'
+
+        no caso abaixo, 'var contador = 1'
+
+    2° Condição de repetição: Se true, executa o bloco do 'for', se false, não executa.
+
+        no caso abaixo, 'contador <=5'
+
+    3° Última linha virtual do bloco 'for': É uma instrução que é sempre executada ao final do bloco 'for'
+
+        no caso abaixo, contador++
+
+    */
+
+    for(var contador = 1 ; contador <=5 ; contador++){
+
+        div_motivacao.innerHTML += `O verdadeiro mestre é um eterno aprendiz <br>`;
+
+    }
+    
+</script>

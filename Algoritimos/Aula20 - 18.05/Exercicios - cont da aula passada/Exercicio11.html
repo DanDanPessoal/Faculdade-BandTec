@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+
+</head>
+
+<body>
+
+    <select id="sel_resultado_time">
+
+        <option value="">- Selecione uma opção -</option>
+        <option value="vi">Vitória</option>
+        <option value="emp">Empate</option>
+        <option value="der">Derrota</option>
+
+    </select>
+
+    <button onclick="registrar()">Registrar Jogo</button>
+
+    <button onclick="analisar()">Analisar o Campeonato</button>
+
+    <br><br>
+
+    Digite o número do jogo que você quer saber o resultado: <input id="input_num_jogo" onchange="pesquisar()">
+    
+    <br><br>
+
+    Pesquisar por um intervalo: <input id="input_num1" placeholder="Ex: 1"> 
+                                <input id="input_num2" placeholder="Ex: 5">
+
+    <br><br>
+
+    <button onclick="intervalo()">Analisar Intervalo</button>
+
+    <br><br>
+    
+    <div id="div_msg"></div>
+
+    <br>
+
+    <div id="div_msg2"></div>
+
+    
+</body>
+
+</html>
+
+<script>
+
+    var resultados = [];
+    
+    function registrar(){
+        
+        var resultado_time = sel_resultado_time.value;
+        
+        resultados.push(resultado_time);
+        
+        sel_resultado_time.value = '';
+        
+    }
+    
+    function analisar(){
+        
+        var pontos = 0;
+        var contar_vitoria = 0;
+        var contar_empate = 0;
+        var contar_derrota = 0;
+
+        for(var cont = 0 ; cont < resultados.length ; cont++){
+
+            if(resultados[cont] == 'vi'){
+
+                contar_vitoria++;
+                pontos += 3;
+
+            }else if(resultados[cont] == 'emp'){
+
+                contar_empate++;
+                pontos += 1;
+
+            }else{
+
+                contar_derrota++;
+
+            }
+        }
+
+        div_msg.innerHTML = `Até o jogo ${resultados.length}<br><br>
+                            O time teve: ${contar_vitoria} Vitórias,
+                            ${contar_empate} Empates, ${contar_derrota} Derrotas<br>
+                            Pontuação total: ${pontos} Pontos<br>
+                            Aproveitamento: ${ ((pontos / (resultados.length * 3))*100).toFixed(2) }% `;
+
+    }
+
+    function pesquisar(){
+
+        var num_jogo = input_num_jogo.value;
+
+        if(resultados[num_jogo - 1] == undefined ){
+
+            div_msg2.innerHTML = `Não foi cadastrado um ${num_jogo}° jogo`;
+
+        }else{
+
+            if(resultados[num_jogo - 1] == 'vi'){
+
+                div_msg2.innerHTML = `No ${num_jogo}° jogo, o time ganhou`;
+
+            }else if(resultados[num_jogo - 1] == 'emp'){
+
+                div_msg2.innerHTML = `No ${num_jogo}° jogo, o time Empatou`;
+
+            }else{
+
+                div_msg2.innerHTML = `No ${num_jogo}° jogo, o time Perdeu`;
+
+            }
+
+        }
+
+    }
+
+    function intervalo(){
+
+        var num1 = input_num1.value;
+        var num2 = input_num2.value;
+
+        var pontos = 0;
+        var contar_vitoria = 0;
+        var contar_empate = 0;
+        var contar_derrota = 0;
+
+        if(num1 >= num2 || num1 > resultados.length || num2 > resultados.length){
+
+            alert('Números de intervalo inválidos, O primeiro campo tem que ter um número menor que o segundo\n\nExemplo: 1     5');
+
+        }else{
+
+        for(var cont = num1 - 1 ; cont < num2 ; cont++){
+
+            if(resultados[cont] == 'vi'){
+
+                contar_vitoria++;
+                pontos += 3;
+
+            }else if(resultados[cont] == 'emp'){
+
+                contar_empate++;
+                pontos += 1;
+
+            }else{
+
+                contar_derrota++;
+
+            }
+        }
+
+        div_msg2.innerHTML = `Até o jogo ${num2}<br><br>
+                            O time teve: ${contar_vitoria} Vitórias,
+                            ${contar_empate} Empates, ${contar_derrota} Derrotas<br>
+                            Pontuação total: ${pontos} Pontos<br>
+                            Aproveitamento: ${ ((pontos / (resultados.length * 3))*100).toFixed(2) }% `;
+
+            }          
+        }
+
+</script>

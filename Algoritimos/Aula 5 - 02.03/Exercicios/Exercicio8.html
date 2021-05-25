@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+
+<body>
+
+    Digite seu salario: <input id="salario" placeholder="Digite seu salario">
+
+    <br><br>
+
+    <button onclick="Calcular()" id="but_calcular">Calcular descontos</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function Calcular(){
+
+        var INSS = salario.value * 0.1;
+        var IR = salario.value * 0.2;
+        var desconto_total = INSS + IR;
+        var novo_salario = salario.value - desconto_total;
+
+        div_msg.innerHTML = `Seus descontos serão de:<br> 
+        INSS: <b>R$${INSS}</b><br> 
+        IR: <b>R$${IR}</b><br>
+        Total de descontos: <b>R$${desconto_total}</b><br> 
+        Seu salário, após os descontos será de: <b><u>R$${novo_salario}<u/></b>`;
+
+    }
+
+</script>

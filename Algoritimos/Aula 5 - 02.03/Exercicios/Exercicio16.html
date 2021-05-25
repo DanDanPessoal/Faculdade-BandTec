@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 16</title>
+
+</head>
+
+<body>
+
+    Digite um número para a tabuada: <input id="valor_tabu" placeholder="Número para a tabuada">
+
+    <br><br>
+
+    <button onclick="ver_tabu()" id="but_ver_tabu">Ver tabuada</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function ver_tabu(){
+        
+        div_msg.innerHTML = `${valor_tabu.value} x 1 = ${valor_tabu.value * 1}<br>
+        ${valor_tabu.value} x 2 = ${valor_tabu.value * 2}<br>
+        ${valor_tabu.value} x 3 = ${valor_tabu.value * 3}<br>
+        ${valor_tabu.value} x 4 = ${valor_tabu.value * 4}<br>
+        ${valor_tabu.value} x 5 = ${valor_tabu.value * 5}<br>
+        ${valor_tabu.value} x 6 = ${valor_tabu.value * 6}<br>
+        ${valor_tabu.value} x 7 = ${valor_tabu.value * 7}<br>
+        ${valor_tabu.value} x 8 = ${valor_tabu.value * 8}<br>
+        ${valor_tabu.value} x 9 = ${valor_tabu.value * 9}`
+
+    }
+
+</script>

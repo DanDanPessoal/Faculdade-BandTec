@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+
+</head>
+
+<body>
+
+    Digite o número de sorteios: <input id="input_nSorteio" autofocus>
+
+    <br><br>
+
+    <button onclick="sortear()">Sortear a sorte</button>
+
+    <br><br>
+
+    <img src="" alt="">
+
+    <div id="div_msg"></div>
+
+    
+    
+</body>
+
+</html>
+
+<script>
+
+    function sortear(){
+
+        var n_sorteio = input_nSorteio.value;
+
+        div_msg.innerHTML = ``;
+
+        for(var contagem = 1; contagem<=n_sorteio ; contagem++){
+
+            var aleatorio = parseInt(Math.random()*10000)+1
+
+            if(aleatorio <=1000){
+
+                div_msg.innerHTML += `${aleatorio}<br>
+                <img src="chorando.jpg" alt="" style="height: 100px;"><br><br>`
+
+            }else if(aleatorio <= 5000){
+
+                div_msg.innerHTML += `${aleatorio}<br>
+                <img src="neutro.gif" alt="" style="height: 100px;"><br><br>`
+
+            }else{
+
+                div_msg.innerHTML += `${aleatorio}<br>
+                <img src="feliz.jpg" alt="" style="height: 100px;"><br><br>`
+
+            }
+        }
+
+    }
+
+</script>

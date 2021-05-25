@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+
+</head>
+
+<body>
+    
+    <button onclick="lua()">Ver a Lua</button>
+
+    <br><br>
+
+    <div id="div_msg"></div> 
+
+</body>
+
+</html>
+
+<script>
+
+    function lua(){
+
+        var dia = parseInt(Math.random() * 31) + 1;
+
+        div_msg.innerHTML = `Dia do mês: ${dia}`;
+
+        if( dia <= 7 ){
+
+            div_msg.innerHTML += `<br><br>Tipo de Lua: Lua nova<br>
+<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Dark_moon_emoji_icon_png_200x200.png" alt="">`;
+
+
+        }else if( dia <= 16){
+
+            div_msg.innerHTML += `<br><br>Tipo de Lua: Lua cheia<br>
+<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Full_moon_emoji_icon_png_200x200.png" alt="">`;
+
+        }else if( dia <= 22 ){
+
+            div_msg.innerHTML += `<br><br>Tipo de Lua: Lua minguante<br>
+<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/First_quarter_moon_emoji_icon_png_200x200.png" alt="">`;
+
+        }else{
+
+            div_msg.innerHTML += `<br><br>Tipo de Lua: Lua crescente<br>
+<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Waning_crescent_moon_emoji_icon_png_200x200.png" alt="">`;
+
+        }
+    }
+
+</script>

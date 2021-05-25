@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 27 - If / Else</title>
+
+</head>
+
+<body>
+    
+    <h2>Aula 27 - If / Else - Cálculo de Multa</h2>
+
+    Entre com a quantidade de pontos da CNH <input id="pontos" placeholder="Pontos CNH">
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular Multa</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular(){
+
+        var ax_multa = 0;
+        
+        if(pontos.value >= 20){
+
+            alert("Carteira suspensa");
+
+            ax_multa = pontos.value * 87;
+
+        }else if (pontos.value > 40){
+
+            ax_multa = pontos.value * 100;
+
+        }else{
+
+            ax_multa = pontos.value * 78;
+
+        }
+
+            div_msg.innerHTML = `Valor total das multas R$${ax_multa}`;
+
+    }
+
+</script>

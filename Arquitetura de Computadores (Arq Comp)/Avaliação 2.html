@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de sistemas numericos</title>
+</head>
+
+<div style="background-color: #00BFFF; width: 50%; height: 70%; margin-left: 300px;">
+
+<body style="text-align: center;">    
+
+<h1>Conversor</h1>
+
+<br>
+
+<button onclick="decimal()" style="display: inline;">Converter Decimal</button>
+<button onclick="octal()" style="display: inline;">Converter Octal</button>
+<button onclick="hexa()" style="display: inline;">Converter Hexadecima</button>
+<button onclick="binario()" style="display: inline;">Converter Binário</button>
+
+
+<br>
+
+<h3 id="h3_decimal" style="display: none;">Decimal</h3>
+<h3 id="h3_octal" style="display: none;">Octal</h3>
+<h3 id="h3_hexa" style="display: none;">Hexadecimal</h3>
+<h3 id="h3_binario" style="display: none;">Binário</h3>
+
+<input id="demo1" type="text" placeholder="Digite o valor para converter" style="display: none;">
+
+<br><br>
+
+<h3 id="h3_conversor" style="display: none;" >converter para:</h3>
+
+<input id="input_octal" onclick="aparecer_octal()" type="checkbox" style="display: none;"><b style="display: none;" id="b_octal">Octal</b>
+
+<br>
+
+<div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(0, 0, 0); width: 15%; height: 40px; font-weight: 500; margin-left: 270px;" id="demo2" ></div>
+
+<br><br>
+
+<input id="input_hexa" onclick="aparecer_hexa()" type="checkbox" style="display: none;"><b style="display: none;" id="b_hexa">Hexadecimal</b>
+
+<br>
+
+<div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(7, 7, 7); width: 15%; height: 40px; font-weight: 500; margin-left: 270px;" id="demo3"></div>
+
+<br><br>
+
+<input id="input_binario" onclick="aparecer_bin()" type="checkbox" style="display: none;"><b style="display: none;" id="b_binario">Binário</b>
+
+<br>
+
+<div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(5, 5, 5); width: 60%; height: 50px; font-weight: 500; margin-left: 132px;" id="demo4"></div>
+
+<br><br>
+
+<input id="input_decimal" onclick="aparecer_decimal()" type="checkbox" style="display: none;"><b style="display: none;" id="b_decimal">Decimal</b>
+
+<br>
+
+<div style="display: none; background-color: #dcdcdc; border-radius: 5px; padding: 5px; color: rgb(5, 5, 5); width: 60%; height: 50px; font-weight: 500; margin-left: 132px;" id="demo5"></div>
+
+<br><br>
+
+<button id="but_calcular_decimal" onclick="calcular_decimal()" style="display: none; margin-left: 250px;">Converter o decimal</button>
+
+<button id="but_calcular_octal" onclick="calcular_octal()" style="display: none; margin-left: 260px;">Converter o octal</button>
+
+<button id="but_calcular_hexa" onclick="calcular_hexa()" style="display: none; margin-left: 250px;">Converter o hexadecimal</button>
+
+<button id="but_calcular_binario" onclick="calcular_binario()" style="display: none; margin-left: 250px;">Converter o binario</button>
+
+</div>
+
+<script>
+
+function decimal() {
+
+    demo1.innerHTML = "";
+    demo2.innerHTML = "";
+    demo3.innerHTML = "";
+    demo4.innerHTML = "";
+    demo5.innerHTML = "";
+
+    demo2.style.display = "none";
+    demo3.style.display = "none";
+    demo4.style.display = "none";
+    demo5.style.display = "none";
+
+    h3_conversor.style.display = "block";
+
+    h3_decimal.style.display = "block";
+    h3_octal.style.display = "none";
+    h3_binario.style.display = "none";
+    h3_hexa.style.display = "none";
+
+    demo1.style.display = "inline";
+
+    
+    input_decimal.style.display = "none";
+    b_decimal.style.display = "none";
+
+    input_octal.style.display = "inline";
+    b_octal.style.display = "inline";
+
+    input_hexa.style.display = "inline";
+    b_hexa.style.display = "inline";
+
+    input_binario.style.display = "inline";
+    b_binario.style.display = "inline";
+
+    but_calcular_decimal.style.display = "block";
+    but_calcular_hexa.style.display = "none";
+    but_calcular_binario.style.display = "none";
+    but_calcular_octal.style.display = "none";
+
+    }
+
+function octal() {
+
+    demo1.innerHTML = "";
+    demo2.innerHTML = "";
+    demo3.innerHTML = "";
+    demo4.innerHTML = "";
+    demo5.innerHTML = "";
+
+    demo2.style.display = "none";
+    demo3.style.display = "none";
+    demo4.style.display = "none";
+    demo5.style.display = "none";
+
+    h3_conversor.style.display = "block";
+
+    h3_decimal.style.display = "none";
+    h3_octal.style.display = "block";
+    h3_hexa.style.display = "none";
+    h3_binario.style.display = "none";
+
+    demo1.style.display = "inline";
+
+    
+    input_octal.style.display = "none";
+    b_octal.style.display = "none";
+
+    input_decimal.style.display = "inline";
+    b_decimal.style.display = "inline";
+
+    input_hexa.style.display = "inline";
+    b_hexa.style.display = "inline";
+
+    input_binario.style.display = "inline";
+    b_binario.style.display = "inline";
+
+    but_calcular_octal.style.display = "block";
+    but_calcular_hexa.style.display = "none";
+    but_calcular_binario.style.display = "none";
+    but_calcular_decimal.style.display = "none";
+
+    }
+
+function hexa() {
+
+    demo1.innerHTML = "";
+    demo2.innerHTML = "";
+    demo3.innerHTML = "";
+    demo4.innerHTML = "";
+    demo5.innerHTML = "";
+
+    demo2.style.display = "none";
+    demo3.style.display = "none";
+    demo4.style.display = "none";
+    demo5.style.display = "none";
+
+    h3_conversor.style.display = "block";
+
+    h3_decimal.style.display = "none";
+    h3_octal.style.display = "none";
+    h3_hexa.style.display = "block";
+    h3_binario.style.display = "none";
+
+    demo1.style.display = "inline";
+
+    input_hexa.style.display = "none";
+    b_hexa.style.display = "none";
+
+    input_decimal.style.display = "inline";
+    b_decimal.style.display = "inline";
+
+    input_octal.style.display = "inline";
+    b_octal.style.display = "inline";
+
+    input_binario.style.display = "inline";
+    b_binario.style.display = "inline";
+
+    but_calcular_octal.style.display = "none";
+    but_calcular_hexa.style.display = "block";
+    but_calcular_binario.style.display = "none";
+    but_calcular_decimal.style.display = "none";
+
+}
+
+function binario() {
+
+    demo1.innerHTML = "";
+    demo2.innerHTML = "";
+    demo3.innerHTML = "";
+    demo4.innerHTML = "";
+    demo5.innerHTML = "";
+
+    demo2.style.display = "noen";
+    demo3.style.display = "none";
+    demo4.style.display = "none";
+    demo5.style.display = "none";
+
+    h3_conversor.style.display = "block";
+
+    h3_decimal.style.display = "none";
+    h3_octal.style.display = "none";
+    h3_hexa.style.display = "none";
+    h3_binario.style.display = "block";
+
+    demo1.style.display = "inline";
+
+    input_binario.style.display = "none";
+    b_binario.style.display = "none";
+
+    input_decimal.style.display = "inline";
+    b_decimal.style.display = "inline";
+
+    input_octal.style.display = "inline";
+    b_octal.style.display = "inline";
+
+    input_hexa.style.display = "inline";
+    b_hexa.style.display = "inline";
+
+    but_calcular_octal.style.display = "none";
+    but_calcular_hexa.style.display = "none";
+    but_calcular_binario.style.display = "block";
+    but_calcular_decimal.style.display = "none";
+
+}
+
+function calcular_octal(){
+
+    var numero = Number(demo1.value);
+    var numero2 = parseInt(numero, 8);
+    let octal = numero2.toString(8);
+    let hexadecimal = numero2.toString(16);
+    let binaria = numero2.toString(2);
+    let decimal = numero2.toString(10);
+
+    console.log (numero);
+    console.log (octal);
+    console.log (hexadecimal);
+    console.log (binaria);
+    console.log (decimal);
+
+    document.getElementById("demo1").innerHTML = ` ${numero}`;
+    document.getElementById("demo2").innerHTML = ` ${octal}`;
+    document.getElementById("demo3").innerHTML = ` ${hexadecimal}`;
+    document.getElementById("demo4").innerHTML = ` ${binaria}`;
+    document.getElementById("demo5").innerHTML = ` ${decimal}`;
+
+    }
+
+function calcular_decimal(){
+
+    var numero = Number(demo1.value);
+    let octal = numero.toString(8);
+    let hexadecimal = numero.toString(16);
+    let binaria = numero.toString(2);
+    let decimal = numero.toString(10);
+
+    console.log (numero);
+    console.log (octal);
+    console.log (hexadecimal);
+    console.log (binaria);
+    console.log (decimal);
+
+    document.getElementById("demo1").innerHTML = ` ${numero}`;
+    document.getElementById("demo2").innerHTML = ` ${octal}`;
+    document.getElementById("demo3").innerHTML = ` ${hexadecimal}`;
+    document.getElementById("demo4").innerHTML = ` ${binaria}`;
+    document.getElementById("demo5").innerHTML = ` ${decimal}`;
+
+}
+
+function calcular_hexa(){
+
+    var numero = Number(demo1.value);
+    var numero2 = parseInt(numero, 16);
+    let octal = numero2.toString(8);
+    let hexadecimal = numero2.toString(16);
+    let binaria = numero2.toString(2);
+    let decimal = numero2.toString(10);
+
+    console.log (numero);
+    console.log (octal);
+    console.log (hexadecimal);
+    console.log (binaria);
+    console.log (decimal);
+
+    document.getElementById("demo1").innerHTML = ` ${numero}`;
+    document.getElementById("demo2").innerHTML = ` ${octal}`;
+    document.getElementById("demo3").innerHTML = ` ${hexadecimal}`;
+    document.getElementById("demo4").innerHTML = ` ${binaria}`;
+    document.getElementById("demo5").innerHTML = ` ${decimal}`;
+
+}
+
+function calcular_binario(){
+
+    var numero = Number(demo1.value);
+    var numero2 = parseInt(numero, 2);
+    let octal = numero2.toString(8);
+    let hexadecimal = numero2.toString(16);
+    let binaria = numero2.toString(2);
+    let decimal = numero2.toString(10);
+
+    console.log (numero);
+    console.log (octal);
+    console.log (hexadecimal);
+    console.log (binaria);
+    console.log (decimal);
+
+    document.getElementById("demo1").innerHTML = ` ${numero}`;
+    document.getElementById("demo2").innerHTML = ` ${octal}`;
+    document.getElementById("demo3").innerHTML = ` ${hexadecimal}`;
+    document.getElementById("demo4").innerHTML = ` ${binaria}`;
+    document.getElementById("demo5").innerHTML = ` ${decimal}`;
+
+}
+
+function aparecer_bin() {
+
+    demo4.style.display = 'block'
+
+}
+
+function aparecer_hexa() {
+
+    demo3.style.display = 'block'
+
+}
+
+function aparecer_octal() {
+
+    demo2.style.display = 'block'
+
+}
+
+function aparecer_decimal() {
+
+demo5.style.display = 'block'
+
+}
+
+</script>
+
+</body>
+
+</html>

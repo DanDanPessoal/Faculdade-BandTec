@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+
+    Digite o sabor da pizza: <input id="sabor_pizza" placeholder="Sabor da pizza">
+    <br>
+    Digite o preço da pizza: <input id="preco_pizza" placeholder="preço da pizza">
+    <br>
+    Digite a quantidade de amigos que vão comer: <input id="qtd_amigos" placeholder="Quantidade de amigos">
+    <br><br>
+    <button onclick="calcular()" id="calcular">Ver valor por amigo</button>
+    <br><br>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+
+    function calcular(){
+    
+    var pizza = preco_pizza.value / qtd_amigos.value;
+
+    div_msg.innerHTML = `Cada amigo vai colaborar com <u>R$${pizza}</u> para a pizza de ${sabor_pizza.value}`;
+    
+    }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+
+</head>
+
+<body>
+
+    Digite quantos números você quer sortear: <input id="input_sortear" autofocus>
+
+    <br><br>
+
+    <button onclick="sortear()">Sortear números</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function sortear(){
+
+        var qtd_sorteio = input_sortear.value;
+
+        div_msg.innerHTML = ``;
+
+        while( qtd_sorteio > 0 ){
+
+            var aleatorio = parseInt(Math.random() * 101);
+
+            div_msg.innerHTML += `${aleatorio}<br>`;
+
+            qtd_sorteio--;
+
+        }
+
+    }
+
+</script>

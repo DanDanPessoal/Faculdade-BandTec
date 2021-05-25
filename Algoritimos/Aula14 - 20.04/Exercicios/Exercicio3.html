@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+    Digite a nota: <input id="input_nota" placeholder="Ex: 6.5" autofocus>
+
+    <br>
+
+    Digite a frequência: <input id="input_freq" placeholder="Ex: 75">
+
+    <br><br>
+
+    <button onclick="avaliar()">Avaliar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+
+    function avaliar(){
+
+        var nota = input_nota.value;
+        var frequencia = input_freq.value;
+
+        var aprovado = nota >= 6 && frequencia >=75;
+        var reprovado_nota = nota < 6;
+        var reprovado_freq = frequencia < 75;
+
+        if(aprovado){
+
+            div_msg.innerHTML = `Parabéns, aprovado(a)`;
+
+        }else if(reprovado_nota && reprovado_freq == false ){
+
+            div_msg.innerHTML = `Reprovado(a) por nota`;
+
+        }else if(reprovado_freq && reprovado_nota == false){
+
+            div_msg.innerHTML = `Reprovado(a) por falta`;
+
+        }else{
+
+            div_msg.innerHTML = `Reprovado(a) por nota e falta`
+
+        }
+
+    }
+
+</script>

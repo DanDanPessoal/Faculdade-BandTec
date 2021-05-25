@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+    <button onclick="ver()">Ver minha sorte</button>
+
+    <br><br>
+
+    <div id="div_msg2"></div>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function ver(){
+
+        var cont_amor = 0;
+        var cont_jogo = 0;
+
+        div_msg.innerHTML = '';
+
+        for(var contador = 0; contador <= 20; contador++){
+
+            var aleatorio = parseInt(Math.random() * 2);
+
+            if( aleatorio == 0 ){
+
+                div_msg.innerHTML += `<img src="amor.jpg" alt="" height="100px"style="float: left;">`;
+
+                cont_amor++;
+
+            }else{
+
+                div_msg.innerHTML += `<img src="carta.jpg" alt="" height="100px" style="float: left;">`;
+
+                cont_jogo++;
+
+            }
+
+            if( cont_jogo > cont_amor ){
+
+                div_msg2.innerHTML = `Você tem mais sorte no jogo`;
+
+            }else{
+
+                div_msg2.innerHTML = `Você tem mais sorte no amor`;
+
+            }
+
+            if (cont_amor == 11){
+
+                div_msg2.innerHTML = `Você tem mais sorte no amor`;
+
+                break;
+            
+            }
+
+            if (cont_jogo == 11){
+
+                div_msg2.innerHTML = `Você tem mais sorte no jogo`;
+
+                break;
+
+            }
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alterando src da imagem</title>
+
+</head>
+
+<body>
+
+    <h3>Mudança de tempo</h3>
+
+    <button onclick="nublado()">Mudar para Nublado</button>
+    <button onclick="chuvoso()">Mudar para Chuvoso</button>
+
+    <br><br>
+
+    <span id="div_clima">
+
+        O clima é algo que muda muito!
+
+    </span>
+
+    <br><br>
+
+    <img id="img_clima" src="ensolarado.jpg" alt="Dia ensolarado" style="height: 200px;">
+
+</body>
+
+<script>
+
+    function nublado(){
+
+        div_clima.style.backgroundColor = "gray";
+        img_clima.src = "nublado.jpg";
+
+    }
+
+    function chuvoso(){
+
+        div_clima.style.backgroundColor = "lightblue";
+        img_clima.src = "chuvoso.jpg";
+
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+
+</head>
+
+<body>
+
+    Digite o nome do produto: <input id="input_nome_produto">
+    
+    <br>
+
+    Digite o preço do produto: <input id="input_preco_produto">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+
+    var nomes = [];
+    var precos = [];
+
+    function cadastrar(){
+
+        var nome_produto = input_nome_produto.value;
+        var preco_produto = input_preco_produto.value;
+        
+        if(nome_produto == '' || preco_produto == ''){
+
+            alert('valores inválidos ou vazios')
+
+        }else{
+
+            nomes.push(nome_produto);
+            precos.push(preco_produto);
+
+            input_nome_produto.value = '';
+            input_preco_produto.value = '';
+
+        }
+    }
+
+    function relatorio(){
+
+        var nome_caro = nomes[0];
+        var preco_caro = precos[0];
+        var nome_barato = nomes[0];
+        var preco_barato = precos[0];
+
+        var soma = 0;
+
+        div_msg.innerHTML = `Total de produtos: ${nomes.length}<br><br>`
+
+        for(var cont = 0 ; cont < nomes.length ; cont++){
+
+            if(Number(precos[cont]) >= (Number(preco_caro))){
+
+                nome_caro = nomes[cont];
+                preco_caro = precos[cont];
+
+            }
+
+            if(Number(precos[cont]) <= Number(preco_barato)){
+
+                nome_barato = nomes[cont];
+                preco_barato = precos[cont];
+
+            }
+
+            soma += Number(precos[cont]);
+
+            div_msg.innerHTML += `Produto ${cont + 1}: ${nomes[cont]}<br>
+                                  Preço da compra: R$${precos[cont]}.
+                                  Vender por R$${precos[cont] * 1.25}<br><br>`;
+
+        }
+
+        div_msg.innerHTML += `Nome do produto mais caro: ${nome_caro}<br>
+                              Nome do produto mais barato: ${nome_barato}<br>
+                              Soma dos preços: ${soma}<br>
+                              Média dos preços: ${soma / precos.length}`;
+
+    }
+
+</script>

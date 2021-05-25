@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+
+</head>
+
+<body>
+
+    Dia do depósito: <input id="input_dia_deposito">
+
+    <br>
+
+    Valor depositado: <input id="input_valor_deposito">
+
+    <br>
+
+    Pesquisar pelo intevalo de dias: <input id="input_num1"> <input id="input_num2">
+
+    <br><br>
+
+    <button onclick="guardar()">Guardar</button>
+    <button onclick="rever()">Rever depósitos</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var dias = [];
+    var valores = [];
+
+    function guardar() {
+
+        var dia_deposito = input_dia_deposito.value;
+        var valor_deposito = input_valor_deposito.value;
+
+        if (dia_deposito == '' || valor_deposito == '') {
+
+            alert('Dia ou valor do deposito inválido');
+
+        } else {
+
+            dias.push(dia_deposito);
+            valores.push(valor_deposito);
+
+            input_dia_deposito.value = '';
+            input_valor_deposito.value = '';
+
+        }
+
+    }
+
+    function rever() {
+
+        var num1 = input_num1.value;
+        var num2 = input_num2.value;
+
+        var cor = '';
+
+        if (num1 >= num2 || num1 > valores.length || num2 > valores.length) {
+
+            alert('Números de intervalo inválidos, O primeiro campo tem que ter um número menor que o segundo\n\nExemplo: 1     5');
+
+        } else {
+
+            div_msg.innerHTML = '';
+
+            for (var cont = num1 - 1; cont < num2; cont++) {
+
+                if ((cont + 1) % 2 == 0) {
+
+                    cor = 'lightblue';
+
+                } else {
+
+                    cor = `lightgreen`;
+
+                }
+
+                div_msg.innerHTML += `
+                
+                <span style="color: ${cor}">
+                
+                Sequencia de digitação: ${cont + 1} Dia: ${dias[cont]} Valor depositado: ${valores[cont]}
+                    
+                </span><br>`;
+
+            }
+        }
+    }
+</script>

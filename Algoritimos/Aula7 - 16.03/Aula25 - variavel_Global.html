@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 25 - variavel global</title>
+</head>
+
+<body>
+
+    <h3>Utilização de Variavel Global</h3>
+    Você clicou <b id="b_qtd">0</b> vezes em mim
+
+    <br><br>
+
+    <button onclick="conta()">Clica Nimim</button>
+
+    <button onclick="soma100()">Soma 100</button>
+
+    <button onclick="subtrair10()">Subtrair 10</button>
+
+
+</body>
+
+</html>
+
+<script>
+
+    var vezes = 0
+
+    function conta(){
+
+        vezes++;
+
+        b_qtd.innerHTML = vezes;
+
+    }
+
+    function soma100(){
+
+        vezes += 100;
+
+        b_qtd.innerHTML = vezes;
+
+    }
+
+    function subtrair10(){
+
+    vezes -= 10;
+
+    b_qtd.innerHTML = vezes;
+
+    }
+
+</script>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADEIRAMOR</title>
+
+</head>
+
+<body>
+
+    <div id="div_validacao">
+
+    Nome: <input id="input_nome" placeholder="Ex: Lucas da Sxxx:" autofocus><br>
+    Loja: <input id="input_loja" placeholder="Loja:"><br>
+    Conta: <input id="input_conta" placeholder="Conta:"><br>
+    Digito: <input id="input_digito" placeholder="Digito:"><br><br>
+
+    <button onclick="conferir()">Conferir</button>
+
+    </div>
+
+    <div id="div_dados" style="display: none ;">
+
+        <h3>
+
+        Olá cliente <span id="span_nome"></span> entre com a sua senha para a Conta
+        <span id="span_conta"></span>-<span id="span_digito"></span> da Loja <span id="span_loja"></span>
+
+        </h3>
+
+        <input id="input_senha" placeholder="***********" autofocus>
+
+        <br><br>
+
+        <button onclick="limpar()">Limpar</button> <button onclick="entrar()">Entrar</button>
+
+        <br><br>
+
+        <div id="div_senha_invalida"></div>
+
+    </div>
+
+    <div id="div_produtos" style="display: none;">
+
+        <select id="sel_produto" onchange="produto()">
+
+            <option value="">- Selecione uma opção -</option>
+            <option value="1">cadeira de praia</option>
+            <option value="2">cadeira de jardim</option>
+
+        </select>
+
+        <br><br>
+
+        <img src="" alt="" id="img_produto" style="height: 150px;">
+
+        <select id="sel_material" style="display: none;" onchange="material()">
+
+            <option value="">- Selecione uma opção -</option>
+            <option value="aluminio">Alumínio</option>
+            <option value="plastico">Plástico</option>
+            <option value="ferro">Ferro</option>
+
+        </select>
+
+        <br>
+
+        <div id="div_qtd_cadeira" style="display: none;">
+
+            Quatidade de cadeiras desejadas: <input id="input_qtd_cadeiras" placeholder="Ex: 2" autofocus>
+
+            <button onclick="calcular()">Calcular</button>
+            
+            <br><br>
+
+            <div id="div_orcamento" style="display: none;">
+
+                O orçamento para a compra de <span id="span_qtd_cadeira"></span> <span id="span_produto"></span>
+                de <span id="span_material"></span> é R$ <span id="span_orcamento"></span>
+
+                <br><br>
+
+                Para pagamento a vista o desconto é de <span id="span_desconto"></span>% 
+                e seu pedido ficará por R$ <span id="span_valor"></span>
+        
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
+
+<script>
+
+        var orcamento = 0;
+        var contador = 0;
+
+    function conferir(){
+
+        var nome = input_nome.value;
+        var loja = input_loja.value;
+        var conta = input_conta.value;
+        var digito = input_digito.value;
+
+        var resto = conta / loja;
+
+        if( loja < 1 || loja > 10 ){
+
+            alert('Loja inválida');
+
+        }else if( conta <=0 ){
+
+            alert('Conta inválida');
+
+        }else if( digito == 1  && resto > 3){
+
+            alert('Digito inválido');
+
+
+        }else if( digito == 2 && (resto < 3 || resto > 6 )){
+
+            alert('Digito inválido');
+
+
+        }else if( digito == 3 && resto < 6 ){
+
+            alert('Digito inválido');
+
+        }else{
+
+            div_validacao.style.display = `none`;
+
+            div_dados.style.display = `block`;
+
+            span_nome.innerHTML = nome;
+            span_conta.innerHTML = conta;
+            span_digito.innerHTML = digito;
+            span_loja.innerHTML = loja;
+
+        }
+
+    }
+
+    function limpar(){
+
+        input_senha.value = ``;
+
+    }
+
+    function entrar(){
+
+        var senha = input_senha.value;
+        var digito = input_digito.value;
+
+        if( contador <= 2){
+
+            if( digito == 1 ){
+
+                if( senha!= 'recife' ){
+
+                    div_senha_invalida.innerHTML += `senha inválida<br>`;
+                    contador++;
+
+                }else{
+
+                    div_dados.style.display = `none`;
+                    div_produtos.style.display = `block`;
+
+                }
+
+            }else if( digito == 2 ){
+
+                if( senha!= 'manaus' ){
+
+                    div_senha_invalida.innerHTML += `senha inválida<br>`;
+                    contador++;
+
+                }else{
+
+                    div_dados.style.display = `none`;
+                    div_produtos.style.display = `block`;
+
+                }
+
+            }else if( digito == 3 ){
+
+                if( senha!= 'fortaleza' ){
+
+                    div_senha_invalida.innerHTML += `senha inválida<br>`;
+                    contador++;
+
+                }else{
+
+                    div_dados.style.display = `none`;
+                    div_produtos.style.display = `block`;
+
+                }
+
+            }else{
+
+                alert('Preencha o campo da senha corretamente')
+
+            }
+
+        }else{
+
+            alert('Você excedeu o número de tentativas, sua conta está bloqueada, PROCURE O SUPORTE');
+
+            contador = 0;
+
+            div_validacao.style.display = `block`;
+
+            div_dados.style.display = `none`;
+
+            limpar();
+
+            div_senha_invalida.innerHTML = ``;
+
+        }
+    }
+
+    function produto(){
+
+        sel_material.style.display = `none`;
+        div_qtd_cadeira.style.display = `none`;
+        div_orcamento.style.display = `none`;
+        
+
+        var produto = sel_produto.value;
+
+        if( produto == 1 ){
+
+            img_produto.src = `https://opiniaobomvaleapena.com.br/imagens/cadeira-de-praia-reclinavel-em-4-posicoes-mor.png`
+
+            sel_material.style.display = `block`;
+
+        }
+
+        if( produto == 2 ){
+
+            img_produto.src = `https://w7.pngwing.com/pngs/1023/675/png-transparent-chair-garden-furniture-bench-cushion-patio-furniture-outdoor-structure-grass.png`
+
+            sel_material.style.display = `block`;
+
+        }  
+
+    }
+
+    function material(){
+
+        div_orcamento.style.display = `none`;
+        div_qtd_cadeira.style.display = `block`;
+
+    }
+
+    function calcular(){
+
+        var qtd_cadeiras = input_qtd_cadeiras.value;
+        var produto = sel_produto.value;
+        var material = sel_material.value;
+        var cadeira = '';
+
+        var desconto = 0;
+        var mostrar_desconto = 0;
+
+        if( qtd_cadeiras > 0 ){
+
+            if( produto == 1 && material == 'aluminio' ){
+
+                orcamento = 75 * qtd_cadeiras;
+
+                cadeira = 'Cadeira de Praia';
+
+                desconto = 0.035;
+                mostrar_desconto = 3.5;
+                
+            }else if( produto == 1 && material == 'plastico' ){
+
+                orcamento = 50 * qtd_cadeiras;
+
+                cadeira = 'Cadeira de Praia';
+
+                desconto = 0.05;
+                mostrar_desconto = 5;
+
+            }else if( produto == 1 && material == 'ferro' ){
+
+                orcamento = 80 * qtd_cadeiras;
+
+                cadeira = 'Cadeira de Praia';
+
+                desconto = 0.05;
+                mostrar_desconto = 5;
+
+            }else if( produto == 2 && material == 'aluminio' ){
+
+                orcamento = 70 * qtd_cadeiras;
+
+                cadeira = 'Cadeira de Jardim';
+
+                desconto = 0.035;
+                mostrar_desconto = 3.5;
+
+            }else if( produto == 2 && material == 'plastico' ){
+
+                orcamento = 35 * qtd_cadeiras;
+
+                cadeira = 'Cadeira de Jardim';
+
+                desconto = 0.05;
+                mostrar_desconto = 5;
+
+            }else if( produto == 2 && material == 'ferro' ){
+
+                orcamento = 55 * qtd_cadeiras;
+
+                cadeira = 'Cadeira de Jardim';
+
+                desconto = 0.05;
+                mostrar_desconto = 5;
+
+            }
+
+            if( qtd_cadeiras > 50 ){
+
+                orcamento = orcamento - (orcamento * 0.03)
+
+            }
+
+            var valor_vista = orcamento -(orcamento * desconto);
+
+            span_qtd_cadeira.innerHTML = qtd_cadeiras;
+            span_produto.innerHTML = cadeira;
+            span_material.innerHTML = material;
+            span_orcamento.innerHTML = orcamento;
+            span_desconto.innerHTML = mostrar_desconto;
+            span_valor.innerHTML = valor_vista;
+
+            div_orcamento.style.display = `block`;
+
+        }else{
+
+            alert('A quantidade de cadeiras tem que ser maior que zero');
+
+        }
+
+    }
+
+</script>

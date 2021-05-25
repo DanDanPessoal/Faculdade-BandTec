@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+
+</head>
+
+<body>
+    
+    Selecione o seu tipo de cabelo:
+
+    <select id="sele_cabelo">
+
+        <option value="">- selecione uma das opções -</option>
+        <option value="1">Preto</option>
+        <option value="2">Vermelho</option>
+        <option value="3">Amarelo</option>
+        <option value="4">Castanho</option>
+
+    </select>
+
+    <br><br>
+
+    Digite sua altura: <input id="input_altura" placeholder="Digite sua altura">
+
+    <br><br>
+
+    <button onclick="match()">Deu match?</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function match(){
+
+        if(sele_cabelo.value == '1' || sele_cabelo.value == '2' && input_altura.value >= '1.7'){
+
+            div_msg.innerHTML = `<img src="cara empolgado.jpg" alt="" style="height: 200px;">`;
+
+        }else{
+
+            div_msg.innerHTML = `<img src="cara triste.jpg" alt="" style="height: 200px;">`;
+
+        }
+
+    }
+
+</script>

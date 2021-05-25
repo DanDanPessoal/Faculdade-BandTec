@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+
+</head>
+
+<body>
+
+    Digite de quantos em quantos dias você faz musculação:
+
+    <br>
+
+    <input id="input_dias" autofocus>
+
+    <br><br>
+
+    <button onclick="rotina()">Exibir Rotina Mensal</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+
+    function rotina(){
+
+        var dias = input_dias.value;
+        var contador = 1;
+
+        div_msg.innerHTML = ``;
+
+        while( contador < 31 ){
+
+            if( contador == 1 ){
+
+                div_msg.innerHTML += `Dia ${contador} - Musculação<br>`;
+
+            }else if( (contador - 1) % dias == 0 ){
+
+                div_msg.innerHTML += `Dia ${contador} - Musculação<br>`;
+
+            }else{
+
+                div_msg.innerHTML += `Dia ${contador} - Comer, dormir etc<br>`;
+
+            }
+
+            contador++;
+
+        }
+
+    }
+
+</script>

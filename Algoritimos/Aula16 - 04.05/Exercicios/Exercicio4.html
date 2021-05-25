@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+
+</head>
+
+<body>
+
+    Digite o nome da pessoa que você mais ama: <input id="input_nome" autofocus>
+    
+    <br>
+
+    Digite o quanto você ama essa pessoa: <input id="input_amor">
+
+    <br><br>
+
+    <button onclick="expressar()">Expressar Amor</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function expressar(){
+
+        var nome = input_nome.value;
+        var amor = Number(input_amor.value);
+
+        div_msg.innerHTML += ``;
+
+        while(amor > 0){
+
+            div_msg.innerHTML += `${nome}, eu te amo! Sempre lembre disso!<br>`;
+
+            amor--;
+
+        }
+
+    }
+
+</script>

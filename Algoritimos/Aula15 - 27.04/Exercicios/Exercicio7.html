@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+
+</head>
+
+<body>
+
+    Digite a temperatura ambiente: <input id="input_temp" placeholder="Ex: 25.2">
+
+    <br><br>
+
+    <button onclick="verefica()">Vereficar Clima</button>
+
+    <br><br>
+    
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function verefica(){
+
+        var temp = input_temp.value
+        var msg = '';
+        var src = '';
+
+        temp >= 10 ? (msg = `Inapropriada p/ conservar alimento`, src = `alimento_estragado.jpg`)
+                    :(msg = `Apropriada p/ conservar alimento`, src = `alimento_bom_estado.jpg`) ;
+
+        div_msg.innerHTML = `${msg}<br><br><img src="${src}" height="100px">`
+
+    }
+
+</script>

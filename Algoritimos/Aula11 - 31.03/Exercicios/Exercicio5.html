@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+
+</head>
+
+<body>
+
+    Digite o nome da empresa: <input id="input_nome" placeholder="Nome da empresa:">
+
+    <br><br>
+
+    Digite o valor da bolsa da empresa: <input id="input_valor_bolsa" placeholder="Valor da bolsa">
+
+    <br><br>
+
+    Digite o valor do VR da empresa: <input id="input_valor_vr" placeholder="Valor do VR">
+
+    <br><br>
+
+    Digite o tempo de deslocamento da empresa para a faculdade:
+    <input id="input_tempo" placeholder="Tempo de deslocamento">
+
+    <br><br>
+
+    <button onclick="preferida()">É preferida?</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function preferida(){
+
+        var nome = input_nome.value;
+        var bolsa = input_valor_bolsa.value;
+        var vr = input_valor_vr.value;
+        var tempo = input_tempo.value;
+
+        if( bolsa >= 1800 || vr >=20 || tempo <=30 ){
+
+            div_msg.innerHTML = `A empresa ${nome} é uma das suas preferências`;
+
+        }else{
+
+            div_msg.innerHTML = `A empresa ${nome} está fora da sua lista`;
+
+        }
+
+    }
+
+</script>

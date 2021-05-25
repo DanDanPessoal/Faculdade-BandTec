@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+
+    Digite o valor da passagem do ônibus:<input id="valor_passa" placeholder="Valor da passagem do ônibus">
+    <br>
+    Digite sua quantidade de viagens por mês:<input id="qtd_viagens" placeholder="Quantidade de viagens por mês">
+    
+    <br><br>
+
+    <button id="but_calcular" onclick="calcular()">Calcular VT</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+        function calcular() {
+
+            var valor_mes = valor_passa.value * qtd_viagens.value;
+
+            div_msg.innerHTML = `Você vai gastar R$<u>${valor_mes}</u> por mês`;
+
+        }
+
+</script>

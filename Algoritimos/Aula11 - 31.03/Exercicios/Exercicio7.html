@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+
+</head>
+
+<body>
+
+    Selecione o tipo de arroz usado:
+
+    <select id="sel_arroz">
+
+        <option value="">- Selecione uma opção -</option>
+        <option value="1">Integral</option>
+        <option value="2">Branco</option>
+
+    </select>
+
+    <br><br>
+
+    Digite o tempo de cozimento (Em minutos): 
+    <input id="input_tempo" placeholder="Digite o tempo de cozimento">
+
+    <br><br>
+
+    Digite a quantidade de sal usado (Em gramas):
+    <input id="input_sal" placeholder="Digite a quantidade de sal">
+
+    <br><br>
+
+    <button onclick="avaliar()">Avaliar Arroz</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    <div id="div_img"></div>
+
+    
+
+</body>
+
+</html>
+
+<script>
+
+    function avaliar(){
+
+        var arroz = sel_arroz.value;
+        var tempo = input_tempo.value;
+        var sal = input_sal.value
+
+        var limpar = div_msg.innerHTML = "";
+
+        var integral = `<img src="arroz_integral.jpg" alt="" style="height: 200px;">`;
+        var branco = `<img src="arroz_branco.jpg" alt="" style="height: 200px;">`;
+        var bravo = `<img src="bravo.jpg" alt="" style="height: 200px;">`;
+
+
+            if(tempo == '20' && sal == '15' && arroz == '1'|| tempo == '10' && sal=='10' && arroz == '2'){
+
+                arroz_perfeito();
+
+                if(arroz == '1'){
+
+                    div_img.innerHTML = integral;
+
+                }else{
+
+                    div_img.innerHTML = branco;
+
+                }
+
+            }else{
+-
+                arroz_inperfeito();
+
+            }
+ 
+
+    function arroz_inperfeito(){
+
+        limpar;
+
+        div_msg.innerHTML = `Seu arroz não está perfeito <br><br>`;
+
+        div_img.innerHTML = bravo;
+
+    }
+
+    function arroz_perfeito(){
+
+        limpar;
+
+        div_msg.innerHTML = `Arroz perfeito`;
+
+    }
+
+}
+
+</script>

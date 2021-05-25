@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio em aula</title>
+
+</head>
+
+<body>
+<select id="fruta">
+
+    <option value="">- Selecione uma fruta -</option>
+    <option value="Pitaya">Pitaya</option>
+    <option value="Goiaba">Goiaba</option>
+    <option value="Banana">Banana</option>
+
+</select>]
+
+<br><br>
+
+<button id="but_sobre_fruta" onclick="favorita()">Falar sobre a fruta</button>
+
+<br><br>
+
+<div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function favorita(){
+
+        var valor = fruta.value;
+
+        div_msg.innerHTML = `Sua fruta favorita é ${valor}`;
+
+    }
+
+</script>

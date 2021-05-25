@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio em aula 3</title>
+</head>
+
+<body>
+
+    <select id="times">
+
+        <option value="" >- Selecione um time -</option>
+        <option value="corin.png">Corinthias</option>
+        <option value="palmeiras.png">Palmeiras</option>
+        <option value="santos.png">Santos</option>
+        <option value="sp.png">São Paulo</option>
+
+    </select>
+
+    <br><br>
+
+    <button id="but_ver" onclick="ver_times()">Ver times</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function ver_times(){
+
+        div_msg.innerHTML = `<img src="${times.value}" alt="" style="height:150px;">`;
+
+    }
+
+</script>

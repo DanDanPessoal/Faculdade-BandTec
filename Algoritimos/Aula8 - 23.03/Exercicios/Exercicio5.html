@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+    Valor da pizza <input placeholder="Valor da pizza" id="Valor_pizza">
+
+    <br><br>
+
+    Quantidade de amigos <input placeholder="Quantidade de amigos" id="qtde_amigos">
+
+    <br><br>
+
+    <button onclick="calcular()" id="but_calcular_pizza">Rola a pizza?</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+
+<script>
+
+    function calcular(){
+
+        var valor_amigo = Valor_pizza.value / qtde_amigos.value;
+
+        div_msg.innerHTML = `Cada amigo vai pagar $${valor_amigo} pela pizza`;
+
+        if( valor_amigo > 20){
+
+            div_msg.innerHTML += `<br><br>Deu ruim!, pizza muito cara!`;
+
+        }else{
+
+            div_msg.innerHTML += `<br>Uhu! Vamos pedir pizza`;
+
+        }
+
+    }
+
+</script>

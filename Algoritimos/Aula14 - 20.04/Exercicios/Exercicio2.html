@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+
+<body>
+
+    Digite sua altura: <input id="input_altura" placeholder="Ex: 1.73" autofocus>
+    <br><br>
+    <button id="but_analisar" onclick="analisar()">Analisar Esportes</button>
+    <br>
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar(){
+
+        var altura = input_altura.value;
+        
+        var piloto_corrida_velejador = altura <= 1.60;
+        var jogador_fut_hande = altura > 1.60 && altura <= 1.85;
+        var jogador_volei_basquete = altura > 1.85;
+
+        if(piloto_corrida_velejador){
+
+            div_msg.innerHTML = `Pode tentar ser piloto(a) de corrida<br>
+                                 Pode tentar ser velejador(a) também`;
+
+        }else if(jogador_fut_hande){
+
+            div_msg.innerHTML = `Pode tentar ser jogador(a) de futebol ou handebol`;
+
+        }else{
+
+            div_msg.innerHTML = `Pode tentar ser jogador(a) de basquete<br>
+                                 Pode tentar ser jogador(a) de voleibol também`;
+
+        }
+    }
+
+</script>

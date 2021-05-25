@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 22 - compl2</title>
+</head>
+
+<body>
+
+    Digite a quantidade de lâmpadas necessária: <br>
+    <input id="lampadas" placeholder="Lâmpadas necessárias">
+    
+    <br><br>
+
+    Digite o valor médio das contas de luz atual (Sem as lâmpadas Luzdia):<br>
+    <input id="media_contas" placeholder="Valor Médio das contas de luz">
+
+    <br><br>
+
+    <button id="but_calcular" onclick="calcular()">Calcular Economia</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular(){
+
+        var investimento = lampadas.value * 20;
+        var economia = media_contas.value * 0.1;
+        var quociente = investimento / economia;
+        
+        div_msg.innerHTML = `O investimento em lâmpadas será de R$${investimento}<br>
+        A sua economia na luz será de R$${economia}<br><br>
+        Portanto, em ${quociente} meses o seu investimento será retornado`;
+
+    }
+
+</script>

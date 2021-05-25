@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    
+    Digite sua média: <input id="media" placeholder="Digite sua média">
+
+    <br><br>
+
+    Digite sua frequência: <input id="freq" placeholder="Digite sua frequência">
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+function analisar(){
+
+    if(freq.value <=60){
+
+        div_msg.innerHTML = `Você falta muito!`;
+
+    }else{
+
+        div_msg.innerHTML = `Você falta pouco!`;
+
+    }
+
+
+    if(media.value >10){
+
+        div_msg.innerHTML = "";
+
+        div_msg.innerHTML = `MÉDIA INVÁLIDA`;
+
+    }else if(media.value <8){
+
+        div_msg.innerHTML += `<br><br>Você poderia estudar mais!`;
+
+    }else{
+
+        div_msg.innerHTML += `<br><br>Você estuda muito!`;
+
+    }
+
+}
+
+</script>

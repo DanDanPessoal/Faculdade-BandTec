@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+
+</head>
+
+<body>
+
+    Selecione o Hobby que você quer praticar:
+    <select id="sel_hobby" onchange="trocar()">
+
+        <option value="">- Selecione uma opção -</option>
+        <option value="1">Dançar</option>
+        <option value="2">Jogar Video game</option>
+        <option value="3">Assistir seriados</option>
+        <option value="4">Ouvir rock</option>
+
+    </select>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function trocar(){
+
+        var tamanho = parseInt(Math.random()*451) + 50;
+
+        var valor = sel_hobby.value;
+
+        if(valor == '1'){
+
+            div_msg.innerHTML = `
+    <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Dancer_With_Red_Dress_Emoji_400x400.png" alt=""
+    style="width: ${tamanho}px;">`;
+
+        }else if(valor == '2'){
+
+            div_msg.innerHTML = `
+    <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Virus_Emoji_400x400.png" alt=""
+    style="width: ${tamanho}px;">`;
+
+        }else if(valor == '3'){
+
+            div_msg.innerHTML = `
+    <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Man_Bowing_Emoji_400x400.png" alt=""
+    style="width: ${tamanho}px;">`;
+
+        }else if(valor == '4'){
+
+            div_msg.innerHTML = `
+    <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Sign_of_the_Horns_Emoji_400x400.png" alt=""
+    style="width: ${tamanho}px;">`
+
+        }else{
+
+            alert('Selecione uma das opções');
+
+            div_msg.innerHTML = ``;
+
+        }
+
+    }
+
+</script>

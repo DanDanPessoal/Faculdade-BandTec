@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+
+</head>
+
+<body>
+
+    Digite as linhas de onibus que você acabou de pegar: <br>
+    <input id="input_linhas_onibus">
+
+    <br><br>
+
+    <button onclick="gravar()">Gravar Busão</button>
+    
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+    <br><br>
+    Pesquisa uma linha de onibus que você cadastrou: <br>
+    <input id="input_pesquisar_linha">
+    
+    <br><br>
+    
+    <button onclick="pesquisar()">Pesquisar</button>
+    
+    <div id="div_msg2"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    var linhas_busao = [];
+
+    function gravar(){
+
+        var gravar_linha = input_linhas_onibus.value;
+
+        linhas_busao.push(gravar_linha.toUpperCase());
+
+        input_linhas_onibus.value = '';
+
+        div_msg.innerHTML += `${gravar_linha}<br>`;
+
+    }
+
+    function pesquisar(){
+
+        var linhas_cadastradas = '';
+        var contar_linhas = 0;
+
+        var pesquisar_linha = input_pesquisar_linha.value;
+
+        for( var cont = 0 ; cont < linhas_busao.length ; cont++ ){
+
+            if(linhas_busao[cont] == pesquisar_linha.toUpperCase()){
+
+                linhas_cadastradas += `, ${cont + 1}`;
+
+                contar_linhas++;
+
+            }
+            
+            if(linhas_busao[cont] =! pesquisar_linha.toUpperCase()){
+
+                alert('Você nunca pegou essa linha');
+                break;
+
+            }
+        }
+
+        if(contar_linhas > 0){
+
+        div_msg2.innerHTML = `<br>Você já pegou essa linha ${contar_linhas}, nessa ordem${linhas_cadastradas}`;
+        
+        }
+    }
+
+</script>

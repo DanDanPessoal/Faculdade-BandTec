@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+
+</head>
+
+<body>
+
+    Digite a quantidade de partidas que o atacante jogou:
+
+    <br>
+
+    <input id="input_qtd_partidas" placeholder="Ex: 10" autofocus>
+
+    <br><br>
+
+    Digite quantos gols o atacante marcou:
+
+    <br>
+
+    <input id="input_qtd_gols" placeholder="3">
+
+    <br><br>
+
+    <button onclick="estudar()">Estudar Atacante</button>
+    
+    <br><br>
+
+    <div id="div_msg"></div>
+
+    
+    
+</body>
+
+</html>
+
+<script>
+
+    function estudar(){
+
+        var gols = input_qtd_gols.value;
+        var partidas = input_qtd_partidas.value;
+
+        var media = gols / partidas;
+
+        div_msg.innerHTML = ``;
+
+        media < 0.2 ? div_msg.innerHTML = `Melhor mudar de posição <br><br>
+                                          <img src="jogador_ruim.jpg" alt="">` :
+        media <= 0.6 ? div_msg.innerHTML = `Atacante mediano <br><br>
+                                          <img src="jogador_mediano.jpg" alt="">` :
+                       div_msg.innerHTML = `Atacande de futuro <br><br>
+                                           <img src="jogador_bom.jpg" alt="">`;
+
+        div_msg.innerHTML += `<br><br>Sua média de Gols/Partida é ${media.toFixed(1)}`;
+
+    }
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+
+</head>
+
+<body>
+
+    Digite uma senha: <input id="input_senha" placeholder="********" onkeyup="vereficar()">
+
+    <br>
+
+    <button onclick="limpar()">Limpar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var senha_geral = "";
+
+    function vereficar(){
+
+    senha =  input_senha.value;
+    
+    var last_position = senha[senha.length -1];
+
+        if( last_position == 'a' || last_position == 'A'){
+
+            last_position = '@';
+
+            senha_geral += last_position;
+
+            div_msg.innerHTML = senha_geral;
+
+        }else if(last_position == 'e' || last_position == 'E'){
+
+            last_position = '3';
+
+            senha_geral += last_position;
+
+            div_msg.innerHTML = senha_geral;
+
+    }else{
+
+        senha_geral += last_position;
+
+        div_msg.innerHTML = `${senha_geral} <br><br> ${senha}  ` ;    
+
+    }
+        
+    }
+
+    function limpar(){
+
+        div_msg.innerHTML = "";
+
+        senha_geral = "";
+
+        input_senha.value = "";
+
+    }
+
+</script>

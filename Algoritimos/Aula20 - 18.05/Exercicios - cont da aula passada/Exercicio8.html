@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+
+</head>
+
+<body>
+
+    Digite a nota do aluno: <input id="input_nota_aluno">
+    
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar nota</button>
+
+    <br><br>
+
+    Digite o intervalo de notas: <input id="input_num1"> <input id="input_num2">
+
+    <br><br>
+
+    <button onclick="rever()">Rever notas</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    var notas = [];
+
+    function cadastrar(){
+
+        var nota_aluno = input_nota_aluno.value;
+
+        notas.push(nota_aluno);
+
+        input_nota_aluno.value = '';
+
+    }
+
+    function rever(){
+
+        var num1 = input_num1.value;
+        var num2 = input_num2.value;
+
+        var contar_notas = 0;
+        var soma = 0;
+
+        for( var cont = 0 ; cont < notas.length ; cont++ ){
+
+            if(Number(notas[cont]) >= num1 && Number(notas[cont]) <= num2){
+                
+                contar_notas++;
+                soma = soma + Number(notas[cont]);
+                
+            }
+        }
+
+        div_msg.innerHTML = `Foram Cadastradas ${contar_notas} notas no intervalo de ${num1} e ${num2} e a
+                            Média é ${(soma/contar_notas).toFixed(2)}`;
+
+
+    }
+
+</script>

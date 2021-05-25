@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+
+</head>
+
+<body>
+
+    Digite seu número da sorte: <input id="input_num_sorte" placeholder="de 0 a 100">
+    
+    <br><br>
+
+    <button onclick="testar()">Testar Minha sorte</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function testar(){
+
+        var num_sorte = input_num_sorte.value;
+        
+
+        for(var contagem = 0; ;contagem++ ){
+
+            var aleatorio = parseInt(Math.random()*100) + 1;
+
+            if(aleatorio == num_sorte){
+
+                div_msg.innerHTML = `Muito bem, você é uma pessoa de sorte! Seu número saiu no ${contagem}º sorteio `;
+
+                break;
+            }
+
+            if(contagem == 29){
+
+                div_msg.innerHTML = `É, você não tem muita sorte em sorteios, pelo visto`;
+
+                break;
+
+            }            
+        }
+    }
+
+</script>

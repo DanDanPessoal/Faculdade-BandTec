@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+
+    Digite seu Ki base: <input placeholder="Digite seu ki base:" id="ki_base"><br><br>
+
+    <b>Transformar em...</b>
+
+    <br><br>
+
+    <button id="SSJ" onclick="SSJ()">SSJ</button>
+
+    <button id="SSJ2" onclick="SSJ2()">SSJ2</button>
+
+    <button id="SSJ3" onclick="SSJ3()">SSJ3</button>
+
+    <br><br>
+
+    <div id="div_msg">
+
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function SSJ(){
+
+        var ssj = ki_base.value * 50
+
+        div_msg.innerHTML = `Após transformar em <u>Super Sayajin</u> o ki desse Sayajin passa a ser de ${ssj}`;
+
+    }
+
+    function SSJ2(){
+
+        var ssj2 = ki_base.value * 100
+
+        div_msg.innerHTML = `Após transformar em <u>Super Sayajin 2</u> o ki desse Sayajin passa a ser de ${ssj2}`;
+
+
+    }
+
+    function SSJ3(){
+
+        var ssj3 = ki_base.value * 200
+
+        div_msg.innerHTML = `Após transformar em <u>Super Sayajin 3</u> o ki desse Sayajin passa a ser de ${ssj3}`;
+
+
+    }
+
+</script>

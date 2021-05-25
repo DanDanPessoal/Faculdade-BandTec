@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+<body>
+
+Selecione o modo de pagamento: 
+
+<select id="select_pagamento">
+
+    <option value="">- Selecione -</option>
+    <option value="1">Dinheiro</option>
+    <option value="2">Cartão de débito</option>
+    <option value="3">Cartão de crédito</option>
+    <option value="4">Boleto</option>
+
+</select>
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar compra</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar(){
+
+        if( select_pagamento.value == '1' || select_pagamento.value == '2' ){
+
+            alert('Você terá que pagar à vista');
+
+        }else{
+
+            alert('Pagamento poderá ser parcelado');
+
+        }
+    }
+
+</script>

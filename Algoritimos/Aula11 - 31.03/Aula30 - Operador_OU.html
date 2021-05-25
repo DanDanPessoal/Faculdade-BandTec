@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 30 - Usando o operador OU</title>
+
+</head>
+
+<body>
+
+    Qual o sabor do picolé?
+    <select id="select_sabor">
+
+
+        <option value="">- Selecione uma opção -</option>
+        <option value="1">Uva</option>
+        <option value="2">Morango</option>
+        <option value="3">Limão</option>
+        <option value="4">Chocolate</option>
+        <option value="5">Creme</option>
+
+    </select>
+    
+    <br><br>
+
+    <button onclick="picole()">Vou tomar picole?</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function picole(){
+
+        var sabor = Number(select_sabor.value);
+
+        if( sabor == 2 || sabor == 4 ){
+
+            alert('Oba, vou tomar picolé');
+
+        }else{
+
+            alert('Deu ruim!, não gosto desse sabor');
+
+        }
+
+    }
+
+</script>

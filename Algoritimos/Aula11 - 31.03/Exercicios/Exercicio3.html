@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+<div id="div_msg">Você tem no banco: R$ 0.00</div>
+
+<div id="div_msg2"></div>
+
+<br><br>    
+<button onclick="depositar()">Depositar 50</button>
+<button onclick="retirar()">Saca 20</button>
+    
+</body>
+
+</html>
+
+<script>
+
+    var saldo = 0;
+
+    function depositar(){   
+
+        saldo += 50;
+
+        att();
+
+    }
+
+    function retirar(){
+
+        saldo -= 20;
+
+        att();
+
+    }
+
+    function att(){
+
+        div_msg.innerHTML = `Você tem no banco: R$${saldo.toFixed(2)}`
+
+        var frase;
+
+        if( saldo < 0 || saldo > 600 ){
+
+        frase = `Você gasta demais ou é mão de vaca`;
+
+        }else{
+
+        frase = `Você tem as finanças equilibradas`;
+
+    }
+
+        div_msg2.innerHTML = frase;
+
+    }
+
+</script>

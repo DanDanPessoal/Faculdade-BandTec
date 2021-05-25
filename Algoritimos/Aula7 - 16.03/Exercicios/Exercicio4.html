@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+
+</head>
+
+<body>
+    
+    Quantas latinhas você toma por dia <br><br>
+    
+    <input id="qtde_latinhas" placeholder="Quantidade de latinhas">
+
+    <br><br>
+
+    <button id="calcular" onclick="calcular()">Quantos refris?</button>
+
+    <br><br>
+
+    <div id="div_msg">
+
+        
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var latinhas = 0;
+
+    function calcular(){
+
+        latinhas = Number(qtde_latinhas.value) * 365;
+
+        div_msg.innerHTML = `Você consumiu ${latinhas} latinhas em 1 ano <br>`;
+
+        if(latinhas >= 500){
+
+        div_msg.innerHTML += `<span style="color: white; background-color: red;">Cuidado com as diabetes!</span>`;
+
+        }
+
+    }
+
+</script>

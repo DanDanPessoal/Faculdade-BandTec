@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 29 - Operador &&</title>
+
+</head>
+
+<body>
+
+    <!-- UM aluno da bandtec para ser aprovado precisa de MEDIA >= 6 e FREQUENCIA >=75 -->
+    
+    <h2>Média e Frequência dos alunos Bandtec</h2>
+
+    <br>
+    
+    Digite a Média: <input id="input_media" placeholder="Digite a Média" autofocus>
+
+    <br><br>
+
+    Digite a Frequência:<input id="input_freq" placeholder="Digite a Frequência">
+
+    <br><br>
+
+    <button onclick="vereficar()">Vereficar</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function vereficar(){
+
+        if (input_media.value >= 6 && input_freq.value >= 75) {
+            
+            alert('Aprovado, parabéns!!');
+
+        } else {
+            
+            alert('Reprovado, Vamos estudar né amigão');
+
+        }
+
+    }
+
+</script>

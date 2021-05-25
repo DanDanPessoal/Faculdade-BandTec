@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+
+</head>
+
+<body>
+
+    <select id="sel_preferencia">
+
+        <option value="">- Selecione uma opção -</option>
+        <option value="0">Marvel</option>
+        <option value="1">DC</option>
+
+    </select>
+
+    <br><br>
+
+    <button onclick="ver()">Ver programação semanal na TV</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function ver(){
+
+        var preferencia = sel_preferencia.value;
+
+        for(var contador = 1; ; contador++){
+
+            var aleatorio = parseInt(Math.random()*2);
+
+            if(aleatorio == preferencia){
+
+                div_msg.innerHTML = `Você verá um filme que gosta no ${contador}° dia`;
+
+                break;
+            }
+
+            if(contador == 5){
+
+                div_msg.innerHTML = `É, ou lê um livro ou assiste um filme que não gosta mesmo`;
+
+                break;
+            }
+        }
+
+    }
+
+</script>

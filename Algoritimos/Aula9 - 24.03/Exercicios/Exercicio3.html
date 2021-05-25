@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+
+    Digite a temperatura ambiente:
+    <input id="temp_ambiente" placeholder="Digite a temperatura ambiente">
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar clima</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar(){
+
+        if(temp_ambiente.value < 21.5){
+
+            div_msg.innerHTML = `<span style="color: blue"> Ta frio em, vai se cobrir </span>`
+
+        }else{
+
+            div_msg.innerHTML = `<span style="color: red"> Que calor, vamos nos refrescar </span>`
+
+        }
+
+    }
+
+</script>

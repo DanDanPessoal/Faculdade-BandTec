@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exercicio 1 </title>
+
+</head>
+
+<body>
+    
+    Digite um filme: <input id="input_filme">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="painel()">Exibir painel</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var filme = [];
+
+    function cadastrar(){
+
+        var novo_filme = input_filme.value;
+
+        filme.push(novo_filme);
+
+    }
+
+    function painel(){
+
+        var n_existe = 'Ainda não existe';
+
+        if(filme.length < 3){
+
+            div_msg.innerHTML = `Seu Filme favorito: ${filme[0]}<br>
+                             Seu 3° Filme favorito: ${n_existe}<br>
+                             Total de filmes cadastrados ${filme.length}`;
+
+        }else{
+
+            div_msg.innerHTML = `Seu Filme favorito: ${filme[0]}<br>
+                             Seu 3° Filme favorito: ${filme[2]}<br>
+                             Total de filmes cadastrados ${filme.length}`;
+
+        }
+
+    }
+
+</script>

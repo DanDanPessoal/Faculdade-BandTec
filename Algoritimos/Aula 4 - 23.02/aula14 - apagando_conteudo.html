@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apagando conteúdo</title>
+</head>
+<body>
+    <h1> Apagando conteúdo </h1>
+        Dorme agora<br>
+        É só o <b id="b_vento">vento</b> lá fora<br>
+        Quero colo, vou fugir de casa<br>
+        Posso dormir aqui com vocês?<br>
+        Estou com medo tive um pesadelo<br>
+        Só vou voltar depois das três<br>
+        Meu filho <b id="b_santo">vai ter nome de santo<br>
+        Quero o nome mais </b> bonito<br>
+        <br>
+        <p id ="p_frase">É preciso amar as pessoas<br>
+        Como se não houvesse amanhã<br>
+        Por que se você parar pra pensar<br>
+        Na verdade não há<br>
+        </p>
+<br>
+
+    <button onclick="frase()">Apagar frase</button>
+
+    <button onclick="palavra()">Apagar palavra</button>
+
+</body>
+
+<script>
+
+    function frase(){
+
+        p_frase.innerHTML = "";
+
+    }
+
+    function palavra(){
+
+        b_vento.innerHTML = "";
+        b_santo.innerHTML = "";
+
+    }
+
+</script>
+</html>

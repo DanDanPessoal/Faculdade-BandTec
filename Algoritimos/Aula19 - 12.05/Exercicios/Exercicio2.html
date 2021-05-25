@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+
+<body>
+    
+Digite os lugares por onde passou: <input id="input_lugares_novos">
+
+<br><br>
+
+<button onclick="cadastra()">Cadastrar Local</button>
+
+<br><br>
+
+Digite o número da viagem que deseja relembrar: <input id="input_relembrar">
+
+<br><br>
+
+<button onclick="relembrar()">Relembrar Viagem</button>
+
+<br><br>
+
+<div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var lugares = [];
+
+    function cadastra(){
+
+        var lugar_novo = input_lugares_novos.value;
+
+        lugares.push(lugar_novo);
+
+    }
+
+    function relembrar(){
+
+        var remember = input_relembrar.value;
+        var remember_valor = remember - 1;
+
+        if(remember<= lugares.length){
+
+            div_msg.innerHTML = `O ${remember}° viagem foi: ${lugares[remember_valor]}`;
+
+        }else{
+
+            div_msg.innerHTML = `Você não fez a ${remember} viagem`;
+
+        }
+
+        
+
+    }
+
+</script>

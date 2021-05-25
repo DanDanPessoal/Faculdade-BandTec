@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 22 - compl1</title>
+</head>
+<body>
+    
+    Metros de canos para desentupir:<input id="metros_canos" placeholder="Metros de canos">
+
+    <button onclick="calcular()">calcular</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcular(){
+
+        var metros = metros_canos.value;
+        var Nicanor = 0;
+        var Rotirute = 0;
+
+
+        div_msg.innerHTML = `Valor do serviço do Nicanor: ${Nicanor = (metros * 10) + Number(50)}<br>`;
+
+
+        div_msg.innerHTML += `Valor do serviço da Rotirute: ${Rotirute = (metros * 9.80) +  Number(600)}<br><br>`;
+        div_msg.innerHTML += `Diferença de valores: ${Rotirute - Nicanor}`;
+
+    }
+
+</script>

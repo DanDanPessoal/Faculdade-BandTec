@@ -1,0 +1,83 @@
+Grupo 2: 
+
+Agronegócio do alface, utiliza sensores de umidade para  controlar a umidade do solo e mandar para o site
+
+( vai mudar para sensor de temperatura ).
+
+Muito se perde na produção, por isso a ideia.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Grupo 3: 
+
+Controle de temperatura para as vacinas do covid 19, tanto no transporte quanto no armazenamento.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Grupo 4:
+
+Focado no alface tbm, utiliza do sensor de temperatura ( THD11 ).
+
+monitora e automatiza a horta, instalando ar codicionado para controlar a temperatura.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Grupo 5:
+
+criação de aves, controle de temperatura para deixar mais acertiva o ambiente para o desenvolvimento das aves.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Grupo 6:
+
+Soluções para o agronegócio do tomate em estufas, 
+
+a umidade e temperatura são bem especificas, por isso o controle de temperatura e umidade atraves de sensores.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Grupo 7: 
+
+Usar o sensor de luminosidade, LDR, para a iluminação  pública
+
+----------------------------------------------------------------------------------------------------------------------
+
+Grupo 8:
+
+Medicamentos que precisam ser armazenados em temperaturas especificas
+
+Visam controle de temperatura para assegurar a eficácia dos medicamentos
+
+----------------------------------------------------------------------------------------------------------------------
+
+Grupo 9:
+
+Cultivo de peixer em agua doce
+
+controle de temperatura da água para deixar os peixes(especificamente as tilápias) saudáveis
+
+LM35 vai pegar a temperatura da água, e emitir alertas para o pisicultor
+
+agiliza e assegurando a qualidade dos peixes.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Grupo 10:
+
+Visando os autistas, terapia das cores para acalmar e tranquilizar os autistas.
+
+Sensor de temperatura para ler a temperatura corporal do autista, se elevar a temperatura será emitido um alerta 
+ 
+para os responsáveis e, automaticamente será ajustado a luz para acalmar ele, e até a temperara ambiente será ajustada
+
+A temperatura corporal do autista se eleva se ele estiver em uma crise, Bem interessante!!!
+
+Muito situacional, e exitem muitos poréns para resolver
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Grupo 11:
+
+Irrigação e controle inteligente para soja, principal cultura do Brasil.
+
+Economiza 60% de água, utiliza o sensor de umidade do solo para fzr o controle de irrigação das plantações

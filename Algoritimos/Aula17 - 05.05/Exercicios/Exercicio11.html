@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+
+</head>
+
+<body>
+
+    Digite a quantidade de elefantes: <input id="input_elefantes" autofocus>
+
+    <br><br>
+
+    <button onclick="atazanar()">Atazanar a médium</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function atazanar(){
+
+        var elefantes = input_elefantes.value;
+
+
+        var incomodam = 'incomodam, ';
+
+        div_msg.innerHTML = ``;
+
+        for(var contador = 2; contador <= elefantes; contador++ ){
+
+            incomodam += ' incomodam,'
+
+            div_msg.innerHTML += `1 elefante incomoda muita gente!<br>`;
+
+            div_msg.innerHTML += `${contador} elefantes ${incomodam} muito mais<br><br>`
+
+        }
+
+    }
+
+</script>

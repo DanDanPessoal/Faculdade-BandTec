@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="css/Img_login/alfa icone .png">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div id="cabecalho" class="cabecalho">
+
+        <a href="homepage.html">´
+            <img onclick="home" class="img_home" src="css/Img_login/casinha.png" alt="img_home">
+        </a>
+    </div>
+
+    <div id="div_login" class="div_login">
+
+        <img class="logo" src="css/Img_login/alfa novo.png" alt="logo ALFA Company">
+
+        <p class="instrucao">Informe seu usuário e senha:</p>
+
+        <div class="div-input">
+
+            <div class="img_usuario">
+                <img class="img-input1" src="css/Img_login/user--v3.png" alt="logo usuário"> 
+            </div>
+
+            <div class="inputusuario">
+                <input id="idusuario" placeholder="Usuário">     
+            </div>    
+
+        </div>
+
+        <div class="div-input2">
+
+            <div class="img_password">
+                <img class="img-input2" src="css/Img_login/lock-2.png" alt="logo password">
+            </div>  
+
+            <div class="inputpassword">
+                <input type="password" id="senha1" placeholder="Senha">
+
+                <div class="show">
+                    <img id="olho" onclick="show()" class="show" src="css/Img_login/777494-200.png"> 
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btn">
+
+            <button class="entrar">Entrar!</button>
+
+        </div>
+
+        <div onclick="cadastre()" class="cadastre-se"><u>Criar conta</u></div>
+
+    </div>
+
+    <div id="div_cadastre" class="div_cadastre">
+
+        <img class="logo" src="css/Img_login/alfa novo.png" alt="logo ALFA Company">
+
+        <p class="instrucao_cadastre">Crie uma conta com a <b style="color: #4fd64f;">Alfa</b> Company:</p>
+
+        <div class="div-input-cadastre">
+
+            <div class="img_usuario">
+                <img class="img-input1" src="css/Img_login/user--v3.png" alt="logo usuário"> 
+            </div>
+
+            <div class="inputusuario">
+                <input id="idusuario" placeholder="Informe um e-mail">     
+            </div>    
+
+        </div>
+
+        <div class="div-input-cadastre2">
+
+            <div class="img_password">
+                <img class="img-input2" src="css/Img_login/lock-2.png" alt="logo password">
+            </div>  
+
+            <div class="inputpassword">
+                <input type="password" id="senha2" placeholder="Informe uma senha">
+
+                <div class="show">
+                    <img id="olho" onclick="show2()" class="show" src="css/Img_login/777494-200.png"> 
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="btn">
+
+            <button class="entrar">Criar!</button>
+
+        </div>
+
+        <div onclick="tenho_conta()" class="tenho_conta"><u>Já possuo conta!</u></div>
+
+        
+
+    </div>
+
+    
+
+</div>
+
+</body>
+</html>
+
+<script>
+
+    function cadastre() {
+     div_login.style.display = 'none';
+     div_cadastre.style.display = 'block';
+    }
+
+    function tenho_conta() {
+        div_login.style.display = 'block';
+     div_cadastre.style.display = 'none';
+    }
+
+    function show() {
+      var senha = document.getElementById("senha1");
+
+      if(senha.type == "password") {
+          senha.type = "text";
+    } else{senha.type = "password"};
+}
+
+    function show2() {
+      var senha = document.getElementById("senha2");
+
+      if(senha.type == "password") {
+          senha.type = "text";
+    } else{senha.type = "password"};
+}
+
+</script>

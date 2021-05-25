@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+
+</head>
+
+<body>
+
+    Digite uma frase: <input id="input_frase" placeholder="Exemplo: Boa tarde" onkeyup="analisar()">
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    // var contador = -1;
+
+    function analisar(){
+
+        // contador++;
+
+        var frase = input_frase.value;
+
+        var last_letter = frase [frase.length - 1];
+
+        div_msg.innerHTML += `${last_letter}<br>`
+
+    }
+
+</script>

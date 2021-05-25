@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+
+    Digite sua quantidade de filhos: <input placeholder="Sua quantidade de filhos" id="qtd_filhos">
+
+    <br>
+
+    <button id="but_calcular" onclick="calcular()">Calcular Auxilio Filhos</button>
+
+    <br><br>
+
+    <h3>Auxilio Filhos</h3>
+
+    <div id="div_filhos">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular(){
+
+        var auxilio = 25 * qtd_filhos.value;
+
+        div_filhos.innerHTML = `Você tem ${qtd_filhos.value} filhos, logo, seu "Auxilio Filhos" será de R$${auxilio}`;
+
+
+    }
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+ 
+    Digite sua renda familiar <input placeholder="Digite sua Renda familiar" id="renda_familiar">
+    
+    <br><br>
+
+    Digite o valor da prestação <input placeholder="Digite o valor da prestação" id="valor_prestacao">
+
+    <br><br>
+
+    <button id="but_financiamento" onclick="financiamento()">Vereficar financiamento</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function financiamento(){
+
+        var percentual = (valor_prestacao.value / renda_familiar.value) * 100;
+
+        div_msg.innerHTML = `A prestação corresponde a ${percentual}% da renda familiar`;
+
+        if( percentual > 30){
+
+            div_msg.innerHTML += `<br><br><b style="color: red;">Será necessário complementar a renda familiar</b>`
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 22 - compl3</title>
+
+</head>
+
+<body>
+
+    Digite a quantidade de m² de grama necessário: 
+    <input id="qtd_grama" placeholder="Quantidade de m² de grama">
+
+    <br><br>
+
+    <button id="but_orcamento" onclick="orcamento()">Fazer orçamento</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function orcamento(){
+        
+        var esmeralda = 9.70 * qtd_grama.value;
+        var batatais = 8.70 * qtd_grama.value;
+        var sao_carlos = 10.70 * qtd_grama.value;
+
+    div_msg.innerHTML = `Para ${qtd_grama.value} m² de grama, nosso orçamento é:<br><br>
+    Grama esmeralda = R$${esmeralda}, frete = R$ 150,00, valor total = ${Number(esmeralda) + Number(150)}<br>
+    Grama batatais = R$${batatais}, frete = R$ 200,00, valor total = ${Number(batatais) + Number(200)}<br>
+    Grama São Carlos = R$${sao_carlos}, frete = R$ 100,00, valor total = ${Number(sao_carlos) + Number(100)}`;
+
+}
+
+</script>

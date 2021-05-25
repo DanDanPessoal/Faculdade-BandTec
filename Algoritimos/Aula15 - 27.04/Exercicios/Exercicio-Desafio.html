@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio Desafio</title>
+
+</head>
+
+<body>
+
+<div style="border: 5px solid black; padding: 10px 10px; border-radius: 30px;">
+
+    <h2> BARRAS DE VIDA</h2>
+
+<div style="width: 100%; border: 3px solid black;">
+
+<div id="div_life1" style="height: 20px; width: 100%; background-color: blue;"></div>
+
+</div>
+
+    Player 1
+
+    <br><br>
+
+<div style="width: 100%; border: 3px solid black;">
+
+    <div id="div_life2" style="height: 20px; width: 100%; background-color: red;"></div>
+
+</div>
+
+    Player 2
+
+</div>
+
+<div style="text-align: center;">
+
+<button onclick="porrada()" style="margin: 10px 10px; background-color: aqua; height: 50px; width: 150px; border-radius: 30px;">
+
+    Porrada aleatória
+
+</button>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+    var player1 = 100;
+    var player2 = 100;
+    var golpe = 0;
+
+    function porrada(){
+
+        var apanhar = parseInt(Math.random() * 2);
+
+        var dano = Math.random() * 20;
+
+        if(apanhar == 1){
+
+            if( player1 - dano <= 0 ){
+
+                div_life1.style.width = `0%`
+                player1 = 0;
+
+            }else {
+
+                player1 = player1 - dano;
+                div_life1.style.width = `${player1}%`
+
+            }
+
+        }else{
+
+            if( player2 - dano <= 0 ){
+
+                div_life2.style.width = `0%`
+                player2 = 0;
+
+            }else{
+
+                player2 = player2 - dano;
+                div_life2.style.width = `${player2}%`
+
+            }
+    }
+
+    player1 == 0 ? (alert('O player 2 ganhou'), resetar()):
+    player2 == 0? (alert('O player 1 ganhou'), resetar()) : '' ;
+
+    golpe++;
+
+    (golpe % 5) == 0 ? player1 > player2 ? alert('O player1 está ganhando') : 
+                       player2 > player1 ? alert('O player2 está ganhando') :
+                       '' : '';
+
+
+    }
+
+    function resetar(){
+
+    player1 = 100
+    player2 = 100;
+    golpe = 0;
+
+    div_life1.style.width = `${player1}%`;
+    div_life2.style.width = `${player2}%`;
+
+    }
+
+</script>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2 - Campo Minado</title>
+
+</head>
+
+<body>
+
+    <h1>Campo Minado da hora!</h1>
+    
+    <button onclick="new_game()">Novo jogo</button>
+
+    <br><br>
+
+    Minas:<span id="span_mina"> ?</span> <br>
+    Explosões:<span id="span_explosao"> 0</span> <br>
+    Pontos:<span id="span_pontos"> 0</span> <br>
+    Rodada:<span id="span_rodada"> 0</span> <br>
+
+    <br>
+
+    <div id="div_msg" style="display: none;">
+    
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png" 
+        alt="" style="float: left; width: 50px;" id="id_img1" onclick="mudar_imagem1()">
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png" 
+        alt="" style="float: left; width: 50px;" id="id_img2" onclick="mudar_imagem2()">
+
+        <br><br><br>
+
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png"
+        alt="" style="float: left; width: 50px;" id="id_img3" onclick="mudar_imagem3()">
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png" 
+        alt="" style="float: left; width: 50px;" id="id_img4" onclick="mudar_imagem4()">
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    var valor_bombas = 0;
+    var valor_explosao = 0;
+    var valor_pontos = 0;
+    var valor_winner = 4;
+
+    var valor_img1 = 0;
+    var valor_img2 = 0;
+    var valor_img3 = 0;
+    var valor_img4 = 0;
+
+    var vereficar_bloco1 = 0;
+    var vereficar_bloco2 = 0;
+    var vereficar_bloco3 = 0;
+    var vereficar_bloco4 = 0;
+
+function new_game(){
+
+    resetar();
+
+    div_msg.style.display = 'block';
+
+    var n_img1 = parseInt (Math.random() * 2) + 1;
+    var n_img2 = parseInt (Math.random() * 2) + 1;
+    var n_img3 = parseInt (Math.random() * 2) + 1;
+    var n_img4 = parseInt (Math.random() * 2) + 1;
+    
+    if(n_img1 > 1){
+
+        valor_bombas++;
+
+    }
+    if(n_img2 > 1){
+
+        valor_bombas++;
+    }
+    if(n_img3 > 1){
+
+        valor_bombas++;
+
+    }
+    if(n_img4 > 1){
+
+    valor_bombas++;
+
+    }
+
+    span_mina.innerHTML = valor_bombas;
+
+    valor_img1 = n_img1;
+    valor_img2 = n_img2;
+    valor_img3 = n_img3;
+    valor_img4 = n_img4;
+
+    valor_winner = valor_winner - valor_bombas;
+
+}
+
+    function mudar_imagem1(){
+
+        if( vereficar_bloco1 >= 1 ){
+
+            alert('Você já clicou aqui, não vale');
+
+        }else if(valor_img1 > 1){
+
+            id_img1.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+            valor_explosao++;
+
+            span_explosao.innerHTML = valor_explosao;
+
+            alert(`Ohh não, você pisou em uma mina, aperte em novo jogo para tentar novamente`);
+
+            loser();
+
+        }else{
+
+            id_img1.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+            valor_pontos += 100;
+
+            span_pontos.innerHTML = valor_pontos;
+
+            valor_winner--;
+
+            winner();
+
+        }
+
+        vereficar_bloco1++;
+
+    }
+    
+    function mudar_imagem2(){
+
+        if( vereficar_bloco2 >= 1 ){
+
+            alert('Você já clicou aqui, não vale');
+
+        }else if(valor_img2 > 1){
+
+            id_img2.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+            valor_explosao++;
+            
+            span_explosao.innerHTML = valor_explosao;
+
+            alert(`Ohh não, você pisou em uma mina, aperte em novo jogo para tentar novamente`);
+
+            loser();
+            
+        }else{
+
+            id_img2.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+            valor_pontos += 100;
+
+            span_pontos.innerHTML = valor_pontos;
+
+            valor_winner--;
+
+            winner();
+
+        }
+
+        vereficar_bloco2++;
+
+    }
+
+    function mudar_imagem3(){
+
+        if(vereficar_bloco3 >= 1){
+
+            alert('Você já clicou aqui, não vale');
+
+        }else if(valor_img3 > 1){
+
+            id_img3.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+            valor_explosao++;
+            
+            span_explosao.innerHTML = valor_explosao;
+
+            alert(`Ohh não, você pisou em uma mina, aperte em novo jogo para tentar novamente`);
+
+            loser();
+            
+        }else{
+
+            id_img3.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+            valor_pontos += 100;
+
+            span_pontos.innerHTML = valor_pontos;
+
+            valor_winner--;
+
+            winner();
+
+        }
+
+        vereficar_bloco3++;
+
+    }
+
+    function mudar_imagem4(){
+
+        
+        if(vereficar_bloco4 >= 1){
+
+            alert('Você já clicou aqui, não vale');
+
+        }else if(valor_img4 > 1){
+
+            id_img4.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+            valor_explosao++;
+            
+            span_explosao.innerHTML = valor_explosao;
+
+            alert(`Ohh não, você pisou em uma mina, aperte em novo jogo para tentar novamente`);
+            
+            loser();
+
+        }else{
+
+            id_img4.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+            valor_pontos += 100;
+
+            span_pontos.innerHTML = valor_pontos;
+
+            valor_winner--;
+
+            winner();
+
+        }
+
+        vereficar_bloco4++;
+
+    }
+
+    function loser(){
+
+        mostrar_all();
+
+        id_img1.onclick = "";
+        id_img2.onclick = "";
+        id_img3.onclick = "";
+        id_img4.onclick = "";
+
+        span_rodada.innerHTML = Rodada;
+
+    }
+
+    function winner(){
+
+        if(valor_winner == 0 || valor_winner < 0){
+
+            alert('Parabéns você achou todos os campos não minados, aperte em Novo Jogo e tente novamente');
+            
+            mostrar_all();
+
+            id_img1.onclick = "";
+            id_img2.onclick = "";
+            id_img3.onclick = "";
+            id_img4.onclick = "";
+
+            span_rodada.innerHTML = Rodada;
+            
+        }
+
+    }
+
+    function mostrar_all(){
+
+        if(valor_img1 > 1){
+
+        id_img1.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+
+        }else{
+
+        id_img1.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+
+        }
+
+        if(valor_img2 > 1){
+
+        id_img2.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+
+        }else{
+
+        id_img2.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+
+        }
+
+        if(valor_img3 > 1){
+
+        id_img3.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+
+        }else{
+
+        id_img3.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+
+        }
+
+        if(valor_img4 > 1){
+
+        id_img4.src = `https://image.flaticon.com/icons/png/128/112/112683.png`;
+
+        }else{
+
+        id_img4.src = `https://image0.flaticon.com/icons/png/128/61/61218.png`;
+
+        }
+
+    }
+
+    function resetar(){
+
+    valor_bombas = 0;
+    valor_winner = 4;
+    img1 = 0;
+    img2 = 0;
+    img3 = 0;
+    img4 = 0;
+    vereficar_bloco1 = 0;
+    vereficar_bloco2 = 0;
+    vereficar_bloco3 = 0;
+    vereficar_bloco4 = 0;
+
+    div_msg.innerHTML = `<img src="https://image0.flaticon.com/icons/png/128/84/84042.png" 
+        alt="" style="float: left; width: 50px;" id="id_img1" onclick="mudar_imagem1()">
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png" 
+        alt="" style="float: left; width: 50px;" id="id_img2" onclick="mudar_imagem2()">
+
+        <br><br><br>
+
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png"
+        alt="" style="float: left; width: 50px;" id="id_img3" onclick="mudar_imagem3()">
+        <img src="https://image0.flaticon.com/icons/png/128/84/84042.png" 
+        alt="" style="float: left; width: 50px;" id="id_img4" onclick="mudar_imagem4()">`
+
+    }
+
+</script>   

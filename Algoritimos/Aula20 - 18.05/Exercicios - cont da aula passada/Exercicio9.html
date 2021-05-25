@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+
+</head>
+
+<body>
+
+    Digite o nome do seu filho: <input id="input_nome">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="att()">Atualizar Familia</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    var nomes = [];
+
+    function cadastrar(){
+
+        var nome_filho = input_nome.value;
+
+        for(var cont = 0 ; cont <= nomes.length ; cont++){
+            
+            if(nomes[cont] == nome_filho){
+
+                alert('Não pode mais de 1 filho com o mesmo nome!');
+                break;
+
+            }else{
+
+                nomes.push(nome_filho);
+                break;
+
+            }
+        }
+
+        input_nome.value = '';
+
+    }
+
+    function att(){
+
+        var qtd_filhos = nomes.length;
+
+        div_msg.innerHTML = `Você tem ${qtd_filhos} filhos<br><br>
+                            Seu custo mensal será aproximadamente R$${(qtd_filhos * 3000).toFixed(2)}
+                            se colocar eles em escola particular ou R$${(qtd_filhos * 1500).toFixed(2)}
+                            se colocar eles em escola pública<br><br>`;
+
+        for(var cont = 0 ; cont < qtd_filhos ; cont++){
+
+        div_msg.innerHTML += `${cont + 1}°filho(a) - ${nomes[cont]}<br>`;
+
+        }
+    }
+
+</script>

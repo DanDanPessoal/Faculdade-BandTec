@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+    Digite o menor valor númerico: <input id="input_menorN" autofocus>
+
+    <br>
+
+    Digite o maior valor númerico: <input id="input_maiorN">
+
+    <br>
+
+    Digite o ritmo de crescimento: <input id="input_ritmo">
+    
+    <br><br>
+
+    <button onclick="contagem()">Contagem Loka</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function contagem(){
+
+        var maior_n = Number(input_maiorN.value);
+        var menor_n = Number(input_menorN.value);
+        var ritmo = Number(input_ritmo.value)   ;
+
+        div_msg.innerHTML = ``;
+
+        for(var contagem = maior_n; contagem >= menor_n; contagem-=ritmo){
+
+            div_msg.innerHTML += `${contagem}<br>`;
+
+        }
+
+    }
+
+</script>

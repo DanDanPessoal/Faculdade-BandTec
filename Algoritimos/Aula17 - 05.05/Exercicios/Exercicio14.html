@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+
+</head>
+
+<body>
+
+    Digite o andar atual: <input id="input_andar_atual">
+    
+    <br>
+
+    Digite o andar desejado: <input id="input_andar_desejado">
+
+    <br><br>
+
+    <button onclick="partir()">Partir</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function partir(){
+
+        var andar_atual = input_andar_atual.value;
+        var andar_desejado = input_andar_desejado.value;
+
+        if( andar_atual > 20 || andar_atual < 0 || andar_desejado > 20 || andar_desejado < 0 ){
+
+            alert('Andares válidos: entre 0 e 20');
+
+        }
+
+        div_msg.innerHTML = ``;
+
+        if( andar_atual > andar_desejado ){
+
+            div_msg.innerHTML = `Descendo<br>`;
+
+            descer();
+            
+        }else if( andar_desejado > andar_atual ){
+
+            div_msg.innerHTML = `Subindo<br>`;
+
+            subir();
+
+        }else{
+
+            div_msg.innerHTML = `Elevador vai continuar onde está`;
+
+        }
+
+    }
+
+    function descer(){
+
+        var andar_atual = input_andar_atual.value;
+        var andar_desejado = input_andar_desejado.value;
+
+        while( andar_atual >= andar_desejado ){
+
+            div_msg.innerHTML += `Elevador no andar ${andar_atual}<br>`
+
+            andar_atual--;
+
+        }  
+
+    }
+
+    function subir(){
+
+        var andar_atual = input_andar_atual.value;
+        var andar_desejado = input_andar_desejado.value;
+
+        while( andar_desejado >= andar_atual ){
+
+            div_msg.innerHTML += `Elevador no andar ${andar_atual}<br>`
+
+            andar_atual++;
+
+        }  
+
+    }
+
+</script>

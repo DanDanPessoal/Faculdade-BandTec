@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2 Sprint</title>
+
+</head>
+
+<body>
+
+    <input id="input_valor" placeholder="Valor Premiacão">Valor da premiação total
+    
+    <br><br>
+    
+    <input id="input_n_rodadas" placeholder="Número de rodadas maxima">Número Máximo de rodadas
+
+    <br><br>
+
+    <select id="sel_resultado_A">
+
+        <option value="">- Selecione uma opção</option>
+        <option value="Vitoria_A">Vitória</option>
+        <option value="Empate_A">Empate</option>
+        <option value="Derrota_A">Derrota</option>
+
+    </select>Resultado Time A
+
+    <br><br>
+
+    <select id="sel_resultado_B">
+
+        <option value="">- Selecione uma opção</option>
+        <option value="Vitoria_B">Vitória</option>
+        <option value="Empate_B">Empate</option>
+        <option value="Derrota_B">Derrota</option>
+
+    </select>Resultado Time B
+
+    <br><br>
+
+    <select id="sel_resultado_C">
+
+        <option value="">- Selecione uma opção</option>
+        <option value="Vitoria_C">Vitória</option>
+        <option value="Empate_C">Empate</option>
+        <option value="Derrota_C">Derrota</option>
+
+    </select>Resultado Time C
+
+    <br><br>
+
+    <button onclick="realizar()" id="but_realizar">Realizar rodada</button>
+    <button onclick="revelar()">Revelar Premiacão</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var time_a = 0;
+    var time_b = 0;
+    var time_c = 0;
+
+    var rodada_atual = 0;
+
+    function realizar(){
+
+        var valor_premiacao = input_valor.value;
+        var rodadas_maximo = input_n_rodadas.value;
+
+        var resultado_a = sel_resultado_A.value;
+        var resultado_b = sel_resultado_B.value;
+        var resultado_c = sel_resultado_C.value;
+        
+        if(valor_premiacao >= 1000 && rodadas_maximo >= 1){
+
+            // Vereficação se a rodada atual é igual a rodada maxima
+
+            if( Number(rodadas_maximo) == rodada_atual ){
+
+            revelar();
+
+            }else{
+
+            // vereficação time A
+
+            if( resultado_a == 'Vitoria_A'){
+
+                time_a += 3;
+
+            }else if( resultado_a == 'Empate_A'){
+
+                time_a += 1
+
+            }else{
+
+                time_a += 0;
+
+            }
+
+            // vereficação time B
+
+            if( resultado_b == 'Vitoria_B'){
+
+                time_b += 3;
+
+            }else if( resultado_b == 'Empate_B'){
+
+                time_b += 1;
+
+            }else{
+
+                time_b += 0;
+
+            }
+
+            // vereficação time C
+
+            if( resultado_c == 'Vitoria_C'){
+
+                time_c += 3;
+
+            }else if( resultado_c == 'Empate_C'){
+
+                time_c +=1;
+
+            }else if( resultado_c == 'Derrota_C' ){
+
+                time_c += 0;
+
+            }
+
+            rodada_atual++;
+
+            div_msg.innerHTML = `Rodada Atual: ${rodada_atual}<br>
+                                 Time A: ${time_a}<br>
+                                 Time B: ${time_b}<br>
+                                 Time C: ${time_c}<br>`
+        }
+        }else{
+
+            alert('Dados inválidos para a rodada');
+
+        }
+
+    }
+
+    function revelar(){
+
+        var valor_premiacao = input_valor.value;
+        var total_pontos = Number(time_a) + Number(time_b) + Number(time_c);
+
+        var porcertagem_a = (time_a / total_pontos)*100;
+        var porcentagem_b = (time_b / total_pontos)*100;
+        var porcentagem_c = (time_c / total_pontos)*100;
+
+        var premiacao_a = (porcertagem_a * valor_premiacao) / 100 ;
+        var premiacao_b = (porcentagem_b * valor_premiacao) / 100 ;
+        var premiacao_c = (porcentagem_c * valor_premiacao)  / 100;
+
+        div_msg.innerHTML = `<h3>VALOR PREMIAÇÃO</h3>
+                                Rodada Atual: ${rodada_atual}<br>
+                                 Time A: ${premiacao_a.toFixed(2)}<br>
+                                 Time B: ${premiacao_b.toFixed(2)}<br>
+                                 Time C: ${premiacao_c.toFixed(2)}<br>`
+
+    }
+
+</script>

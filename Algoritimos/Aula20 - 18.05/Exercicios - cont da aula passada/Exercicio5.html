@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+
+</head>
+
+<body>
+
+    Cadastre ou pesquise um aluno na lista: <input placeholder="Daniel xxxx" id="input_aluno" autofocus><br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">Pesquisar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var alunos = [];
+    
+    function cadastrar(){
+        
+        var nome_aluno = input_aluno.value;
+        alunos.push(nome_aluno);
+        div_msg.innerHTML += `${nome_aluno}<br>`;
+        
+    }
+    
+    function pesquisar(){
+        
+        var contador_aluno = 0;
+        var nome_aluno = input_aluno.value;
+        
+        for( var tamanho = alunos.length-1; tamanho >=0; tamanho-- ){
+            
+            if(nome_aluno == alunos[tamanho]){
+                    
+                contador_aluno++;
+
+            }
+            
+        }
+        
+        if(contador_aluno == 0){
+
+            alert(`O aluno ${nome_aluno} não existe na lista`);
+            
+        }else{
+            
+        alert(`O aluno ${nome_aluno} já está na lista, ele aparece ${contador_aluno} vez`);
+    
+        }
+
+    }
+
+
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+
+    Digite sua quantidade de filhos com menos de 10 Anos: 
+    <br><input placeholder="Filhos com menos de 10 anos" id="qtd_filhos_menos">
+
+    <br><br>
+
+    Digite sua quantidade de filhos com mais de 10 Anos: 
+    <br><input placeholder="Filhos com mais de 10 anos" id="qtd_filhos_mais">
+
+    <br><br>
+
+    <button id="but_calcular" onclick="calcular()">Calcular Auxilio Filhos</button>
+
+    <br><br>
+
+    <h3>Auxilio Filhos</h3>
+
+    <div id="div_filhos">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular(){
+
+        var mais_10 = 20 * qtd_filhos_mais.value;
+        var menos_10 = 30 * qtd_filhos_menos.value;
+        var total = Number(mais_10) + Number(menos_10); 
+
+        div_filhos.innerHTML = `Você tem ${qtd_filhos_menos.value} filhos menores de 10 anos
+        e ${qtd_filhos_mais.value} filhos a partir de 10 anos, logo seu "Auxilio filhos" será de R$${total}`;
+
+
+    }
+
+</script>

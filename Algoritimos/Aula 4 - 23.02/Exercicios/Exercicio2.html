@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    
+<button onclick="remo()">Gol do Remo</button>
+<button onclick="paysandu()">Gol do Paysandu</button>
+<button onclick="escan_remo()">Escanteio para o Remo</button>
+<button onclick="escan_pay()">Escanteio para o Paysandu</button>
+
+<div id="div_acontecimento">
+
+<h3>PLACAR DO JOGO</h3>
+
+</div>
+
+</body>
+
+<script>
+
+    function remo(){
+
+        div_acontecimento.innerHTML += "<span style='color: navy';>Goool do <b>leão</b>!</span><br>";
+    }
+
+    function paysandu(){
+
+        div_acontecimento.innerHTML += "<span style='color: cyan';>Goool do <i>Mucura</i>!</span><br>";
+
+    }
+
+    function escan_remo(){
+
+        div_acontecimento.innerHTML += "Escanteio para o Leão!<br>"
+
+    }
+
+    function escan_pay(){
+
+        div_acontecimento.innerHTML += "Escanteio para o Mucura!<br>"
+
+    }
+
+</script>
+
+</html>

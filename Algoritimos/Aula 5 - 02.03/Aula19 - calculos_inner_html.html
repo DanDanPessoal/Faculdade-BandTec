@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 19 - calculos</title>
+</head>
+
+<body>
+
+    <h2>Minha calculadora preferida</h2>
+
+    Entre com o primeiro número:
+    <input id="pri_num" placeholder="Primeiro número">
+    <br>
+    Entre com o segundo número:
+    <input id="seg_num" placeholder="Segundo número">
+
+    <br><br>
+
+    <button onclick="multiplicar()">multiplicação</button>
+    <button onclick="dividir()">Divisão</button>
+    <button onclick="Exponenciar()">Exponenciação</button>
+    <button onclick="raiz()">Radiciação</button>
+    <button onclick="soma()">Somar</button>
+    <button onclick="Subtrair()">Subtração</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function multiplicar(){
+
+        div_msg.innerHTML = `O resultado é: ${pri_num.value * seg_num.value}`;
+
+    }
+
+    function dividir(){
+
+        div_msg.innerHTML = `O resultado é: ${pri_num.value / seg_num.value}`;
+
+    }
+
+    function Exponenciar(){
+
+        div_msg.innerHTML = `O resultado é: ${pri_num.value ** seg_num.value}`;
+
+    }
+
+    function raiz(){
+
+        div_msg.innerHTML = `O resultado é: ${pri_num.value ** (1/seg_num.value)}`;
+
+    }
+
+    function soma(){
+
+        div_msg.innerHTML = `O resultado é: ${Number(pri_num.value) + Number(seg_num.value)}`;
+
+    }
+
+    function Subtrair(){
+
+        div_msg.innerHTML = `O resultado é: ${pri_num.value - seg_num.value}`;
+
+    }
+
+
+</script>

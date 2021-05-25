@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+
+</head>
+
+<body>
+
+    <h2>QUEM GUARDA TEM!!!</h2>    
+
+    <input id="valor" placeholder="Coloque o valor desejado">
+    
+    <br><br>
+
+    <button id="retirar_cofre" onclick="retirar()">Retirar do cofrinho</button>
+    <button id="colocar_cofre" onclick="colocar()">colocar no cofrinho</button>
+
+    <br><br>
+
+    <div id="div_msg">
+
+        O valor que está guardado mo seu cofrinho é R$<span id="dinheiro"> 000. 00</span>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var valor_dinero = 0;
+
+    function retirar(){
+
+        valor_dinero -= valor.value;
+
+        dinheiro.innerHTML = valor_dinero;
+
+    }
+
+    function colocar(){
+
+        valor_dinero += Number(valor.value);
+
+        dinheiro.innerHTML = valor_dinero;
+
+    }
+
+</script>

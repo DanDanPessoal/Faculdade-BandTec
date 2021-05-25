@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    
+    <h3 style="float: left;">Meus heróis são:</h3>
+    <br>
+    <span id="b_aranha" style="display: none; float: left; margin-left:5px ;"><b>Homem aranha</b> e <i>Thor</i></span>
+
+    
+<br><br><br>
+
+    <h3 style="float: left;">Meus vilões são: </h3>
+    <br>
+        <span id="span_vilaos" style="display: none; color: red; float: left; margin-left: 5px;">Loki e Thanos</span>
+    
+    
+    <br><br><br>
+
+    <button onclick="heroi()">Ver heróis</button>
+    <button onclick="vilao()">Ver vilões</button>
+
+</body>
+
+    <script>
+
+        function heroi(){
+
+            b_aranha.style.display = "block";
+
+        }
+
+        function vilao(){
+
+            span_vilaos.style.display = "block";
+
+        }
+    </script>
+
+</html>

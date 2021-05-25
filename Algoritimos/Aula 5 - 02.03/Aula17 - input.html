@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 17 - input</title>
+</head>
+
+<body>
+    
+    Entre com seu <b>primeiro nome: </b>
+    <input type="text" id="pri_nome" placeholder="Entre com o Primeiro Nome">
+
+    <br>
+
+    Entre com seu <b>ultimo nome: </b>
+    <input id="seg_nome" placeholder="Entre com o Segundo nome">
+    <br><br>
+
+    <button onclick="incluir()" style="background: red; color: green; ">incluir</button>
+
+    <br>
+
+    <div id="div_mens">
+
+        <h4>Mini Cadastro</h4>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function incluir(){
+
+        div_mens.innerHTML += "<b>Seu nome completo é:</b> " + ' ' +
+             pri_nome.value + ' ' + seg_nome.value + "<br>";    // Concatenando os valor do id pri e seg_nome
+
+        pri_nome.value = '';    // limpando o input com o id pri_nome
+        seg_nome.value = "";    // limpando o input com o id seg_nome
+
+    }    
+
+</script>

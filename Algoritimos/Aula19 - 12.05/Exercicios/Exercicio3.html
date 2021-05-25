@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+    Digite o nome dos filmes que você mais gosta: <input id="input_nomes_filmes">
+    
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+    
+
+</body>
+
+</html>
+
+<script>
+
+    var filme = [];
+    var contador = 0;
+
+    function cadastrar(){
+
+        var nome_filme = input_nomes_filmes.value;
+
+        filme.push(nome_filme);
+
+            var cor = '';
+
+            if( (contador % 2) == 0){
+
+                cor = 'blue';
+
+            }else{
+
+                cor = 'red';
+
+            }
+
+            div_msg.innerHTML += `<span style="color: ${cor};">${filme[contador]}</span><br>`;
+
+            contador++;
+
+    }
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+
+</head>
+
+<body>
+    
+    Digite a quantidade de partidas que você jogou<br>
+    <input id="qtd_partidas" placeholder="Quantidade de partidas">
+
+    <br><br>
+
+    Digite a sua quantidade de gols você marcou <br>
+    <input id="qtd_gol" placeholder="Quantidade de gols">
+
+    <br><br>
+
+    <button onclick="estudar()">Estudar atacante</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function estudar(){
+
+        var media =  qtd_gol.value / qtd_partidas.value;
+
+        if(media < 0.2){
+
+            div_msg.innerHTML = `Melhor mudar de posição <br> sua média de gols/partida é ${media.toFixed(1)}<br> <br>
+            <img src="jogador_ruim.jpg" alt="jogador ruim" style="height: 200px;">`;
+
+        }else{
+
+            if(media < 0.6){
+
+            div_msg.innerHTML = `Atacante mediano <br>sua média de gols/partida é ${media.toFixed(1)}<br><br>
+            <img src="jogador_mediano.jpg" alt="jogador mediano" style="height: 200px;">`;
+
+            }else{
+
+            div_msg.innerHTML = `Atacante de futuro <br>sua média de gols/partida é ${media.toFixed(1)}<br><br>
+            <img src="jogador_bom.jpg" alt="jogador bom" style="height: 200px;">`;
+
+            }
+        }
+
+    }
+
+</script>

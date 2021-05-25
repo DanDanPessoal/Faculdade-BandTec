@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+
+</head>
+
+<body>
+
+    Digite o valor maximo por amigo: <input id="input_valor_amigo">
+
+    <br>
+
+    Digite o valor da pizza: <input id="input_valor_pizza">
+
+    <br>
+
+    Digite a quantidade de amigos: <input id="input_qtd_amigos">
+
+    <br><br>
+
+    <button onclick="rola_a_pizza()">Rola a pizza?</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function rola_a_pizza(){
+
+        var valor_amigo = input_valor_amigo.value;
+        var valor_pizza = input_valor_pizza.value;
+        var qtd_amigo = input_qtd_amigos.value;
+        var msg = '';
+
+        var valor_unitario = valor_pizza / qtd_amigo;
+
+        valor_unitario > valor_amigo ? msg = `Deu ruim! Pizza muito cara!` : msg = `Uhu! Vamos pedir a pizza!`;
+
+        div_msg.innerHTML = `Cada amigo vai pagar R$${valor_unitario} pela pizza<br><br>${msg}`
+
+    }
+
+</script>

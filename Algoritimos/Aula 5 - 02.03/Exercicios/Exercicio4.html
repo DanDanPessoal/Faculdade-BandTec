@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+
+    Digite a Primeira nota: <input id="nota1" placeholder="Primeira nota:">
+    <br>
+    Digite a Segunda nota: <input id="nota2" placeholder="Segunda nota:">
+
+    <br><br>
+
+    <button onclick="media()" id="but_media">Calcular Média</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function media(){
+
+        var media = (Number(nota1.value) + Number(nota2.value))/2 ;
+
+        div_msg.innerHTML = "Sua média foi de" + " " + media;
+
+    }
+
+</script>

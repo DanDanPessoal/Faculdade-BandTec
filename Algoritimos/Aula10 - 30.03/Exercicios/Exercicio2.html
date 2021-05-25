@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+
+<body>
+
+    Digite a 1° Nota: <input id="input_n1" placeholder="Digite a 1° nota">
+
+    <br><br>
+
+    Digite a 2° Nota: <input id="input_n2" placeholder="Digite a 2° nota">
+
+    <br><br>
+
+    Digite a frequência:<input id="input_freq" placeholder="Digite a frequência">
+
+    <br><br>
+
+    <button onclick="vereficar()">Vereficar</button>
+    
+</body>
+
+</html>
+
+<script>
+
+    function vereficar(){
+
+        var media = (Number(input_n1.value) + Number(input_n2.value)) / 2
+
+        if(input_n1.value >= 5 && input_n2.value >=5 && media >=6 && input_freq.value >= 75){
+
+            alert('Aluno aprovado!');
+
+        }else{
+
+            alert('Aluno reprovado!');
+
+        }
+    }
+
+</script>

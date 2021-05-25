@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Incrementando conteúdo</title>
+</head>
+<body>
+    
+    <h2>O que está acontecendo no jogo?</h2>
+
+    <button onclick="gol()">Gol!</button>
+    <button onclick="falta()">Falta!</button>
+    <button onclick="trave()">Bola na trave!</button>
+
+    <br><br>
+
+    <div id="div_acontecimento">
+        
+        <h3>Agora no jogo...</h3>
+
+    </div>
+
+
+</body>
+
+<script>
+
+    function gol(){
+
+        div_acontecimento.innerHTML += "Goooolll<br>";
+
+            // O += incrementa conteúdo na tela, sem precisar sobreescrever o que ja estava escrito
+
+    }
+
+    function falta(){
+
+        div_acontecimento.innerHTML += "Bola na trave! UUUUHHHHH<br>";
+
+    }
+
+    function trave(){
+
+        div_acontecimento.innerHTML += "É falta<br>";
+
+    }
+
+</script>
+
+</html>

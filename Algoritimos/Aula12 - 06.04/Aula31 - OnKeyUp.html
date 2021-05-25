@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 31 Textos</title>
+
+</head>
+
+<body>
+
+    <h2>Operações com textos</h2>
+
+    <!-- onkeyup indica o que vai acontecer logo após usar uma tecla qualquer -->
+
+    Digite uma frase: <input id="input_frase" onkeyup="analisar()">
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar(){
+
+        var frase = input_frase.value;
+
+//  Qualquer tecla que for apertada, será inserido na 'div_msg' 
+//  a frase digitada e será pulado uma linha
+
+        div_msg.innerHTML = `${frase} <br>`;
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+// O comando '.lenght' pega o comprimento da input, 
+// no caso se for digitado 'arroz', ele mostrará '5', que tem 5 caracteres o 'arroz'
+
+        div_msg.innerHTML += `<br>Quantos caracteres tem: ${frase.length} <br>`;
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+// o comando 'startsWith' verefica se o input começa com algo especifico, 
+// no caso aq embaixo, verefica se começa com o 'www.'
+
+// NOTAS: ele é case sensitive, então 'WWW.' é diferente de 'www.'
+// Ele conta qualquer tipo de caractere, até se começar com 'espaço', ele contará
+// Ele funciona com números, caracteres especiais, ou seja, com qualquer caractere
+
+        div_msg.innerHTML += `<br>Começa com www. ? ${frase.startsWith('www.')} <br>`;
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+// Operadores 'E' e 'OU' funcionam no startsWith, por que eles retornam 'true' ou 'false'
+
+        div_msg.innerHTML += `<br>Começa com 'e' ou 'E' ? ${frase.startsWith('e') || frase.startsWith('E')} <br>`;
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+// o comando '.endsWith' verefica se o input termina com algo especifico,
+// no caso aq embaixo, verefica se termina com '.br'
+
+        div_msg.innerHTML += `<br>Termina com '.br' ? ${frase.endsWith('.br')} <br>`;
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+// os '[], cochetes' vc indica a posição que voce quer da frase, por exemplo:
+// Se eu escrever 'Daniel K', ele pegará o 'i'
+
+//NOTA: Ele começa a contar do 0, por exemplo:
+
+//  0   1   2   3   4   5   6   7
+//  D   a   n   i   e   l       K
+
+// Note que na posição 3, está o 'i', então tenha em mente que o programa começa a contar do '0',
+// Note também que o 'espaço' também conta
+
+        div_msg.innerHTML += `<br>Qual letra está na 3° Posição ? ${frase[3]} <br>`;
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+// Para pegar a ultima letra, dentro do colchetes primeiro temos que pegar o tamanho da frase
+// Depois diminuimos um do total de posições pois, como ele começa da posição 0,
+// então temos que subtrair 1 para ele começar do 0 também
+
+// Exemplo: a frase é 'Daniel' -- O 'frase.length' pegaria 6, e a ultima letra esta na posição 5
+
+//  0   1   2   3   4   5  
+//  D   a   n   i   e   l
+
+// Por isso subtraimos 1;
+
+        div_msg.innerHTML += `<br>Qual é a ultima letra ? ${frase [ frase.length - 1 ] } <br>`;
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+// O '.indexOf' procura uma frase ou uma letra especifica, onde eu indico dentro dos parenteses,
+// e ele mostra a posição da *PRIMEIRA* frase ou letra que foi indicada nos parenteses
+
+// Exemplo: A frase é 'Lino e ovo' -- o ' indexOf ('o') ' vai me mostrar '3' 
+
+//  0   1   2   3   4   5   6   7   8   9  
+//  L   i   n   o       e       o   v   o
+
+// Note que ele só pega a posição do primeiro 'o', e ele para, os outros 'o' da frase não são mostrados
+// Se não for achado a frase ou letra que está nos parenteses, o 'indexOf' mostrará '-1'
+
+        div_msg.innerHTML += `<br>Onde está o 1° 'o' ? ${ frase.indexOf('o') } <br>`;
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+// O comando 'frase.toUpperCase()' pega a frase e transforma em maiúsculo,
+// e mostra com todas as caracteres maiúsculas
+
+// O comando 'frase.toLowerCase()' pega a frase e transforma em minúsculo,
+// e mostra com todas as caracteres minúsculas
+
+// NOTA: Ele não substitui a frase original, ele copia e cola transformado;
+                
+        div_msg.innerHTML += `<br> Frase original: ${ frase } <br>`;
+
+        div_msg.innerHTML += `Como fica em maiúsculo ? ${ frase.toUpperCase() } <br>`;
+
+        div_msg.innerHTML += `Como fica em Minúsculo ? ${ frase.toLowerCase() } <br>`;
+}
+
+</script>

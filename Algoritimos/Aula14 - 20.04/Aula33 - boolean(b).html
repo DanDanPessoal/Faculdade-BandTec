@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 33 - atividade usando boolean</title>
+
+</head>
+
+<body>
+
+    <h3>Fases da vida</h3>
+
+    Entre com a idade: <input id="input_idade" placeholder="ex: 18" autofocus>
+
+    <br><br>
+
+    <button onclick="analise()">Analisar Idade</button>
+
+    <br><br>
+
+    Já passou pela infância: <b id="b_infancia"> ? </b> <br>
+    Ja passou pela adoslecência: <b id="b_jovem"> ? </b> <br>
+    Já é um idoso: <b id="b_idoso"> ? </b> <br><br>
+    TOTAL PONTOS: <b id="b_pontos"> 0 </b> <br>
+
+</body>
+
+</html>
+
+<script>
+
+    function analise(){
+
+        var pontos = 0;
+        var idade = Number(input_idade.value);
+
+        var infancia = idade > 12;
+        var jovem = idade > 18;
+        var idoso = idade >= 65;
+
+        if(infancia){
+
+            pontos += 10;
+
+        }
+
+        if(jovem){
+
+            pontos += 20;
+
+        }
+
+        if(idoso){
+
+            pontos += 50;
+
+        }
+
+        b_infancia.innerHTML = infancia;
+        b_jovem.innerHTML = jovem;
+        b_idoso.innerHTML = idoso;
+        b_pontos.innerHTML = pontos;
+
+    }
+
+</script>

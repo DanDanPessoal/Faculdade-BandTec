@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+
+</head>
+
+<body>
+
+Digite quanto tempo (Em anos), que você trabalhou para o pai da pretendente:<br>
+
+<input id="input_tempo" placeholder="Digite quanto tempo você trabalhou">
+
+<br><br>
+
+Digite a quantidade (Em kilos), de trigo, que suas plantações renderam:<br>
+
+<input id="input_qtd_trigo" placeholder="Digite a quantidade de trigo de sua platação">
+    
+<br><br>
+
+Digite a quantidade de faltas você teve por estar doente:<br>
+
+<input id="input_qtd_faltas" placeholder="Digite sua quantidade de faltas">
+
+<br><br>
+
+<button onclick="but_match()">Deu match?</button>
+
+<br><br>
+
+<div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function but_match(){
+
+        if(input_tempo.value >=5 && input_qtd_trigo.value >=300 && input_qtd_faltas.value <=5){
+
+            div_msg.innerHTML = `<img src="noiva.jpeg" alt="Foto da noiva" style="height: 300px;">
+            <br><br> A minha filha será sua!`
+
+        }else{  
+
+            div_msg.innerHTML = `<img src="pai.jpg" alt="Foto da noiva" style="height: 300px;">
+            <br><br> Deu ruim!, trabalhe mais 2 anos`;
+
+        }
+    }
+
+</script>

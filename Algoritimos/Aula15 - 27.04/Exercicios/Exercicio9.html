@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+    
+</head>
+
+<body>
+
+    Digite a primeira nota do aluno em algoritimos: <input id="input_n1" placeholder="Ex: 7">
+    
+    <br>
+    
+    Digite a segunda nota do aluno em algoritimos: <input id="input_n2" placeholder="Ex: 5">
+
+    <br><br>
+
+    <button onclick="vereficar()">Vereficar Resultado</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function vereficar(){
+
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        
+        var msg = '';
+        var media = (n1 + n2)/2
+
+        media < 6 ? msg = `Infelizmente reprovado` : 
+        media <= 7.5 ? msg = `Aprovado - Automação, Seg ou Testes` :
+                       msg = `Aprovado - Dev`;
+
+        div_msg.innerHTML = `${msg}`
+
+
+
+    }
+
+</script>

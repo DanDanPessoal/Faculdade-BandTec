@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 22 - Arredondar</title>
+
+</head>
+
+<body>
+
+    <h2>Arredondando números</h2>   
+    
+    Número: <input id="in_numero">
+
+    <button onclick="arredondar()">Dividir e arredondar</button>
+
+    <br><br>
+
+    <div id="div_resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function arredondar(){
+
+        var numero = Number(in_numero.value);
+        var divisao = numero / 3;
+
+        div_resultado.innerHTML = `Divisão por 3:<br> ${divisao.toFixed(0)}`;
+
+        //O to fixed vai arredondar as casas depois da virgula, conforme informado nos parenteses.
+
+    }
+
+</script>

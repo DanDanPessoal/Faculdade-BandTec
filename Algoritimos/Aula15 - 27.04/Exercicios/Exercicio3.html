@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+    
+    Digite  a quantidade de chocolates comprados: <input id="input_choco" placeholder="Ex: 10">
+
+    <br><br>
+
+    <button onclick="compra()">Comprar</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function compra(){
+
+        var choco = input_choco.value;
+        var valor = 0
+
+        choco >= 12 ? valor = 2.5 : valor = 3.0
+
+        var resultado = choco * valor;
+
+        alert(`O valor da sua compra foi de ${resultado}`);
+
+    }
+
+</script>

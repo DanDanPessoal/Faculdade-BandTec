@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+
+<body>
+
+    Digite a quantidade de votos do Zé buduia: 
+    <br>
+    <input placeholder="Quantidades de votos do Zé buduia" id="qtd_votos_ze"> 
+
+    <br><br>
+
+    Digite a quantidade de votos da Maria Antonieta: 
+    <br>
+    <input placeholder="Quantidades de votos da Maria Antonieta" id="qtd_votos_maria">
+
+    <br><br>
+
+    Digite a quantidade de votos brancos:
+    <br>
+    <input placeholder="Quantidades de votos brancos" id="qtd_votos_brancos">
+
+    <br><br>
+
+    Digite a quantidade de votos nulos: 
+    <br>
+    <input placeholder="Quantidades de votos mulos" id="qtd_votos_nulos">
+
+    <br><br>
+
+    <button id="But_result" onclick="resultado()">Resultado da eleição</button>
+
+    <br><br>
+
+    <h3>Resultado das Eleições</h3>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function resultado(){
+
+        var total_votos = Number(qtd_votos_ze.value) + Number(qtd_votos_maria.value) + Number(qtd_votos_brancos.value) + Number(qtd_votos_nulos.value);
+
+        var invalidos = Number(qtd_votos_nulos.value) + Number(qtd_votos_brancos.value);
+
+        var invalidos2 = (invalidos /total_votos) * 100;
+
+        var ze = (qtd_votos_ze.value / total_votos) * 100;
+
+        var maria = (qtd_votos_maria.value / total_votos) * 100;
+
+
+        div_msg.innerHTML = `<b>Total de votos: <u>${total_votos}</u><br>
+            Zé Buduia:</b> ${ze}% (${qtd_votos_ze.value} votos)<br>
+            <b>Maria Antonieta:</b> ${maria}% (${qtd_votos_maria.value} votos)<br>
+            <b>Inválidos:</b> ${invalidos2}% (${invalidos} votos)`
+
+    }
+
+</script>

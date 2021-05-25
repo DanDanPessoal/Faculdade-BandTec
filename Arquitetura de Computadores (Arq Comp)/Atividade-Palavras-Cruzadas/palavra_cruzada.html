@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Palavra Cruzada</title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="cabecalho">
+
+        <h1>BEM VINDO AS PALAVRAS CRUZADA</h1>
+
+    </div>
+
+    <div class="table-geral">
+
+
+    <table class="tabela">
+
+        <!-- Primeira linha -->
+
+        <thead>
+          <tr>
+
+             <!-- 15 colunas da primeira linha -->
+
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off" id="div_n3"> 3 - </th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off" id="div_n13"> 13 - </th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off"></th>
+            <th class="colunas-off" id="div_n12"> 12 - </th>
+
+          </tr>
+
+        </thead>
+
+        <!-- Fim da Primeira linha -->
+
+        <!-- Segunda linha -->
+
+        <tbody>
+
+          <tr>
+
+            <!-- 15 colunas da Segunda linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n8">8 - </td>
+
+            <td class="colunas" id="div_lc_23">
+              <input id="input_lc_23" onchange="hard_disk()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_24">
+              <input id="input_lc_24" onchange="hard_disk()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_25">
+              <input id="input_lc_25" onchange="hard_disk(),registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_26">
+               <input id="input_lc_26" onchange="hard_disk()" maxlength="1">
+            </td>
+
+            <td class="colunas-espaco" id="div_lc_27"></td>
+
+            <td class="colunas" id="div_lc_28">
+              <input id="input_lc_28" onchange="hard_disk()"  maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_29">
+              <input id="input_lc_29" onchange="hard_disk() ,  icinco()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_210">
+              <input id="input_lc_210" onchange="hard_disk()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_211">
+              <input id="input_lc_211" onchange="hard_disk()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_215">
+              <input id="input_lc_215" onchange="data_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+        <!-- Fim da segunda linha -->
+
+        <!-- Terceira linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Terceira linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_35">
+               <input id="input_lc_35" onchange="registradores()" maxlength="1"> 
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_39">
+              <input id="input_lc_39" onchange="icinco()" maxlength="1">
+            </td>
+            
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n2">2 - </td>
+
+            <td class="colunas" id="div_lc_313">
+              <input id="input_lc_313" onchange="ula()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_314">
+              <input id="input_lc_314" onchange="ula()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_315">
+              <input id="input_lc_315" onchange="ula(), data_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Terceira linha -->
+
+          <!-- Quarta linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Quarta linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_45">
+               <input id="input_lc_45" onchange="registradores()" maxlength="1"> 
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_415">
+              <input id="input_lc_415" onchange="data_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Quarta linha -->
+
+          <!-- Quinta linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Quinta linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n14"> 14 - </td>
+
+            <td class="colunas" id="div_lc_55">
+              <input id="input_lc_55" onchange="registradores(), isete()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_56">
+              <input id="input_lc_56" onchange="isete()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n9"> 9 - </td>
+
+            <td class="colunas" id="div_lc_513">
+              <input id="input_lc_513" onchange="dma()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_514">
+              <input id="input_lc_514" onchange="dma()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_515">
+              <input id="input_lc_515" onchange="dma(), data_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Quinta linha -->
+
+          <!-- Sexta linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Sexta linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            
+            <td class="colunas" id="div_lc_65">
+              <input id="input_lc_65" onchange="registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-espaco" id="div_lc_615"></td>
+
+          </tr>
+
+          <!-- Fim da Sexta linha -->
+
+          <!-- Sétima linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Sétima linha -->
+
+            <td class="colunas-off">
+              
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_75">
+              <input id="input_lc_75" onchange="registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n10"> 10 -</td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_715">
+              <input id="input_lc_715" onchange="data_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Sétima linha -->
+
+          <!-- Oitava linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Oitava linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n5"> 5 - </td>
+
+            <td class="colunas" id="div_lc_85">
+              <input id="input_lc_85" onchange="registradores(), rom()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_86">
+              <input id="input_lc_86" onchange="rom()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_87">
+              <input id="input_lc_87" onchange="rom()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_811">
+              <input id="input_lc_811" onchange="cs()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_815">
+              <input id="input_lc_815" onchange="data_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Oitava linha -->
+
+          <!-- Nona linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Nona linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n11"> 11 - </td>
+
+            <td class="colunas" id="div_lc_95">
+              <input id="input_lc_95" onchange="registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_96">
+              <input id="input_lc_96" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_97">
+              <input id="input_lc_97" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_98">
+              <input id="input_lc_98" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_99">
+              <input id="input_lc_99" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_910">
+              <input id="input_lc_910" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_911">
+              <input id="input_lc_911" onchange="adress_bus(), cs()" maxlength="1">
+            </td>
+
+            <td class="colunas-espaco" id="div_lc_912"></td>
+
+            <td class="colunas" id="div_lc_913">
+              <input id="input_lc_913" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_914">
+              <input id="input_lc_914" onchange="adress_bus()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_915">
+              <input id="input_lc_915" onchange="data_bus(), adress_bus()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Nona linha -->
+
+          <!-- Décima linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n15"> 15 - </td>
+
+            <td class="colunas" id="div_lc_105">
+              <input id="input_lc_105" onchange="dual_core(), registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_106">
+              <input id="input_lc_106" onchange="dual_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_107">
+              <input id="input_lc_107" onchange="dual_core()" maxlength="1">
+            </td>
+            
+            <td class="colunas" id="div_lc_108">
+              <input id="input_lc_108" onchange="dual_core()" maxlength="1">
+            </td>
+
+            <td class="colunas-espaco" id="div_lc_109"></td>
+
+            <td class="colunas" id="div_lc_1010">
+              <input id="input_lc_1010" onchange="dual_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_1011">
+              <input id="input_lc_1011" onchange="dual_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_1012">
+              <input id="input_lc_1012" onchange="dual_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_1013">
+              <input id="input_lc_1013" onchange="dual_core()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+          </tr>
+
+          <!-- Fim da Décima linha -->
+
+          <!-- Décima primeira linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima primeira linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_115">
+              <input id="input_lc_115" onchange="registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+          </tr>
+
+          <!-- Fim da Décima primeira linha -->
+
+          <!-- Décima segunda linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima segunda linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n4"> 4 - </td>
+
+            <td class="colunas" id="div_lc_125">
+              <input id="input_lc_125" onchange="registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n1"> 1 - </td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off" id="div_n6"> 6 -</td>
+
+          </tr>
+
+          <!-- Fim da Décima segunda linha -->
+
+          <!-- Décima terceira linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima terceira linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_134">
+              <input id="input_lc_134" onchange="ram()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_135">
+              <input id="input_lc_135" onchange="registradores()" maxlength="1">
+            </td>
+
+            <td class="colunas-off" id="div_n16"> 16 - </td>
+
+            <td class="colunas" id="div_lc_137">
+              <input id="input_lc_137"   onchange="quad_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_138">
+              <input id="input_lc_138"   onchange="quad_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_139">
+              <input id="input_lc_139"   onchange="quad_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_1310">
+              <input id="input_lc_1310" onchange="quad_core()" maxlength="1">
+            </td>
+
+            <td class="colunas-espaco" id="div_lc_1311"></td>
+
+            <td class="colunas" id="div_lc_1312">
+              <input id="input_lc_1312" onchange="quad_core(), cpu()" maxlength="1">
+            </td>
+            
+            <td class="colunas" id="div_lc_1313">
+              <input id="input_lc_1313" onchange="quad_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_1314">
+              <input id="input_lc_1314" onchange="quad_core()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_1315">
+              <input id="input_lc_1315" onchange="quad_core(), eprom()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Décima terceira linha -->
+
+          <!-- Décima quarta linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima quarta linha -->
+
+            <td class="colunas-off" id="div_n7"> 7 - </td>
+
+            <td class="colunas" id="div_lc_142">
+              <input id="input_lc_142" onchange="flash()" maxlength="1">
+            </td>
+            
+            <td class="colunas" id="div_lc_143">
+              <input id="input_lc_143" onchange="flash()" maxlength="1">
+            </td>
+            
+            <td class="colunas" id="div_lc_144">
+              <input id="input_lc_144" onchange="flash(), ram()" maxlength="1">
+            </td>
+
+            <td class="colunas" id="div_lc_145">
+              <input id="input_lc_145" onchange="registradores(), flash()" maxlength="1">
+            </td>
+            
+            <td class="colunas" id="div_lc_146">
+              <input id="input_lc_146" onchange="flash()" maxlength="1">
+            </td>
+            
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_1412">
+              <input id="input_lc_1412" onchange="cpu()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_1415">
+              <input id="input_lc_1415" onchange="eprom()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Décima quarta linha -->
+
+          <!-- Décima quinta linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima quinta linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_154">
+              <input id="input_lc_154" onchange="ram()" maxlength="1">
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_1512">
+              <input id="input_lc_1512" onchange="cpu()" maxlength="1"> 
+            </td>
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_1515">
+              <input id="input_lc_1515" onchange="eprom()" maxlength="1" >
+            </td>
+
+          </tr>
+
+          <!-- Fim da Décima quinta linha -->
+
+          <!-- Décima sexta linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima sexta linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+
+            <td class="colunas" id="div_lc_1615">
+              <input id="input_lc_1615" onchange="eprom()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Décima sexta linha -->
+
+          <!-- Décima sétima linha -->
+
+          <tr>
+
+            <!-- 15 colunas da Décima sétima linha -->
+
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            <td class="colunas-off"></td>
+            
+            <td class="colunas" id="div_lc_1715">
+              <input id="input_lc_1715" onchange="eprom()" maxlength="1">
+            </td>
+
+          </tr>
+
+          <!-- Fim da Décima sétima linha -->
+
+        </tbody>
+
+        </table>
+
+        <div class="box-dicas-geral">
+
+          <h2 id="h2_dicas">DICAS</h2>
+
+        <div class="box-dicas" id="div_dica1">
+
+          1° A <span id="span_dica1">_ _ _</span> também conhecida como processador, é a parte de um sistema computacional, 
+          que realiza as instruções de um programa de computador, para executar a aritmética básica, 
+          lógica, e a entrada e saída de dados.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica2">
+
+          2° A  <span id="span_dica2">_ _ _</span> realiza operações de adição e booleana AND. A ULA é uma peça fundamental da unidade
+          central de processamento, e até dos mais simples microprocessadores.
+          
+        </div>
+        
+        <div class="box-dicas" id="div_dica3">
+          
+          3° Os <span id="span_dica3">_ _ _ _ _ _ _ _ _ _ _ _ _</span> são circuitos digitais capazes de armazenar e deslocar informações
+          binárias, e são tipicamente usados como um dispositivo de armazenamento temporário.
+
+        </div>
+
+        <div class="box-dicas" id="div_dica4">
+
+          4° A memória<span id="span_dica4"> _ _ _</span> é um tipo de memória que permite a leitura e a escrita, utilizada como 
+          memória primária em sistemas eletrônicos digitais.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica5">
+
+          5° A memória <span id="span_dica5">_ _ _ </span>  as suas informações são gravadas pelo fabricante uma única vez e após isso
+          não podem ser alteradas ou apagadas, somente acessadas.
+
+        </div>
+
+        <div class="box-dicas" id="div_dica6">
+
+          6° Uma  <span id="span_dica6">_ _ _ _ _</span> é uma memória de somente leitura programável e apagável, 
+          sua principal caracteristica é que os dados que foram gravados nela, podem ser regravados.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica7">
+
+          7° A principal característica da memoria  <span id="span_dica7">_ _ _ _ _</span> é a maior facilidade de acesso e 
+          alteração dos dados no chip, além da manutenção das informações após interrupção do 
+          fornecimento de energia.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica8">
+
+          8° O  <span id="span_dica8">_ _ _ _   _ _ _ _</span> é um tipo de memória de massa também conhecida como memória auxiliar, 
+          tem como função armazenar grandes quantidades de informações. 
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica9">
+
+          9° O  <span id="span_dica9">_ _ _</span> permite que certos dispositivos de hardware num computador acessem a memória do 
+          sistema para leitura e escrita independentemente da CPU.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica10">
+
+          10° O  <span id="span_dica10">_ _</span> é uma linha de controle usada para selecionar um dos circuitos integrados dentre os vários
+          conectados ao mesmo barramento de computador
+          
+        </div>
+        
+        <div class="box-dicas" id="div_dica11">
+          
+          11° O <span id="span_dica11">_ _ _ _ _ _ _   _ _ _</span>  é um barramento unidirecional,
+          onde o endereço pode ser transferido em apenas uma direção.
+          
+        </div>
+        
+        <div class="box-dicas" id="div_dica12">
+          
+          
+          12° O <span id="span_dica12">_ _ _ _   _ _ _</span>  é um barramento bidirecional, que transmite dados e
+          instruções da unidade central de processamento para a memória e dispositivos 
+          periféricos e vice-versa.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica13">
+
+          13° O <span id="span_dica13"> _ _</span> é uma série de processadores fabricados pela Intel destinada a desktop x86-64 que 
+          aborda a utilização da microarquitetura Nehalem, possuindo 4 núcleos e 4 Threads.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica14">
+
+          14° O <span id="span_dica14"> _ _</span> é uma série de processadores fabricados pela Intel destinada a 
+          desktop x86-64 que aborda a utilização da microarquitetura Nehalem, possuindo 4 núcleos e 8 Threads.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica15">
+
+          15° O <span id="span_dica15"> _ _ _ _   _ _ _ _ </span> é um processador que possui dois núcleos, 
+          primeiro tipo de processador a ser multitarefas, é como se houvesse 2 'cérebros' 
+          trabalhando no computador.
+          
+        </div>
+
+        <div class="box-dicas" id="div_dica16">
+
+        16° O  <span id="span_dica16">_ _ _ _   _ _ _ _</span>  possui 4 núcleos, é multitarefas,
+         mas por sua vez, ele é 2 vezes mais rápido que o processador descrito no 15°, pois tem dois 'cérebros'
+         a mais.
+        </div>
+
+    </div>
+
+    <div class="button-reset">
+
+    <button id="but_resetar" onclick="resetar()" style="margin: 10px 10px;
+     background-color: aqua; height: 50px; width: 150px; border-radius: 30px; display: none;">RESETAR
+     </button>
+
+    </div>  
+
+  </div>
+    
+</body>
+  
+</html>
+
+<script src="script.js"></script>

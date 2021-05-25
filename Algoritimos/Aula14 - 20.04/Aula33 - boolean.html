@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 33 - Boolean</title>
+
+</head>
+
+<body>
+
+    Entre com a média: <input id="input_media"> <br>
+    Entre com a frequência: <input id="input_freq">
+    
+    <br><br>
+
+    <button onclick="analisar()">Analisar</button>
+    
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar(){
+
+    var frase = 'Bom dia, flor do dia';
+    var resposta = frase.startsWith('Bom');
+    var aprovado = input_media.value >= 6 && input_freq.value >= 75;
+
+    alert(aprovado);
+
+    if( aprovado){
+
+        alert('Aluno aprovado');
+
+    }else{
+
+        alert('Aluno reprovado');
+
+    }
+}
+
+</script>

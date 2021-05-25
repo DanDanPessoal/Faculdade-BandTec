@@ -1,0 +1,1642 @@
+* be breaking changes between
+`0.2.4` and `0.2.5`.  It allows for changes that are presumed to be
+additive (but non-breaking), according to commonly observed practices.
+
+* `^1.2.3` := `>=1.2.3 <2.0.0`
+* `^0.2.3` := `>=0.2.3 <0.3.0`
+* `^0.0.3` := `>=0.0.3 <0.0.4`
+* `^1.2.3-beta.2` := `>=1.2.3-beta.2 <2.0.0` Note that prereleases in
+  the `1.2.3` version will be allowed, if they are greater than or
+  equal to `beta.2`.  So, `1.2.3-beta.4` would be allowed, but
+  `1.2.4-beta.2` would not, because it is a prerelease of a
+  different `[major, minor, patch]` tuple.
+* `^0.0.3-beta` := `>=0.0.3-beta <0.0.4`  Note that prereleases in the
+  `0.0.3` version *only* will be allowed, if they are greater than or
+  equal to `beta`.  So, `0.0.3-pr.2` would be allowed.
+
+When parsing caret ranges, a missing `patch` value desugars to the
+number `0`, but will allow flexibility within that value, even if the
+major and minor versions are both `0`.
+
+* `^1.2.x` := `>=1.2.0 <2.0.0`
+* `^0.0.x` := `>=0.0.0 <0.1.0`
+* `^0.0` := `>=0.0.0 <0.1.0`
+
+A missing `minor` and `patch` values will desugar to zero, but also
+allow flexibility within those values, even if the major version is
+zero.
+
+* `^1.x` := `>=1.0.0 <2.0.0`
+* `^0.x` := `>=0.0.0 <1.0.0`
+
+### Range Grammar
+
+Putting all this together, here is a Backus-Naur grammar for ranges,
+for the benefit of parser authors:
+
+```bnf
+range-set  ::= range ( logical-or range ) *
+logical-or ::= ( ' ' ) * '||' ( ' ' ) *
+range      ::= hyphen | simple ( ' ' simple ) * | ''
+hyphen     ::= partial ' - ' partial
+simple     ::= primitive | partial | tilde | caret
+primitive  ::= ( '<' | '>' | '>=' | '<=' | '=' ) partial
+partial    ::= xr ( '.' xr ( '.' xr qualifier ? )? )?
+xr         ::= 'x' | 'X' | '*' | nr
+nr         ::= '0' | ['1'-'9'] ( ['0'-'9'] ) *
+tilde      ::= '~' partial
+caret      ::= '^' partial
+qualifier  ::= ( '-' pre )? ( '+' build )?
+pre        ::= parts
+build      ::= parts
+parts      ::= part ( '.' part ) *
+part       ::= nr | [-0-9A-Za-z]+
+```
+
+## Functions
+
+All methods and classes take a final `options` object argument.  All
+options in this object are `false` by default.  The options supported
+are:
+
+- `loose`  Be more forgiving about not-quite-valid semver strings.
+  (Any resulting output will always be 100% strict compliant, of
+  course.)  For backwards compatibility reasons, if the `options`
+  argument is a boolean value instead of an object, it is interpreted
+  to be the `loose` param.
+- `includePrerelease`  Set to suppress the [default
+  behavior](https://github.com/npm/node-semver#prerelease-tags) of
+  excluding prerelease tagged versions from ranges unless they are
+  explicitly opted into.
+
+Strict-mode Comparators and Ranges will be strict about the SemVer
+strings that they parse.
+
+* `valid(v)`: Return the parsed version, or null if it's not valid.
+* `inc(v, release)`: Return the version incremented by the release
+  type (`major`,   `premajor`, `minor`, `preminor`, `patch`,
+  `prepatch`, or `prerelease`), or null if it's not valid
+  * `premajor` in one call will bump the version up to the next major
+    version and down to a prerelease of that major version.
+    `preminor`, and `prepatch` work the same way.
+  * If called from a non-prerelease version, the `prerelease` will work the
+    same as `prepatch`. It increments the patch version, then makes a
+    prerelease. If the input version is already a prerelease it simply
+    increments it.
+* `prerelease(v)`: Returns an array of prerelease components, or null
+  if none exist. Example: `prerelease('1.2.3-alpha.1') -> ['alpha', 1]`
+* `major(v)`: Return the major version number.
+* `minor(v)`: Return the minor version number.
+* `patch(v)`: Return the patch version number.
+* `intersects(r1, r2, loose)`: Return true if the two supplied ranges
+  or comparators intersect.
+* `parse(v)`: Attempt to parse a string as a semantic version, returning either
+  a `SemVer` object or `null`.
+
+### Comparison
+
+* `gt(v1, v2)`: `v1 > v2`
+* `gte(v1, v2)`: `v1 >= v2`
+* `lt(v1, v2)`: `v1 < v2`
+* `lte(v1, v2)`: `v1 <= v2`
+* `eq(v1, v2)`: `v1 == v2` This is true if they're logically equivalent,
+  even if they're not the exact same string.  You already know how to
+  compare strings.
+* `neq(v1, v2)`: `v1 != v2` The opposite of `eq`.
+* `cmp(v1, comparator, v2)`: Pass in a comparison string, and it'll call
+  the corresponding function above.  `"==="` and `"!=="` do simple
+  string comparison, but are included for completeness.  Throws if an
+  invalid comparison string is provided.
+* `compare(v1, v2)`: Return `0` if `v1 == v2`, or `1` if `v1` is greater, or `-1` if
+  `v2` is greater.  Sorts in ascending order if passed to `Array.sort()`.
+* `rcompare(v1, v2)`: The reverse of compare.  Sorts an array of versions
+  in descending order when passed to `Array.sort()`.
+* `compareBuild(v1, v2)`: The same as `compare` but considers `build` when two versions
+  are equal.  Sorts in ascending order if passed to `Array.sort()`.
+  `v2` is greater.  Sorts in ascending order if passed to `Array.sort()`.
+* `diff(v1, v2)`: Returns difference between two versions by the release type
+  (`major`, `premajor`, `minor`, `preminor`, `patch`, `prepatch`, or `prerelease`),
+  or null if the versions are the same.
+
+### Comparators
+
+* `intersects(comparator)`: Return true if the comparators intersect
+
+### Ranges
+
+* `validRange(range)`: Return the valid range or null if it's not valid
+* `satisfies(version, range)`: Return true if the version satisfies the
+  range.
+* `maxSatisfying(versions, range)`: Return the highest version in the list
+  that satisfies the range, or `null` if none of them do.
+* `minSatisfying(versions, range)`: Return the lowest version in the list
+  that satisfies the range, or `null` if none of them do.
+* `minVersion(range)`: Return the lowest version that can possibly match
+  the given range.
+* `gtr(version, range)`: Return `true` if version is greater than all the
+  versions possible in the range.
+* `ltr(version, range)`: Return `true` if version is less than all the
+  versions possible in the range.
+* `outside(version, range, hilo)`: Return true if the version is outside
+  the bounds of the range in either the high or low direction.  The
+  `hilo` argument must be either the string `'>'` or `'<'`.  (This is
+  the function called by `gtr` and `ltr`.)
+* `intersects(range)`: Return true if any of the ranges comparators intersect
+
+Note that, since ranges may be non-contiguous, a version might not be
+greater than a range, less than a range, *or* satisfy a range!  For
+example, the range `1.2 <1.2.9 || >2.0.0` would have a hole from `1.2.9`
+until `2.0.0`, so the version `1.2.10` would not be greater than the
+range (because `2.0.1` satisfies, which is higher), nor less than the
+range (since `1.2.8` satisfies, which is lower), and it also does not
+satisfy the range.
+
+If you want to know if a version satisfies or does not satisfy a
+range, use the `satisfies(version, range)` function.
+
+### Coercion
+
+* `coerce(version, options)`: Coerces a string to semver if possible
+
+This aims to provide a very forgiving translation of a non-semver string to
+semver. It looks for the first digit in a string, and consumes all
+remaining characters which satisfy at least a partial semver (e.g., `1`,
+`1.2`, `1.2.3`) up to the max permitted length (256 characters).  Longer
+versions are simply truncated (`4.6.3.9.2-alpha2` becomes `4.6.3`).  All
+surrounding text is simply ignored (`v3.4 replaces v3.3.1` becomes
+`3.4.0`).  Only text which lacks digits will fail coercion (`version one`
+is not valid).  The maximum  length for any semver component considered for
+coercion is 16 characters; longer components will be ignored
+(`10000000000000000.4.7.4` becomes `4.7.4`).  The maximum value for any
+semver component is `Integer.MAX_SAFE_INTEGER || (2**53 - 1)`; higher value
+components are invalid (`9999999999999999.4.7.4` is likely invalid).
+
+If the `options.rtl` flag is set, then `coerce` will return the right-most
+coercible tuple that does not share an ending index with a longer coercible
+tuple.  For example, `1.2.3.4` will return `2.3.4` in rtl mode, not
+`4.0.0`.  `1.2.3/4` will return `4.0.0`, because the `4` is not a part of
+any other overlapping SemVer tuple.
+
+### Clean
+
+* `clean(version)`: Clean a string to be a valid semver if possible
+
+This will return a cleaned and trimmed semver version. If the provided version is not valid a null will be returned. This does not work for ranges. 
+
+ex.
+* `s.clean(' = v 2.1.5foo')`: `null`
+* `s.clean(' = v 2.1.5foo', { loose: true })`: `'2.1.5-foo'`
+* `s.clean(' = v 2.1.5-foo')`: `null`
+* `s.clean(' = v 2.1.5-foo', { loose: true })`: `'2.1.5-foo'`
+* `s.clean('=v2.1.5')`: `'2.1.5'`
+* `s.clean('  =v2.1.5')`: `2.1.5`
+* `s.clean('      2.1.5   ')`: `'2.1.5'`
+* `s.clean('~1.0.0')`: `null`
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  À"p
+èõó ""›TUñC­;ˆ}oû®ÌÖ”×2çhŞ¾ŸÆÁ][µZx­ªUåÔÌd|?ğòy3š÷Ò¸}/æ¶íùüzà+§ç¦ø—³‡gkQYñÔÌä8ğJ-rŒ<x—ÄW;|`znz¼ßÖ¹­\mçVDD¶­—(»BÔŒ¼—²šÒØ•
+â¼ÓIŠ*ß¶R6€…€å°<œ°¼÷w€—Q@,"[KUÄÕ¨kìì€¸ÌÖ”×Š†[Œ<rÛvo÷pxÕ@´ªœš™¼‹¢bøÿ¢ÄpØ5RFº‡æû¶s8¼jøçÀïLÏMßYçF*	ˆ§f&÷¿¼g³kY1òĞ=Äc[²ÇHÕŞCq‰A©SÉoFç¶oú~nEDd[;O–ÃpFÈ=¡ÓÃjŠe]ğID·™bØJ_â-ôƒ„Ë=Á =Ú ×J0À|__ÏK¿6²~TDd“î{ìsUq½yeqÔÜ¹q™­)¯Õ8°—Ñ‡ïÙ©¯om­*§f&¿’br©½t“‰QF¹o»µY‹GOOÏMi](= š™Üü.ğÆÍ®µ FCÛ¦ÏHŞüîôÜô®ª¤sÛw};·""²í^¤¬æf˜ôròn·¨Ö©¥Â#`!Ğo’§QÑ‡8l­b3è¥äş·ê .Rüú¨§™´ˆÈÆ8ª	s+ëíêv`€953™NÍLşğc”\5ŒC÷İIë®ı;¥jøFV[UşÌôÜt_~‘MÍLşÿ€ÿL”¹nãà^†'aQ_Æ¥¢]ÀoNÏMÿOu¼ÔWıÑ÷=Ø~xıf×2gOÚ©ËÖëõÀ¯LÏMW–¶®ô
+Ò¹í¿ÊÏ­ˆˆìKm&Ê#äßéB ®Ê]—–Ç[dh¥‚xëf˜3ÚÃ	İVÑ"ºÏÙç)ÚLÜLL™}EDÊQj5êÔÌäŠ€¦tÇ;.ô*³5åµ,Šyİ=¤{ÆÊ^z+«¼UåÔÌ¤MÍLşcà_PrØ:tÖ¡ıe.¹UEÀ¿›şá~¸´úèû4à}”T^>tïÄ#Ce,µS¼xßôÜté?MÍLêÜÖ«²s+"";F<SêŠ8íä:&ÃÅa—FS²Äaa‹%Ä¶Ú&#¦3Ú Œbú__wñ0‹û$ÀHö""²eª«p@İÎ**³5åµ,‰yøâQ}nyU·ªüÀß/{ÑÖİ·Ó8¸»ìe·ºœ›ş§ı<`™‰ÿß¾±Œ…š·í%Ù­O‚6à)ÎCÙtnëWÕ¹‘ÁOSfŸÙ@1¨®Û!d¬ÿ•QpŞÓNéµ€m©!@”gôš1ËcM|ìúİè¡œº·¸_›¢…ˆÈ )»Ÿmuêš;' .³5åµ,.*‡wZà¾N•´ªœš™üàûÊ\ŠÊáÆş‰²—İ.şn?+‰Ky'ÿèû|øÇe¬Ó¼Seå›ğ§ç¦-k±©™ÉGÑ¹¥[ÙQrà8E Xsßîâó¼¾ö>ĞJé4ğÎÕQÈ¼q.óôÒˆ¥‘ïèwÀ}8ônq¿°†ûˆˆô[ÙÄ•õŞ)ÔÊlMy-sáÉ»ˆZ;ãµÜ¤R[UNÍL~ğ÷ÊXëjı{T9|k?8=7ıı8Ğ¦âGß÷àEûM¯eQÄĞ}·ov™ÎQ´#˜ØìBS3“èÜ’ÒÎ­ˆˆì8¢RôV­ÖÇŒyB·W”Ãö›Ë=İ4¢=”`Ö÷€usò€åÎPBw(s8ß×)†*ü‘­èÁé¹é¸Äõ4 nÊnMy­¡ûî$Q[‰u(¥UåÔÌä{€/gK¯ˆÇFiİu ìe·«Ÿœ›ªú eTÿ?À¡Ö¡u×\ZËôæíæÅyÙ,ÛÁSÖ¹‘çğB©+ày§¦€p9ôå‘ïŠ¡o5ÍË[ƒÈÌñİf
+ı‡ÎRô ÎûzT‘r$À%®7YâZ¯²bJlMy­æíûIv©şlªUåÔÌäíÀ¡œV—&ßûÖx¿6à¿LÏM¬ò ›
+ˆ}ßƒïşJ‰G‡H÷N”±”şÊôÜô»7úà©™IÛÁµ©s+"";Vx»Üš÷9y»Şjy£¿Z1¼<Ñ$O¢-SAÌŠja =’’5âWÂáş½gWn""[U)ƒå¦f&#ª
+ˆÍˆÛ»XªÌÖ”×ŠÇFhŞ±·Š¥wŠµª\©ÿY ôwC÷İ‰Å¥fÎ;ÁA`f³á7³á€øÑ÷=?QÊ.ZwßVÊRò*?1=7½îßu+9êÜ¶[ÙÑ2Š
+âòÆ Y
+ûn—àë)Bµp9,í"K"¬¿CŞ6ÅrOpÆòhƒ¬ãBèwÀ}XìçEDJöHIëÜTRæëÒ”úõW¯ÌÖ”×²8bè^µªÜ¤¶ªüàKÊŞLãÀ^âQµ
+Ù ¯ şZU‹oæ7ğwPÒÆéŞ	M¡¬Æ#çi½¾ÛA·Ñs+"";W<E™M‚af„Nàu”»P´eXMñ±Ãy_W·‹us™§ÛLh6ñ‘ÃyúÙb¢KÑ^¢İ·#Šˆ”¯¬AuÕ¨Ûş?—ÖšòZ­»nÃ¥e¶™Ş±ÖÕªrjfòğÏÊŞ„KSšwª|“şùôÜt%Ÿšl( ~ô}¦À—²3šwì/e)¹®›^ó'¡S3“:·[ÇºÎ­ˆˆìx9ğ$¥Vÿç—»×”Êï‹AoÃI1¸nÄ!€ù@¯•ĞIğF¿û8_NSÅ""[Õá’ÖÑ€º(³5åµâ±Ò=cU,½S­§UåÃeo u×Ì•^h¾ÓŒRœŸÒmôÌüU ”Äº±o—è¡
+İNq¾ÖJçvëXï¹‘-PTŒ^,uUƒõğ½uT{ƒ8Ëé5c–Ç[EoßÜüà3p>ĞkÆ´G’•wå}°w	xÄ"²µ=4=7]FâTÙ€ºh›Ä¥¶¦¼–­»+ÇµSİ²UåÔÌä;o*ûÀñè0É®Ñ²—İ©¾eznúíe/ºî?HWzÿ@)G7hÜSÊRrS?°–¿4Wş€×¹İZÖtnEDDV\-uEçğŞ“w:ÔRbe,XI‹Ê\¶@@ì=¡„ÎPfıŞòŠÄ[¨k³ˆÈk´(úoVY­*^Ã5·m‹‰ï ¼Ğ¯’îÛµmƒõš­¥Ue%Ã›wêêò’ıHÙnämü× ÷•qğd|×Ğoú>¸â¼İŠÎíÖ³Ös+""°D1¨®´^æÁòN}…¨–C;:£|m'9!và¼Œîh“¬™g¤¿Qí¥•›ˆÈVWFHYY±k$U-]›R[S^ËŒæíêS[¡¶ªœš™|0Uöã±Qâ¦+Ù{ûÜckm²&	ˆ¿§¬ƒ7öï*k)¹µµœ7Û­©´ó&""Û^¼HÙ}ˆ½Ç·»x_cóß ËãMò4Æ<„T°b ĞNé6c~N¨£è?|¹Ÿ©ÈC›yğÔÌäY3ç¶ëµÒZS^«±·ZUVëf­*ÿ×*Ø¼MW—W¤Ôóµ®€øÑ÷=x'ğå¥8MˆÇGÊXJÖæ+¦ç¦ï¼Ñ7§f&un·®›[‘«äÀsAqiœtºĞË©£r×¬¨"^kĞkF8ï¹~¸Bd´Gz‰£ˆûwtà°Ğ¿CŠˆTf³ÄÕUoÃö¥¶¦¼–»+YZ^å5­*§f&_|eÙŠ†ZÄcCe/+…÷>ö¹Ç6õÙÕÖ[Aü­”ô®?Ù3^Æ2²vFqşnDçvëºÕ¹Y•Ç)s0Y ¢ˆ|¹‡Ïò@Şô>ËÃºÍ|ß«q×'@”{²fÌòX9\N?[LÌSTk@ˆl‡7ùøKÙÅuD­íSbkÊk%cÛ²%Ç º^«Êïªâ@é>]]^±¿YÖBë­Ûÿæ²œî+k©{
+  "_from": "semver@^6.2.0",
+  "_id": "semver@6.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==",
+  "_location": "/package-json/semver",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "semver@^6.2.0",
+    "name": "semver",
+    "escapedName": "semver",
+    "rawSpec": "^6.2.0",
+    "saveSpec": null,
+    "fetchSpec": "^6.2.0"
+  },
+  "_requiredBy": [
+    "/package-json"
+  ],
+  "_resolved": "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz",
+  "_shasum": "ee0a64c8af5e8ceea67687b133761e1becbd1d3d",
+  "_spec": "semver@^6.2.0",
+  "_where": "D:\\Faculdade BandTec\\Pesquisa e InovaÃ§Ã£o (PI)\\alfa-company\\site_institucional\\Ãrea_do_Cliente_Responsiva\\node_modules\\package-json",
+  "bin": {
+    "semver": "bin/semver.js"
+  },
+  "bugs": {
+    "url": "https://github.com/npm/node-semver/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "The semantic version parser used by npm.",
+  "devDependencies": {
+    "tap": "^14.3.1"
+  },
+  "files": [
+    "bin",
+    "range.bnf",
+    "semver.js"
+  ],
+  "homepage": "https://github.com/npm/node-semver#readme",
+  "license": "ISC",
+  "main": "semver.js",
+  "name": "semver",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm/node-semver.git"
+  },
+  "scripts": {
+    "postpublish": "git push origin --follow-tags",
+    "postversion": "npm publish",
+    "preversion": "npm test",
+    "test": "tap"
+  },
+  "tap": {
+    "check-coverage": true
+  },
+  "version": "6.3.0"
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                 ‘#*7 Gª"üıÀ=rl	øÀ‹e.|Ñzt Î§ïÜÌ·ü]¸2 î¡Íä
+cPdöğìŸ®åGû8ğ‘2š/¶É–ÊXj³š›VÔéÜ–`ĞÎmİ›‘·<O™m&Ì|»CèoEì+| —8Ú#¼äÖ„ØŠşÃX =Ú Ûj\éÜGç(Bb¹¾¯î­bádb—Öß«°{úbİ[©ÊFúWGÍú¿—%_îl´Çó-Xõğ•V•e¶¦¼–ïõX~îº1kQö9ˆ†¦xğ2ğ]³‡gÀÑ#ÇÎRÁ‡À!ËX~şTÙËnÄ[6óàµ|Ls/%]båÒt .©şsÅ÷¿¡Ş¹x?Ş 8¯:·Û÷ÜŠˆˆÜLFmÌ¾ÓƒÜ×’ËZ€`F{¢…J0VZLÈ-˜½²ÇÑİfÁcô5È~‰¢±\ß÷TµpºWUK¯YÈ=İ³j/!ÛÖºBÌ•‚©*Ù‰Ù ¯Ú´ĞÍ*ˆ¹Ue™­)¯Õ»x™ŞÅÁøë¸ìsÎÕåÿtöğìé«¿pôÈ±_~·ìõ.\„~ÄŸ¿™Çk¸OiŸ¨EƒÓƒäW7pÿŸ(ãÀ½‹´î.c¥M{€µ·¹%Û;·OÕ½	h]à G™½VÍá;]¼Ï‹)İ}®$¶•^İá„Z—»s¸ş»¡àŒd¹GÔótšİf|¥]sŸv¸Hqiå`üD:`¦f&ï¥˜^:×hÀ¦î¹Ë?ˆÓEJ±ŞAu÷ •¤¸®10T¥y^MDCq%2Ü¸å?«â€í—Î’LŒT±ôº”}Ü`œÓEnœõü(%u»Vçä9âÑ;Ë^v=Ş¸™¯% ¾g3¸Ú€|‚öôìáÙëyÀÑ#ÇNLÍL>Ü¿ÙƒûnßéB?¢ûÊ\Lçvû[Ù–2ŠAuK@y?™8Ã÷z„ÌãÒ@ècò	Å±Ì—wµ8ùº}Ÿ¢=šbå5ÒØ”`FÚé€ówfy(rôşäóÃ	g:Î`ù›Tt&P=Ğ=­öÓ²­­wàœÔ­Qğş®J6”b³¶ª<zäØÇ§f&?Â&û»^O¾¸D¶Ğ&©·â6j®| QÂû9\²–¨±r??{xöF—yÿ&Å,{Ê<`ïâe|·Wg;©»ûÜcCïøıêº–³VZM¤Kâ7şnâq›²…eÒúCÄRk]unÛñÜŠˆÈ¶(zÑö—µ¨™òœĞíÂPƒ¾ÖÆ®ˆ;‹şôÏ?!ª	ñj‘#îæÅcıÛâ<pš’[‹lS3“M*ê5iÎ‘î¯béõú½|¹ı%uoB¤B‡¦ç¦ÇfÏ^^ãı«P7¡g™¶{¥õ­ZOşg*ˆzç/Õ-QR|»³é¥\s`ÚKüâ¾qôÈ±053ùKÀ÷—}ĞŞ…jıPøuÀ'6òÀµÄ·mdáë±t >Eøì7WÖüòæÓ•à %ş8¢s[ s+""r+ç€“”5°v…Ï=y»GTC8`!€3:ÍÜ@üĞy—ù:Z_\ ¨—×ú&`O'{&Š–+õû1@±lw¼Æûª‚¸fô:İªUei­)¯Õ»0Oë®U,½.Q³QJ@< á=àƒ·¸Ï§Š€øRíñ½T—VUâãÑ±>îÉ²6·»e-µ¥ş	¤s[ØçVDD¶­yŠËë<eÍ%0ƒ<wºÅ§Ğå\­¸Î= âŞ€ô•,ç)Bby­Ò§š¯jì›¨jéõxø•º7!Ò‡€€xVWb«´ª,³5åµ|·‹ïôj-Ê:¾Õ×^áj:{xöVí´>
+ä@©aV¾°XÔGÔW£°áv0kùa`ßF¿–F’7ø¸—ÊÚ@èõÊZj3ö¢s»j;[‘[é'Vş¿4¾›|õÃrâ½Ò|İ4S3“oŞ^ÅÚÑğÑğ@\nûÓ³‡gÕZDv‚õª›¬j®9!ÙÀ«±WëÕÖÚªr£--o)[¬4@Yçb@ÎéÇou‡£G- —}à{òN­…ƒ•Ä]üZ•Sœ²I½¬îtYğƒQÑ2ÎíªíxnEDDn¥Kñ!i¹¡‘WÔ„<Ã¬ÿï·L/Ô½‘ô?UµpãÀîª–^ø©º7!Ò'kª
+š™î¬bæfH×ÀÛb­*KkMy­AhUYVÑŸKâêòµ^%^ÚÕäWóõ^Y¾á–£kIõJ›lmn BÄ^Vw®¬„l BÄQtnWmÇs+""r+=à8PnÙJäŠvy^´œŒá3‹=§ë/S S3“»o®bm‹c’]ñ¶ì—fÏ¾\÷&Dúäõk¼_uêZqÕÀ–àâˆ×Úª²’0£UeYjHÏıµÓ¶)½©šâ_Q¾–Toh£‹¿Æ`T™J¡…ÎívÕª{""²%xŠÀp­ÓŞ×È½Œ¼›ÕÙM^kx™²+Æ·¾ï ¢÷Né¾]Ø`J¬d°’È€ºgznz-	meñ€éÚ$L\k«ÊÒZS^kZU–u.äœ)ù~ëRsáà†îîÄ
+âK}~Ük„|`ªLun7÷¸× s+""²ç)ı#„PTÃó.           ·ê –R–R	 ë –R-G    ..          ·ê –R–R	 ë –RG    SEMVER  JS  ë –R›R	 à)Z.Gm                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  #!/usr/bin/env node
+// Standalone semver comparison program.
+// Exits successfully and prints matching version(s) if
+// any supplied version is valid and passes all tests.
+
+var argv = process.argv.slice(2)
+
+var versions = []
+
+var range = []
+
+var inc = null
+
+var version = require('../package.json').version
+
+var loose = false
+
+var includePrerelease = false
+
+var coerce = false
+
+var rtl = false
+
+var identifier
+
+var semver = require('../semver')
+
+var reverse = false
+
+var options = {}
+
+main()
+
+function main () {
+  if (!argv.length) return help()
+  while (argv.length) {
+    var a = argv.shift()
+    var indexOfEqualSign = a.indexOf('=')
+    if (indexOfEqualSign !== -1) {
+      a = a.slice(0, indexOfEqualSign)
+      argv.unshift(a.slice(indexOfEqualSign + 1))
+    }
+    switch (a) {
+      case '-rv': case '-rev': case '--rev': case '--reverse':
+        reverse = true
+        break
+      case '-l': case '--loose':
+        loose = true
+        break
+      case '-p': case '--include-prerelease':
+        includePrerelease = true
+        break
+      case '-v': case '--version':
+        versions.push(argv.shift())
+        break
+      case '-i': case '--inc': case '--increment':
+        switch (argv[0]) {
+          case 'major': case 'minor': case 'patch': case 'prerelease':
+          case 'premajor': case 'preminor': case 'prepatch':
+            inc = argv.shift()
+            break
+          default:
+            inc = 'patch'
+            break
+        }
+        break
+      case '--preid':
+        identifier = argv.shift()
+        break
+      case '-r': case '--range':
+        range.push(argv.shift())
+        break
+      case '-c': case '--coerce':
+        coerce = true
+        break
+      case '--rtl':
+        rtl = true
+        break
+      case '--ltr':
+        rtl = false
+        break
+      case '-h': case '--help': case '-?':
+        return help()
+      default:
+        versions.push(a)
+        break
+    }
+  }
+
+  var options = { loose: loose, includePrerelease: includePrerelease, rtl: rtl }
+
+  versions = versions.map(function (v) {
+    return coerce ? (semver.coerce(v, options) || { version: v }).version : v
+  }).filter(function (v) {
+    return semver.valid(v)
+  })
+  if (!versions.length) return fail()
+  if (inc && (versions.length !== 1 || range.length)) { return failInc() }
+
+  for (var i = 0, l = range.length; i < l; i++) {
+    versions = versions.filter(function (v) {
+      return semver.satisfies(v, range[i], options)
+    })
+    if (!versions.length) return fail()
+  }
+  return success(versions)
+}
+
+function failInc () {
+  console.error('--inc can only be used on a single version with no range')
+  fail()
+}
+
+function fail () { process.exit(1) }
+
+function success () {
+  var compare = reverse ? 'rcompare' : 'compare'
+  versions.sort(function (a, b) {
+    return semver[compare](a, b, options)
+  }).map(function (v) {
+    return semver.clean(v, options)
+  }).map(function (v) {
+    return inc ? semver.inc(v, inc, options, identifier) : v
+  }).forEach(function (v, i, _) { console.log(v) })
+}
+
+function help () {
+  console.log(['SemVer ' + version,
+    '',
+    'A JavaScript implementation of the https://semver.org/ specification',
+    'Copyright Isaac Z. Schlueter',
+    '',
+    'Usage: semver [options] <version> [<version> [...]]',
+    'Prints valid versions sorted by SemVer precedence',
+    '',
+    'Options:',
+    '-r --range <range>',
+    '        Print versions that match the specified range.',
+    '',
+    '-i --increment [<level>]',
+    '        Increment a version by the specified level.  Level can',
+    '        be one of: major, minor, patch, premajor, preminor,',
+    "        prepatch, or prerelease.  Default level is 'patch'.",
+    '        Only one version may be specified.',
+    '',
+    '--preid <identifier>',
+    '        Identifier to be used to prefix premajor, preminor,',
+    '        prepatch or prerelease version increments.',
+    '',
+    '-l --loose',
+    '        Interpret versions and ranges loosely',
+    '',
+    '-p --include-prerelease',
+    '        Always include prerelease versions in range matching',
+    '',
+    '-c --coerce',
+    '        Coerce a string into SemVer if possible',
+    '        (does not imply --loose)',
+    '',
+    '--rtl',
+    '        Coerce version strings right to left',
+    '',
+    '--ltr',
+    '        Coerce version strings left to right (default)',
+    '',
+    'Program exits successfully if any valid version satisfies',
+    'all supplied ranges, and prints all satisfying versions.',
+    '',
+    'If no satisfying versions are found, then exits failure.',
+    '',
+    'Versions are printed in ascending order, so supplying',
+    'multiple versions to the utility will just sort them.'
+  ].join('\n'))
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                   X…©™Éİı‡KgqLº{´Š¥×ëgÏª{"[I¾Ü%êË±¢Vã–qÔJ;@«Šãÿõõï‘vôÈ±_š™üjàW(ñ÷]ïü%rÏğwbnËüğfà~¤ê©Å„ˆˆˆˆ¬ÕyŠ¾·åü$k+7Œà=ôù{ Ì.Àm`Y â=ŒËziÖpÔ³lƒ€ø«@%×n7öí”*¡Ÿ¬{"[owúv¬µªs´²I—P'òZGûà=-µJ“]šgñ‰ù–áğCıh5¡€XDDDDÖêE@\ÒO³†EàsòNr9×ß*âŠÖÇI‚%ø°¾Œ×KHú: n5 ŞÒU©S3“øîªÖO÷MTµôzüÙìáÙß¯{"[M¾Ü¿€øVè,°È­mšİh@Èõ=rì€wQrK­la‘…ÇŸ/$oàßMÏMWšá* ‘µÊ€Ó@i?¹ı{=BcWÊŠûd%ÔuiRT‡Àšâ03\š`Î¾o=2<E8¼ÕS…¯î«bádb×(­uáfüDİÙŠò¥şm‹Z7Ï~£f³Òã÷³ZZd«9zäØŸï ä«¦ò¥eæ?÷\ßb–àÀ_®ò 
+ˆEDDDd­<Åô…ò–,aßóä½Œ¢œ·Ÿ1.Š°$"X`Íu(a—Æ˜‹ ø~eÛ‹lö•§K÷ïªjéõ˜~¶îMˆlE!ËúVİçÒä¦ï¸5´ øÿ·wçqr¤wç?ODfÖ¡’JRëèÃmã£ÚvbÆ`Œap5†á´]Í.¯o§gÇÃa3ÃÂ‹Y–1†ls,Ã°`<06.ğâ¦Ã`ö†AinÚ¬{ WÙİj©Õº’ªT•GD<ûGduK%•”™ñDddæ÷ızU«[ªüÅ#=­ªŒ_üß/µ˜¹µz­ñ$p?ßûÄÍë¥$ñ{—V–æ²
+®±ˆˆˆˆôã8I/b7c1¶ÕÁzcLN­|¯Qö0S•¤ÅEm&¬<“TªúâÜúÙ]"iõ1²—^
+|m±½©)Êó»²İ¯ÕÀáÃ‘Émæ”85àÏì\%ìOeÖ]€8Çv"£JIb î¾?«àJ‹ˆˆˆH?N“ô"vÆb°a„m·±1@	b6¶ßÃŸ*cŒéıÒÖâ•+˜Jl¯KÇñ1ğmdTo=UŒêa€{"£,Ï>Ä·TçÍT:Y]×F1q'³ğ"cEIb ¾gieéÅYV‚XDDDDúq$Aé†Iú9Ø8&j‡˜(JŞ¡æ<¨ÎƒW.%ë‰{íA¦ìãùÖö9Ü.À³¹]Í±Åå…)à_eÜ3TÌgºOG‚j°2ìEˆŒ²<{óŞª„?3•YÖ(n)9,Òn’øËI†õ:7[\}üø(®›ş}• ‘~\N ÎîjM·Š7î„Äq’¬ÍW’Ü5¥”J}¼Êb*>T|r¬z‡
+âod¸²/¦ägº_?7ìˆŒº\+ˆ§oQA\)eÖcBı‡EúW¯5ŞDÒrË™h³ÉúãÇ±Qn-Ãõ¿-­,İå:¨Ä""""Ò$A¼é,¢—TÛv¢(Éç\AªŒ_é&ˆ{Löz¥_î.7—qœF¹iå;³
+\ö'‡†½‘Qm6s»–7}ó°7Uc2{ê+A,2z­ñÀ[pù~ˆ66¹ÚxÛëi²á(ßç:¨Ä""""Ò¯Ó¸|CnLREÜ“$q÷çò’Ü¼’)ùİÿ¾ÍµÏàU*à'	îœÖ¼N2(p$-./¼x}±ı]³ø»v4•£_ªÁH42)2Û	s;îíO—oú5Ü»Ee±y¶Ñ7õZã/€·‘<<w&\»ÊÆÑ“.CfáÛxôC.*A,""""ı:ÃAu¦ûÏ¸Ó!ê„ÉOäZAœüÃ”<¼ŠßÛµ-€‡W.a<¯[…œ‹K$	úQ5îÕÃ!ğ‹Ã^„È¸È­ƒ1øS7Vßªõ„‘Ä"©Ôkßşë¸‹—Ù<~ÆuX—¦w¸¨±ˆˆˆˆôë°ê,šKLÜ	±í0©(Î¯§orØ‚ïcÊeŒ1·Í÷Zc<S.%Egù%ˆ×p9$0G‹Ëû€oÎ"¶)ù”÷ïÉ"t¿
+ªAáËDFEœcboæÆ;µp%ÏßŸÈ¸ª× >è:nëÌÚçœÕCdá[xôgy]%ˆEDDD¤_§q5=úùjaƒ,q»ùµkx~6¶àù˜r¥{íZLTJxSe,äÙ«î£; îíÀL+öc¼¼‡Ş”†Ó‰8mæ×£×Ÿ¹±ZØŸ™Ê¬rÜ“öD"âÂ¿ê®ƒn;I¸î´Í±K/¾ÆU0%ˆEDDD¤_WHªˆÓ÷Yµ€5İä^LÜ
+±a<”6Æóğ*%<Ï»}õrœT­š²ßı=ä±H Îu?FÊâò‚!Óö{³
+İ• ö"DÆI”kñÍZL”3»^Üêd[dÒÔkğÀsN[ËÕÆ³ÄÂøvW” ‘~E$UÄÎJ»Œ—z‹:luûúºŠŞ¼JüÛ$}»Ç^ÉKÛå×^’Êí+y^Ğ‘¯^‘EàòŞİxSÙ%qúğa/@dÜÄ›™ğŞà†~ÃÁ”K™M¾Ô€:·êµÆyà_àxhC6*l÷¨¯~àÑö»¤±ˆˆˆˆâàğÎİ`,ØvÅIâÛLØ8c*e¨”°·º·°€oğ*Œçç™Èî´—ÈïÌµ;ß‘UàÊA'÷Ei­ö"DÆMÜI¾'äa{¿a:³Ü0ã >‘	R¯5şø×qÃµuš'9¢|½‹@J‹ˆˆˆÈ %IŠ9aÄaDÔÁXLŞïT-xå^©{asóÌ¯íöHö¦ËßÇq^í0¶Z{Œ”Åå…oÉ"¶7U¡¼wW¡ûõËA5Xö"DÆQ^m&Œgğ¦^Hg> N	b‘¬üGà¯\m<Kt5¿S}øFA” ‘A<‡ÃVÉX8ƒCâv;©ßÂÌ1¯äQ*—ñ0;[‹gLÒÂ˜d¨^>.góº˜CßFF÷S‡
+Q=N'’™<©şÌUÃ7´œp,ÏşÊ"“¤^kDÀ;p}âÊZ6„|[‹õâËxôù´A” ‘AœVE3&I‡!q;„Øbò|«j’ÈÖ3I?[Ïƒxç S*á•JI+Œü\$éı<2—*À¿Î$¸1T¤¾rá“A5øÇa/Bd\å;¨î…¤°7]ÉîéŸµÄmU‹d¥^k¬ ïu7ÚlÒ<uÑuØ´JÀW§¢±ˆˆˆˆâI5«»2
+Ï`cˆÛllsíA$}.åR7A¼ÃçÙÊ>¦\Âæ»Ä‹Œ^‹‰of¸rÇ^LÉÏ"t¿4œN$Cy&ˆıkÄşÌTfgÉ£V§ˆUˆ"ãæı@ÃuĞæ©³Ä­ë°i}YÚ J‹ˆˆˆÈ š$m&Ü½Cî¶k°­66Šº	â3°Öâ’ás¾Ù¹ÉD^)Içì,PÈ	)·ğÎ¬OÚ—Uè~œ~gØ‹gñf~=?ıék{g÷E^ı‡E²W¯5ZÀ÷;[6Oœs6¥ûÓP‚XDDDDõI¢Ø	cH*ª:!6Œ°ÆæÛ‡ØZÀ$ƒêünuğ¶
+/K÷s*eŒïåYfã@”×ÓZ\^ø\à‹³ˆíÏÎàïš¾ı'fïƒjP¸2"‘q·;É	l¦3¥Æó2›R§±Hn~ø×A;W‹6°î•<úÀİi(A,""""ƒ:¬¹—tôÚ6Œòî0‘°*¥[Øî¤ûrÏË5A|…$A<Jg’³«>\ˆátğÃ^„È$È+¡j|¯R¾®ÕD"%ˆErQ¯5,ğf{óDáæ§j3¡±ˆˆˆˆ.           ë –R–R	 ì –R0G    ..          ë –R–R	 ì –RG    SEMVER  PS1 ë –R›R	 ñ‰ˆR1Gğ  SEMVER  CMD 0ë –R›R	 ñ‰ˆR2G  SEMVER      ?ë –R›R	 ñ‰ˆR3GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  #!/usr/bin/env pwsh
+$basedir=Split-Path $MyInvocation.MyCommand.Definition -Parent
+
+$exe=""
+if ($PSVersionTable.PSVersion -lt "6.0" -or $IsWindows) {
+  # Fix case when both the Windows and Linux builds of Node
+  # are installed in the same directory
+  $exe=".exe"
+}
+$ret=0
+if (Test-Path "$basedir/node$exe") {
+  & "$basedir/node$exe"  "$basedir/../semver/bin/semver.js" $args
+  $ret=$LASTEXITCODE
+} else {
+  & "node$exe"  "$basedir/../semver/bin/semver.js" $args
+  $ret=$LASTEXITCODE
+}
+exit $ret
+                ‡P<µ£
+ğ±¥•¥Ïİş‹Ëßü”“‹Ü1ÏÌ‹oZˆ·«ıED2ö¢cˆÛâ°û-­¹ÄL%Iı.`õá•ğm™7†ÊÁ½™„îÓ§‚jàìÁºˆd/ÚÄk<	âJéÑ¬b¹U¥ËÖ”Û•÷î.Êé§{P€Ö”_¹´²ôMÛrqyá­ô7Ï¨'å}ó”ç\v!UÙ~ÎL"Í…®^)Tà€G¾¦şÆŸ&©¨ı‚´Ëû÷°û5//ZànòsÚÛ>ŒÒŞÖkuUÚ8&Ú(Ì7o€À'—V– X\^ğ—~øeÒ¦3ÉàÁÙ—İ“z‘ümP>*""’³'€U§=CÜ±aØ-4ûñy’şÃEP÷à¶“ÁQŞ·§(§±T=,2bFePİ8$ˆı™©ÌÄáz¡î1ŸoUé²5åv^¹ÌÌgİ•Eè¸Üƒ‚´¦ü/K+K÷mıÇâòÂK€¹¾ˆ7Uaö³
+QP¶%Uî§Ÿwc~&ÍÅ¶t.­¥*ïZ+÷}—73MëÌ:—ÖúïÁbå}»™:|¥¹Â%·üŞM~N{{;£±·Á?ÿÇÀë]\ sùjÑã{€ß}Ë#_û‡ë;·ÚŸŸ6`in†é{ï,Ú>ÿÉ°‡¥•¥âÔ¨g$¨cŸÕ.'€W‘öİc ‹4Ì&kç»…¨ Ş•Uà‚§»üÚ°!"ı)À@¬ŒÁ€:*ûv?¹‘´4Üã:v´±‰bŒ?ô™/ĞmUùÕò¥ß°yâôoã 5åvÆ÷Ùu_qZUÚÈm!X¸¶ÁÔCğ>üÁÒÊÒ›V^Ù~Ÿ¤ÀÌS.±káÅ˜’ï2l1ğWiôüä‘Ÿ8vÿGï{ø¼4„¤I{´ÑÄŸ-Dçë”æf(Í½Å„WÖ	×7‰6šÄí¶í¾O7¦ìãUÊø³ÓÉëöÌå‹ÚN	ªÁ±í?Y¯5-./<‚ö6ùÄÑÜÛÏÕà©~íãÀ»]\$¼¼é“t-¯Rşª=ŸórÚ—Öèœ_%\»Š{O ˜’Oy~ÊÁ}”vÏf¸Òış° "ÒKÒfâK'OÛŒñ°@Ünaã<ÜÅgHÄC·úğÊ«€/Ï"¶?3]”ï»ªA!JD¤wQ³•|/(FóJ¯ä[òLLÒšò-Îc[K¸¾Y¤cú_XÚ7÷¨w¶¼+n»„èUÊìZx1şì”Ó¸i„ë›NßS¨íèË±öS¥=sÍğÊú½.û³3ìzÅ‹ğ¦2Í0¨O?ôê‡.§	Ğï#‹_ÃA }ñ
+3L"n1¾GyßÊûœ? ¦[UFhoGÛïŞâ×ş†ä˜jêÎéáú&6ŒŠô”ìÆPÙ¿‡Êş=İvÍ ´Ã$¡°õ©%¯\Â›ªàÏNòÆ5Î 7ìEˆˆôéi’>ÄncÀZâÍNReäğû[€¢œ¹ıö¬W½Â’ö"Dd Öµ:øÓ•a¯dG6Šqd¢OE‚˜¤UeÄøÓ•]»?ûel?CûÂª“˜•;ö2óâÃ…»—/»MèÚ("ºÚÄßU€{lcÎİ÷bZg/Ñ<y¦ëÜe<©»2}ç~ğ
+÷`*õ©ã~Ä¿¼ß:.3ó¢CiÃHï,ÉşíD{;Ú>ºÓ/Ôkxqyáwp4\¦sé
+•ƒ…8º#ãy”æf)Í¢*)­ßªAQ‹ˆôêY\ªó`ºÓ±-^¹HsSS@QJÎŞUàÊ…xXo€'—V–†½Ü5O] yâÌ°—áÔ$´«Z}xeØK(”x³]èqÜ›ä08lM¹]çÒfî-VÁ”|f_v7S‡÷Ó:s‘ö¥ËĞÇ)U <Ceß<S‡÷#azÕ+îc^¾Zœß¯©Ãû¨˜§sñ
+í—	×7úªšögg¨ìŸ§rp¾p	şküAÚ }%ˆ<øÄ‰û?zß'€¯L{á¸İ!¼¼Ni¾S'À'‚jpb§_¬×'—´·£éÏ‚jĞ¸Íçü*Äí—Ÿ 3ê‰("£èàîÈ¾<ƒíDÄí¯ÀÉ Î“$ˆÃa/¤k>«Àoß%"# j¶(SÜûÎqP·ÅekÊíâV›h³…?SœÖ[ü]ÓÌ¾ìnf¢;	×6ˆ®iUw:/$=ƒW.?ßªÒŸ›¡´{¶Ğßël?·Ú¯t·³z…é»ïp6ã{Tî¥rpoÒwùj“h³õ|ËÑ­ÇÆ3É‰ãJoº‚¿kº0ı¢oáğiƒò»ü ’ˆ ­³—”DÌÏzüííèéeçŸG—¦½X¸¶AÜê­ßÎ¸z
+øËa/BDd ÇIÚİã$šµÏ`ÃÛéæMãZF|¶û‘î¤ˆÈ(ú ºhŒÄ]ÎZSn×¹¸†OñÄ[ŒïQŞ;Gyïøä9Œçığà.ãFW730¾GiÏ,¥=cqâàwzõC©y”ñû$‰¦Ô:—×ÆíÈEQ=MoC®´·£çğ·û¤z­ÿÕÕEÛç.¹
+%·öA5Ïô‡ˆŒ»+$INg_ÃŒïGq»ôÃ*øP¢VI*AÔ^HDä6¢ÍbÏ—‹u×û2z<Û>¿šEXÙÙVÒLN¬¶/®eVnî×]é;A|äÁ'"àÇ]\­Ó…Ğ<î~"¨·­B©×ÚÛÑóŸƒjĞë›á¨Ÿaëüê¸O/‚&ğáa/BDd@kÀi\ö!°1Q«"S
+ëI›	}£¹h³Uè¯–ãVA\¯5N«s.n·	¯ldZnn«érÁÛçUT–“8PƒUüIo´ÔZçV‰;Ei±6–NÒ_’é—º¯IM{›¹«ôÖ:€z­q†[³ë‡í„zÂ›½Õ@OYDdTY’SIîÄÆ€µØN˜ô‰³c›!>MRE,""·c-q«¸IØ¸Yì
+çõ|Ú¯ÖY%sô€z­ñ$ğß]›-Âµ^kÙ$…=ôê‡œ´%(A|äÁ'ZÀºX ÖÒ|î¬“PrS?Tƒ¿cÖkííèX'I÷ãÇqÔÓ°yêB¡ŸÖ¸ø¿‡½‘”Üİµw[JDÍ6qƒËoB1IkİQ‰ˆô¨¨Uºq'ÄFcÙ-ÈYkÊí:«WˆÛjU™ƒímH>‹‹(áŸ¹‡­DÓŒSüğ‹hŸ¿œ×>C²OıúÎövU{›ÃÀ;ûyA÷é “*â¸Õ¦}aÕE(¹Ñ‡‚jğô°!"’Ò	’v9î“Ü8v¢qíĞ{‘äÏMG°DDzTÔûÍ¸9‰N§­)·³–Öé‹™„–ëloCú;$Òê\\ÕlªlıÚC¯~è„«`'ˆ<øD¼ËÉ*¬eó˜“r½wöÒ{x»îü¾;²ho³õŞ¥•¥×÷ùš÷àè†½ùÜ9l<–\Ã´	üğ°!"’ÒV‹‰uw-ø¶&IâñRw¤‚ØÉi‘I6A\ÌÊfGœµİ®uî"V­*³tCÒîPûŸÌâb­3JøgÄïw0M1G|¢Î`ª7×6ÔÓÔ­_
+ªÁ'}q½Öø$ÉıÔ´·™šştieéû–V–æ{yA½Ö8¼ÏÅÅãv‡Ö)µÉuìGƒjà¤¸ˆÈ=GRëŒ1Û
+±cí8&‰/’¨S‚XD¤GE­ .jëœ¶¦Ü.¶4Oê3C;µ!ı0Ië	§Zg/ªŠ8¿şĞ«rròKÉAŒï¾¸7m Íãg(íÙ…W)§_Õd{øq¾ø
+´·E7CòäèG–V–>¬T ]a[¥pP~ºû¯?Ô€—¥½xëôy*æñ¦*iC	4ÈèÉ­ˆÈ´ãÀëHY”ğ<cÀÆÄíÖZğÌ¸õÃ?K’ ‘E›Íä{AÁÆÍb&®úğ¿Ÿí:pëÜ%*‡÷ãOëÓ±ÛÖköâòÂÿÍém’ğŸ}é]NÃN¸ø¿\MıfıÈƒO¬â œ"6Vá\J1ğ`PVÓª×«hoGIøbàÀ÷“T	ÿ§m Ôk&ğ/qp[mcËÆQí­1ğö Œı;I™–äÁ—³¯kÆ¬±Äí6ñxVŸ%yÀ+""½²¶ƒÍ¢1O×kwmG·³–Íc§3	=án×†ôW€¿v}ÑöùKDWİ¥˜p?Tƒ']uRÍqäÁ' ?à"V¸v•æ‰³.BMªwÕàˆ«`õZãğn±´·ÅÒm#òŸnû‰=×6h¾à"Ô$ûÉ üå°!"âPÃå :c “ô›ŒÇrJİy\ö™ ÑfÁÚ9XKÜ*Øš2P¯5œµİ.¼²Nû‚™:tÛ6¤õZÃ’Ì£rŞêjãØéq;õ5,Ï?’E`7Çıï~ÓE æ©ót.êÁ ~ø±âşÚÛqõı8zB¸yâ,áú¦‹P“èÏqô FD¤`N´špÆxQ«íìXU¯g€â•Á‰ˆ\ÑÚ9Ä­N2\u2|7I›Kç6Ÿ"nk`=·!­×Ÿ&ƒ¼RtuCëÜø×A5XË"°³ñ‘Ÿ°$íşÜE¼£Ï®o¸5)şœ¤µ„óïBİ§HÚÛ1T¯5ÚÀ7’Ü¦c-OĞÄÙş¾)¨úƒ‘q“@ECHO off
+SETLOCAL
+CALL :find_dp0
+
+IF EXIST "%dp0%\node.exe" (
+  SET "_prog=%dp0%\node.exe"
+) ELSE (
+  SET "_prog=node"
+  SET PATHEXT=%PATHEXT:;.JS;=;%
+)
+
+"%_prog%"  "%dp0%\..\semver\bin\semver.js" %*
+ENDLOCAL
+EXIT /b %errorlevel%
+:find_dp0
+SET dp0=%~dp0
+EXIT /b
+                                                                                                                                                                                                                                        KÆ˜L*„l'}bÒ*ˆÁ}kÊí6>¡™7ıIİ†´^k<üÎVÔÕ¹t™æ‰ÜÒX£®<Tƒ'³¾P&	b€z­qø*à£icÙ(fıñã´Ï_N¿°ñ±|MPrÿCéîí×t×ŠbÖŸ8NûüjêuIzõZãcÀ›ÔYûÎêëg±ã9e>+ÀWÕà÷‡½‘ÄÀS$•ÄnÆ·ZÉÅ±é0Á\ş9‰ˆ‘g2«*RÕnÑZ^ä¥ÛšÒIÛÑílw[UgŸÌYÒz­ñ“ÀO¥_Òõš§ÎÑ:£ƒS·±Õ?ú“y\,³1$°êµFøNÒÜ°–£Ï±yìô¤W%¶ïªÁÛƒj0´¯Œİ½};Îöö¤ö¶ êµÆ÷“OK%¼¼ÎúcÇˆ5¸nËq`1¨:ì…ˆˆädkPÃ;e‹1»• $Äºë‘±f</³aEi3a£NîıË¶£ÛÙ0dıñg”$¾µ,Ú~/ğA‡ñ Ø<~Šö9‚î`+9üky]0Óñ–z­ñsÀë•´±Zg/²¶rtRû¯ ¯ªÁÏ{![´·ã©^k|
+ø|Š®n²ş™§	×'¾(êğA5xdÈëÉSLÒƒØ]Å˜ŒÁv"CÆ¤„øÉƒYİñŠÈxË²‚¸ ÷‘“Ø^b;—mG·³°Û†Tí&n"“6¤İö!ïŞë2.ÀÆ3ÏÑ:}ÑuØQ·Õ’òWò¼h.	b€z­ñIÂéGIùæ7Úh²¾ò4Í“ç'¥â´MòçöùEL.ioÇS½Ö8|ğÃ¤œ¨wBÖ;Fóä9Ç-îGB¼øŠ<û…‹ˆ„%I»=Cè{Díˆ¸bº	ã·JRA<¹%g"2Œç}‚¸H­.†ÉeÛÑíl±şø3´/\qz”eÚ†´^kØz­ñnàß2?°İæ³§Ù<~vs7søgA5øí¼/œ[‚’~4õZã€Ï>&–-ÍçÎ²öOÓYëi–>7¨?à¢LV¶ímªŞª×ïíš›Ê@êµFX¯5Ş|1ğHª`ÖÒ|îk%Ú(ìÿÊ®}
+øÂ ¼7¨c5IID¤€óN#ƒB¢VH’!yîÿŒDD
+¨Ûb"“/ÜqAúşÆ-%ˆ·8m;ºµl<}¢›X‹÷ƒÊµi½ÖøYàŸ‘œ~r¦uæ<ëOÇ†}ÛüIah}Ï5A¼¥^k<V¯5Ş,©~ãQ³ÅÕÆqÖ{†pm¬°×Iz•¾9¨{1½êîí[€7âdoŸÇ½9õZão×ßEr;°èê&k+GÙ<~zœ¿øŸŞ|QP>=ìÅˆˆY8†ÃjcÀ`°­&6Ç €˜3$#""ãÍÏdÚÆ1q»“Eè¾¨?î\¶¦Ü®uæ<k>3©•ÛCiCZ¯5ş”¤8ğ\Æ¯¬³ö™§	¯Ldşçg€7Õà™a-`(	â-õZã“õZã~àÀo“âX]¸¶ÁúcÏ°şèQ:—®Œê¤äÏáA5¸?¯I…Y¨×vÍŞşÚÛ‘×­&şàÀû€Á®XKëÌE®üı“4O§!C«$-9^Tƒ¨jXDHú?M2ˆÍc0Æ6Câ0fúŸÅeŸf‘b{4«Àq’³q³­.ŠÆekÊí¶æŞ´N]œ”|ÁĞÛÖkSÀWßAšÜÀ6q»ÃúãÏ°yüÌ8å	nå)’–ß5ì®¥a^|K½Öøkà—îşğ/€Ï$V¸¾Iøä	¼r‰ÊÁ½”÷ÏãÏL¹\n>ü*ğá œöb\êîí7v÷ö_ß¼fX×íí½”ï(şŞÚ8¦siÎÅ+LßsvzØKJ­^k¬ÿ~qyáÇo'ù†ğâAbÙ(¢yâ,­S˜:´Ê¡}x•²ÃÕææ(ğóÀÏÕ`¬{Şˆˆ $éCÜv;‰hl«aÅ~;p;›Ài4 ND&Ç
+ğµYšmJó»²İ3%ˆwV¯5šÀ,./ü2ğ“À×¹Šmã˜Í§i_XeúŞÃ”‡üÿA†>|oNšw‡×}pqyá!àıÀƒ8zjß:s!É£Ü{˜Ê{\„,š«ÀO ?6ìÄğ–B$ˆ·t‡bı(ğ£‹ËŸ<@òãé³Ú9î„4O§yò<şÌå}{(ÍÏQš›q¾îÄÀß <Tƒòz2×İÛ÷ïëîíÉ7ƒÁööÔyš§¶öv7¥ùİEÙ[¢f‹ğòU:—×	¯\½î	æ®…{‡¸2·º‰â÷/./üÉßÓ·wì;n£(ÙÓÓç)Ïï¦r`ÒünŒWèŠ°à÷H†üaP&âñ¦ˆÈ bà9Àí³1ÄíqâÙ‘Î¯’$Ğ•Q‘Iñ™¬{P]Ü±±nn§^k<¼yqyáÀ´u"Úlrõ‰c”öÌ1}ÏÁÂä	¨?XÄ“æİ|ÏÛ—~
+øÀ[]Ä;6>AëôÓ/:4.Iÿ&ğKÀªÁ©a/æZÆ:.¿74[\^Ø|	ğOIŠŸì$–)ù”æf)ÍÍàïšÁŸÆ”|w‹½¹K$Í¦ÿø3à/ƒjàvš÷ˆZ\^ØK²·_JÒãöó€ıƒÄ2¾Oi÷¥¹ÙÜöÖ†ÑF“èj“ğê&áÚÕ[öÕ»ïÅ”æç2]Ó­Õ ÓŒëâòÂà-À×7¹cĞXÆ÷(ïİMi~òü\O{qäÁÎ  ja)ªíïïîÿè}CZÉóHª½GÃ‰lƒ]÷½„ÊóÉÙÑ;VjH%ß|bÈk¹©Õ‡W2ûCİûºjV¡¥ÍSh8ã,ö3«»má:„}«¯>¼òïHîóçfÙıêÏÊ"tOÂ+¬?şL&±‡üwìË‚jp$«à‹Ë_|/I!™ÓBÆÒÜ.¦îº#I.ŞĞ‚€ŸªÁ_{1½êş;àŸãğœ—?;ÃÔ]wPÙ·{÷òğ_ÿì*1ì<Ÿ;
+	â›Y\^¸¸ä†ã¥À=Àaà °˜f¸ñÆÉQ¾Ë$çü™©5n¶]š›‰ıÙiÏ›ªTŒïí$É‘çHœ7€'‚jğ¬«ß÷$¸ÉŞŞM²·‡¸õ~\%9y‰d?.ø3S«¥İ³mnvÚó*åŠñ½=ıÄ²±İŒÖ7^·;~Ü“j¥f‹¸Ù&îô×ZÙ›ª°û5/ÃxÃiÿu‚øZ‹Ëğ9$v¾˜$ùÿJ` L¯?;$ÿç’ä¿?=•uËÉˆ¤?Ú§¿$y¸³Tƒ‘Ë>ˆÈä)`‚xÉI¢×“œÀH]^emŒíDìzÅ½LŞ5fÔÄ–äıÈÃÀ{'†»œ›S‚x|)A<šÆ$Aüf`-‹àÆ÷˜í«²İ“ÖÙU6Ì$ö8'ˆ·¸h;º¯\¦rhåı{ğ§+.Cga,Ú../ jÀ· ÿÄU\S*Q9¸Êş=ø³…>Eü7à7‚jàôˆƒÄ"C°¸¼ğ I+Ô*æ™}é=.Bõ-ÏñÍ,./Ì$ÿ_ÑıxIòÿn’dıî s$Éä÷¬W€Uã{gKs³-n6*ÍÍàMWJ^¹\Ápg¿±HöN Ov?pı\D$/®ßßÉäºÿ£÷)A<¦” Mã ªÁı‹ËÏ /Éâ{>÷>¼Êpºin>{–Öéó™Ä„ñµÒ¶½v†ò¾=”çwáï*Äœ ±oCº¸¼ğ*^ØÏ/ÁÑ~ú3Óİ–²»ŠÒNdƒ$)üq’½t÷v%ˆE†dqyáÿ¾ÓE¬™—ÜÉÔ¡:i¤2ì±ˆˆäC	bÉ“Şÿ‹È Ò~¿Ò×ŸÉà²íèv¦äSÚ½ëšV•S?ó¿İ†tqyaxğF^h5z mÜ¤íè.J»gñwMãÏLåÑªòÉ^ş5É^>Tƒ\+A,2$‹Ë>ğ[$O½Ò1°ëå÷RŞçf˜{¯” ™JKôş_D¥±ÊaÛÑ³İç[…ÎÜ{çúÔûç²ˆÚŞÔâòÂ]¼pÚøeÀ]$'üyÏ Ìv_v…¤e×F÷ß/“´~}8	<]Ş¿÷Òôİğg*‡]Æ%ÙËÇ‡™ØW‚Xdˆ—*ÀGHz"¥c³/»›ÊşùÛ®#J‹ˆL%ˆEDDDD¤WÃ™”%2¢êµFxğc©ƒYËÆSÏÑ:•M*‘ÛQ±È€—Ş
+|½rÊ{w3ûÒ»3ï£
+b‘É 
+bé•*ˆET¯5>¼†¤åD*Õ5®üãS´Ï¯¦%""""""""Ò3U‹8°¸¼ğO€–ÒÆòg§™¾ç å½îØ©‚XDd2¨‚XDDDDDz¥±ˆC‹Ë¯¾øf’	§ó§§¨ÚÇÔáıçÒÆÚ¢±ˆÈdP‚XDDDDDz¥±H—|à~àÍÀ—ÿ0Ğ_½¯«–\ÅR‚XDd2(A,"""""½R‚X$‹ËóÀçu?^¼¸‡¤2x?0³ÓkëµÆu©–V–¥±ˆÈdP‚XDDDDDz¥±H,./ìİşsõZcuXK+K7Ä
+ªÁ@±DDd´(A,"""""½r ‘Ñà{""""""""""2J‹ˆˆˆˆˆˆˆˆˆL(%#!/bin/sh
+basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
+
+case `uname` in
+    *CYGWIN*|*MINGW*|*MSYS*) basedir=`cygpath -w "$basedir"`;;
+esac
+
+if [ -x "$basedir/node" ]; then
+  "$basedir/node"  "$basedir/../semver/bin/semver.js" "$@"
+  ret=$?
+else 
+  node  "$basedir/../semver/bin/semver.js" "$@"
+  ret=$?
+fi
+exit $ret
+                                                                                                                                                                                          X‰Ë{‘Dé#Mt™‘T„›F§ =zƒcWµ4 Ÿ†å=†S½ä§´Cúmß}3ıø—sRÖÁò³šùÉ>À04lËÅµ]ô’XÛ¾‡†ahØRruŸ´x-ˆâØÑÄëMô&cÔehºFwÏBÓ5ô’Qr¡¬1¨†QÒyÛæˆJ–›d¥¥ÃÑr£ÎŠÂ",“ê°\g¹±<ÈWœò&ß–-Ğ#	Ğ1Eÿs†CW²x†d)?Å6'ovÉŠTs'æëj¡8bK†©z¹jY)¡núÀèüPÀJçk‰rœ=y=]ò¾{ò¶d#|œ¡î5 C!ãòGÚEÒ•úƒÂdÕE^e/LYxS¿MÓTÎIÙ›#®d–!Ùó£Ø™™¶¯'A¦¦é{Ôƒñİ¤Z÷ş˜„È2,Û)¢ƒ0¶a(6—vSüZ²¬üïó½ªrÓz©‰¹b&÷½/»>0VĞñW€Ãš¢kÊ•s"ÇF„êjF“"J>UfŸ:C‡]…İ!ÂnÛp•ùĞb4HâH{Ö7'S5`e„¹Å2Z)}.ÒÇQğcP×ì§ÑOÒGnóÃ`ù97"±ä‹4Ëë”x˜»Áà‡|-š«*YIxg4Ì¹·fÏäÎñö2ÊCÁçšÄB·×£OF=].ñ¡  ~Éj¬íÊ²)!T«Âpe+ó(‰œş%ïÉÔ\™Ç?}‘ƒWN¢ëí‹é¥
+çÖOâÚĞÙíÓŞrzyÒÀµ`{µÕCÈô»P›à‡ì¢ù*B?rĞo9<óØI4@Ã¶íD4	Çvyü‹<÷Ø§˜]ªòì£§ù'¿ü÷†~¿8-7–1›~îøúÏÊAÑJròw%Xš>nƒ<«ó9‡±†¬«Ì­·¬ûû\Î0ûæp©"rƒ©†¥ë¼B<A„àËıÙlŠGú¸EŠP\ß’Qä×>Õåù,dÆAÏ~t×…;®¿–ÙÅıù]Ó5J%~Oì^Âb<U®–©ÖJìl¶ñµ¢åªAıÖ%ÌGÖxøsçhÜ¶„ëº<ığßğı6W;|ş#'yİ;/W¶é¹§V¹úú–~æR
+2:
+J`örz›ø‰ÒY^¦¡ğQíÉbŸL^Õ×³ÃÄï‰B7ôdèá)jQ¡â+ó„µ-ûx¨)Î †ß¯~ûW¿}L8ıä6—İ0ËÃ+çX=ÙòòùD=?äXÓ‹ö6ûô;ÑõïºbŞ 4qí*‰\#å	ƒ~ÛÆêÚè%‘Ä½½cQªêh%»ïR©éÌ¬òì—Öùolğ‹T)4<ÿ£ø`Å;¿Ğ@bMYM=úQv™ßO™'´4—×Ã oKïßåİß2ŒW²iĞûÅÇIq ^(’gÈòò ¥qŠ¡¥¬HV‚h) ˆü¼ÿ¬Øã%Î%Ş!õØß”w»‰çS]…Ò“kï?ù@ˆ¨{˜÷Ÿşh6N¿|»·ñãÛ³‡4ƒ3´(À+[¸†”oãKV%y…zX
+iT¬V¹.È¿ïÏ!3ˆ'<Î2ÈbBzş¡KAc¬{¸SÎÊôšR|FÃ˜RŞ˜øñ #úİ¬ÎPxsòËŸ}‚»Şt£â~QÉgşìEî¿÷%~ò7Ş«ıÀÀqP>ÈqÊyÂªD©¨áÈ€¶*@şqÒ0à‡LrhÈaväø:µ=qŠ*·ÔÀmPw=ym ²ßàG^àCó’l’z­¬˜ï4ÂpfPëÒ!0áıòy#”zÒÀ(Ëó£høŞaIÙ£X˜œhŸ©Â=ÕuÉ-J¾R~ì4h¯Iùİ_|T~œò¼Jk)0yÁ9çŒÿlÈiªA¾aiz©Âk¾Mßü¶C^ Şåß÷á—èwŒŠÆñ{æèŸµÙÚÜ¦³V\l„Œo÷¡2Vl‹@`TDdˆ~[„½6ÊàXn`Åíº.­İ>®«±»¹Æ½°Â»¾·X®Û,’=ÕûkØï	#š£%‹RÇ8­M9æí İ¥_Nø1ÈÓVìuêË¢ñb?mF¸şúr#QNj¹’Ö+ ^ i HÜeºÚ~M0ëûŠ%ï! jÔ%4¸æ‹|æ_¿Àê—æš›¸î®c<ıå3@¨ì´máıa{"¶%¼>ÇÅ±Z»]4MÜ3=WÆ±]Z;=n¼û ç_Úãì;\^Ÿåßu_ùÜ9ö¶zloôxøóç¸ıG¼–„ÒßÕ×Ú—GñĞ>õ[Z™©×ëb½L`ˆP.yñ[¥6æ Œ¥;ã°¢|B£ìß\ê
+ÁôÅix¥uZ“2ÅîxUzÕOé·¦áˆ'#Î*é²f9gîb”u&9,Z ½İ§İëÓŞ°°»:çıÑkÛÌªÒîôÙ»Ğ”¥iÂ[Äê¥$‰_ö’¤e×uğDÓÀê:h=q[¿ëpö™á¢kü¯_ïúÑ«sõE>¼4*øœZ~
+>7êĞTTÁ™›”bCbî2ÖŠéÙrI.ï¹WcUpKä6Aä¬Ìlš¼¿iz4¾’2ÚŸ’Ê2R¨w‹¢±­ã	çWšæÈ¨ç¨;Øx=D†İ‹S¨@Qş.x)bfJm%E4M@’)¼§èh¦y8D¿'Ÿ	~¢B² ìI™ná½Ø¨‡ç´ükÓû×P !ò³ƒó€ø%%ëüL# *upÆ67Èƒ'»Ï£s&ïrÛjñØˆ´·Ğ~óšó^h˜c,ìß:÷-5ëò=>df&/J[‹ò~à×ÿšÿÃ¿ÃìBŸı½LÜ»x¨F¯«Hhæ‘’ßË A<¾ê÷¨‚Xlû`Gæ÷Ğ@ye¡ÉHŠÜ´½¿8¿DY®™
+ÅnÚsQ$b@e5ˆ†tTÛŒ}—šór éù¡ô ¯!¯b/[tze%()Gû½sOÂTåa÷şˆx±âÑÆpHä	m>ˆ|{ÑĞwrè§Bõ= ã`G¼*EyC#
+ì(t^ÆöÖf=¹_©B€Bq»{Ğfb1T5İ,Ÿl±ıR—3_ÚÆéÁÜ	˜<ëÏ@u¢B¯m£é`ã`w]ÏÓC¦ùÑ"À( ÄöÕ	
+ ÄáØ.İN×…Ï¯œæÌÅ57_ÆßùæÛFéåUÑ©€¾aı0fTgârÆŞ”v§M)®u½ÑıToPoğ:–â`Jıa¿ ÑªÛ½¯÷¥Ãão=âB÷“é.ßŒ0¡¹\‹sÖoÿqI€íp@:Üü‰š5‹âåúèò½{&í=‹‡?ÚR‰Ò„Õ…ÇvÑaòí'AwqÍê[LLUéu-lÛ¡½gáº.Ûë]–ÿ~ƒ¯~ş'›ÛÜòšC\sËÛ]¶×»\~Í,Ó‡w#›òàğùß:§qä<,™<r’%ÿòŠ'Ä\R $0Ha-šFàâS¢K#2Fº¤,ë[}1U&«AÒš)ôiÀnyg(A_-:OÒe„ôë^UygÛ¥ÛSBæ[¼wŠfÚÒ#õivİsL õÆRğÛt‘¹+ªôöÚÏõyé±-:»Æ”ÆúJÿĞEÎ>´ƒÓsql—êT‰RYcg­m*KJ¶®y!¸lËeşHv»OwÓB3@/ô[và]¢ëâ™Ã×Lqøšin}£•úæƒ^ïyı(‡ÄRbÖh²ÄAm)Ö«oñh‚ÙlJŒš\g¶¡9¤k@õÌ¯€bG‰ß”§Œ“÷¯0@HêA¾r½A#¦ıF˜—½BüÄİ	C|‰dyØ3:Ît«\šó
+`ğ¯…ªèqzç£¢¾É§ó?©©ÃS/yşåóxl(÷$µRÊ÷‰¯Ë¬œ˜²>úlÒºØ'•ÖÒÿ}€·X½NÃŒÎÛ(‘N‘ßÁI/’€U2J‹Sôşâ{ç`Gö!õî1’j‹~¹¼OÒÈD8oxÃY—†0»êÒıñ³IAM”"ÙÀ<ÿô®ºîİv]ƒÍÕ¿ô?ÀOü—ïàÉW¹áÎÜòºÃÜòºÃ%Åx§¬;‡87sYb…²ú9fLN¨!H	 Ùÿs§Nùï×˜ŒR1ä?†/£H]ª³«xHÚúàc†d¨Ñ¢«ªŞ¨çğØÔn?\_´\¯‘J%wÜzß&O˜™¢¼¢Z7#µ2q=—2vÀœÉ*Cô¯ZÉïë8
+Ã*F,ë÷´k1(”J…	ò“¿|}Z_ìÃº—çø„¤fnPgù=aû¾ğŸN±{¶ÇŞyĞ+P©–imõA£¢SšĞéïÙÔfJØ–…kyŞê‚Ö‡RMx8v,yºD~d	9ÒD·ßÃ¶wøø‡¾Ìæê.ßüƒ÷ŒüÎyœ|J›G©ó+¨‹ß&õ»ªìø9•¶$Xüs$!GÖı³8m¯LV óe z½ú„(¥ÑÉÓïŞ/@³L›ÜnÒ¼xİßr¤Y£iŞÏfb0µ(Ğãq !ñı©ˆHš2Cf
+ëÔ•qÿ†eÔÒÜóêøüGNßmËaï|RUgêP™Öj?ˆáçØ~8,±•é†ah¸šËìÒµ‰
+'Ÿ9O¯k£iĞíØüéo?Éô\…û%‘ìü+Ÿ=Ëë—ğÂ“›œhÌ'Ú44ÃWß5Ñuri´‹)™ î	n~<Ñı—œãÿø¯x)A>¹»ò.           O†ˆRˆR	 †ˆR4G    ..          O†ˆRˆR	 †ˆRC    LICENSE     4†ˆR›R	 à)Z4CU  INDEX   JS  ¨=†ˆR›R	 à)ZCš   åp a c k a  Ôg e . j s o   n   åACKAG~1JSO  G†ˆRˆR  à)Z  ú  README  MD  jQ†ˆR›R	 à)ZÔB?  Ai n d e x  .. d . t s     ÿÿÿÿINDEXD~1TS   7a†ˆR›R	 à)ZïBq  å2 4 6 8 6  ¦6 5 2 6 3     ÿÿÿÿåp a c k a  ¦g e . j s o   n . åACKAG~1246  c‰ˆRˆR	 s‰ˆRTCÎ  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  c‰ˆR›R	 s‰ˆRTCÎ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .           S†ˆRˆR	 †ˆR5G    ..          S†ˆRˆR	 †ˆRC    åp a c k a  Ôg e . j s o   n   åACKAG~1JSO  5†ˆRˆR  à)Z  ä  Ai n d e x  .. d . t s     ÿÿÿÿINDEXD~1TS   %@†ˆR›R	 à)ZC%  INDEX   JS  H†ˆR›R	 à)ZâBÜ  LICENSE     oT†ˆR›R	 à)ZÓBU  README  MD  …d†ˆR›R	 à)ZîBK  å1 5 9 0 9  é6 7 6 5 2     ÿÿÿÿåp a c k a  ég e . j s o   n . åACKAG~1159  d‰ˆRˆR	 t‰ˆRUC  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  d‰ˆR›R	 t‰ˆRUC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .           —†ˆRˆR	 †ˆR6G    ..          —†ˆRˆR	 †ˆRC    åp a c k a  Ôg e . j s o   n   åACKAG~1JSO  5†ˆRˆR  à)Z  İ  Ai n d e x  .. d . t s     ÿÿÿÿINDEXD~1TS   §A†ˆR›R	 à)ZC«  INDEX   JS  _J†ˆR›R	 à)Zu@.(  Bx t   ÿÿÿÿ tÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿL I C E N  tS E - M I T   . t LICENS~1TXT  2V†ˆR›R	 à)ZĞB5  README  MD  e†ˆR›R	 à)ZíBƒ
+  TEXT    JS  n†ˆR›R	 à)Zp@/(  ES2015     n†ˆRˆR	 o†ˆR¥M    å4 2 6 0 0  %0 9 9 2 1     ÿÿÿÿåp a c k a  %g e . j s o   n . åACKAG~1426  d‰ˆRˆR	 t‰ˆRVC³  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  d‰ˆR›R	 t‰ˆRVC³                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .           †ˆRˆR	 †ˆR7G    ..          †ˆRˆR	 †ˆRC    LICENSE     5†ˆR›R	 à)ZkBU  INDEX   JS  fB†ˆR›R	 à)ZC=  åp a c k a  Ôg e . j s o   n   åACKAG~1JSO  bJ†ˆRˆR  à)Z  %  README  MD  wV†ˆR›R	 à)ZÍBy
+  Ai n d e x  .. d . t s     ÿÿÿÿINDEXD~1TS   Ke†ˆR›R	 à)ZìBè  å2 9 9 8 5  +2 1 6 1 2     ÿÿÿÿåp a c k a  +g e . j s o   n . åACKAG~1299  f‰ˆRˆR	 t‰ˆRWC"  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  f‰ˆR›R	 t‰ˆRWC"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .           Hë –R–R	 ì –R8G    ..          Hë –R–R	 ì –Ræ    Ai n d e x  .. d . t s     ÿÿÿÿINDEXD~1TS   %ì –R›R	 à)Z9GÕ  INDEX   JS  sì –R›R	 à)Z:GN  LICENSE     …ì –R›R	 à)Z;GU  README  MD  ’ì –R›R	 à)Z<G†  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  «ì –R›R	 I‰ˆR>G‘                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  declare namespace latestVersion {
+	interface Options {
+		/**
+		A semver range or [dist-tag](https://docs.npmjs.com/cli/dist-tag).
+		*/
+		readonly version?: string;
+	}
+}
+
+declare const latestVersion: {
+	/**
+	Get the latest version of an npm package.
+
+	@example
+	```
+	import latestVersion = require('latest-version');
+
+	(async () => {
+		console.log(await latestVersion('ava'));
+		//=> '0.18.0'
+
+		console.log(await latestVersion('@sindresorhus/df'));
+		//=> '1.0.1'
+
+		// Also works with semver ranges and dist-tags
+		console.log(await latestVersion('npm', {version: 'latest-5'}));
+		//=> '5.5.1'
+	})();
+	```
+	*/
+	(packageName: string, options?: latestVersion.Options): Promise<string>;
+
+	// TODO: Remove this for the next major release, refactor the whole definition to:
+	// declare function latestVersion(
+	// 	packageName: string,
+	// 	options?: latestVersion.Options
+	// ): Promise<string>;
+	// export = latestVersion;
+	default: typeof latestVersion;
+};
+
+export = latestVersion;
+                                           ush(t)},run:function(e,t){var r=n.hooks.all[e];if(r&&r.length)for(var a,l=0;a=r[l++];)a(t)}}},r=n.Token=function(e,t,n,r,a){this.type=e,this.content=t,this.alias=n,this.length=0|(r||"").length,this.greedy=!!a};if(r.stringify=function(e,t,a){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return r.stringify(n,t,e)}).join("");var l={type:e.type,content:r.stringify(e.content,t,a),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:a};if(e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o=Object.keys(l.attributes).map(function(e){return e+'="'+(l.attributes[e]||"").replace(/"/g,"&quot;")+'"'}).join(" ");return"<"+l.tag+' class="'+l.classes.join(" ")+'"'+(o?" "+o:"")+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(n.disableWorkerMessageHandler||_self.addEventListener("message",function(e){var t=JSON.parse(e.data),r=t.language,a=t.code,l=t.immediateClose;_self.postMessage(n.highlight(a,n.languages[r],r)),l&&_self.close()},!1),_self.Prism):_self.Prism;var a=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return a&&(n.filename=a.src,n.manual||a.hasAttribute("data-manual")||("loading"!==document.readyState?window.requestAnimationFrame?window.requestAnimationFrame(n.highlightAll):window.setTimeout(n.highlightAll,16):document.addEventListener("DOMContentLoaded",n.highlightAll))),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:/<!DOCTYPE[\s\S]+?>/i,cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|[^\s'">=]+))?)*\s*\/?>/i,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=(?:("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|[^\s'">=]+)/i,inside:{punctuation:[/^=/,{pattern:/(^|[^\\])["']/,lookbehind:!0}]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Prism.languages.xml=Prism.languages.markup,Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup;
+Prism.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-]+?.*?(?:;|(?=\s*\{))/i,inside:{rule:/@[\w-]+/}},url:/url\((?:(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1|.*?)\)/i,selector:/[^{}\s][^{};]*?(?=\s*\{)/,string:{pattern:/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},property:/[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,important:/!important\b/i,"function":/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:]/},Prism.languages.css.'use strict';
+const packageJson = require('package-json');
+
+const lastestVersion = async (packageName, options) => {
+	const {version} = await packageJson(packageName.toLowerCase(), options);
+	return version;
+};
+
+module.exports = lastestVersion;
+// TODO: Remove this for the next major release
+module.exports.default = lastestVersion;
+                                                                                                                                                                                  de:Prism.languages.css}},alias:"language-css"}},Prism.languages.markup.tag));
+
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(?:true|false)\b/,"function":/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},/\b(?:as|async|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/],number:/\b(?:(?:0[xX][\dA-Fa-f]+|0[bB][01]+|0[oO][0-7]+)n?|\d+n|NaN|Infinity)\b|(?:\b\d+\.?\d*|\B\.\d+)(?:[Ee][+-]?\d+)?/,"function":/[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*\(|\.(?:apply|bind|call)\()/,operator:/-[-=]?|\+[+=]?|!=?=?|<<?=?|>>?>?=?|=(?:==?|>)?|&[&=]?|\|[|=]?|\*\*?=?|\/=?|~|\^=?|%=?|\?|\.{3}/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s])\s*)\/(\[[^\]\r\n]+]|\\.|[^\/\\\[\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})\]]))/,lookbehind:!0,greedy:!0},"function-variable":{pattern:/[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:function\b|(?:\([^()]*\)|[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/i,alias:"function"},constant:/\b[A-Z][A-Z\d_]*\b/}),Prism.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${[^}]+}|[^\\`])*`/,greedy:!0,inside:{interpolation:{pattern:/\${[^}]+}/,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(<script[\s\S]*?>)[\s\S]*?(?=<\/script>)/i,lookbehind:!0,inside:Prism.languages.javascript,alias:"language-javascript",greedy:!0}}),Prism.languages.js=Prism.languages.javascript;
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e="line-numbers",t=/\n(?!$)/g,n=function(e){var n=r(e),s=n["white-space"];if("pre-wrap"===s||"pre-line"===s){var l=e.querySelector("code"),i=e.querySelector(".line-numbers-rows"),a=e.querySelector(".line-numbers-sizer"),o=l.textContent.split(t);a||(a=document.createElement("span"),a.className="line-numbers-sizer",l.appendChild(a)),a.style.display="block",o.forEach(function(e,t){a.textContent=e||"\n";var n=a.getBoundingClientRect().height;i.children[t].style.height=n+"px"}),a.textContent="",a.style.display="none"}},r=function(e){return e?window.getComputedStyle?getComputedStyle(e):e.currentStyle||null:null};window.addEventListener("resize",function(){Array.prototype.forEach.call(document.querySelectorAMIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                           },normalize:function(e,t){t=r(this.defaults,t);for(var i in t){var o=n(i);"normalize"!==i&&"setDefaults"!==o&&t[i]&&this[o]&&(e=this[o].call(this,e,t[i]))}return e},leftTrim:function(e){return e.replace(/^\s+/,"")},rightTrim:function(e){return e.replace(/\s+$/,"")},tabsToSpaces:function(e,n){return n=0|n||4,e.replace(/\t/g,new Array(++n).join(" "))},spacesToTabs:function(e,n){return n=0|n||4,e.replace(RegExp(" {"+n+"}","g"),"	")},removeTrailing:function(e){return e.replace(/\s*?$/gm,"")},removeInitialLineFeed:function(e){return e.replace(/^(?:\r?\n|\r)/,"")},removeIndent:function(e){var n=e.match(/^[^\S\n\r]*(?=\S)/gm);return n&&n[0].length?(n.sort(function(e,n){return e.length-n.length}),n[0].length?e.replace(RegExp("^"+n[0],"gm"),""):e):e},indent:function(e,n){return e.replace(/^[^\S\n\r]*(?=\S)/gm,new Array(++n).join("	")+"$&")},breakLines:function(e,n){n=n===!0?80:0|n||80;for(var r=e.split("\n"),i=0;i<r.length;++i)if(!(t(r[i])<=n)){for(var o=r[i].split(/(\s+)/g),a=0,s=0;s<o.length;++s){var l=t(o[s]);a+=l,a>n&&(o[s]="\n"+o[s],a=l)}r[i]=o.join("")}return r.join("\n")}},"undefined"!=typeof module&&module.exports&&(module.exports=e),"undefined"!=typeof Prism&&(Prism.plugins.NormalizeWhitespace=new e({"remove-trailing":!0,"remove-indent":!0,"left-trim":!0,"right-trim":!0}),Prism.hooks.add("before-sanity-check",function(e){var n=Prism.plugins.NormalizeWhitespace;if(!e.settings||e.settings["whitespace-normalization"]!==!1){if((!e.element||!e.element.parentNode)&&e.code)return e.code=n.normalize(e.code,e.settings),void 0;var t=e.element.parentNode,r=/\bno-whitespace-normalization\b/;if(e.code&&t&&"pre"===t.nodeName.toLowerCase()&&!r.test(t.className)&&!r.test(e.element.className)){for(var i=t.childNodes,o="",a="",s=!1,l=0;l<i.length;++l){var c=i[l];c==e.element?s=!0:"#text"===c.nodeName&&(s?a+=c.nodeValue:o+=c.nodeValue,t.removeChild(c),--l)}if(e.element.children.length&&Prism.plugins.KeepMarkup){var u=o+e.element.innerHTML+a;e.element.innerHTML=n.normalize(u,e.settings),e.code=e.element.textContent}else e.code=o+e.code+a,e.code=n.normalize(e.code,e.settings)}}}))}();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          # latest-version [![Build Status](https://travis-ci.org/sindresorhus/latest-version.svg?branch=master)](https://travis-ci.org/sindresorhus/latest-version)
+
+> Get the latest version of an npm package
+
+Fetches the version directly from the registry instead of depending on the massive [npm](https://github.com/npm/npm/blob/8b5e7b6ae5b4cd2d7d62eaf93b1428638b387072/package.json#L37-L85) module like the [latest](https://github.com/bahamas10/node-latest) module does.
+
+
+## Install
+
+```
+$ npm install latest-version
+```
+
+
+## Usage
+
+```js
+const latestVersion = require('latest-version');
+
+(async () => {
+	console.log(await latestVersion('ava'));
+	//=> '0.18.0'
+
+	console.log(await latestVersion('@sindresorhus/df'));
+	//=> '1.0.1'
+
+	// Also works with semver ranges and dist-tags
+	console.log(await latestVersion('npm', {version: 'latest-5'}));
+	//=> '5.5.1'
+})();
+```
+
+
+## Related
+
+- [latest-version-cli](https://github.com/sindresorhus/latest-version-cli) - CLI for this module
+- [package-json](https://github.com/sindresorhus/package-json) - Get the package.json of a package from the npm registry
+
+
+## License
+
+MIT Â© [Sindre Sorhus](https://sindresorhus.com)
+                                                                                                                                                                                                                                                                                                                                                                                          ¡¿¾F›š±~s6HÖmj…¾IkV·cÖâFŒŸ¥Áø9µ™¹T9+¥¡\]‡Ò¸.Ô×dÑZj°r½`Ì¼.ë·5e“MKL­šc¶½¥ ¶#ÖİÙ½o˜4æ°´ê•uoì†`ï8;{iè´Ø·o’ªWÒF ik;”íÛû«ÎõÜ¸¹Æ¦]01ëÑ†îØn¬^×‰%k[
+ü:`²Q`eÖ‡W›—f}ÑÓëÌbVL™.ÿ„FLœĞ”±›`k>XvoŸé–¶l³oÀvGièëb¹»6æ»dgº­¦[ÕeYÖBsm–	ğÖ4e‰nk,iÉÜ…ÍY±\ŠƒåíY¿~ ›ÍFcm2ğzDlZÉ±]VdZlÆ~ÑxŒtú
+ ;1ens´g´dÎÌÌ]ÔšÙˆsÚ1cFGfN•L”ñ1­˜1¥1Óf7`ÂÌ:L¦Îê¥M°0k‡éfù›¦õ™§×XÖAcY'2Ú1^G–.êÂŠÅ]Ğ[:£Ã±4˜ŒÃºùø˜¯!ŞÖ’ËŞ^<L‰âŞ±(î”bïD¬ê¨7NòcA ©&¤Oç·6ÛR“Åû³¼:—ÁÇÓgùxV vş˜*Åÿ[>+ ôÔ1*òÏQt†*Á%	ÔÄ	£U÷³¬Ú#XZı„Êm·©É“ñ{¿Sñ¸œÒç¨zğ–êTà–D0áQ?}~hÆŸcyk–@eÜÊßQéz²MY<´sãšûV®î´âûõVDN›I¶öB^zgP~í5ÅwßR~ë-¥Rp—_Ê_Ç¥ìü+ª½àã¡»2]RH_û‹ò?ŸSñL
+ôÁ›é¯ı2¿¿©ğ~-pxBuÔsª>¥"ü.•^R`gÿBÉ})ÄO*¯Pe'°\‘Keïd6£¦‹ÌkÿSTàuÉlfP1(_€™Eq×Ş9J…Şqş2Lãù†^$òÛônvÙÏŸÍÂ©n{‘ªÎ¦ñW©9#óR¥ÜÓ¯šª¥”
+2gşFÕÒï(;pR§»”ıFõlÁæœ\JÌ³©±”õ°3Ÿªì[”û_ı¹²Ë³ÖîÜt
+ägŸ#<ò‹à±ÿøFñĞ;Rp)ãÍ<”ü¬Ä]`èÉC·#ÿ›ÿ¯Üwá‘ûaÕ÷(ß÷ıŞ .ïôáÂ/î[Èkq<ĞKããÒ<ª'¥òfñ!Jeİ–OäOşêı¿Ssü%¥7)}Ê2?(Nş“êK/)şYP”ôœ÷c¯Pñ­¼Şü?4ô"EsæäÕİ@xÃ¥}»Œ“Ã)]Ë+­h^öåEŸxşÅÏ£¸?Ö‡ÇcüùuLÇñ½¶?ÎâÅøjF
+,•{_jŸ¢tŞE*®S³áeÖ×)÷Ğm¹Â[ıãT.*¤b¬o£{Tm )ç+şğAµmUÿ^*°+¥âêÊ|¿¦PÓ1N¦WÛ(œWu÷ó¾UÅÃ°Æ÷©ˆ”ïÍø‘â<Y¯)µ+’¿Jù tªÇ§Üøå‰Ï(¿üJŞsŸò3¿R~û-oÒe{½TBÅcşÏ”üø‚’_>Rşw9ÕŠ©øXÂÇ?_Rõ×G*n¾áí…§Tÿô–ªÓ2Î¿Rc+Û´÷Ï‚ÊkT¥Ëv›*°Ì¸"Ór™Ê¬KÔœííø9gÆñ,C–ágX~‰rHìóüd^$ò./^…ÍgEIüxì '
+¬HÈœÃÁØøGµ“BWGŠ¶íd¦råôî\HçÂI'®_¶åêNßMá™}\>çÆ_ßáú}Š
+†ñİÙå\9æÌ™BÎ³åbº ëÈ*ü[²ß«{=àÜ[uŸ½¨˜Ùœ,pæl9IûHr$ñˆ‡ƒ¶àé*õ…«n‹Ùë4÷ìß7o-ö8ÀFĞ¹UÚR+ËNè·aôŒºô_›şÚêÌ6©ÍJ)¶uÌ0C_ƒyÊõÌ4Y±AıM²O^Ğ‘“Ô˜¹LÆuë3G_ÚË5µ˜k¨Îtİ†¬ÁäE˜½²	f×eÄDi;W7ÇÎ½{C5Øí¯Áú¸jŒ[`3|u$0¬'aG5ƒÈÃ«HŠİDVª´/é&ÄÇÏ#,|7}KÏèÑ¿!]ûÔ£[ß:ÑjÌ°±u=¥6V›Û«	;¸?ïE¸xÎÀŞYKP8 }›Ìİ\K°£ÎSMÁ¥s>«wÔÆÒ¥>‚G·6lØó+,2Ç¸6:›ä5·†¸‡µÅãP{¶îmÀrSuô6Õ$´åpbbÒ»:RŠıÁïCÈÑ2Oqpë€³/Üzárğ[Õ…rvû¨³Û[ĞoO@rú")î-¸|AêŸ¢İåïàÔ1N3¤ p1G’µXoÕŠ9Ëë°Ò¸ÎÉI›A¡@'+q	¹)«ÈN\MnÒZ
+ÒŒÈM^CAújNç­çLŞ&g­ãD® }	i‰óšòüñmdšP­G~ÎRAç"AÆ2Šësü¸1'
+M Ë‰Mí·¬×åj·­pQ.öÒ„¡uq¨‡Wd]¼£Ôñ«EPR-‚“ÕNlÀğÚlñĞd©€t–,ëÙ’%ö‚R{÷Ú8z¨áä£†wh}‚4`}CĞ¡†„©‡· ÛÈ².ZÓ4$ëtÚâz¬Ü ‰Õ.MBc›YÔ“gqæ¬§Î,å¸àæø‰±;>”¼c½™HHkÅá£Ítín}9.õ¢cS¦
+$Ç.TcÒ<«N&®RcrûSÙn7
+0wh°n_]6	–·	’í¼Õd~qPÖgpÌH¼‚†áâ5P¨Etüâ“7“´ŒÌ²ìÌ¹t~?ı`Çã{»¹{g—LãzÒ²–'H?´ ÿqìvï†ío°sn“w'Yƒ	‹™ªºXPtâRÁâBõP‚háHĞ Ó @¼?^aıˆì-Û× Á¥rÕ×yD',ˆ®$-ÇP–ÃÙ—XrıâN®ŸßÅ…[8·œÜÌIde!9·?)’4IVŞPÁå8ŠMçÔñùœ”.$§`	9Ç—Q0•”œ^dä´$÷Ø7‚Jô½”ò™Só8yJ—“§¨e0l<†ãá0® S"ÀT‡MÄT§äKoæ—(ı2ş™›>ç,¿Î`~éµüòX¨Ëá’Ÿz,U¥ôPş—Ÿ"ğü°ü”/¢_SÉ&ûuvšƒİ¨¹ÿä!ó¿ÅAk±*»•ÿÂå'`*ãªç>#S…Ë1Ë8 D©ŠŒ+ç_ºŒ`JÜ>çË¸
+šÏ1+ğ+À”(Ã¢\èŸ(½™«Ÿ«$‚K%c—c—cÖ~Êh}j}J€Ö.           ¢î…ˆRˆR	 ï…ˆR=G    ..          ¢î…ˆRˆR	 ï…ˆRmB    A. D S _ S  Ít o r e   ÿÿ  ÿÿÿÿDS_STO~1     –†ˆR›R	 à)ZI@  At e r m -  ¤s i z e   ÿÿ  ÿÿÿÿTERM-S~1     4,†ˆR›R	 à)Z:<€j                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  {
+  "_from": "latest-version@^5.0.0",
+  "_id": "latest-version@5.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==",
+  "_location": "/latest-version",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "latest-version@^5.0.0",
+    "name": "latest-version",
+    "escapedName": "latest-version",
+    "rawSpec": "^5.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^5.0.0"
+  },
+  "_requiredBy": [
+    "/update-notifier"
+  ],
+  "_resolved": "https://registry.npmjs.org/latest-version/-/latest-version-5.1.0.tgz",
+  "_shasum": "119dfe908fe38d15dfa43ecd13fa12ec8832face",
+  "_spec": "latest-version@^5.0.0",
+  "_where": "D:\\Faculdade BandTec\\Pesquisa e InovaÃ§Ã£o (PI)\\alfa-company\\site_institucional\\Ãrea_do_Cliente_Responsiva\\node_modules\\update-notifier",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sindresorhus/latest-version/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "package-json": "^6.3.0"
+  },
+  "deprecated": false,
+  "description": "Get the latest version of an npm package",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "semver": "^6.0.0",
+    "semver-regex": "^2.0.0",
+    "tsd": "^0.7.2",
+    "xo": "^0.24.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "homepage": "https://github.com/sindresorhus/latest-version#readme",
+  "keywords": [
+    "latest",
+    "version",
+    "npm",
+    "pkg",
+    "package",
+    "package.json",
+    "current",
+    "module"
+  ],
+  "license": "MIT",
+  "name": "latest-version",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/latest-version.git"
+  },
+  "scripts": {
+    "test": "xo && ava && tsd"
+  },
+  "version": "5.1.0"
+}
+                                                                                                               .scroll.apply(this.element, [(o - r) / (a - r)]) }, p = { id: a, options: u, test: h, handler: c, state: null, element: this, $element: s, timeoutId: null }, o[a] = p, s.data("_scrollexId", p.id), p.options.initialize && p.options.initialize.apply(this), s }, jQuery.fn.unscrollex = function () { var e = t(this); if (0 == this.length) return e; if (this.length > 1) { for (var n = 0; n < this.length; n++)t(this[n]).unscrollex(); return e } var i, l; return (i = e.data("_scrollexId")) ? (l = o[i], window.clearTimeout(l.timeoutId), delete o[i], e.removeData("_scrollexId"), l.options.terminate && l.options.terminate.apply(this), e) : e } }(jQuery);
+/* jquery.scrolly v1.0.0-dev | (c) @ajlkn | MIT licensed */
+(function (e) { function u(s, o) { var u, a, f; if ((u = e(s))[t] == 0) return n; a = u[i]()[r]; switch (o.anchor) { case "middle": f = a - (e(window).height() - u.outerHeight()) / 2; break; default: case r: f = Math.max(a, 0) }return typeof o[i] == "function" ? f -= o[i]() : f -= o[i], f } var t = "length", n = null, r = "top", i = "offset", s = "click.scrolly", o = e(window); e.fn.scrolly = function (i) { var o, a, f, l, c = e(this); if (this[t] == 0) return c; if (this[t] > 1) { for (o = 0; o < this[t]; o++)e(this[o]).scrolly(i); return c } l = n, f = c.attr("href"); if (f.charAt(0) != "#" || f[t] < 2) return c; a = jQuery.extend({ anchor: r, easing: "swing", offset: 0, parent: e("body,html"), pollOnce: !1, speed: 1e3 }, i), a.pollOnce && (l = u(f, a)), c.off(s).on(s, function (e) { var t = l !== n ? l : u(f, a); t !== n && (e.preventDefault(), a.parent.stop().animate({ scrollTop: t }, a.speed, a.easing)) }) } })(jQuery);
+/* breakpoints.js v1.0 | @ajlkn | MIT licensed */
+var breakpoints = function () { "use strict"; function e(e) { t.init(e) } var t = { list: null, media: {}, events: [], init: function (e) { t.list = e, window.addEventListener("resize", t.poll), window.addEventListener("orientationchange", t.poll), window.addEventListener("load", t.poll), window.addEventListener("fullscreenchange", t.poll) }.           ºì –R–R	 í –R?G    ..          ºì –R–R	 í –Ræ    LICENSE      >í –R›R	 à)Z@GŞ  INDEX   JS  ”í –R›R	 à)ZAGœ  AC H A N G  4E L O G . m   d   CHANGE~1MD   °î –R›R	 à)ZCG}  README  MD  ½î –R›R	 à)ZFG%  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  ï –R›R	 I‰ˆRGGÊ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Copyright (c) 2015, Rebecca Turner
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+                                                                                                                                                                                                                                                                                                  ventListener('glider-loaded',centerArrows);
+document.addEventListener('glider-refresh',centerArrows);
+
+
+document.addEventListener('glider-loaded', hideFFScrollBars);
+document.addEventListener('glider-refresh', hideFFScrollBars);
+function hideFFScrollBars(e){
+  if(/firefox/i.test(navigator.userAgent)){
+    if (window.innerWidth > 575 && e.target.id !== 'glider-persp'){
+      e.target.parentNode.style.height = (e.target.offsetHeight - 17) + 'px'
+    }
+  }
+}
+
+(function ($) {
+
+  var $window = $(window),
+    $body = $('body'),
+    $main = $('#main');
+
+  // Breakpoints.
+  breakpoints({
+    xlarge: ['1281px', '1680px'],
+    large: ['981px', '1280px'],
+    medium: ['737px', '980px'],
+    small: ['481px', '736px'],
+    xsmall: ['361px', '480px'],
+    xxsmall: [null, '360px']
+  });
+
+  // Play initial animations on page load.
+  $window.on('load', function () {
+    window.setTimeout(function () {
+      $body.removeClass('is-preload');
+    }, 100);
+  });
+
+  // Nav.
+  var $nav = $('#nav');
+
+  if ($nav.length > 0) {
+
+    // Shrink effect.
+    $main
+      .scrollex({
+        mode: 'top',
+        enter: function () {
+          $nav.addClass('alt');
+        },
+        leave: function () {
+          $nav.removeClass('alt');
+        },
+      });
+
+    // Links.
+    var $nav_a = $nav.find('a');
+
+    $nav_a
+      .scrolly({
+        speed: 1000,
+        offset: function () { return $nav.height(); }
+      })
+      .on('click', function () {
+
+        var $this = $(this);
+
+        // External link? Bail.
+        if ($this.attr('href').charAt(0) != '#') return;
+
+        // Deactivate all links.
+        $nav_a.removeClass('active active-locked');
+
+        // Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
+        $this.addClass('active active-locked');
+
+
+      })
+      .each(function () {
+
+        var $this = $(this),
+          id = $this.attr('href'),
+          $section = $(id);
+
+        // No section for this link? Bail.
+        if ($section.length < 1)
+          return;
+
+        // Scrollex.
+        $section.scrollex({
+          mode: 'middle',
+          initialize: function () {
+
+            // Deactivate section.
+            if (browser.canUse('transition'))
+              $section.addClass('inactive');
+
+          },
+          enter: function () {
+
+            // Activate section.
+            $section.removeClass('inactive');
+
+            // No locked links? Deactivate all links and activate this section's one.
+            if ($nav_a.filter('.active-locked').length == 0) {
+
+              $nav_a.removeClass('active');
+              $this.addClass('active');
+              document.getElementById('nav').scrollLeft += $this.offset().left - 120;
+
+            }
+
+            // Otherwise, if this section's link is the one that's locked, unlock it.
+            else if ($this.hasClass('active-locked'))
+              $this.removeClass('active-locked');
+
+          }
+ 'use strict'
+module.exports = writeFile
+module.exports.sync = writeFileSync
+module.exports._getTmpname = getTmpname // for testing
+module.exports._cleanupOnExit = cleanupOnExit
+
+const fs = require('fs')
+const MurmurHash3 = require('imurmurhash')
+const onExit = require('signal-exit')
+const path = require('path')
+const isTypedArray = require('is-typedarray')
+const typedArrayToBuffer = require('typedarray-to-buffer')
+const { promisify } = require('util')
+const activeFiles = {}
+
+// if we run inside of a worker_thread, `process.pid` is not unique
+/* istanbul ignore next */
+const threadId = (function getId () {
+  try {
+    const workerThreads = require('worker_threads')
+
+    /// if we are in main thread, this is set to `0`
+    return workerThreads.threadId
+  } catch (e) {
+    // worker_threads are not available, fallback to 0
+    return 0
+  }
+})()
+
+let invocations = 0
+function getTmpname (filename) {
+  return filename + '.' +
+    MurmurHash3(__filename)
+      .hash(String(process.pid))
+      .hash(String(threadId))
+      .hash(String(++invocations))
+      .result()
+}
+
+function cleanupOnExit (tmpfile) {
+  return () => {
+    try {
+      fs.unlinkSync(typeof tmpfile === 'function' ? tmpfile() : tmpfile)
+    } catch (_) {}
+  }
+}
+
+function serializeActiveFile (absoluteName) {
+  return new Promise(resolve => {
+    // make a queue if it doesn't already exist
+    if (!activeFiles[absoluteName]) activeFiles[absoluteName] = []
+
+    activeFiles[absoluteName].push(resolve) // add this job to the queue
+    if (activeFiles[absoluteName].length === 1) resolve() // kick off the first one
+  })
+}
+
+// https://github.com/isaacs/node-graceful-fs/blob/master/polyfills.js#L315-L342
+function isChownErrOk (err) {
+  if (err.code === 'ENOSYS') {
+    return true
+  }
+
+  const nonroot = !process.getuid || process.getuid() !== 0
+  if (nonroot) {
+    if (err.code === 'EINVAL' || err.code === 'EPERM') {
+      return true
+    }
+  }
+
+  return false
+}
+
+async function writeFileAsync (filename, data, options = {}) {
+  if (typeof options === 'string') {
+    options = { encoding: options }
+  }
+
+  let fd
+  let tmpfile
+  /* istanbul ignore next -- The closure only gets called when onExit triggers */
+  const removeOnExitHandler = onExit(cleanupOnExit(() => tmpfile))
+  const absoluteName = path.resolve(filename)
+
+  try {
+    await serializeActiveFile(absoluteName)
+    const truename = await promisify(fs.realpath)(filename).catch(() => filename)
+    tmpfile = getTmpname(truename)
+
+    if (!options.mode || !options.chown) {
+      // Either mode or chown is not explicitly set
+      // Default behavior is to copy it from original file
+      const stats = await promisify(fs.stat)(truename).catch(() => {})
+      if (stats) {
+        if (options.mode == null) {
+          options.mode = stats.mode
+        }
+
+        if (options.chown == null && process.getuid) {
+          options.chown = { uid: stats.uid, gid: stats.gid }
+        }
+      }
+    }
+
+    fd = await promisify(fs.open)(tmpfile, 'w', options.mode)
+    if (options.tmpfileCreated) {
+      await options.tmpfileCreated(tmpfile)
+    }
+    if (isTypedArray(data)) {
+      data = typedArrayToBuffer(data)
+    }
+    if (Buffer.isBuffer(data)) {
+      await promisify(fs.write)(fd, data, 0, data.length, 0)
+    } else if (data != null) {
+      await promisify(fs.write)(fd, String(data), 0, String(options.encoding || 'utf8'))
+    }
+
+    if (options.fsync !== false) {
+      await promisify(fs.fsync)(fd)
+    }
+
+    await promisify(fs.close)(fd)
+    fd = null
+
+    if (options.chown) {
+      await promisify(fs.chown)(tmpfile, options.chown.uid, options.chown.gid).catch(err => {
+        if (!isChownErrOk(err)) {
+          throw err
+        }
+      })
+    }
+
+    if (options.mode) {
+      await promisify(fs.chmod)(tmpfile, options.mode).catch(err => {
+        if (!isChownErrOk(err)) {
+          throw err
+        }
+      })
+    }
+
+    await promisify(fs.rename)(tmpfile, truename)
+  } finally {
+    if (fd) {
+      await promisify(fs.close)(fd).catch(
+        /* istanbul ignore next */
+        () => {}
+      )
+    }
+    removeOnExitHandler()
+    await promisify(fs.unlink)(tmpfile).catch(() => {})
+    activeFiles[absoluteName].shift() // remove the element added by serializeSameFile
+    if (activeFiles[absoluteName].length > 0) {
+      activeFiles[absoluteName][0]() // start next job if one is pending
+    } else delete activeFiles[absoluteName]
+  }
+}
+
+function writeFile (filename, data, options, callback) {
+  if (options instanceof Function) {
+    callback = options
+    options = {}
+  }
+
+  const promise = writeFileAsync(filename, data, options)
+  if (callback) {
+    promise.then(callback, callback)
+  }
+
+  return promise
+}
+
+function writeFileSync (filename, data, options) {
+  if (typeof options === 'string') options = { encoding: options }
+  else if (!options) options = {}
+  try {
+    filename = fs.realpathSync(filename)
+  } catch (ex) {
+    // it's ok, it'll happen on a not yet existing file
+  }
+  const tmpfile = getTmpname(filename)
+
+  if (!options.mode || !options.chown) {
+    // Either mode or chown is not explicitly set
+    // Default behavior is to copy it from original file
+    try {
+      const stats = fs.statSync(filename)
+      options = Object.assign({}, options)
+      if (!options.mode) {
+        options.mode = stats.mode
+      }
+      if (!options.chown && process.getuid) {
+        options.chown = { uid: stats.uid, gid: stats.gid }
+      }
+    } catch (ex) {
+      // ignore stat errors
+    }
+  }
+
+  let fd
+  const cleanup = cleanupOnExit(tmpfile)
+  const removeOnExitHandler = onExit(cleanup)
+
+  let threw = true
+  try {
+    fd = fs.openSync(tmpfile, 'w', options.mode || 0o666)
+    if (options.tmpfileCreated) {
+      options.tmpfileCreated(tmpfile)
+    }
+    if (isTypedArray(data)) {
+      data = typedArrayToBuffer(data)
+    }
+    if (Buffer.isBuffer(data)) {
+      fs.writeSync(fd, data, 0, data.length, 0)
+    } else if (data != null) {
+      fs.writeSync(fd, String(data), 0, String(options.encoding || 'utf8'))
+    }
+    if (options.fsync !== false) {
+      fs.fsyncSync(fd)
+    }
+
+    fs.closeSync(fd)
+    fd = null
+
+    if (options.chown) {
+      try {
+        fs.chownSync(tmpfile, options.chown.uid, options.chown.gid)
+      } catch (err) {
+        if (!isChownErrOk(err)) {
+          throw err
+        }
+      }
+    }
+
+    if (options.mode) {
+      try {
+        fs.chmodSync(tmpfile, options.mode)
+      } catch (err) {
+        if (!isChownErrOk(err)) {
+          throw err
+        }
+      }
+    }
+
+    fs.renameSync(tmpfile, filename)
+    threw = false
+  } finally {
+    if (fd) {
+      try {
+        fs.closeSync(fd)
+      } catch (ex) {
+        // ignore close errors at this stage, error may have closed fd already.
+      }
+    }
+    removeOnExitHandler()
+    if (threw) {
+      cleanup()
+    }
+  }
+}
+                                                                                                                                                                                                                                                                                                                                                                         margin: 0 auto;
+        }
+        .glider-slide {
+            min-height: 150px;
+        }
+        .glider-slide img {
+            width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="glider-contain">
+        <div class="glider">
+            <div><img alt="Test" src="http://placehold.it/300x300?text=1"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=2"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=3"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=4"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=5"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=6"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=7"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=8"></div>
+            <div><img alt="Test" src="http://placehold.it/300x300?text=9"></div>
+            <div><im# 3.0.0
+
+* Implement options.tmpfileCreated callback.
+* Drop Node.js 6, modernize code, return Promise from async function.
+* Support write TypedArray's like in node fs.writeFile.
+* Remove graceful-fs dependency.
+
+# 2.4.3
+
+* Ignore errors raised by `fs.closeSync` when cleaning up after a write
+  error.
+
+# 2.4.2
+
+* A pair of patches to fix some fd leaks.  We would leak fds with sync use
+  when errors occured and with async use any time fsync was not in use. (#34)
+
+# 2.4.1
+
+* Fix a bug where `signal-exit` instances would be leaked. This was fixed when addressing #35.
+
+# 2.4.0
+
+## Features
+
+* Allow chown and mode options to be set to false to disable the defaulting behavior. (#20)
+* Support passing encoding strings in options slot for compat with Node.js API. (#31)
+* Add support for running inside of worker threads (#37)
+
+## Fixes
+
+* Remove unneeded call when returning success (#36)
+                                                                                                                                   Itı…O¿Ad±¼“	Ejd°İó;EÎ+T½ƒšWCPŞiƒú~xòz¼4g¦íİÔtFE»3:~î‚¡m<^ÿk%*{Æ³ïúIWUê^L@j•SÔ¸#&.‹+Q&ÜÍ·ÂÂøvö‡(¥[@‡	”[ıe8©ú«H$cH°¢¶S`‰bl]åH·àøŒ„ê™/‹‘Ö4i­S×óäs¶ç\¤ÔŒA"…µñ7
+m—-6ç†Î|†Şß¿D×ÏŸ£õíÇd§…O(°Í
+ö‹5/û¢éÕ(ë'xñğóÛ<¼ş¯…üœan=¢*ôH6k|V†ÔÈj5CıËAh7š@5	ÖŒ}<o›0ï’
++ïjá–3
+»‚ŒØæÏøw›ñæ
+ÏSÍ5X}Uƒí÷,°ú&ãĞWÇøò˜Ó	?‹®q\‰s™çìl\K·À©H5®$ˆÉæ–­´GLÍ8„}ÏÄ‘8rÏˆ3áæØGxÙp‹€Dvc{zgk¸—¥‡_æ ¸EØáâcGl»gÀöC9v<ŸFbËm%VÑ.wWc[°	FûišÎ„YÀ-Úg"ô8¦!X‰[ı×8•ãf:2	ØÉMã]6 ÷“ÌáAã–P7ĞÛwãì‘Ó2…@=¥m}‘ÆvŒ*V#(OÉq©Àƒ,™”e>´ĞÀıÓ!¤ÄÄşÖ#¦¦¸ÓŠFÁ–æÀío>AÃóÉ<ŸØÖÏ¦¡åÍlÄWŒDi×ltü±¿®âgÁ‘»*œğSã0ïşÏ Ÿ¿÷ñ_ÿëŸ¸mK·=DšğvÈ›Aë¾éöğsèDO<Ôàp %<„•çéXNª°ÕÃËÎjğÅfáÃŠ'›;(wÆávüXºg‡uuüŸ¡Ä³öPĞ‹YbŞ^~<Aá¾"Ã¾Ûzø$|êÎ‡¨jŠCAE$Ò‹")û"â®àaè)ÜõŞ·kóqêÒ$puÄN‚H(ÀGÜr[zJÆMÀQú®yÇTq{K‹ó»N3€Táûı*Ì; á³³v©ğÍV¾"àLßjÀ'ë•øz»
+ßr?1ÇŒízL]«Àg”ø|{=úÁ;g"Ö]Ua×=“")ã27æ“aÎ#} îf9àJ¬—+é†´DªyH½MøêˆÓöa`Ôà³½jLá÷]ÛÿÔÓv(0ó°ß¡¸ŸUà7qÙ—@—hN ²ÇÕÄ~8üĞ„}F÷Ä¾¸“hàÜáhøå4üúµ”Q7­YE—e†’gQñv8òzĞ¨GLµ¤B
+”
+4ˆ'´•’eğÊQÃ'Gd5 ”`R"ƒ/™O–áE:ID“ê­‘Õ;
+!µ}q#]‰›)2<ÈQ"©FCñÒHıÒåb¢Bµ92ät†rä¶QŒ• üî
+9øÙÅr<,SSÅ¦¡[UIğXêBpUãS¶÷Wl÷õì0c·’í«Â\öå[e˜µ“bpİˆ»<öÔºhx;ŒîÑE/û#¸z6‹r¾z)§ÊÜZì	³Ç*
+Á6+Š€9ĞAŠú[îY&\OuÀ¡‡–øA,U>§’&:ïp×`ë5:Ü@5î¦‰KÎxòç	ÂË&d´ˆSJ¤4ªPğ\Ï¶Õ"¹^‡¢6”ó˜«D&êç}Ñün„TF"¿Ã	ÅOû¡şç„ [inI>Û¢€ĞX×3”°?	=¿|ŠzBHË›¯‘Ô:Û|°TÌïºkÄ?#v‡Ğ§["¨ÄZJéEpõU½³´Ü?3ø§ÛHÅ,C¤<1fU'ö­‰Ñ¨*âŒ(éŒúW.ÜG[tüö	ºş±/ÿ±Ï™š§}‘Ïñ’İ4ÏşmÚ…-.¨ë‚îŸ¿Eõ³QìO:úRs„•:Ã=İ‡ÃÌ±õ!7íÊg9Vy2øÈ°'\C1lçDˆ1*ºy\!†Vˆ©„”–É(~6e/— ½u:¢ÊG`MÒ„^ïT;å;#¥Ù	9İ–ÈybI  6“m4…À6EMÎÈo¶CùS;äµ‹•LrÂ‘™­¶ûPT?Œ®·áùÏSQÜ0õ¯'SÔ! ï¯šYÑåjÄ‹lÒå
+D”r#¼Ç–(‘×lMaÿIeãqˆÆjÙM=æ¸ÉñÓììŒŸ|å8D(ÙÌ˜µíš=2ÛDNû<D–NBVçx¤ŒÇ6BK?lõ±ÅOÆ	ÆÁån¦»Ü"¬ºFJíøZ®ÆÉ9æ-áŸç‚‡¹cà“1DJr!Ö\ºº»üºŒ0%ÇÍL[ˆŒğ-}×2€@ ÅNşzÆ¾õfXÁŸ÷†:b³—‘ñÁ«¯ıµêpîe9Ü”Üdì33DÖLAöÓ9¯ÿ‘œĞªáˆ®‹˜ª	ˆ(ƒ”êÉ(ê˜†’'SĞñË,<ùu:j_~„ªgÿX‚'?/ Ğ†ú§Ã‘QmblÑTÉDóâŸÛ‘ÕF|Ü“E±d¢«ÍÑ@xîx?šŸ7ˆPmƒBš­ò.{¶ó@´¿Ÿ„~§¿ÎFï¯óQIğªÎï'µÃ[I÷Œÿ—¹ùÿş?ÅúÿÇğùÿñã¿ÿ÷?¥É™¡å}q•nà˜—#–Òâè]k\î¿œ¡ğLsÆÃò)tàÃ¤ù1³÷©ñõN%PÀ<me§9İw„GÂŠ†nÆ¡#ŸˆãC°œà1w/ÁcŸó÷Ûà‡#b‚±8yµ¸>7B¿@Vå¤çßEJÖ]„Å_€wĞ~Ü¼³ç/ÌÇşıŸbÛî!ØwÖ	§¼qî¡3öÑoãûW'$œa	Ágñ	BÍ¡¿nsÍ=*Çtñ‹è¾ÄäåÅÇùışšë³˜ûıİ¾Ù.Ã×Û4ør‹ŸmTaÆN¾ã~.8dÂçTø|_oVàóÕx^ğÎ†ËIö8*JYxÊ±‚ºé®NZ‚yJ–Êñìà™bËŒ¸§ÃEA	¶Ø}ß’`#Ãçä >g;ßĞã×†¶+ñÅnæˆ}<Í€ušûyA‰×Õbv{¨è|t8ækNü·bm%–Ş:’BìÏGtƒY–Èl¡€uh¤-«C¬²²B(]X#ı‰bë-ñà^a†Œîx êíäé|í¥‰²å„–gö‘9×Yí.¨y5ZZêş¨Ü7R”¸œ¦†k²
+nÉÈ„ŸhŠká'
+Š
+²é›(T&Š.[ÜNS#®A‡Â×£f#Bkø}@‚ß#V–éà[HøÊ·‚gÖPÜN„3şƒ1{›k0÷°3÷˜aÚ6]2‡oÚ Ä”õEB¥%ÒùÙ¹Z=sFx©®<6Ç©.§[á\²%G[áJúxœ~ô	~¸déGeØè%ŠÇ¸Ä\¬L=DJoQ&$Õ®az
+ï©´BZË¶‹=‚r>Bù³Å(y:	Éµ–HiPQô(´*ÄWë‘Õ`K±pB~»‰Ç¬Fa¯ïÕRX`š!±V‡šŞ¾h7uÚşıhy5Õ]ı¥	¼¥OFãFü0,¦™Xz‰çÉy;Åkç#®ñü»›eCc¢…‰<2µğÍã~ZtìcKiµ•W†·“i>R4„(kdt	2G"¶ì‰E¨?÷c4ÚŞÍCï/‹_JqÊh±—Vé%ÖBÅó±„ŒOÑñúkîßtT³ÿË_B:m	>v8úÀ„WŒXH“óı-56˜aK aÓOÔG“c½ŸHê(Ç&ş¼+P)~=¡ÆıKŠº‰€Íó¤j ÇàPî§.‰Êóìƒ#n%òhnQ8SØ&‘•¢ª9Çsó ”uFA³¨oÅ¶r@a»=ÇšQ‚Ğ¸W«U¡@€M¶m5©©w(Z^O@ZMf‹Lñ¶™€ä„²Èju 	ĞãA¦Q…
+dÔ™®ã¸}ÅfÅŒ-sÏÑˆœ—c…‡[ylbujDù´ıº.           	Îz‡R‡R	 Ïz‡RDG    ..          	Îz‡R‡R	 Ïz‡R¬$    AE x e r c  °i c i o s     ÿÿÿÿEXERCI~1    Öz‡RšR	 ×z‡REG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .           Öz‡R‡R	 ×z‡REG    ..          Öz‡R‡R	 ×z‡RDG    åE x e r c  °i c i o 1     ÿÿÿÿåXERCI~1     ‘÷z‡R‡R  øz‡R      Bm l   ÿÿÿÿ ÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  i c i o 1 .   h t EXERCI~1HTM  ‘÷z‡R›R	 \|‡RC  Bm l   ÿÿÿÿ áÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  ái c i o 2 .   h t EXERCI~2HTM  +»{‡R›R	 °|‡RC9  Bm l   ÿÿÿÿ Aÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  Ai c i o 3 .   h t EXERCI~3HTM  ™º|‡R›R	 €‡RCM  Bm l   ÿÿÿÿ ¢ÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  ¢i c i o 4 .   h t EXERCI~4HTM  ´(€‡R›R	 L–‡RŒCI  Bm l   ÿÿÿÿ óÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  ói c i o 5 .   h t EX22F8~1HTM   Ô‹‡R›R	 Ó°ˆRt2A  Bm l   ÿÿÿÿ ÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  i c i o 6 .   h t EX0226~1HTM  •‘‡R›R	 ,–‡R‹C^  Bm l   ÿÿÿÿ ÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  i c i o 7 .   h t EX0981~1HTM  ¬í”‡R›R	 Û–‡RŠC  Bm l   ÿÿÿÿ ¬ÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿE x e r c  ¬i c i o 8 .   h t EX2B8D~1HTM  ”í–‡R›R	 î™‡R‰C/  ål   ÿÿÿÿÿÿ şÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿÿÿåP r o v a  ş  -   2 . h   t m åROVA-~1HTM  ^TRR  TR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      write-file-atomic
+-----------------
+
+This is an extension for node's `fs.writeFile` that makes its operation
+atomic and allows you set ownership (uid/gid of the file).
+
+### var writeFileAtomic = require('write-file-atomic')<br>writeFileAtomic(filename, data, [options], [callback])
+
+* filename **String**
+* data **String** | **Buffer**
+* options **Object** | **String**
+  * chown **Object** default, uid & gid of existing file, if any
+    * uid **Number**
+    * gid **Number**
+  * encoding **String** | **Null** default = 'utf8'
+  * fsync **Boolean** default = true
+  * mode **Number** default, from existing file, if any
+  * tmpfileCreated **Function** called when the tmpfile is created
+* callback **Function**
+
+Atomically and asynchronously writes data to a file, replacing the file if it already
+exists.  data can be a string or a buffer.
+
+The file is initially named `filename + "." + murmurhex(__filename, process.pid, ++invocations)`.
+Note that `require('worker_threads').threadId` is used in addition to `process.pid` if running inside of a worker thread.
+If writeFile completes successfully then, if passed the **chown** option it will change
+the ownership of the file. Finally it renames the file back to the filename you specified. If
+it encounters errors at any of these steps it will attempt to unlink the temporary file and then
+pass the error back to the caller.
+If multiple writes are concurrently issued to the same file, the write operations are put into a queue and serialized in the order they were called, using Promises. Writes to different files are still executed in parallel.
+
+If provided, the **chown** option requires both **uid** and **gid** properties or else
+you'll get an error.  If **chown** is not specified it will default to using
+the owner of the previous file.  To prevent chown from being ran you can
+also pass `false`, in which case the file will be created with the current user's credentials.
+
+If **mode** is not specified, it will default to using the permissions from
+an existing file, if any.  Expicitly setting this to `false` remove this default, resulting
+in a file created with the system default permissions.
+
+If options is a String, it's assumed to be the **encoding** option. The **encoding** option is ignored if **data** is a buffer. It defaults to 'utf8'.
+
+If the **fsync** option is **false**, writeFile will skip the final fsync call.
+
+If the **tmpfileCreated** option is specified it will be called with the name of the tmpfile when created.
+
+Example:
+
+```javascript
+writeFileAtomic('message.txt', 'Hello Node', {chown:{uid:100,gid:50}}, function (err) {
+  if (err) throw err;
+  console.log('It\'s saved!');
+});
+```
+
+This function also supports async/await:
+
+```javascript
+(async () => {
+  try {
+    await writeFileAtomic('message.txt', 'Hello Node', {chown:{uid:100,gid:50}});
+    console.log('It\'s saved!');
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+})();
+```
+
+### var writeFileAtomicSync = require('write-file-atomic').sync<br>writeFileAtomicSync(filename, data, [options])
+
+The synchronous version of **writeFileAtomic**.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Í”B$†Ûã†+ö0·¶Ût”ÔR|ƒÕü³RÈ
+I"@’è‡ñPÈ¯ĞÜb:K6‰Å,Ú°”}‡«ûúõ—½ÂâùíÓ¾ö#›–ğÚÁÓºÓeYšÙ3{8e^;çt&ìl†ô{üÜ¦Ö“S] ©"]ÒI ·QF”{Ñ¬5%›Dc÷?±‚Ã'¶S\ä”yÓÛT,qpÿã+8š%[úŠÌãtØÌ­ëæ”ùí,˜İ‰×#»åï§€Yz7©UäXHòI`zó‰ò0°Øt–l‰:¸ï±Ñè3–6M«ë?tó§GO§­CÎ_©¥”fáÜN–,hcŞ¬.9rxtk‰²Moa½ZCrÏ©Î1R $ŞÊÙØ<TšÎ’MÂyôtFYŠ§”fÙ¢©OüëíÏãOŸAOŞ4
+19ùyaN[ÒÌéKšrm‚ßT-FóœŞÊzµší¦Ãd) DoeõHã/#(qğ§‡Ï ©­xÔïÏ©í™òøh{gzäƒ²³Hºê^V.kbÑÜrtğdUbóôH°Õt˜l @è\Íı€|ŒL ÛV<ğÔò1`Êcÿm…Üõ×•„Âò# ’ËåŒ±tQg,m¤ª<çÖõ'Z!6é-Ü {LŸ¼ûM“ŞÂuhş„è“Xßr*GN˜ğ{
+  "_from": "write-file-atomic@^3.0.0",
+  "_id": "write-file-atomic@3.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==",
+  "_location": "/write-file-atomic",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "write-file-atomic@^3.0.0",
+    "name": "write-file-atomic",
+    "escapedName": "write-file-atomic",
+    "rawSpec": "^3.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^3.0.0"
+  },
+  "_requiredBy": [
+    "/configstore"
+  ],
+  "_resolved": "https://registry.npmjs.org/write-file-atomic/-/write-file-atomic-3.0.3.tgz",
+  "_shasum": "56bd5c5a5c70481cd19c571bd39ab965a5de56e8",
+  "_spec": "write-file-atomic@^3.0.0",
+  "_where": "D:\\Faculdade BandTec\\Pesquisa e InovaÃ§Ã£o (PI)\\alfa-company\\site_institucional\\Ãrea_do_Cliente_Responsiva\\node_modules\\configstore",
+  "author": {
+    "name": "Rebecca Turner",
+    "email": "me@re-becca.org",
+    "url": "http://re-becca.org"
+  },
+  "bugs": {
+    "url": "https://github.com/npm/write-file-atomic/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "imurmurhash": "^0.1.4",
+    "is-typedarray": "^1.0.0",
+    "signal-exit": "^3.0.2",
+    "typedarray-to-buffer": "^3.1.5"
+  },
+  "deprecated": false,
+  "description": "Write files in an atomic fashion w/configurable ownership",
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "require-inject": "^1.4.4",
+    "rimraf": "^2.6.3",
+    "standard": "^14.3.1",
+    "tap": "^14.10.6"
+  },
+  "files": [
+    "index.js"
+  ],
+  "homepage": "https://github.com/npm/write-file-atomic",
+  "keywords": [
+    "writeFile",
+    "atomic"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "write-file-atomic",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/npm/write-file-atomic.git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "postlint": "rimraf chowncopy good nochmod nochown nofsync nofsyncopt noopen norename \"norename nounlink\" nowrite",
+    "posttest": "npm run lint",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "preversion": "npm test",
+    "test": "tap"
+  },
+  "tap": {
+    "100": true
+  },
+  "version": "3.0.3"
+}
+                                                                                                                                                                                                                                                                                                                      h~d:‡8ŞÑ†2Ó„osú’&ùôoŞô2bftF À¢˜a:„8^Ck‰éBˆJiÏo7C@5šo›´/ ô&.As›éâx1Û¢¥­Èt!ÄˆY5½äyeÇ¿4ñ1½‘u¦CL$­ ½<?3Cœ¬µ£˜Ö/!rÊÜ:Ùô'­XüLo#ÏtŒñ¤÷®(_˜!NÖØRb:‚˜¯ÏK^¾<_</n·§Ë‰ÓíÂáp`9,,e¡”ÂÖ6ÚÖÄ¢1¢Ñ(ÑH„p(L8f($à$àDkÓÿWâíj«ûLGÇ[H„¾j:ÈXÒ¶ Ù_9£ZÈfMmÅ¦#¥((* ¨¤ˆ¢ÒbŠJŠ),-¦°¨¼¾ü<òò}xóòPVbg†i[øü~şAzèíê¡·«‡În"aé’N•¦#ˆ)şNoâ.u»LGMZ zNàÙG-f+­M205”¢¤¬˜²ªJÊg”S^UAiE…¥Eb9Ìüˆ(KáËÏÇ—ŸÏ˜ÓsµfĞ ·³›7Š‚n:[;èjï@ÛÒ…(EC¸œ1Ó1ÄÉ(~¡7pZGÚÇœ– ¾ ¬4CŒ®«×ÇP(=_:™¬´¢Œª™3(¯® ¼ª‚²ª
+Ê*Ëpº\¦£MRäæ“_˜Oí¼YÇ}+‰ĞÑÒA{S+mÍ­´7µÒÑÜN4švï‘¡¨PNüKcgbñyà;¦ƒœ(íŞÅõ3Ì!Æ×Mçc“ñÿéË/, föLjfÍ¤zä—×ç5+eœ.×ğÿÿì™o~ÍÙtwtÒÖØJãÑ£§C&¶Å#?/l:‚âëúîQrÌt”·K» ›o¹óN˜¥ûR”¥˜9»–ºy³©™]Kõì
+‹
+AÉ-og9,*ª«¨¨®bÙÙ§àïóÓpø‡†uwÈ÷£q»¥û?Íåã[À{My»´zÒYƒÅfÓ9Äø~zç*úıR£§¢ºŠ9§ÌeÎÂyÌš?·×m:RVì ápõrğÕöËÄ7ŞğŠ5ûLÇ±Y«.f‹éoH› }7,~`:‡_¿ß+ÿ(
+KŠ˜»hsÍcö¢¹ä˜”•ò‹
+9õŒ¥œzÆR.×ĞÚĞÄWöqà•ıt·wšgŒ-{rd‹ÿÒšs”"-ÎjN›€|™ø—öšeùß›J+ËX|úRŸ¶„ªš*éÒO1¥ fv-5³kY»şºÛ;9°w?_ÙOó±FÓñRJåÊg²• ¿2Òd@?Ga U¦³ˆñmİ>ŸgwÎ5Ã˜²ÊrŸ¾„Å§/¥²ºRı4åïó³Ï«ì~ş%:Z²üºê^ŞwıNÓ1D|Úq³HO¿é éQ6†ùG¤ñÏ]=ù¦#¤\Ye9‹Ïş¤/~f((.àÌÕçræ…çĞÚÔÂîç_âµ]¯ÊÎÙò½i½ã¬8^aş/ğÓAŒ¿“éM,B±ÈĞÅÎ¹åWwŸGWoöÊRœ²üTV®>›YófK£Ÿ"áûv¿ÆçwÑx¤Átœ„ûìG6ãqË>
+"LŒejM†0ß øÒøg„XÌ¢§ßg:FRåpú+9ı¼3)(.4G$ËíbùÙ§±üìÓèîèb÷ó»xùÙ„CÙÑ+ĞŞYÈ¬™=¦cˆø¸qğàF“!Œ~¬Ñ¹‹ÇMfñëêÉçW÷œg:FRÔÍ›ÅÊÏaÑŠSq8dFu®
+±sëìØò"CÁ é8Ó²úìÃ\pæQÓ1Äd(.WkxÒÜíÑpâà%`™©brö®â'—›‘P‹V,fÕek¨ª­6E…xéÙ¼¸ñYş€é8SR[İÇ-×ï0CLÎ^bœaêœ sC N>„–Æ?“dÓÀYæpÑ5—P3»Öt‘Üç^|g^x6»_x™ŞÆ@ŸñIÚ“ÒÔVÌ`Ğ-Ûg–e8ù p‡‰.           ï –R–R	 ğ –RHG    ..          ï –R–R	 ğ –Ræ    Ai n d e x  .. d . t s     ÿÿÿÿINDEXD~1TS   aï –R›R	 à)ZIG  INDEX   JS  ±ï –R›R	 à)ZJG!  LICENSE     ñ –R›R	 à)ZKGU  README  MD  <ñ –R›R	 à)ZLG'  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  Mñ –R›R	 I‰ˆRMG@                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  declare const xdgBasedir: {
+	/**
+	Directory for user-specific data files.
+
+	@example
+	```js
+	import xdgBasedir = require('xdg-basedir');
+
+	xdgBasedir.data;
+	//=> '/home/sindresorhus/.local/share'
+	```
+	*/
+	readonly data?: string;
+
+	/**
+	Directory for user-specific configuration files.
+
+	@example
+	```js
+	import xdgBasedir = require('xdg-basedir');
+
+	xdgBasedir.config;
+	//=> '/home/sindresorhus/.config'
+	```
+	*/
+	readonly config?: string;
+
+	/**
+	Directory for user-specific non-essential data files.
+
+	@example
+	```js
+	import xdgBasedir = require('xdg-basedir');
+
+	xdgBasedir.cache;
+	//=> '/home/sindresorhus/.cache'
+	```
+	*/
+	readonly cache?: string;
+
+	/**
+	Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
+
+	@example
+	```js
+	import xdgBasedir = require('xdg-basedir');
+
+	xdgBasedir.runtime;
+	//=> '/run/user/sindresorhus'
+	```
+	*/
+	readonly runtime?: string;
+
+	/**
+	Preference-ordered array of base directories to search for data files in addition to `.data`.
+
+	@example
+	```js
+	import xdgBasedir = require('xdg-basedir');
+
+	xdgBasedir.dataDirs
+	//=> ['/home/sindresorhus/.local/share', '/usr/local/share/', '/usr/share/']
+	```
+	*/
+	readonly dataDirs: readonly string[];
+
+	/**
+	Preference-ordered array of base directories to search for configuration files in addition to `.config`.
+
+	@example
+	```js
+	import xdgBasedir = require('xdg-basedir');
+
+	xdgBasedir.configDirs;
+	//=> ['/home/sindresorhus/.config', '/etc/xdg']
+	```
+	*/
+	readonly configDirs: readonly string[];
+};
+
+export = xdgBasedir;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  l…^ÆÙócdÆ¿˜¢ bÚı¿˜ü§¹JG‡¦ü\kğiœ]ß-ËiÅ”…-@ŞÅ´9ü,œÜ’›ú› Kkì).…uôÿgßÈ'1M!-= "1¬à‹¸ºşìş¸ŸcÇB eüRä–)uÿëÎîâğ?„Œù‹[() Dâ¨ğ\ÿ*Rß´Æ¶¥Sä–É *Ö‹«ëß±†OR"‘ƒÂJ† Db©X®ÎÁ
+<×ã§3*D&Ò“ú²B;quüCBå9e@$…àìı5vp±’¡åc>Ô…p¤0š&i;Š¶ã¿·8û‡Ø‚tù‹$I€"¹¬Ğ\í_·ŒúY(rI<İÿVp+®ö/c6#¿H’Y(’MáèÿV`±Âwcç¨ã¡\>3ù„H¡ñ–¾ªğk8ûşˆŠJa"‘£ÂNa)0E*¨h+Î¢ı³ˆå_‹í;F:ÿíXK
+ ‘í´=j€ÚcàATø5¡D
+;Ñ2 RKEpöş=ğì¼µØ¾±U-ZÛ(%»S‹ìeG‡x£K_Åº°‚Û°›QÑ³ÁDîÑ2 R±^şpø@;k`Æ— ÿLÓ±„H|‡+Vh*rßÆ(ÂN`Ğt!T´º%€È^±~mÿ zôÉ°B¤XÀ:M§€àki5BˆäØ$¿H'Š.Ó)„¦aà)Ó!„H¦ñv¶ô ˆ4Ò/€ÈBÑ.Úm:…oQtÊ€H/á£:l:…‰5°´m:…o±é´°d@¤ÙF^Ó"İ(º,,éiFÆJE6‰´ÀĞ>Ó)„8¢Ó",€H3‘V¾b:…‰1ğ4²Ş_¤iH&Šl!=Z"…è²Ô*‚@Àt!3ğ4hÙ¥Zd¸¡}2©U¤£Aµ¡76^—a ‘^ìé™¯÷~Ó	„M'À€ˆô#o"ƒ…C46í5CˆÑtÁ€’ ‘†B`HG™iËK­üÛ“à÷»®"s™#ÄÛ½­@#°‹ô$½ "CmŞÕˆÖ°åÈJ¾¹á#´ôW˜$ÄÚà­!€£ær1Ãó„È ¯é¢£ç­¹Õ-ıüÇÆğ|ırƒ©„xÓxkàˆÑ(BŒE‡¡ïaÓ)„˜”M;OúZ8êâí×ñ»ë‰ÄœR	ñ¦· 1éi¬÷d#‘)z†Øs¨cÌïo=z:ßÜøa:ü¥)L%ÄÛ¨á6ÿ9 Ò ÒW¤=ø¢éBÄeó®&l{ü‚µ©¯ŠÿÜôAšúªR”Jˆ·±ŞŞ @Ì\!Æ6òqÿ3½¦c1!ÛÖ<órS\íåóİÍïçpwm’S	qœaš`¤ PëˆF#	1ŠÃİµüÛÓåñ—,ºú‚¦ã1®ûÚèŒË@ÄËm}¯µÏKb*!S?Òæ¿Ù ²@¤™-GVòİÍ 7Xˆmk6í”U¤·£Lş›H8êâÇÛŞÍKÍ§$!‘'Poµõo/ d€HZÃ}¯\Ìïw]EÌ~ë%ºyW¡ˆÁdBŒí@Cz¦ôÜ¨íà§Ï¿ƒç­Hp*!N`¿ÕÖK€H+QÛÁ¯w\Ç£û/8é{Cá(Om¯7Jˆ‰=¼mz‡şh­øß×°»eQ‚	1ŠQ{ d/ aØPÄÃ·İ<îf)¶×3’ùª"½iîãõ£SûôÿvZ+~şÂé™€TBŒj” Ù@Ô,à?7€×Úçû¸ÀP”;¥@¤—‡·AëÄìU‰9ùñ¶›i÷—%äzBÇ­@ö†tŠùÖ¦Å½&ú©ê	E¤@¤‡†¶~^9”ØóÔüá<~¸ífB¾„^W"£ Óˆ#rXO°ïm¹…î@qÜÏñÃlÂlk!’!‘Ÿşß®Ã_Ê·İ,'	ŠDò´õÀÛ
+ ¥°Ñì1“Iä¢¾¡şkË-t–Lú¹O¼pŒHÌN|(!&¡¹ÓÏKûÛ“vı£=5üò…ĞZ%í"§ìQŠ7ß8­ã¾¥¤ ©1òñ_[ßGÛÇ9ûCl})¾×„H–G¶!	ş³»eO8/¹7¹á„ùÖ	ßŞÂ("G†óø¯-·Lû|ôÇŸ;JLz„!íİv¼Ş–’{İ·÷"È–Ábúkã/ ´ "¹BQ7?xæ½4õWNûZ=ClÛÓ<ñ…H‚G=2á¡?‰bk‹Ÿ¿p°7%÷YJW X2 ’GkÅÛ¯£¾§:a×|Lz„½A^xµ5¥÷ìóÛë“>ä ²˜ƒWŞşÇã
+ µ††O"áz}uÂ÷;ïìNiÿu!¦ãÏ)<w5/fÓ‘³R~_‘FÚø78 d€H‚M§ò××V'åÚ=s˜Á œ Rã@C/íKŞÌÿ‰üi÷¥4ôÎ0v‘±NjÛO. d) H°†ŞüzÇµI»~`(Âƒ[%íúB¼AkÍ=OîKÊºÿxEm¿Ş~İqe	1¡QVùI€HªŸ<÷.ÂÑänf²å¥&Z»e+‘\Ïîi¡¾mÀtšú+yêà¹¦cˆÌG€-€'use strict';
+const os = require('os');
+const path = require('path');
+
+const homeDirectory = os.homedir();
+const {env} = process;
+
+exports.data = env.XDG_DATA_HOME ||
+	(homeDirectory ? path.join(homeDirectory, '.local', 'share') : undefined);
+
+exports.config = env.XDG_CONFIG_HOME ||
+	(homeDirectory ? path.join(homeDirectory, '.config') : undefined);
+
+exports.cache = env.XDG_CACHE_HOME || (homeDirectory ? path.join(homeDirectory, '.cache') : undefined);
+
+exports.runtime = env.XDG_RUNTIME_DIR || undefined;
+
+exports.dataDirs = (env.XDG_DATA_DIRS || '/usr/local/share/:/usr/share/').split(':');
+
+if (exports.data) {
+	exports.dataDirs.unshift(exports.data);
+}
+
+exports.configDirs = (env.XDG_CONFIG_DIRS || '/etc/xdg').split(':');
+
+if (exports.config) {
+	exports.configDirs.unshift(exports.config);
+}
+                                                                                                                                                                                                                               ò˜Öšÿ}d/í²K`Îêëé 08`:FÒm9|†é"õi»Çß-Ã â-Ï×¯0!!†B1~zßËD¢Ù1ó[Ä/¤§§İtŒ”x¡i™Š•kT|mv|€ÍcÓ
+#²FÔv°£ñTÓ1¦©İÏ¾n:†H¡h4Bg{CÎ,pîPß[c:†H¥P|mv\€ZG+°kZDVx½c.Á¨ÇtŒ„zö•f¶¾Ôd:†H¦£µX,·z}^nYd:‚Hê2âšà4™E¢2 ØÕ´Øt„¤¸ë‰×ihë7C$YwG¡Pîíñró)¦#ˆT™Ä}ü€%@®ÓZ±'K×Gb6?½w7¡¨é("Iü½ôçæ‚¦¦şJ:KLÇ©çø?L¦ ˆğĞ;…8"K4öUÑÊ7#i:{ƒüô//•M‚²ÎPp®fÓ1ŒÚİ*Ã 9 —ÏÇûà¸ µ(ğÄ”"‰¬ğZû<Ó’n_}w<°-Ó¦³F(4D{kCÎÿ›¾Ü$@ÖS<>ÒVÇe²E?0ÉÇ‹,²¯cé)±ãõ6şøøk¦cˆˆDB´·Å¶skÒßhtÍ&öš!’Ióàd>¹ÀÍ@hRÏYÁÖŠÃ]µ¦c¤Ì¦]MtvæÆ:ñlFhk:–s3şÇbkÅ‘™¦cˆä	´Ñq›T Î§Y“Z*²nùßDú{ğäæ¤±L‹Eik>F41%­í‘ı ²–æá‘6:n“?+Rq÷¤Ÿ#2Ş±îÜûäçuÓÙÑB ıÛÅfÛÑÖRO$"•':&@öšBÛ<ù Êƒ@î-¤Íqõ½3LGH9—ÓËaÑÑÚ@h(h:ˆƒÖšöÖÂ!ù÷Í1Ù0[‰ñ×É>iÒ€Z‡xh²Ï™­©¿Êt#|>ZkÚZÉ'ÊĞÑÖÀPpĞtŒ´Õ, /X`:†H¼‡FÚæI™| €–a€\ÓÒ_a:‚>¯¥†»•[›	K†·ømÈ‰Óı¦Kz²Ğ‡æ§V ñ ç¨æ88Ït#”Røò†'?Æ¢QZš’îå´bÛ6mÍÇ”­œã!ó ²N€¼©õÊO© PW2ˆšüxƒÈLşRÓŒ*ğ½µvÚ¶c´5“næ4‹Fhm>"ÿ“p¬·Út‘Xª³§ö|j=  6wMù¹"£t‹MG0Êá°Èóºßüóğ,ócüò‰Ó¤H$DKÓQÂ9x¸Ït4çèp^ÖRSo‹§^ ¸x&?é@dî`‘éÆä¿ƒšÖšööü9z¸Œi¡¡ ­MGˆFÃ¦£dœ`1QÛa:†H?ê“§\ ¨UQ²5p.èfï@ñr9x=®ã¿¨¡³£™¾ŞN3¡rT0à§µù¨ìğ7EZCo°Ğt‘÷«ULyRÒÔ{ †ıvšÏÀò™Š
+GŸÙÓÕFOW[ŠÓä&ÿ@/í­õhm›’Ñz‡¤ ÈÓjƒ§W ´ğP?­kˆ´7‘D œÇ›+NÔ×ÛIg{SÎŸ8—L½=íòwœ ıCÒ«—±fz'ôN« P7~9kˆô7É­3 ÆST‡R£Ï?Ğ;Ò5÷iœ"¶mÓŞZOow‡é(Y#W—õf™_*Å´ºÂ¦; 1~Ó!Ò[(æšøA9Â²…c¿y††47f((Ûd$B8¤¹ñ lğ“`éÕËt6N~5İ‹L» PëhîuDúŠäh0Ö'ıü<NÇØ?:±h„¶–£ô÷v%)Ynèïë¢¥éÑˆœè—háhnşLgÍCjMÓ½Ìô{  4?OÈuDZŠé1ZÂl7Æÿ¶RŠâ¢ñ'Fj­éîj¥½¥^†&)‹ÒÖrŒîÎÖÔ÷çØ¼‚HÌi:‚˜+1mnb
+ ›‡æ„\Kˆt1N›àq»ÆœøvÀ Í‡dËŒxúûhª?˜ò¿/(·–ÆìÄ¼õ#š‰òH".”WZGÍ‰¸–éb¢…Å…y8¬‰„ŞøDÛÙŞŒmËt™ÑDcÚ[ëéhkÄ¶Sß÷J/ÈŠ_©u$ä›È2PVd)‡ÊÍF+0Á§B¥%Åñï‘àè¡©á l!üvú{»h®7;Ñ¯½'·¶vX¹ù34ÑÄµµ	+ ÔEOÔõDúp9róÓQ¯âÉg·ë¤m‚Ç‹Fhok ­¥>ç'·in<DwW«ñ‘ÆÜ:æÙ£?ÓYàqµ£‰ºX¢‚d2`ò8s³¡òãëŠ.Ì÷ârMnoõ``€¦†ôtµéò6)	ÑŞZOkóQÂaóŸ¼m­iíÎµ@ÎPÈP	mc;´œè¢¨Jèu…Q^gn½9¾¡?ß§$¥eÅttõcOb6¹Öš¾ŞNü½—VPX\†kéAˆF"ôö´ã÷÷;Á2Õºû#“úwËùnó…—˜$M<˜ÈK&´@-#ü(‘×æùrôÍ¢g ş‡Ã¢´djÛ«ÆbQº;[i<¶Ÿş¾î¬Ûê6¢£½‰Æ†øzÓªñèìË½OÃÙ¨*ıh¤M˜Ä¯‰ñ˜úéD"ı¸sóŸ³{ Ï˜h€ñÄ¢Qº;[h<¶¾Œü´µ£¹áƒ½i»Öşõ†Ü[¢Y’—{ÿÏ.H„Ÿ$ú¢	ßB­£Soæ×À§}maF‘gĞt#¦òÉ0?ÏC$#œú°I,£§»ŞNòŠ(,*ÃãÍŒ½ÛcÑ(şz2f’ã‘Ö [ç]”ùúLG“¡¹C]FÂ·MÎvPšï£ø$cî¥&2I‰/7÷aïì¡µFµ'ğJŠ|Äl›Phz Ö6ş^ü½¸İ^ò‹É/,ÆéH¯m\m;F`p€AÁ ?íºøÇ3ˆÒ3Á—Ÿ;€Ç¡Ğ›E}†ÒØ|?NJ .â€ŞÌıÀÉ¸¾H­²¼Ü\·hº"”¹'ıÜ²â|:{ˆDÓî¢§«'_~!y¾Ü3=ápˆ`ÀO00@h(±óµ36ûTÍ(ìóœ‘†4÷©uLÆ¥“¹!ôw +”åånwaSghJ€RŠò’BºzˆD;–
+	…‚ôt·ãp8ñæåãñæáñøp{<(•Ø©=¶m	
+Ys¾Á±ÖÜ›W[$Ç*g˜ï$ëÂÉ+ Ö°Í<‡âü¤İC¤DIŞ N+FÔÜZ÷lĞØä´ù…Sz®e)ÊK“S¼!‹2èïcĞ?R¤)…ËéÆåñàrºqº\8.'–åÀ²,”¥Óh­Ñ¶mÛÄì(v4J4%‰†‰„CD£™1–?ÇÚ‚	/˜ÒİìÒVÓDüU±-YOZ Zoæ»À=Éº‡HKi*zhé¯0%åêÛ§·2EÀq´&	‰äæŞ“1¶iëc9r«°W&ç¶eï&óâÉ-}[¹8’Ô{ˆ”¨.ÌÍ³í¶M|û"ÀåÌ­†&İ5t±mÇNÙÂãˆ0«Xz 2ÄaZ¹/™7Hê+_İLø^2ï!Rcf†b´$`›XËRT”âvË9ìéb_ığZx‡•;…ÙÂŠ9(Sh¾7Ò†&MòKß w =I¿Hª\8t 11Å†'àõ¤×2¾\¤5ì=6\ äÒÀ²êÃ¦#ˆøô0Ä¯“}“¤ êJ!9kEêÌ.ÉİnÃİG·R)EYIÁ¤N‰w¤%€?ÅápLzŸ‡LvZõÓD<4ßi;“*5ƒ_n~ t§ä^")Ê}½9{&À¡¦ ƒC‰í‰+*È£¤(_Öc²çèpQçpäÎÌì’V*ò{MÇëÆÃ§âF)) Ôùô£ùÏTÜK$‡R0¯47gÛZóÊÑÄï†èËsSQV„#‡&¡¥[k^=:2şïÌàÜY{MGñP|[OJv_Kİ;Í€ÜHÎóËMIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                           A)…¥–¥R2Y²±3È÷î>’òíš³Í¹u{yÏOï–^”ºK­å½¦C¼]ú Ï0‡¯y¦³dªÁp÷í½˜­GÏÍaRè=ëj¸pY™é9+jkşó®C9¿æ?Q¤7 ¡‚8X¢.$­v¤J» @oæËÀ·MçÈ4Z+­_Á_ö\‚?,õSªù<ÿpË"ŠòÍí°Ëî{¦§wÉ¬ÿD“Ş€Ğ|Y]ÄwLÇ8Qz pâàdB`Ü:ü¥üïÎk9ØYg:JN[6·€O\;ÇtŒœ³ûğ ¿|¤^z¼’¤È3È‡Ïş+Ëf6%í$Æyji·!EZ  z3g/ ¹sx÷hÏ=ƒ{v_F(&›)¦ƒVÍàÒ3ec¥Tiéâû÷a(’«³ÚU§<ËõË6çô‘à“Csºˆ]¦ƒŒ&mÏuUkÙ	|×ttÖ?”Ïÿ{îİün×ÕÒø§‘¿>×Îá–Ü;{Ş„ÀPŒŸ?Ô Š<ºÿ¾»ùıôeËğ¸h¾“®?¤q €ŞFQö LgI7/·,âw;×32"8YI‹¿ï|
+¼2 Y´†ÿ÷àQöÕš’sòİAn=çA–Ï8d:J:;ˆ“ÓÔ*ÒvòDZ  z#ë°xÚtt1us÷îËØvôtÓQÄNUÀ§®Ÿ¶gdº{·¶²á¥.Ó1rÚ§<ÇK7á°¤æ$6—¨‹Ù`:Æx2âIoáhn3Ã´ƒuüzÇut–˜"âtÅÙ•\{¾q‘hO¿ÔÅıÏ´¡eÖŸqsK›ùè9R%G¿İ/ÔZ>n:ÄD2¥ (Åæ59¹£ÍPÔÍı{/bãá³e–s†QJñ¾u39i‰é(Yã™Wz¸{S‹4şiÄíŒğîO±zî.9XZQ,Ukè1d"óO¥7ó.àÓ9RmOëBîÜu¥LºÉ`KñÉkç°xv¾é(oû¾^~ûd“ÂijEõA>xæÃysz^Æ»ÔZşl:D<2§ Ğ(¶ğàFÓYRa äã®—/g{ãRÓQDxİŸç<f–{MGÉX»ğ«G°¥õOkî <ë!N¯9`:JêiîUñÓ1â•1 €ŞL°(7%™¶7.á/]É ìæ—UJ
+\üİ»çQ”/K6'ëÕcüâáF¢1™l–).Yğ"ï:íé\Ú3 8M­¥ÅtxeT  7spŸéÉµüiÏ¥l<t–é("IªË<|ö¦¹äÉòÀx½¸¯;Ÿj"&üdœ¥UGøØy÷åÆÃšÔE<`:Ædd\  ·ğ?h>a:G"õ‹øÙó7q¤{¦é("ÉjÊ=|æ¦¹²G@6¾ÜÅ½[[eÌ?ƒÍ(èæoWİÃŒì^%ğ?j-Ÿ2b²2³ xŒ|òØ,6%^mŸÇ/_¸AºüsÈÌ
+/Ÿ¹q.ù^Ùéz,<ÛÎS;;e¶ğ¹†øøy÷±¤êˆé(É°gª³É¸í?3²  Ğ[8Ís@Æ~ŒÒİ¿Š^½H>áä º
+/·ß8ŸÇ±µæ®-<ûjÚ¯¢“`)Í{Nœ‹æï4%‘"Àù#[×gœ´=`"j;Pü£éS¥µâ®İWpÿ^iüsUcç?ºïÁ´;$Ì˜Á¡?ºï˜4şYÈÖŠ?¼t%ï?ßt”DúÇLmü!ƒ{  ôİ8¨æIàbÓY&#f[üzÇu¼Ø KüT–¸ùÛëçR^”Û«š;‡øÙÃt÷‡MGI	[k¬İ5ç†e›¸zñ6Ó1¦G±Õ\¦»Ì!ã_}z³PìJLg‰G8êâg/ÜÄ+­r¾‘xK¡ÏÉß^?‡ÚŠÜÜ'àåƒıüî©&B9rªŸ¿ _¾Ë‘»Ã?×-ÙÂ5K¶š1U=hNWÑ`:ÈtdìÀÔE4 øÓ9â{ùÁ3ï•ÆápÄt#Qşû/G9Ø”[;¨i=ßÎ¯kÈÆÀO ÌéÆàÁ×ÖğÀ«k3sTñ‰Loü!
+  µ†{€_›Î1¡¨›<ó^uÕ™’Öú{z‰EssL<ñ“±cŸé()Ñëğß÷å±;2³˜‚A€¶–VJÊJLGI¿~!¼v‘é“uÇH›“ñ²¢  Àâ³Àk¦cŒ&j;øŸçŞÉ±ÓQÒ×—GsS+:G7}‰Ä4¿y¢‰ŸÍî“î^>ØÏ7ÿxˆCÍ¹Óãimi!/Ï‡Ûí6'm<òú*¶9ÃtŒx½†ÅçL‡H”¬) Ôjˆñ`Àt–·³µâí×ózû\ÓQ2BAA>Ñh”¶ÖVÓQŒÑZóÄN~öpCYÖ-‰ÚÜµ¡…_=ÖH`(f:NÊ‡hijAÛZ>ıâ/]ÅŞ¶ù¦cLd ‹›Ôêôjc¦#k
+  µ×Ñ|Ät7hw½|;O5%s(EIi	şA:;ºL§1jï‘¾wÏa:û²cVüÁ¦A¾õÇC<³·;«{7N…iilÆ¶mÜn¾|ŸéHiÇÖŠŸ=}U¦£ŒMñaµš}¦c$RV  ê"ş‚æ[¦s <ôúj6>ÓtŒŒS\R„Ã²èíî¡·»×t£Z»C|çÃì=’¹:C1î|ª‰ŞwŒöŞì(fâ‰„ijh"f÷äTTVN”¾BQ7?Úv3½ÁBÓQN¦ø¦ZÃ½¦c$ZÖ  Øü#ğ”É;Oå¯¯­1!cY–EiY) ô÷öNdV`(ÆÏ®çgÛ±3lnÄöı}|ã÷yîµŞœúÔFiªo&êÈ/ÈÇWo8UzëòãgßM(šVs$¤%s7OÆï0½™J`0+Õ÷nó—ñOßÊPz½ˆ3ŠÖ6Ç×Y0£f…EiøÉ Åæ×äñá+fQZ˜Ş›u÷‡¹kc¯ÕûMG1"‹Ñx¬‰Hd¸ÇC)Åìy³q¹Òûß-]œ?g9ë¯¦c Ôã,µNÓA’!;{  µ–lŞ	¤´Ï1sò³ço’Æš”²(¯,óÏm-músgÆøX·ùÖ²ó@z.ÔŞÕÉÜy(‡›æ†æ7€ÒòRiü'á¹c+x¾~¹é!,Ş™­?dq  .æEàÓ©¼ç^¾‚¦tÈ’A
+‹
+Éó½uBbKs+ÁŒ;p+á!›_?ÖÈ/mÀŸFç4tñ»qß3m„¢Ùµz!^Ãİş„B¡7¿æt¹(Òñ»ó¥+i÷—™ ù´ZÍvs’/k‡ ŞNoæçÀÇ’}ŸmÇNã7;®IömrJ8¦áXı›Å(KQ3³FfRÈ÷:xçšjÎ^\b,Ã@ Ê£/t# xdg-basedir [![Build Status](https://travis-ci.org/sindresorhus/xdg-basedir.svg?branch=master)](https://travis-ci.org/sindresorhus/xdg-basedir)
+
+> Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths
+
+
+## Install
+
+```
+$ npm install xdg-basedir
+```
+
+
+## Usage
+
+```js
+const xdgBasedir = require('xdg-basedir');
+
+xdgBasedir.data;
+//=> '/home/sindresorhus/.local/share'
+
+xdgBasedir.config;
+//=> '/home/sindresorhus/.config'
+
+xdgBasedir.dataDirs
+//=> ['/home/sindresorhus/.local/share', '/usr/local/share/', '/usr/share/']
+```
+
+
+## API
+
+The properties `.data`, `.config`, `.cache`, `.runtime` will return `null` in the uncommon case that both the XDG environment variable is not set and the users home directory can't be found. You need to handle this case. A common solution is to [fall back to a temp directory](https://github.com/yeoman/configstore/blob/b82690fc401318ad18dcd7d151a0003a4898a314/index.js#L15).
+
+### .data
+
+Directory for user-specific data files.
+
+### .config
+
+Directory for user-specific configuration files.
+
+### .cache
+
+Directory for user-specific non-essential data files.
+
+### .runtime
+
+Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
+
+### .dataDirs
+
+Preference-ordered array of base directories to search for data files in addition to `.data`.
+
+### .configDirs
+
+Preference-ordered array of base directories to search for configuration files in addition to `.config`.
+
+
+## License
+
+MIT Â© [Sindre Sorhus](https://sindresorhus.com)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Ş¿¥Ô´&.ê6àğOøØ’²’	—˜Šôğì±ÓŞ¾$ğ_ÕZ¾m2O¦ >úc_ºÿâfïyÊt19EE…ÔÔÖ ¬‰›7ö{oil!‘mq³‰¶5í454g–?3ªgPQ)'KfŠ—›|5ü‹é<™B
+€8)…şÈÿzÙê9/=`:‹˜_¾ºYµq’ Ø×Ó—äd"‚ Çèíéğ±§“ÚÙµËf_™æõ¹÷ªµüK®ì7R LÒ¿ğÈkæ¾t§|0È,¯—ºÙuqŸhÛ6í4Ö7ÊæA*ÑÖÒFSCá8öaÈËó2kÎ,¼^™éŸiÎ›µ÷|îÑw˜Î‘i¤ ˜‚|ş‘÷¯™¿ëg–’B3“¸İ.êæÔáñÆ?›{(8Dã±F:Û;‰M0aL¤­¡§»—ú#ÇâšÓ¡”¢¼²œÚÙu2O#ÃXJ³zÎË¿øè—¸Ùt–L$À½ÿ3~bíÜßwXÒ(d‡ÃAí¬ÚIíá®µ¦·§—c‡Ñ×Û7îzqaV0 áè1º::'œáàr¹©›]Gi™íiœ*ÆÚù;¿óÁ/<üqÓY2• Óğ¾Ï=şÅÕó_úú¤†X–EõÌj**Ç_»";££­ƒ†£Ç=3J¤X4¥µ¹•¦†fÂáø–s1kîäz„Dzğ8"\¼hû?½ï3Ùt–L&À4İrûcÿ²fîKïvLm¹0§¤¬„ºYµ8&Ùí‡inl¦¹±…!™`”mÛtwõpìH}\Kû`xÓ¡êÚªª«°,yÌ4y®!}Ùâ?ûî¿}ú¦³d:yõ'À{?ûø®÷òíGXú†3Œ×—7<ñk
+[¼i<ÚÀ 0	ÉÄxìØpÃôğ1º;»Ğ:¾¡¸‚ÂfÏ›MAA~’Šd(ôê+¿pëõ³é‡¦³d) ä=·?ñã‹îø`‘gP&d§ÓIí¬ZŠJŠ§ôü©î (¦æí¿‹oøÍår2³®†ê™Õ8œÎ‰Ÿ ÒNI^ìêS{çÕ{æMgÉR $Ğ;>µñ÷kçï¼¨ª Gú…3ŒRŠª•ÔÔÖÈLğ4×ÓİmÇ?ï¦´¬„ÙófãË—Oı™ª2¿'¼fŞÎµ—ŞöÂ½¦³d) ìºOlİºjÁK§Î+kî5EL^~A>³çÎ¦°H6‚ÉtŞ</³æÎ¢¼²¥ä­.SÕ·÷/¯9°âÚ¿yv›é,ÙF~*’àê[Ÿ;º¤öàì¥36ELåp0£fÕ3»|œÃÔbšUÕUÔÍ®Ã#'øe´Å•Ç:óØì÷ŞşÔ~ÓY²‘ IrÃmÏô„îZtö¬½›LgSSP˜ÏÜy³'µgÀxAZ›Zğû™ÖùÃbTJY”U”1gşŠŠ‹LÇÓtÖ¬×6õGî\pó'”=¹“DfÃ$Ñ×¾†\üûÿÿü™£§,fK½•i,‡ƒê™Õøüt¶wNxÌDüşAüşA‹‚¢"ŠŠ
+ğäòÖ³ZãĞÙÑ5­ËQVQ.ó7²€ÓŠqáÜ—~zËgÿ¤é,ÙN
+€xÿgıø]?îÛvä´oE=rŠ@*(,ÀWOw/İİ=qí27XÌ¦¯§—¾^ÜnEEäççãñº”8}im	øÄÅ(˜âf<¾ü|*ªÊq»³ÿï-¸zõœ—¿pÓ§7şÀt–\ @Š¼çÓO~çO?Œ|±iùŸz‡
+åcJ²”¢¤¼”Â’"º:»èïíOÈuÃáİ]twvát:ñøÈÏÏ'Ï——5ÕD"ş À @mOoÄçË£´¼Œ<_^‚
+Óª
+º#«fï¾îê¿yö1ÓYr… )ô®Ïl¼ï¡Ÿ…ÏŞÑ¸tkS¥¬IÊP‡ƒªU”””ĞÙŞ™ĞkG£Qú{û‡‹¥ğùòğùòğæåáñº3f6»mÛ„†BM|_¼jgÕâŒóTG‘”7õ­šûÒy«?¸{Ÿé,¹D
+€»æo¶½tïîº’¶g÷¶Î?Õt1un›™³f’Ÿ¬]å´&08îÜ×ƒÇë%ÏëÅëõàò˜ïú~£±…BÃÿŠ{?ş©ğz½DãÜ H¤¿Õ_]7ÿÕó–İ¼7¾½œEÂH`ÀM·nì–üï÷®ùõË>µeD “¹Røit¸ÑÏğÄhe)Ün.§—Û…ËíÆåş½3;ŞÙ¶M4#‰F‰F£DÂ‘¤7ö"{YJ³²öõ?üÍßİ÷~@–Å €AşâC¹çÇ¡§·7œú+™ ¦BÛšĞP˜'w±+Kát8q88œ–åÀrX(ea©áes¼1%Uƒ­5h›˜­Ñ¶M,f7ø±(vL61‰SèŒVsàSúü#?7%—I`Ø»?ıäoîÿeğù×m;ÒSSf:ÈÚÖDìˆœU ÒÊìÒÖî«ßûé'_3%×eÆŒ¢,wÃmÏì;­tëÌ•µû5E$eI'Ï‰,‡ƒ’ÒªgÖ˜"Rà¬Y¯?³H¿P#z€4±ş³CppÕïÿûÊo>lùß‡bnÙ/ Ëäù¼Ì™;›şüışœıdnYùçËC)%ød9Ÿ+¨Ï{
+  "_from": "xdg-basedir@^4.0.0",
+  "_id": "xdg-basedir@4.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==",
+  "_location": "/xdg-basedir",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "xdg-basedir@^4.0.0",
+    "name": "xdg-basedir",
+    "escapedName": "xdg-basedir",
+    "rawSpec": "^4.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.0.0"
+  },
+  "_requiredBy": [
+    "/configstore",
+    "/update-notifier"
+  ],
+  "_resolved": "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-4.0.0.tgz",
+  "_shasum": "4bc8d9984403696225ef83a1573cbbcb4e79db13",
+  "_spec": "xdg-basedir@^4.0.0",
+  "_where": "D:\\Faculdade BandTec\\Pesquisa e InovaÃ§Ã£o (PI)\\alfa-company\\site_institucional\\Ãrea_do_Cliente_Responsiva\\node_modules\\update-notifier",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sindresorhus/xdg-basedir/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Get XDG Base Directory paths",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "import-fresh": "^3.0.0",
+    "tsd": "^0.7.2",
+    "xo": "^0.24.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "homepage": "https://github.com/sindresorhus/xdg-basedir#readme",
+  "keywords": [
+    "xdg",
+    "base",
+    "directory",
+    "basedir",
+    "path",
+    "data",
+    "config",
+    "cache",
+    "linux",
+    "unix",
+    "spec"
+  ],
+  "license": "MIT",
+  "name": "xdg-basedir",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/xdg-basedir.git"
+  },
+  "scripts": {
+    "test": "xo && ava && tsd"
+  },
+  "version": "4.0.0"
+}
+                                                                                                                                                                                                ¿ølø'àŸşÅ+Ûú*¾y¨»v]Ç`©Ì¯ª ;2¿¬yCI¡ÿnúø†¦óñ) DZYÿ±gwWnøÎ%kn¯ï©ùô¾ÎYÂQ·tˆŒásõâŠcûg—´ıØ_²íÿİ|3²„O¤) DZZ÷5¢°å¿€ÿºó§WDƒù_m÷—Ü|´gæ¬HL^¶"ı8,›¹¥Íu%m¿«œÑõÍËoŞÑg:“ã‘wR‘öF!ú;àïîşÕšÊˆ?ÿ«me7éY'{“œ*Æ¬’¶Ö²‚ŞûUÔñå/¦3	/) DF¹ù£[:€/_zì'«ªºÃ_m,÷‘®Úº"¼ÎóÊZ+ó{ÿì*
+~óæ[7Êñ»"#I 2Ö•ŸÚÖ|øâsw.Ÿq¬»ú«-ıï8ÜU;+“9"q
+={~yã‘™E™]ÖôŸgŞ|°Ãt&!¦K
+ ‘Î¿å•6xåÀ~óŸWä[^ÇG‚ùïkë/;£Å_g:ŸÈ<¥yı¡Ù%­»*z½´²õe7ï›Î$D"I ²Î‡¾üø ğÃ‘_Ü÷Ãµ+bŸî
+]ÙĞ[=ÛÊ“M‡ÄIò]A][ÒÑPêéÊaéÿùğÿú‚éLB$“ "ëİø™Í{€OlÿéY®&òoé,şP›¿üœ†Ş…1[ê\äqD˜]ÚÒW™ßó|i~ÿïfêàÏşÄˆé\B¤Š "§Œ¼ÁÿïÈ/úÉµ-‘’ÛüCyWt‹–¶ôW”ÊÊ‚ìd)›ÚâÎ¾/Wä÷<0§¼ù72–/r™ "§]ú©g›€¯übÛİä5wúŞéåİĞ,8·Í_VÛ(v˜M)¦¢Ä;«Ìïi)òvº=á‡â{şöÿÜÙc:—éB
+ !ŞfÕÍÏßüBkÔS¿>çì®Áâ[zƒ…wJ5÷UæGm©	Ò‰Ï5ÄÌ¢Îr_ßş"Ïà¦’üş?^ú‘·+…6Mˆt%€ãn@^|xñ¯=øÓ³|C‘¢ËCÚ{é`Ğ{¶W/Z
+-.ğx¼“æŸ{(Vìéî-òø{Ÿ/Éïxé¬–'­?:î·
+(D†@ˆIºî;Àı#¿€{ÑZ«W6~ÿ¬ˆú ÂÕ–»|'FQAQ¥3ß—o2nÆ
+ñ÷wDCÁö~;ÒsTEıÏ¹-Ïİßş÷ÿÜ¬”’OöBL“l–"Dİ}7rçí¹óê®	E>¸=?õÔFò*†ò{ƒ…Î\=şX)(pÆ
+=ÁÁêŠ¢şå§]€é<èˆv=[Ä{—]õëJa›Î)D¶ÊÍw!ÒÄ†;.öö„ôÊHÔyN8âY1s/„=³BQwñPÔãD¼îÁˆÇ‘‰§!¸±"ï`¨Àôç{‚İ^G¸ÑãŠt9#{-Û„_9
+Za@Æ½©‘‹î½ãâ’Xˆ…±¨s~Ì¶æÄ´³6uÎÛÊHÔUÕB[+wÌv8mÛáŒjË‹Y˜v8¢Ú²¢1§³V$æP1Û¡¢ÚÃ²±”CÅ°”­–Ö–²µ¥´¶¬˜­À¶,Û¶Ğ¶¥b¶Ç	{\‘ÇŠ]®h¯ÓŠõ8T¬Ã¡ì6¥ìº1f9¶E*nÛj¿ç{ä\!ÒØÿ†Ãè&Óz    IEND®B`‚                                                                                                                                                                                                                                                         ÿ0ÿ*ÿ7!"ÿ?$%ÿ?(%ÿ9&!ÿ0 ÿ2 "ÿ:&%ÿ8.&ÿI96ÿQI@ÿZODÿUMEÿr\Zÿsfdÿl^ÿzvcÿ…tnÿyicÿhXÿqTJÿLDBÿbPEÿ}UPÿ‚ZXÿsQIÿ[85ÿC-(ÿU69ÿX<:ÿB-+ÿÿÿyzuÿÿ   ÿ_egÿ ÿ   ÿvÿÿ   ÿ  ÿ ÿÿ5:;ÿ                                                                                                                                                                                                                                                                                                                                  .           Wñ –R–R	 ò –RNG    ..          Wñ –R–R	 ò –Ræ    LICENSE     ªñ –R›R	 à)ZOG  INDEX   JS  4ò –R›R	 à)ZPGœ	  README  MD  \ó –R›R	 à)ZRGÍ  Ap a c k a  Ôg e . j s o   n   PACKAG~1JSO  ló –R›R	 I‰ˆRSGâ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

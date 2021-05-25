@@ -1,0 +1,15 @@
+Uma empresa tem varios funcionarios;
+
+Um funcionario pode trabalhar em somente um departamento;
+
+Um departamento tem vários funcionarios;
+
+cada funcionario tem um chefe;
+
+Fzr modelo lógico e script;
+
+usar inner join;
+
+usar left ou right join;
+
+regra de negocio.

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+
+    <div id="div_escudos">
+
+    <img onclick="corinthias()" style="width: 100px;" src="corinthias.png" alt="imagem do corinthias  ">
+    <img onclick="santos()" style="width: 100px;" src="santos.png" alt="imagem do santos">
+    <img onclick="palmeiras()" style="width: 100px;" src="palmeiras.png" alt="imagem do palmeiras">
+    <img onclick="sp()" style="width: 100px; " src="sp.png" alt="imagem do são paulo">
+
+    </div>
+
+    <br><br>
+
+
+    <button id="but_reset" onclick="resetar()" style="display: none;">Resetar</button>
+    <button id="but_esconder" onclick="esconder()" style="display: inline;">Esconder Escudos</button>
+    <button id="but_mostrar" onclick="Mostrar()" style="display: none;">Mostrar Escudos</button>
+
+    <br>
+
+    <h2>O número de taças do clube é: </h2>
+
+    <div id="div_taca">
+
+
+
+    </div>
+
+</body>
+
+<script>
+
+    function corinthias(){
+
+        div_taca.innerHTML = "<img style='height: 100px;' src='taça.png'>";
+        div_taca.innerHTML += "<img style='height: 100px; margin-left: 5px' src='taça.png'>";
+        but_reset.style.display = "inline";
+
+    }
+
+    function santos(){
+
+        div_taca.innerHTML = "<img style='height: 100px;' src='taça.png'>";
+        div_taca.innerHTML += "<img style='height: 100px; margin-left: 5px' src='taça.png'>";
+        but_reset.style.display = "inline";
+
+    }
+
+    function palmeiras(){
+
+        div_taca.innerHTML = "<img style='height: 200px;' src='mundial.png'>";
+        but_reset.style.display = "inline"
+
+    }
+
+    function sp(){
+
+        div_taca.innerHTML = "<img style='height: 100px;' src='taça.png'>";
+        div_taca.innerHTML += "<img style='height: 100px; margin-left: 5px' src='taça.png'>";
+        div_taca.innerHTML += "<img style='height: 100px; margin-left: 5px' src='taça.png'>";
+        but_reset.style.display = "inline"
+
+    }
+
+    function resetar(){
+
+        div_taca.innerHTML = "";
+        but_reset.style.display = "none"
+
+    }
+
+    function esconder(){
+
+        div_escudos.style.display = "none";
+        but_esconder.style.display = "none";
+        but_mostrar.style.display = "inline";
+
+    }
+
+    function Mostrar(){
+
+        div_escudos.style.display = "inline";
+        but_esconder.style.display = "inline";
+        but_mostrar.style.display = "none";
+
+
+    }
+
+</script>
+</html>

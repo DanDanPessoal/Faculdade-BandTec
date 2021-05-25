@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+
+</head>
+
+<body>
+
+    Digite o valor qual deseja ter o fatorial: <input id="input_valor">
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular fatorial</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+function calcular(){
+
+    var valor = input_valor.value;
+    var msg = '';
+    var resultado = valor;
+
+    var contagem = valor;
+
+    div_msg.innerHTML = ``;
+
+    while( contagem > 1 ){
+
+        msg += ` x ${contagem - 1}`;
+
+        div_msg.innerHTML = `Fatorial de ${valor}: ${valor} ${msg} = ${resultado}`;
+
+        contagem--;
+
+        resultado = resultado * contagem;
+
+    }
+}
+    
+</script>

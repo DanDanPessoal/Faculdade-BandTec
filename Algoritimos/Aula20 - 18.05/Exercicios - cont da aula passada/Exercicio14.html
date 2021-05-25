@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+
+</head>
+
+<body>
+
+    Digite o RA do aluno: <input id="input_ra_aluno">
+
+    <br>
+
+    Digite a nota do aluno: <input id="input_nota_aluno">
+
+    <br><br>
+
+    <button onclick="guardar()">Guardar</button>
+
+    <br><br>
+
+    Digite com ' P ' ou ' I ': <input id="input_valor">
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    var erreas = [];
+    var notas = []
+
+    function guardar(){
+
+        var ra_aluno = input_ra_aluno.value;
+        var nota_aluno = input_nota_aluno.value;
+
+        if( (ra_aluno || nota_aluno) == '' ){
+
+            alert('Nome ou Ra do aluno inválidos');
+
+        }else{
+
+            erreas.push(ra_aluno);
+            notas.push(nota_aluno);
+
+            input_ra_aluno.value = '';
+            input_nota_aluno.value = '';
+
+        }
+    }
+
+    function analisar(){
+
+        var valor = input_valor.value;
+
+        var soma = 0;
+
+        var soma_media = 0;
+        var alunos_media = 0;
+
+        if( valor.toUpperCase() != 'P' && valor.toUpperCase() != 'I'){
+
+            alert('Valor inválido, digite apenas P ou I');
+
+        }else{
+
+            div_msg.innerHTML = '';
+
+            if(valor.toUpperCase() == 'P'){
+
+                for(var cont = 0 ; cont < notas.length ; cont++){
+                    
+                    if(Number(erreas[cont]) % 2 == 0){
+
+                            soma += Number(notas[cont]);
+
+                    }
+                }
+
+            }else{
+
+                for(var cont = 0 ; cont < notas.length ; cont++){
+                    
+                    if(Number(erreas[cont]) % 2 != 0){
+
+                            soma += Number(notas[cont]);
+
+                    }
+                }
+            }
+
+            for( var cont = 0 ; cont < notas.length ; cont++ ){
+
+                if(Number(notas[cont]) >= (soma / notas.length)){
+
+                div_msg.innerHTML += `Aluno com RA = ${erreas[cont]} e nota = ${notas[cont]}
+                                     foi selecionado pois a média é ${(soma / notas.length)}<br><br>`;
+
+                soma_media+= Number(notas[cont]);
+                alunos_media++;
+
+                }
+            }
+
+            div_msg.innerHTML += `Quantidade de alunos acima da média: ${alunos_media}<br>
+                                  Nova Média: ${(soma_media / alunos_media).toFixed(2)}`;
+
+        }
+    }
+
+</script>

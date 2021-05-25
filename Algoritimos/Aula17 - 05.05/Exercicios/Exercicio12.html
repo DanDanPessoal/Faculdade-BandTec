@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+
+</head>
+
+<body>
+
+    Digite o valor do depósito na abertura da poupança: <input id="input_deposito" autofocus>
+
+    <br>
+
+    Digite quantos meses o valor ficará depositado: <input id="input_meses">
+
+    <br><br>
+
+    <button onclick="ver()">Ver investimento</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function ver(){
+
+        var meses = input_meses.value;
+        var deposito = input_deposito.value;
+
+        div_msg.innerHTML = ``;
+
+        for(var contador = 1; contador <= meses; contador++){
+
+            deposito = deposito * 1.005;
+
+            div_msg.innerHTML += `${contador}° mês: ${deposito.toFixed(2)}<br>`;
+
+        }
+    }
+
+</script>

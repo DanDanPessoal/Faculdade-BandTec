@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 17</title>
+
+</head>
+
+<body>
+
+    <button id="but_iniciar" onclick="iniciar()">Iniciar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+    <button id="but_jogar" onclick="jogar()" style="display: none;">Jogar</button>
+
+    <div id="div_partes"></div>
+
+    <br><br>
+
+    <button id="but_reset" onclick="reset()" style="display: none;">Resetar</button>
+    
+</body>
+
+</html>
+
+<script>
+
+    var filmes = ['Velozes e furiosos', 'Rio', 'soul', 'Matrix', 'Transformes'
+                ,'Enrolados', 'Detona Ralph', 'Frozen', 'o bicho vai pegar'
+                ,'Os sem floresta']
+
+    var dicas = ['filme de carros que tem a maior saga do cinema'
+                ,'Uma animação de uma arara azul que nasceu no Rio de Janeiro'
+                ,'Uma animação de um professor de música atrás de seu proposito'
+                ,'Um filme que descreve no qual a realidade é na verdade uma realidade simulada'
+                ,'O filme que se trata de alienígenas gigantes que vivem na Terra camuflados sob a forma de carros, aviões e aparelhos eletrônicos'
+                ,'Uma animação adaptada dos contos de Rapunzel'
+                ,'Uma animação que se passa dentro de um fliperama onde o vilão está cansado de ser desprezado'
+                ,'Uma animação de uma princesa e um vendedor de gelo que estão em uma aventura para ajudar a irmã, e acabar com a terrível maldição de inverno eterno'
+                ,'Uma animação de um urso de constante divertimento dos turistas, vive com a guarda florestal Beth em sua garagem. Ele fica perdido na mata três dias antes da abertura da temporada de caça, e sua vida toma um rumo drástico'
+                ,'Uma animação de animais de uma floresta que descobrem que têm vários vizinhos humanos que vivem nas proximidades. Inicialmente, eles ficam com medo da novidade, mas, com o tempo, o guaxinim oportunista RJ ensina os humanos a explorar as maravilhas comestíveis que deixam para trás.']
+
+    var partes_corpo = ['- Perna direita', '- Perna esquerda', '- Tronco', 
+    '- Braço direito', '- Braço esquerdo', '- Cabeça'];
+
+    var filme_escolhido = '';
+    var dica_do_filme = '';
+    var palavra_errada = -1;
+
+    function iniciar(){
+
+        var sorteio = parseInt(Math.random()*11);
+
+        filme_escolhido = filmes[sorteio];
+        dica_do_filme = dicas[sorteio];
+
+        div_msg.innerHTML = ``;
+        
+        for(var contador = 0 ; contador < filme_escolhido.length ; contador++){
+            
+            if(filme_escolhido[contador].indexOf(' ') >= 0){
+
+                div_msg.innerHTML += `<span id="spancontador" style="width: 55px; height: 36px; float: left; background-color: black"></span>`;
+
+            }else{
+
+                div_msg.innerHTML += `<input id="idcontador" style="width: 50px; height: 30px; float: left; text-align: center;">`
+
+            }
+            
+        }
+
+        div_msg.innerHTML += `<br><br><br>Dica: ${dica_do_filme}<br><br>`;
+
+        but_jogar.style.display = `block`;
+        but_iniciar.style.display = `none`;
+        
+    }
+
+    function jogar(){
+
+        var vereficar_erro = 0;
+        var contar_input = 0;
+
+        for(var contador = 0; contador < filme_escolhido.length; contador++){
+            
+            if( filme_escolhido[contador].indexOf(' ') >= 0 ){
+
+                contar_input++;
+
+            }else if( (idcontador[contador - contar_input].value).toUpperCase() == (filme_escolhido[contador]).toUpperCase()){
+
+
+                idcontador[contador - contar_input].style.color = `blue`;
+                idcontador[contador - contar_input].style.border = `blue solid 2px`;
+
+            }else{
+
+                idcontador[contador - contar_input].style.color = `red`;
+                idcontador[contador - contar_input].style.border = `red solid 2px`;
+
+                vereficar_erro++;
+
+            }
+
+        }
+
+        if( vereficar_erro > 0 ){
+
+            palavra_errada++;
+            
+            if( palavra_errada >= 6){
+            
+                div_partes.innerHTML += `Morreu enforcado, aperte em resetar para tentar de novo<br>`;
+
+                but_reset.style.display = `block`;
+            
+            }else{
+
+                vereficar_erro = 0;
+            
+                div_partes.innerHTML += `${partes_corpo[palavra_errada]}<br>`;
+
+            }
+
+        }else{
+
+            div_partes.innerHTML = `<img src="uffa.jpg" alt=""><br><br>Aperte em resetar para tentar dnv`;
+
+            but_reset.style.display = `block`;
+
+        }
+
+    }
+
+    function reset(){
+
+        but_reset.style.display = `none`;
+        but_jogar.style.display = `none`;
+        but_iniciar.style.display = `block`;
+
+        palavra_errada = -1;
+
+        div_partes.innerHTML = ``;
+        div_msg.innerHTML = ``;
+
+    }
+
+</script>

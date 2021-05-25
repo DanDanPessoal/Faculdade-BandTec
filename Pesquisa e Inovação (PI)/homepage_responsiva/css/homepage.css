@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Oswald:wght@300&display=swap');
+
+/* CSS do cabeçalho | Home */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    background-color: rgb(223, 230, 210);
+
+}
+
+.geral{
+    display: flex;
+     width: 100%;
+    margin: auto;
+    overflow: hidden; 
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+}
+
+.geral img{
+    width: 150px;
+    margin-right: auto;
+    margin-left: 100px;
+}
+
+header{
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('Img_home/homebg.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    /* position: relative; */
+    overflow: auto;
+    
+}
+
+.navbar{
+    display: flex;
+    /* float: right; */
+    list-style: none;
+    /* margin-top: -20px; */
+    margin-right: 100px;
+    /* margin-top: -50px; */
+    align-items: center;
+}
+
+.navbar li{
+    /* display: flex; */
+    display: inline-block;
+}
+
+.navbar li a {
+    color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+    /* font-family: 'Domine', serif; */
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+}
+
+.navbar li a:hover {
+    background: rgba(255,255,255,0.3);
+	color: lime;
+}
+
+.slogan {
+    padding-top: 10%;
+    display: flex;
+    /* margin: auto; */
+    height: 40%;
+    /* height: 100%; */
+	text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vw;
+    /* font-size: 120px; */
+    color: #fff;
+    font-family: 'Domine', serif;
+    /* font-family: 'Oswald', sans-serif; */
+}
+
+.box {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    font-size: 30px;
+    color: #FFF;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.box div{
+    margin: 100px 10px 0 0;
+    border: 2px solid white;
+    background-color: rgba(36,150,83, 0.7);
+}
+
+@media (max-width: 1023px) {
+    .box{
+        flex-direction: column;
+    }
+
+    .box div{
+        margin: 10px ;
+    }
+
+}
+
+/* CSS do serviço */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    background-color:rgb(209, 221, 189);
+    box-shadow: 3px 6px 12px 5px #ccc;
+
+}
+
+#oque_fazemos {
+    width: 40%;
+}
+
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.paragrafo_esquerdo {
+    color: #47525E;
+    font-size: 26px;
+    line-height: 33px;
+    width: 40%;
+    text-align: left;
+    font-family: 'Domine', serif;
+}
+
+.paragrafo_direito {
+    color: #47525E;
+    font-size: 26px;
+    line-height: 33px;
+    width: 40%;
+    text-align: left;
+    font-family: 'Domine', serif;
+}
+
+.container h3 {
+    color: #47525E;
+    font-size: 26px;
+    line-height: 33px;
+    text-align: left;
+    font-family: 'Oswald', sans-serif;
+}
+
+#workflow {
+    width: 95%;
+    justify-content: center;
+}
+
+
+/* Mobile and low resolution screens */
+
+@media (max-width: 1023px) {
+    #oque_fazemos {
+        width: 90%;
+    }
+    .paragrafo_esquerdo {
+        color: #47525E;
+        font-size: 26px;
+        line-height: 33px;
+        width: fit-content;
+        text-align: center;
+        font-family: 'Domine', serif;
+    }
+    .paragrafo_direito {
+        color: #47525E;
+        font-size: 26px;
+        line-height: 33px;
+        width: fit-content;
+        text-align: center;
+        font-family: 'Domine', serif;
+    }
+    .container h3 {
+        color: #47525E;
+        font-size: 26px;
+        line-height: 33px;
+        text-align: center;
+        font-family: 'Oswald', sans-serif;
+    }
+    #workflow {
+        width: 95%;
+        justify-content: center;
+    }
+}
+
+
+/* CSS do SOBRE */
+
+.sobre { 
+    display: inline-block;
+    color: #47525E;
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    line-height: 58px;
+    text-align: left;
+    margin-top: 70px;
+    margin-left: 1%;
+    
+  
+  }
+  
+  span img{
+    width: 180px;
+    height: 183px;
+    position: relative;
+    margin-left: 250px;
+    display: inline-block;
+    margin-top: -250px;
+   
+  }
+  
+  .texto{
+    color: #18191a;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: left;
+    margin-left: 1%;
+
+  }
+  
+  .alfaceiro img {
+  display: inline-block;
+  position: relative;
+  
+  }
+  
+  
+  .caixa{
+    color: #FFFFFF;
+    font-family: 'Oswald', sans-serif;
+    font-size: 23px;
+    line-height: 29px;
+    text-align: center;
+  
+    background-color: #649D7E;
+    width: 50%;
+    height: 252px;
+    margin-top: 1%;
+  
+  }
+
+  /* CSS do contato */
+
+.fundo {
+
+    background-color: rgba(36, 150, 83,0.7);
+    height:585px;
+
+    }
+
+.titulo {
+
+    padding: 85px;
+    font-size: 30px;
+
+    }
+
+.input_menor{
+
+   width: 300px;
+   height: 50px;
+   font-size: 18px;
+
+   }
+
+.input_maior{
+
+   width: 300px;
+   height: 85px;
+   font-size: 18px;
+
+   }
+
+.botao {
+
+   height: 50px;
+   width: 200px;
+   font-size: 15px;
+   background-color: #249356;
+
+   }
+
+   /* CSS do glider.js */
+
+.container-glider{
+
+    width: 40%;
+    margin-left: 10%;
+    position: relative;
+    display: inline-block;
+    margin-top: 5%;
+
+}
+
+.glider{
+
+    padding: 20px 0;
+
+}
+
+.card{
+
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+    padding: 10px 10px;
+    height: 60%;
+    border-radius: 20px; 
+    text-align: center;
+
+}
+
+.container-glider button{
+
+    padding-top: 15%;
+
+}
+
+.container-glider img{
+
+    border: 5px solid black;
+
+}

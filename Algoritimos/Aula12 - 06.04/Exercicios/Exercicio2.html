@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+
+<body>
+
+    Digite seu nome: <input id="input_nome" placeholder="Oseias da xxx" onkeyup="vereficar()">    
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function vereficar(){
+
+        var nome = input_nome.value;
+        
+        if( nome.length >= '10' ){
+
+            div_msg.innerHTML = "";
+
+            div_msg.innerHTML = `Nome OK`;
+
+        }else{
+
+            div_msg.innerHTML = "";
+
+            div_msg.innerHTML = `Nome deve ter pelo menos 10 letras`;
+        }
+
+    }
+
+</script>

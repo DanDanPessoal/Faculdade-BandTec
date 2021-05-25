@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+
+</head>
+
+<body>
+
+    Digite o nome de um cachorro: <input id="input_nome" autofocus>
+    
+    <br><br>
+
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="validar()">Validar</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var matilha = [];
+
+    function registrar(){
+
+        var nome = input_nome.value;
+        matilha.push(nome);
+
+        div_msg.innerHTML += `${nome}<br>`;
+
+        input_nome.value = '';
+
+    }
+
+    function validar(){
+
+        var nome = input_nome.value;
+        var contador_invalido = 0;
+
+        for(var contador = 0 ; contador < matilha.length ; contador++){
+
+            var cachorro_atual = matilha[contador];
+
+            if(cachorro_atual.length < 2){
+
+                contador_invalido++;
+
+            }
+
+        }
+
+        alert(`Exitem ${contador_invalido} nome(s) de cachorro(s) inválido(s)`);
+
+    }
+
+</script>

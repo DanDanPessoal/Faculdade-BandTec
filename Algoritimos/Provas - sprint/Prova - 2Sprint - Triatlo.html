@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2 Sprint - Triatlo</title>
+
+</head>
+
+<body>
+
+    Digite seu nome: <input id="input_nome" placeholder="Ex: Daniel Da Silva" autofocus>
+    
+    <br>
+
+    Digite sua idade: <input id="input_idade" placeholder="Ex: 22">
+    
+    <br><br>
+    
+    <select id="sel_praticar">
+        
+        <option value="">- Selecione uma opção -</option>
+        <option value="1">Correr</option>
+        <option value="2">Nadar</option>
+        <option value="3">Pedalar</option>
+
+    </select>
+
+    <br><br>
+    
+    <button onclick="praticar()">Praticar Esporte</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+    <br><br>
+
+    <div id="div_img" style="max-width: 300px;"></div>
+    
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    pedalar = 0;
+    correr = 0;
+    nadar = 0;
+
+    function praticar(){
+
+        nome = input_nome.value;
+        idade = input_idade.value;
+        
+
+        if( nome.length < 3 || (idade < 18 || idade > 80) ){
+        
+            alert('Dados inválidos!');
+        
+        }else{
+
+            if(sel_praticar.value == '1'){
+
+            correr+=1.5;
+
+            }else if(sel_praticar.value == '2'){
+
+            nadar+=1.5;
+
+            }else if(sel_praticar.value == '3'){
+
+            pedalar+=1.5;
+
+            }else{
+
+            alert('Veja se preencheu uma das opções na lista suspensa')
+
+            }
+
+            total = pedalar + correr + nadar;
+
+            var porcentagem_pedalar = (pedalar / total) * 100;
+            var porcentagem_correr = (correr / total) * 100;
+            var porcentagem_nadar = (nadar / total) * 100;
+
+            div_msg.innerHTML = `Atleta: <b>`+nome+`</b> - Idade: <b>`+idade+`</b>`+
+                            `<br>Km Correndo: `+correr.toFixed(1)+ `(${porcentagem_correr.toFixed(2)}%)` +
+                            `<br>Km Nadando: `+nadar.toFixed(1)+ `(${porcentagem_nadar.toFixed(2)}%)`+
+                            `<br>Km Pedalando: `+pedalar.toFixed(1)+ `(${porcentagem_pedalar.toFixed(2)}%)`+
+                            `<br>Km Total: `+total.toFixed(1);
+
+            div_img.innerHTML = `    <img src="https://image.flaticon.com/icons/png/128/103/103956.png" 
+                                alt="" style="float:left; max-width: 300px; width: ${porcentagem_correr}%;">
+
+                                <br><img src="https://image.flaticon.com/icons/png/128/124/124212.png" 
+                                alt="" style="float:left; max-width: 300px; width: ${porcentagem_nadar}%;">
+
+                                <br><img src="https://image0.flaticon.com/icons/png/128/94/94203.png" 
+                                alt="" style="float:left; max-width: 300px; width: ${porcentagem_pedalar}%;">`
+        
+                    }
+
+                }
+
+</script>

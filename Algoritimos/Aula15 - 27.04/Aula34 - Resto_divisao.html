@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 34 - pegando o resto da divisão</title>
+
+</head>
+
+<body>
+
+    <h3>Cálculo do resto da Divisão</h3>
+
+    Entre com o primeiro número: <br>
+
+    <input id="input_n1"><br><br>
+
+    Entre com o segundo número: <br>
+
+    <input id="input_n2"><br><br>
+
+    <button onclick="resto()">Qual o resto da Divisão entre esses dois números</button>
+    
+    <br><br>
+
+    <button onclick="par()">O primeiro número é PAR?</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function resto(){
+
+        var n1 = input_n1.value;
+        var n2 = input_n2.value;
+
+        var resto = n1 % n2;
+
+        alert('O resto da divisão é: '+resto);
+
+    }
+
+    function par(){
+
+        var n1 = input_n1.value;
+
+        if((n1 % 2) == 0){
+
+        alert('O primeiro número é PAR')
+
+        }else{
+
+        alert('O primeiro número é IMPAR')
+
+        }
+
+        // USANDO VARIAVEL
+
+        // var resto = n1 % 2;
+
+        // if(resto == 0){
+
+        //     alert('O primeiro número é PAR')
+
+        // }else{
+
+        //     alert('O primeiro número é IMPAR')
+
+        // }
+
+    }
+
+</script>

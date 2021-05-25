@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+
+</head>
+
+<body>
+
+    Digite o tempo de cozimento do arroz: <input id="input_arroz" placeholder="Ex: 10">
+    
+    <br><br>
+
+    <button onclick="provar()">Provar arroz</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function provar(){
+
+        var tempo_arroz = input_arroz.value;
+
+        var src = '';
+        var msg = '';
+
+        tempo_arroz == 5 ? (msg = `Parabéns! Arroz perfeito!`, src = `arroz.jpg`) :
+                           (msg = `Arroz cru ou cozido demais!`, src = `arroz_queimado.jpg`)
+
+        div_msg.innerHTML = `${msg}<br><br><img src="${src}" height="100px">`
+
+    }
+
+</script>

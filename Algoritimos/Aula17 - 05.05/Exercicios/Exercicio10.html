@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+
+</head>
+
+<body>
+
+    <button onclick="curto()">Curto 3 e 5</button>
+
+    <!-- <button onclick="click()">Curto 3 e 5</button> -->
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function curto(){
+
+    // function click(){
+        
+        for(var contador = 0; contador <= 100; contador++ ){
+
+            var tri = contador % 3;
+            var penta = contador % 5;
+            var tripenta = contador % 15;
+
+            if(tripenta == 0){
+
+                div_msg.innerHTML += `É TRI! É PENTA!<br>`;
+
+            }else if(penta == 0){
+
+                div_msg.innerHTML += `É PENTA!<br>`;
+
+            }else if(tri == 0){
+
+                div_msg.innerHTML += ` É TRI!<br>`;
+
+            }else {
+                
+                div_msg.innerHTML += `${contador}<br> `;
+
+            }
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova da primeira sprint</title>
+</head>
+
+<body>
+
+
+    <img src="https://thumbs.dreamstime.com/z/est%C3%A1tua-de-godzilla-em-roppongi-51835170.jpg" alt="imagem do King Kong" style="height: 150px; float: left; margin-right: 10px;">
+    
+    <span style="float: left;"> Nome do candidato:</span>
+    <input placeholder="Nome do candidato" id="Nome_cand1" style="float: left;"><br><br>
+
+    <span style="float: left;"> Nome do partido:</span>
+    <input placeholder="Nome do partido" id="Nome_partido1" style="float: left;"><br><br>
+
+    <span style="float: left;"> Valor gasto na campanha:</span>
+    <input placeholder="Valor gasto na campanha" id="Valor_camp1" style="float: left";><br><br>
+
+    <span style="float: left;"> Número de votos:</span>
+    <input placeholder="Numero de votos" id="Num_votos1" style="float: left;"><br><br>
+
+<br><br>
+
+    <img src="https://www.scified.com/u/20201206_141124.jpg" alt="Imagem do godzilla" style="height: 150px; float: left; margin-right: 10px;">
+
+    <span style="float: left;"> Nome do candidato:</span>
+    <input placeholder="Nome do candidato" id="Nome_cand2" style="float: left;"><br><br>
+
+    <span style="float: left;"> Nome do partido:</span>
+    <input placeholder="Nome do partido" id="Nome_partido2" style="float: left;"><br><br>
+
+    <span style="float: left;"> Valor gasto na campanha:</span>
+    <input placeholder="Valor gasto na campanha" id="Valor_camp2" style="float: left";><br><br>
+
+    <span style="float: left;"> Número de votos:</span>
+    <input placeholder="Numero de votos" id="Num_votos2" style="float: left;"><br><br>
+
+    <br>    
+
+    <span style="float: left;"> Votos em branco:</span> 
+    <input placeholder="Votos em branco" id="Votos_branco" style="float: left";><br><br>
+
+    <span style="float: left;"> Votos nulos:</span>
+    <input placeholder="Votos nulos" id="Votos_nulos" style="float: left;"><br><br>    
+
+    <br>
+
+    <button onclick="analisa()" id="Analisar_elei">Analisar eleição</button>
+
+    <br><br>
+
+    <div id="div_msg" style="display:none">
+
+        <h3>Resultado das Eleições</h3>
+
+    </div>
+
+    <div id="div_msg2" style="display:none">
+
+        <h3>Custos por eleitor</h3>
+
+    </div>
+
+    <br>
+<div id="div_barras" style="width: 1000px;">
+
+        <img src="https://greenpng.com/wp-content/uploads/2020/06/Fundo-verde-png-verde-floresta-300x300.png" alt="" id="barra1" style="background-color: green; height: 40px; float: left;">
+        <img src="https://img.freepik.com/vetores-gratis/projeto-do-fundo-multicolor_1117-99.jpg?size=300&ext=jpg" alt="" id="barra2" style="background-color: purple; height: 40px; float: left"> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Black_300.svg/300px-Black_300.svg.png" alt="" id="barra3" style="background-color: black; height: 40px; float: left">
+    </div>
+</body>
+
+</html>
+
+<script>
+
+function analisa(){
+
+    var totalVotos = (Number(Num_votos1.value) + Number(Num_votos2.value) + Number(Votos_branco.value) + 
+    Number(Votos_nulos.value));
+
+    var Dtotal = Num_votos1.value / totalVotos * 100;
+
+    var Htotal = Num_votos2.value / totalVotos * 100;
+
+    var Jtotal = Votos_branco.value / totalVotos * 100;
+
+    var Ltotal = Votos_nulos.value / totalVotos * 100
+
+    var Brancosnulos = (Number(Votos_branco.value) + Number(Votos_nulos.value)) / totalVotos * 100;
+
+    var Custo1 = Valor_camp1.value / Num_votos1.value;
+
+    var Custo2 = Valor_camp2.value / Num_votos2.value;
+
+    div_msg.style.display = 'inline';
+
+    div_msg.innerHTML = `${Nome_cand1.value} (partido ${Nome_partido1.value}) - <b style="color: purple;">${Num_votos1.value}</b> votos (<b style="color: purple;">${Dtotal}</b>% do total)<br>`;
+
+    div_msg.innerHTML += `${Nome_cand2.value} (partido ${Nome_partido2.value}) - <b style="color: green;">${Num_votos2.value}</b> votos (<b style="color: green;">${Htotal}</b>% do total)<br><br>`;
+
+    div_msg.innerHTML += `Votos em branco - ${Votos_branco.value} votos (${Jtotal} % do total)<br><br>`;
+
+    div_msg.innerHTML += `Votos nulos - ${Votos_nulos.value} votos (${Ltotal} % do total)<br><br>`;
+
+    div_msg2.style.display = 'inline';
+
+    div_msg2.innerHTML = `${Nome_cand1.value} gastou R$ <b style="color: purple;">${Valor_camp1.value}</b> na campanha. 
+    Como teve <b style="color: purple;">${Num_votos1.value}</b> votos, cada voto lhe custou R$ <b style="color: purple;">${Custo1}</<br><br>`
+
+    div_msg2.innerHTML += `${Nome_cand2.value} gastou R$ <b style="color: green;">${Valor_camp2.value}</b> na campanha. 
+    Como teve <b style="color: green;">${Num_votos2.value}</b> votos, cada voto lhe custou R$ <b style="color: green;">${Custo2}<b/>`
+
+    barra1.style.width = `${Dtotal}%`;
+
+    barra2.style.width = `${Htotal}%`;
+
+    barra3.style.width = `${Brancosnulos}%`;
+}
+
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+
+</head>
+
+<body>
+
+    Digite a nota do aluno: <input id="input_nota" placeholder="Ex: 7.5" autofocus><br>
+    Digite apartir de qual nota você deseja analisar: <input id="input_apartir" placeholder="Ex: 7">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar nota</button>
+    <button onclick="rever()">Rever as notas</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var notas = [];
+    var show_notas = [];
+
+    function cadastrar(){
+
+        var nota_aluno = input_nota.value;
+        notas.push(nota_aluno);
+
+        input_nota.value = '';
+
+    }
+
+    function rever(){
+
+        var nota_aluno = input_nota.value;
+        var apartir = input_apartir.value;
+        var soma = 0;
+        var contador_notas = 0;
+
+        div_msg.innerHTML = `NOTAS MAIORES QUE ${apartir}<br><br>`;
+
+        for(var contador = 0 ; contador < notas.length ; contador++){
+
+            if(Number(notas[contador]) >= apartir){
+
+                div_msg.innerHTML += `${notas[contador]}<br>`;
+                contador_notas++;
+
+                soma = soma + Number(notas[contador]);
+
+            }
+
+        }
+
+        alert(`Foram cadastradas ${contador_notas} maiores que ${apartir}
+         e a média dessas notas é ${soma / contador_notas}`);
+    }
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 26 - IF</title>
+
+</head>
+
+<body>
+    
+<h2>Pontos na CNH</h2>
+
+<input id="qtde_pontos" placeholder="Digite a quantidade de pontos">
+
+    <button onclick="validar()">Validar</button>
+
+    <br><br>
+
+    <span id="resposta"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var pontos = 0;
+    var multa = 0
+
+    function validar(){
+
+        pontos = Number(qtde_pontos.value);
+
+        if(pontos >= 20){
+
+            resposta.innerHTML = `Carteira suspensa, pois possui ${pontos} pontos<br><br>`;
+
+            multa = pontos * 78;
+
+            resposta.innerHTML += `O valor total da multa é ${multa.toFixed(2)} e sua carteira está SUSPENSA`;
+
+        }
+
+        if(pontos < 20){
+
+            multa = pontos * 78;
+
+            resposta.innerHTML = `O valor total da multa é ${multa.toFixed(2)}`
+
+        }
+
+    }
+
+</script>

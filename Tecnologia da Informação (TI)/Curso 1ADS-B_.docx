@@ -1,0 +1,3900 @@
+鮑鮖鮗鮟鮠鮨鮴鯀鯊鮹鯆鯏鯑鯒鯣鯢鯤鯔鯡鰺鯲鯱鯰鰕鰔鰉鰓鰌鰆鰈鰒鰊鰄鰮鰛鰥鰤鰡鰰鱇鰲鱆鰾鱚鱠鱧鱶鱸鳧鳬鳰鴉鴈鳫鴃鴆鴪鴦鶯鴣鴟鵄鴕鴒鵁鴿鴾鵆鵈"],
+["f3a1","鵝鵞鵤鵑鵐鵙鵲鶉鶇鶫鵯鵺鶚鶤鶩鶲鷄鷁鶻鶸鶺鷆鷏鷂鷙鷓鷸鷦鷭鷯鷽鸚鸛鸞鹵鹹鹽麁麈麋麌麒麕麑麝麥麩麸麪麭靡黌黎黏黐黔黜點黝黠黥黨黯黴黶黷黹黻黼黽鼇鼈皷鼕鼡鼬鼾齊齒齔齣齟齠齡齦齧齬齪齷齲齶龕龜龠"],
+["f4a1","堯槇遙瑤凜熙"],
+["f9a1","纊褜鍈銈蓜俉炻昱棈鋹曻彅丨仡仼伀伃伹佖侒侊侚侔俍偀倢俿倞偆偰偂傔僴僘兊兤冝冾凬刕劜劦勀勛匀匇匤卲厓厲叝﨎咜咊咩哿喆坙坥垬埈埇﨏塚增墲夋奓奛奝奣妤妺孖寀甯寘寬尞岦岺峵崧嵓﨑嵂嵭嶸嶹巐弡弴彧德"],
+["faa1","忞恝悅悊惞惕愠惲愑愷愰憘戓抦揵摠撝擎敎昀昕昻昉昮昞昤晥晗晙晴晳暙暠暲暿曺朎朗杦枻桒柀栁桄棏﨓楨﨔榘槢樰橫橆橳橾櫢櫤毖氿汜沆汯泚洄涇浯涖涬淏淸淲淼渹湜渧渼溿澈澵濵瀅瀇瀨炅炫焏焄煜煆煇凞燁燾犱"],
+["fba1","犾猤猪獷玽珉珖珣珒琇珵琦琪琩琮瑢璉璟甁畯皂皜皞皛皦益睆劯砡硎硤硺礰礼神祥禔福禛竑竧靖竫箞精絈絜綷綠緖繒罇羡羽茁荢荿菇菶葈蒴蕓蕙蕫﨟薰蘒﨡蠇裵訒訷詹誧誾諟諸諶譓譿賰賴贒赶﨣軏﨤逸遧郞都鄕鄧釚"],
+["fca1","釗釞釭釮釤釥鈆鈐鈊鈺鉀鈼鉎鉙鉑鈹鉧銧鉷鉸鋧鋗鋙鋐﨧鋕鋠鋓錥錡鋻﨨錞鋿錝錂鍰鍗鎤鏆鏞鏸鐱鑅鑈閒隆﨩隝隯霳霻靃靍靏靑靕顗顥飯飼餧館馞驎髙髜魵魲鮏鮱鮻鰀鵰鵫鶴鸙黑"],
+["fcf1","ⅰ",9,"￢￤＇＂"],
+["8fa2af","˘ˇ¸˙˝¯˛˚～΄΅"],
+["8fa2c2","¡¦¿"],
+["8fa2eb","ºª©®™¤№"],
+["8fa6e1","ΆΈΉΊΪ"],
+["8fa6e7","Ό"],
+["8fa6e9","ΎΫ"],
+["8fa6ec","Ώ"],
+["8fa6f1","άέήίϊΐόςύϋΰώ"],
+["8fa7c2","Ђ",10,"ЎЏ"],
+["8fa7f2","ђ",10,"ўџ"],
+["8fa9a1","ÆĐ"],
+["8fa9a4","Ħ"],
+["8fa9a6","Ĳ"],
+["8fa9a8","ŁĿ"],
+["8fa9ab","ŊØŒ"],
+["8fa9af","ŦÞ"],
+["8fa9c1","æđðħıĳĸłŀŉŋøœßŧþ"],
+["8faaa1","ÁÀÄÂĂǍĀĄÅÃĆĈČÇĊĎÉÈËÊĚĖĒĘ"],
+["8faaba","ĜĞĢĠĤÍÌÏÎǏİĪĮĨĴĶĹĽĻŃŇŅÑÓÒÖÔǑŐŌÕŔŘŖŚŜŠŞŤŢÚÙÜÛŬǓŰŪŲŮŨǗǛǙǕŴÝŸŶŹŽŻ"],
+["8faba1","áàäâăǎāąåãćĉčçċďéèëêěėēęǵĝğ"],
+["8fabbd","ġĥíìïîǐ"],
+["8fabc5","īįĩĵķĺľļńňņñóòöôǒőōõŕřŗśŝšşťţúùüûŭǔűūųůũǘǜǚǖŵýÿŷźžż"],
+["8fb0a1","丂丄丅丌丒丟丣两丨丫丮丯丰丵乀乁乄乇乑乚乜乣乨乩乴乵乹乿亍亖亗亝亯亹仃仐仚仛仠仡仢仨仯仱仳仵份仾仿伀伂伃伈伋伌伒伕伖众伙伮伱你伳伵伷伹伻伾佀佂佈佉佋佌佒佔佖佘佟佣佪佬佮佱佷佸佹佺佽佾侁侂侄"],
+["8fb1a1","侅侉侊侌侎侐侒侓侔侗侙侚侞侟侲侷侹侻侼侽侾俀俁俅俆俈俉俋俌俍俏俒俜俠俢俰俲俼俽俿倀倁倄倇倊倌倎倐倓倗倘倛倜倝倞倢倧倮倰倲倳倵偀偁偂偅偆偊偌偎偑偒偓偗偙偟偠偢偣偦偧偪偭偰偱倻傁傃傄傆傊傎傏傐"],
+["8fb2a1","傒傓傔傖傛傜傞",4,"傪傯傰傹傺傽僀僃僄僇僌僎僐僓僔僘僜僝僟僢僤僦僨僩僯僱僶僺僾儃儆儇儈儋儌儍儎僲儐儗儙儛儜儝儞儣儧儨儬儭儯儱儳儴儵儸儹兂兊兏兓兕兗兘兟兤兦兾冃冄冋冎冘冝冡冣冭冸冺冼冾冿凂"],
+["8fb3a1","凈减凑凒凓凕凘凞凢凥凮凲凳凴凷刁刂刅划刓刕刖刘刢刨刱刲刵刼剅剉剕剗剘剚剜剟剠剡剦剮剷剸剹劀劂劅劊劌劓劕劖劗劘劚劜劤劥劦劧劯劰劶劷劸劺劻劽勀勄勆勈勌勏勑勔勖勛勜勡勥勨勩勪勬勰勱勴勶勷匀匃匊匋"],
+["8fb4a1","匌匑匓匘匛匜匞匟匥匧匨匩匫匬匭匰匲匵匼匽匾卂卌卋卙卛卡卣卥卬卭卲卹卾厃厇厈厎厓厔厙厝厡厤厪厫厯厲厴厵厷厸厺厽叀叅叏叒叓叕叚叝叞叠另叧叵吂吓吚吡吧吨吪启吱吴吵呃呄呇呍呏呞呢呤呦呧呩呫呭呮呴呿"],
+["8fb5a1","咁咃咅咈咉咍咑咕咖咜咟咡咦咧咩咪咭咮咱咷咹咺咻咿哆哊响哎哠哪哬哯哶哼哾哿唀唁唅唈唉唌唍唎唕唪唫唲唵唶唻唼唽啁啇啉啊啍啐啑啘啚啛啞啠啡啤啦啿喁喂喆喈喎喏喑喒喓喔喗喣喤喭喲喿嗁嗃嗆嗉嗋嗌嗎嗑嗒"],
+["8fb6a1","嗓嗗嗘嗛嗞嗢嗩嗶嗿嘅嘈嘊嘍",5,"嘙嘬嘰嘳嘵嘷嘹嘻嘼嘽嘿噀噁噃噄噆噉噋噍噏噔噞噠噡噢噣噦噩噭噯噱噲噵嚄嚅嚈嚋嚌嚕嚙嚚嚝嚞嚟嚦嚧嚨嚩嚫嚬嚭嚱嚳嚷嚾囅囉囊囋囏囐囌囍囙囜囝囟囡囤",4,"囱囫园"],
+["8fb7a1","囶囷圁圂圇圊圌圑圕圚圛圝圠圢圣圤圥圩圪圬圮圯圳圴圽圾圿坅坆坌坍坒坢坥坧坨坫坭",4,"坳坴坵坷坹坺坻坼坾垁垃垌垔垗垙垚垜垝垞垟垡垕垧垨垩垬垸垽埇埈埌埏埕埝埞埤埦埧埩埭埰埵埶埸埽埾埿堃堄堈堉埡"],
+["8fb8a1","堌堍堛堞堟堠堦堧堭堲堹堿塉塌塍塏塐塕塟塡塤塧塨塸塼塿墀墁墇墈墉墊墌墍墏墐墔墖墝墠墡墢墦墩墱墲壄墼壂壈壍壎壐壒壔壖壚壝壡壢壩壳夅夆夋夌夒夓夔虁夝夡夣夤夨夯夰夳夵夶夿奃奆奒奓奙奛奝奞奟奡奣奫奭"],
+["8fb9a1","奯奲奵奶她奻奼妋妌妎妒妕妗妟妤妧妭妮妯妰妳妷妺妼姁姃姄姈姊姍姒姝姞姟姣姤姧姮姯姱姲姴姷娀娄娌娍娎娒娓娞娣娤娧娨娪娭娰婄婅婇婈婌婐婕婞婣婥婧婭婷婺婻婾媋媐媓媖媙媜媞媟媠媢媧媬媱媲媳媵媸媺媻媿"],
+["8fbaa1","嫄嫆嫈嫏嫚嫜嫠嫥嫪嫮嫵嫶嫽嬀嬁嬈嬗嬴嬙嬛嬝嬡嬥嬭嬸孁孋孌孒孖孞孨孮孯孼孽孾孿宁宄宆宊宎宐宑宓宔宖宨宩宬宭宯宱宲宷宺宼寀寁寍寏寖",4,"寠寯寱寴寽尌尗尞尟尣尦尩尫尬尮尰尲尵尶屙屚屜屢屣屧屨屩"],
+["8fbba1","屭屰屴屵屺屻屼屽岇岈岊岏岒岝岟岠岢岣岦岪岲岴岵岺峉峋峒峝峗峮峱峲峴崁崆崍崒崫崣崤崦崧崱崴崹崽崿嵂嵃嵆嵈嵕嵑嵙嵊嵟嵠嵡嵢嵤嵪嵭嵰嵹嵺嵾嵿嶁嶃嶈嶊嶒嶓嶔嶕嶙嶛嶟嶠嶧嶫嶰嶴嶸嶹巃巇巋巐巎巘巙巠巤"],
+["8fbca1","巩巸巹帀帇帍帒帔帕帘帟帠帮帨帲帵帾幋幐幉幑幖幘幛幜幞幨幪",4,"幰庀庋庎庢庤庥庨庪庬庱庳庽庾庿廆廌廋廎廑廒廔廕廜廞廥廫异弆弇弈弎弙弜弝弡弢弣弤弨弫弬弮弰弴弶弻弽弿彀彄彅彇彍彐彔彘彛彠彣彤彧"],
+["8fbda1","彯彲彴彵彸彺彽彾徉徍徏徖徜徝徢徧徫徤徬徯徰徱徸忄忇忈忉忋忐",4,"忞忡忢忨忩忪忬忭忮忯忲忳忶忺忼怇怊怍怓怔怗怘怚怟怤怭怳怵恀恇恈恉恌恑恔恖恗恝恡恧恱恾恿悂悆悈悊悎悑悓悕悘悝悞悢悤悥您悰悱悷"],
+["8fbea1","悻悾惂惄惈惉惊惋惎惏惔惕惙惛惝惞惢惥惲惵惸惼惽愂愇愊愌愐",4,"愖愗愙愜愞愢愪愫愰愱愵愶愷愹慁慅慆慉慞慠慬慲慸慻慼慿憀憁憃憄憋憍憒憓憗憘憜憝憟憠憥憨憪憭憸憹憼懀懁懂懎懏懕懜懝懞懟懡懢懧懩懥"],
+["8fbfa1","懬懭懯戁戃戄戇戓戕戜戠戢戣戧戩戫戹戽扂扃扄扆扌扐扑扒扔扖扚扜扤扭扯扳扺扽抍抎抏抐抦抨抳抶抷抺抾抿拄拎拕拖拚拪拲拴拼拽挃挄挊挋挍挐挓挖挘挩挪挭挵挶挹挼捁捂捃捄捆捊捋捎捒捓捔捘捛捥捦捬捭捱捴捵"],
+["8fc0a1","捸捼捽捿掂掄掇掊掐掔掕掙掚掞掤掦掭掮掯掽揁揅揈揎揑揓揔揕揜揠揥揪揬揲揳揵揸揹搉搊搐搒搔搘搞搠搢搤搥搩搪搯搰搵搽搿摋摏摑摒摓摔摚摛摜摝摟摠摡摣摭摳摴摻摽撅撇撏撐撑撘撙撛撝撟撡撣撦撨撬撳撽撾撿"],
+["8fc1a1","擄擉擊擋擌擎擐擑擕擗擤擥擩擪擭擰擵擷擻擿攁攄攈攉攊攏攓攔攖攙攛攞攟攢攦攩攮攱攺攼攽敃敇敉敐敒敔敟敠敧敫敺敽斁斅斊斒斕斘斝斠斣斦斮斲斳斴斿旂旈旉旎旐旔旖旘旟旰旲旴旵旹旾旿昀昄昈昉昍昑昒昕昖昝"],
+["8fc2a1","昞昡昢昣昤昦昩昪昫昬昮昰昱昳昹昷晀晅晆晊晌晑晎晗晘晙晛晜晠晡曻晪晫晬晾晳晵晿晷晸晹晻暀晼暋暌暍暐暒暙暚暛暜暟暠暤暭暱暲暵暻暿曀曂曃曈曌曎曏曔曛曟曨曫曬曮曺朅朇朎朓朙朜朠朢朳朾杅杇杈杌杔杕杝"],
+["8fc3a1","杦杬杮杴杶杻极构枎枏枑枓枖枘枙枛枰枱枲枵枻枼枽柹柀柂柃柅柈柉柒柗柙柜柡柦柰柲柶柷桒栔栙栝栟栨栧栬栭栯栰栱栳栻栿桄桅桊桌桕桗桘桛桫桮",4,"桵桹桺桻桼梂梄梆梈梖梘梚梜梡梣梥梩梪梮梲梻棅棈棌棏"],
+["8fc4a1","棐棑棓棖棙棜棝棥棨棪棫棬棭棰棱棵棶棻棼棽椆椉椊椐椑椓椖椗椱椳椵椸椻楂楅楉楎楗楛楣楤楥楦楨楩楬楰楱楲楺楻楿榀榍榒榖榘榡榥榦榨榫榭榯榷榸榺榼槅槈槑槖槗槢槥槮槯槱槳槵槾樀樁樃樏樑樕樚樝樠樤樨樰樲"],
+["8fc5a1","樴樷樻樾樿橅橆橉橊橎橐橑橒橕橖橛橤橧橪橱橳橾檁檃檆檇檉檋檑檛檝檞檟檥檫檯檰檱檴檽檾檿櫆櫉櫈櫌櫐櫔櫕櫖櫜櫝櫤櫧櫬櫰櫱櫲櫼櫽欂欃欆欇欉欏欐欑欗欛欞欤欨欫欬欯欵欶欻欿歆歊歍歒歖歘歝歠歧歫歮歰歵歽"],
+["8fc6a1","歾殂殅殗殛殟殠殢殣殨殩殬殭殮殰殸殹殽殾毃毄毉毌毖毚毡毣毦毧毮毱毷毹毿氂氄氅氉氍氎氐氒氙氟氦氧氨氬氮氳氵氶氺氻氿汊汋汍汏汒汔汙汛汜汫汭汯汴汶汸汹汻沅沆沇沉沔沕沗沘沜沟沰沲沴泂泆泍泏泐泑泒泔泖"],
+["8fc7a1","泚泜泠泧泩泫泬泮泲泴洄洇洊洎洏洑洓洚洦洧洨汧洮洯洱洹洼洿浗浞浟浡浥浧浯浰浼涂涇涑涒涔涖涗涘涪涬涴涷涹涽涿淄淈淊淎淏淖淛淝淟淠淢淥淩淯淰淴淶淼渀渄渞渢渧渲渶渹渻渼湄湅湈湉湋湏湑湒湓湔湗湜湝湞"],
+["8fc8a1","湢湣湨湳湻湽溍溓溙溠溧溭溮溱溳溻溿滀滁滃滇滈滊滍滎滏滫滭滮滹滻滽漄漈漊漌漍漖漘漚漛漦漩漪漯漰漳漶漻漼漭潏潑潒潓潗潙潚潝潞潡潢潨潬潽潾澃澇澈澋澌澍澐澒澓澔澖澚澟澠澥澦澧澨澮澯澰澵澶澼濅濇濈濊"],
+["8fc9a1","濚濞濨濩濰濵濹濼濽瀀瀅瀆瀇瀍瀗瀠瀣瀯瀴瀷瀹瀼灃灄灈灉灊灋灔灕灝灞灎灤灥灬灮灵灶灾炁炅炆炔",4,"炛炤炫炰炱炴炷烊烑烓烔烕烖烘烜烤烺焃",4,"焋焌焏焞焠焫焭焯焰焱焸煁煅煆煇煊煋煐煒煗煚煜煞煠"],
+["8fcaa1","煨煹熀熅熇熌熒熚熛熠熢熯熰熲熳熺熿燀燁燄燋燌燓燖燙燚燜燸燾爀爇爈爉爓爗爚爝爟爤爫爯爴爸爹牁牂牃牅牎牏牐牓牕牖牚牜牞牠牣牨牫牮牯牱牷牸牻牼牿犄犉犍犎犓犛犨犭犮犱犴犾狁狇狉狌狕狖狘狟狥狳狴狺狻"],
+["8fcba1","狾猂猄猅猇猋猍猒猓猘猙猞猢猤猧猨猬猱猲猵猺猻猽獃獍獐獒獖獘獝獞獟獠獦獧獩獫獬獮獯獱獷獹獼玀玁玃玅玆玎玐玓玕玗玘玜玞玟玠玢玥玦玪玫玭玵玷玹玼玽玿珅珆珉珋珌珏珒珓珖珙珝珡珣珦珧珩珴珵珷珹珺珻珽"],
+["8fcca1","珿琀琁琄琇琊琑琚琛琤琦琨",9,"琹瑀瑃瑄瑆瑇瑋瑍瑑瑒瑗瑝瑢瑦瑧瑨瑫瑭瑮瑱瑲璀璁璅璆璇璉璏璐璑璒璘璙璚璜璟璠璡璣璦璨璩璪璫璮璯璱璲璵璹璻璿瓈瓉瓌瓐瓓瓘瓚瓛瓞瓟瓤瓨瓪瓫瓯瓴瓺瓻瓼瓿甆"],
+["8fcda1","甒甖甗甠甡甤甧甩甪甯甶甹甽甾甿畀畃畇畈畎畐畒畗畞畟畡畯畱畹",5,"疁疅疐疒疓疕疙疜疢疤疴疺疿痀痁痄痆痌痎痏痗痜痟痠痡痤痧痬痮痯痱痹瘀瘂瘃瘄瘇瘈瘊瘌瘏瘒瘓瘕瘖瘙瘛瘜瘝瘞瘣瘥瘦瘩瘭瘲瘳瘵瘸瘹"],
+["8fcea1","瘺瘼癊癀癁癃癄癅癉癋癕癙癟癤癥癭癮癯癱癴皁皅皌皍皕皛皜皝皟皠皢",6,"皪皭皽盁盅盉盋盌盎盔盙盠盦盨盬盰盱盶盹盼眀眆眊眎眒眔眕眗眙眚眜眢眨眭眮眯眴眵眶眹眽眾睂睅睆睊睍睎睏睒睖睗睜睞睟睠睢"],
+["8fcfa1","睤睧睪睬睰睲睳睴睺睽瞀瞄瞌瞍瞔瞕瞖瞚瞟瞢瞧瞪瞮瞯瞱瞵瞾矃矉矑矒矕矙矞矟矠矤矦矪矬矰矱矴矸矻砅砆砉砍砎砑砝砡砢砣砭砮砰砵砷硃硄硇硈硌硎硒硜硞硠硡硣硤硨硪确硺硾碊碏碔碘碡碝碞碟碤碨碬碭碰碱碲碳"],
+["8fd0a1","碻碽碿磇磈磉磌磎磒磓磕磖磤磛磟磠磡磦磪磲磳礀磶磷磺磻磿礆礌礐礚礜礞礟礠礥礧礩礭礱礴礵礻礽礿祄祅祆祊祋祏祑祔祘祛祜祧祩祫祲祹祻祼祾禋禌禑禓禔禕禖禘禛禜禡禨禩禫禯禱禴禸离秂秄秇秈秊秏秔秖秚秝秞"],
+["8fd1a1","秠秢秥秪秫秭秱秸秼稂稃稇稉稊稌稑稕稛稞稡稧稫稭稯稰稴稵稸稹稺穄穅穇穈穌穕穖穙穜穝穟穠穥穧穪穭穵穸穾窀窂窅窆窊窋窐窑窔窞窠窣窬窳窵窹窻窼竆竉竌竎竑竛竨竩竫竬竱竴竻竽竾笇笔笟笣笧笩笪笫笭笮笯笰"],
+["8fd2a1","笱笴笽笿筀筁筇筎筕筠筤筦筩筪筭筯筲筳筷箄箉箎箐箑箖箛箞箠箥箬箯箰箲箵箶箺箻箼箽篂篅篈篊篔篖篗篙篚篛篨篪篲篴篵篸篹篺篼篾簁簂簃簄簆簉簋簌簎簏簙簛簠簥簦簨簬簱簳簴簶簹簺籆籊籕籑籒籓籙",5],
+["8fd3a1","籡籣籧籩籭籮籰籲籹籼籽粆粇粏粔粞粠粦粰粶粷粺粻粼粿糄糇糈糉糍糏糓糔糕糗糙糚糝糦糩糫糵紃紇紈紉紏紑紒紓紖紝紞紣紦紪紭紱紼紽紾絀絁絇絈絍絑絓絗絙絚絜絝絥絧絪絰絸絺絻絿綁綂綃綅綆綈綋綌綍綑綖綗綝"],
+["8fd4a1","綞綦綧綪綳綶綷綹緂",4,"緌緍緎緗緙縀緢緥緦緪緫緭緱緵緶緹緺縈縐縑縕縗縜縝縠縧縨縬縭縯縳縶縿繄繅繇繎繐繒繘繟繡繢繥繫繮繯繳繸繾纁纆纇纊纍纑纕纘纚纝纞缼缻缽缾缿罃罄罇罏罒罓罛罜罝罡罣罤罥罦罭"],
+["8fd5a1","罱罽罾罿羀羋羍羏羐羑羖羗羜羡羢羦羪羭羴羼羿翀翃翈翎翏翛翟翣翥翨翬翮翯翲翺翽翾翿耇耈耊耍耎耏耑耓耔耖耝耞耟耠耤耦耬耮耰耴耵耷耹耺耼耾聀聄聠聤聦聭聱聵肁肈肎肜肞肦肧肫肸肹胈胍胏胒胔胕胗胘胠胭胮"],
+["8fd6a1","胰胲胳胶胹胺胾脃脋脖脗脘脜脞脠脤脧脬脰脵脺脼腅腇腊腌腒腗腠腡腧腨腩腭腯腷膁膐膄膅膆膋膎膖膘膛膞膢膮膲膴膻臋臃臅臊臎臏臕臗臛臝臞臡臤臫臬臰臱臲臵臶臸臹臽臿舀舃舏舓舔舙舚舝舡舢舨舲舴舺艃艄艅艆"],
+["8fd7a1","艋艎艏艑艖艜艠艣艧艭艴艻艽艿芀芁芃芄芇芉芊芎芑芔芖芘芚芛芠芡芣芤芧芨芩芪芮芰芲芴芷芺芼芾芿苆苐苕苚苠苢苤苨苪苭苯苶苷苽苾茀茁茇茈茊茋荔茛茝茞茟茡茢茬茭茮茰茳茷茺茼茽荂荃荄荇荍荎荑荕荖荗荰荸"],
+["8fd8a1","荽荿莀莂莄莆莍莒莔莕莘莙莛莜莝莦莧莩莬莾莿菀菇菉菏菐菑菔菝荓菨菪菶菸菹菼萁萆萊萏萑萕萙莭萯萹葅葇葈葊葍葏葑葒葖葘葙葚葜葠葤葥葧葪葰葳葴葶葸葼葽蒁蒅蒒蒓蒕蒞蒦蒨蒩蒪蒯蒱蒴蒺蒽蒾蓀蓂蓇蓈蓌蓏蓓"],
+["8fd9a1","蓜蓧蓪蓯蓰蓱蓲蓷蔲蓺蓻蓽蔂蔃蔇蔌蔎蔐蔜蔞蔢蔣蔤蔥蔧蔪蔫蔯蔳蔴蔶蔿蕆蕏",4,"蕖蕙蕜",6,"蕤蕫蕯蕹蕺蕻蕽蕿薁薅薆薉薋薌薏薓薘薝薟薠薢薥薧薴薶薷薸薼薽薾薿藂藇藊藋藎薭藘藚藟藠藦藨藭藳藶藼"],
+["8fdaa1","藿蘀蘄蘅蘍蘎蘐蘑蘒蘘蘙蘛蘞蘡蘧蘩蘶蘸蘺蘼蘽虀虂虆虒虓虖虗虘虙虝虠",4,"虩虬虯虵虶虷虺蚍蚑蚖蚘蚚蚜蚡蚦蚧蚨蚭蚱蚳蚴蚵蚷蚸蚹蚿蛀蛁蛃蛅蛑蛒蛕蛗蛚蛜蛠蛣蛥蛧蚈蛺蛼蛽蜄蜅蜇蜋蜎蜏蜐蜓蜔蜙蜞蜟蜡蜣"],
+["8fdba1","蜨蜮蜯蜱蜲蜹蜺蜼蜽蜾蝀蝃蝅蝍蝘蝝蝡蝤蝥蝯蝱蝲蝻螃",6,"螋螌螐螓螕螗螘螙螞螠螣螧螬螭螮螱螵螾螿蟁蟈蟉蟊蟎蟕蟖蟙蟚蟜蟟蟢蟣蟤蟪蟫蟭蟱蟳蟸蟺蟿蠁蠃蠆蠉蠊蠋蠐蠙蠒蠓蠔蠘蠚蠛蠜蠞蠟蠨蠭蠮蠰蠲蠵"],
+["8fdca1","蠺蠼衁衃衅衈衉衊衋衎衑衕衖衘衚衜衟衠衤衩衱衹衻袀袘袚袛袜袟袠袨袪袺袽袾裀裊",4,"裑裒裓裛裞裧裯裰裱裵裷褁褆褍褎褏褕褖褘褙褚褜褠褦褧褨褰褱褲褵褹褺褾襀襂襅襆襉襏襒襗襚襛襜襡襢襣襫襮襰襳襵襺"],
+["8fdda1","襻襼襽覉覍覐覔覕覛覜覟覠覥覰覴覵覶覷覼觔",4,"觥觩觫觭觱觳觶觹觽觿訄訅訇訏訑訒訔訕訞訠訢訤訦訫訬訯訵訷訽訾詀詃詅詇詉詍詎詓詖詗詘詜詝詡詥詧詵詶詷詹詺詻詾詿誀誃誆誋誏誐誒誖誗誙誟誧誩誮誯誳"],
+["8fdea1","誶誷誻誾諃諆諈諉諊諑諓諔諕諗諝諟諬諰諴諵諶諼諿謅謆謋謑謜謞謟謊謭謰謷謼譂",4,"譈譒譓譔譙譍譞譣譭譶譸譹譼譾讁讄讅讋讍讏讔讕讜讞讟谸谹谽谾豅豇豉豋豏豑豓豔豗豘豛豝豙豣豤豦豨豩豭豳豵豶豻豾貆"],
+["8fdfa1","貇貋貐貒貓貙貛貜貤貹貺賅賆賉賋賏賖賕賙賝賡賨賬賯賰賲賵賷賸賾賿贁贃贉贒贗贛赥赩赬赮赿趂趄趈趍趐趑趕趞趟趠趦趫趬趯趲趵趷趹趻跀跅跆跇跈跊跎跑跔跕跗跙跤跥跧跬跰趼跱跲跴跽踁踄踅踆踋踑踔踖踠踡踢"],
+["8fe0a1","踣踦踧踱踳踶踷踸踹踽蹀蹁蹋蹍蹎蹏蹔蹛蹜蹝蹞蹡蹢蹩蹬蹭蹯蹰蹱蹹蹺蹻躂躃躉躐躒躕躚躛躝躞躢躧躩躭躮躳躵躺躻軀軁軃軄軇軏軑軔軜軨軮軰軱軷軹軺軭輀輂輇輈輏輐輖輗輘輞輠輡輣輥輧輨輬輭輮輴輵輶輷輺轀轁"],
+["8fe1a1","轃轇轏轑",4,"轘轝轞轥辝辠辡辤辥辦辵辶辸达迀迁迆迊迋迍运迒迓迕迠迣迤迨迮迱迵迶迻迾适逄逈逌逘逛逨逩逯逪逬逭逳逴逷逿遃遄遌遛遝遢遦遧遬遰遴遹邅邈邋邌邎邐邕邗邘邙邛邠邡邢邥邰邲邳邴邶邽郌邾郃"],
+["8fe2a1","郄郅郇郈郕郗郘郙郜郝郟郥郒郶郫郯郰郴郾郿鄀鄄鄅鄆鄈鄍鄐鄔鄖鄗鄘鄚鄜鄞鄠鄥鄢鄣鄧鄩鄮鄯鄱鄴鄶鄷鄹鄺鄼鄽酃酇酈酏酓酗酙酚酛酡酤酧酭酴酹酺酻醁醃醅醆醊醎醑醓醔醕醘醞醡醦醨醬醭醮醰醱醲醳醶醻醼醽醿"],
+["8fe3a1","釂釃釅釓釔釗釙釚釞釤釥釩釪釬",5,"釷釹釻釽鈀鈁鈄鈅鈆鈇鈉鈊鈌鈐鈒鈓鈖鈘鈜鈝鈣鈤鈥鈦鈨鈮鈯鈰鈳鈵鈶鈸鈹鈺鈼鈾鉀鉂鉃鉆鉇鉊鉍鉎鉏鉑鉘鉙鉜鉝鉠鉡鉥鉧鉨鉩鉮鉯鉰鉵",4,"鉻鉼鉽鉿銈銉銊銍銎銒銗"],
+["8fe4a1","銙銟銠銤銥銧銨銫銯銲銶銸銺銻銼銽銿",4,"鋅鋆鋇鋈鋋鋌鋍鋎鋐鋓鋕鋗鋘鋙鋜鋝鋟鋠鋡鋣鋥鋧鋨鋬鋮鋰鋹鋻鋿錀錂錈錍錑錔錕錜錝錞錟錡錤錥錧錩錪錳錴錶錷鍇鍈鍉鍐鍑鍒鍕鍗鍘鍚鍞鍤鍥鍧鍩鍪鍭鍯鍰鍱鍳鍴鍶"],
+["8fe5a1","鍺鍽鍿鎀鎁鎂鎈鎊鎋鎍鎏鎒鎕鎘鎛鎞鎡鎣鎤鎦鎨鎫鎴鎵鎶鎺鎩鏁鏄鏅鏆鏇鏉",4,"鏓鏙鏜鏞鏟鏢鏦鏧鏹鏷鏸鏺鏻鏽鐁鐂鐄鐈鐉鐍鐎鐏鐕鐖鐗鐟鐮鐯鐱鐲鐳鐴鐻鐿鐽鑃鑅鑈鑊鑌鑕鑙鑜鑟鑡鑣鑨鑫鑭鑮鑯鑱鑲钄钃镸镹"],
+["8fe6a1","镾閄閈閌閍閎閝閞閟閡閦閩閫閬閴閶閺閽閿闆闈闉闋闐闑闒闓闙闚闝闞闟闠闤闦阝阞阢阤阥阦阬阱阳阷阸阹阺阼阽陁陒陔陖陗陘陡陮陴陻陼陾陿隁隂隃隄隉隑隖隚隝隟隤隥隦隩隮隯隳隺雊雒嶲雘雚雝雞雟雩雯雱雺霂"],
+["8fe7a1","霃霅霉霚霛霝霡霢霣霨霱霳靁靃靊靎靏靕靗靘靚靛靣靧靪靮靳靶靷靸靻靽靿鞀鞉鞕鞖鞗鞙鞚鞞鞟鞢鞬鞮鞱鞲鞵鞶鞸鞹鞺鞼鞾鞿韁韄韅韇韉韊韌韍韎韐韑韔韗韘韙韝韞韠韛韡韤韯韱韴韷韸韺頇頊頙頍頎頔頖頜頞頠頣頦"],
+["8fe8a1","頫頮頯頰頲頳頵頥頾顄顇顊顑顒顓顖顗顙顚顢顣顥顦顪顬颫颭颮颰颴颷颸颺颻颿飂飅飈飌飡飣飥飦飧飪飳飶餂餇餈餑餕餖餗餚餛餜餟餢餦餧餫餱",4,"餹餺餻餼饀饁饆饇饈饍饎饔饘饙饛饜饞饟饠馛馝馟馦馰馱馲馵"],
+["8fe9a1","馹馺馽馿駃駉駓駔駙駚駜駞駧駪駫駬駰駴駵駹駽駾騂騃騄騋騌騐騑騖騞騠騢騣騤騧騭騮騳騵騶騸驇驁驄驊驋驌驎驑驔驖驝骪骬骮骯骲骴骵骶骹骻骾骿髁髃髆髈髎髐髒髕髖髗髛髜髠髤髥髧髩髬髲髳髵髹髺髽髿",4],
+["8feaa1","鬄鬅鬈鬉鬋鬌鬍鬎鬐鬒鬖鬙鬛鬜鬠鬦鬫鬭鬳鬴鬵鬷鬹鬺鬽魈魋魌魕魖魗魛魞魡魣魥魦魨魪",4,"魳魵魷魸魹魿鮀鮄鮅鮆鮇鮉鮊鮋鮍鮏鮐鮔鮚鮝鮞鮦鮧鮩鮬鮰鮱鮲鮷鮸鮻鮼鮾鮿鯁鯇鯈鯎鯐鯗鯘鯝鯟鯥鯧鯪鯫鯯鯳鯷鯸"],
+["8feba1","鯹鯺鯽鯿鰀鰂鰋鰏鰑鰖鰘鰙鰚鰜鰞鰢鰣鰦",4,"鰱鰵鰶鰷鰽鱁鱃鱄鱅鱉鱊鱎鱏鱐鱓鱔鱖鱘鱛鱝鱞鱟鱣鱩鱪鱜鱫鱨鱮鱰鱲鱵鱷鱻鳦鳲鳷鳹鴋鴂鴑鴗鴘鴜鴝鴞鴯鴰鴲鴳鴴鴺鴼鵅鴽鵂鵃鵇鵊鵓鵔鵟鵣鵢鵥鵩鵪鵫鵰鵶鵷鵻"],
+["8feca1","鵼鵾鶃鶄鶆鶊鶍鶎鶒鶓鶕鶖鶗鶘鶡鶪鶬鶮鶱鶵鶹鶼鶿鷃鷇鷉鷊鷔鷕鷖鷗鷚鷞鷟鷠鷥鷧鷩鷫鷮鷰鷳鷴鷾鸊鸂鸇鸎鸐鸑鸒鸕鸖鸙鸜鸝鹺鹻鹼麀麂麃麄麅麇麎麏麖麘麛麞麤麨麬麮麯麰麳麴麵黆黈黋黕黟黤黧黬黭黮黰黱黲黵"],
+["8feda1","黸黿鼂鼃鼉鼏鼐鼑鼒鼔鼖鼗鼙鼚鼛鼟鼢鼦鼪鼫鼯鼱鼲鼴鼷鼹鼺鼼鼽鼿齁齃",4,"齓齕齖齗齘齚齝齞齨齩齭",4,"齳齵齺齽龏龐龑龒龔龖龗龞龡龢龣龥"]
+]
+                                                                                                                                                                                                                                                                                                                                                                                                                        "�0+"�0+!�0,"�40%�:5)�>8,�A:,�?9,��   ����������		�	�
+���FA3�73(�����������������������������������������
+
+
+�		����������������� � � �<<;JXXV TTSUTSUUSUUSVUSVUTVUTWVTWVTVUSUUTUUSUTSUTSVUTWVUWVUWVTWVTWVUVUUVUTWVTVUTVUSUTSTTSTSRTTSTSRTSSTSSSSRSSRSSR PPQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ SRS +,-���
+����"%&�$()�&+,�%)*�$'(�!%&�"$�!"�"#�!"� !� ������������	
+�		�������������   �   ������������������"�51%�PJ:�qjV���������IMQ�JPR�JPN�KQP�RXZ�UZ^�SYZ�RYV�QZW�X\^�_bd�`hf�jpq�irq�pvt�msr�jqp�hoo�lrp�twt�wyu�wyv�z|y���}���~�}z�}~x�z{v�uvu�tws�wyw�svr�lpn�lpn�jmk�gkj�cjh�`fd�`dd�\ca�WZY�Z`]�V[X�WZY�UXW�TWV�PVU�PUT�RTT�TYX�[^]�_b^�]`\�Y^\��   ����		�	
+
+�
+���������""�1+!�	������������� �!�#�%�% �'!�'"�)$�*%�+%�+'�.(�0)�2+�4. �5.!�6/"�81#�92$�;3$�:3$�=5&�>7&�>6&�?6'�?7'�?8(�?8(�>7(�>6'�>7'�=5'�<5&�;4&�:3$�82$�71#�5/!�4.!�4."�3-!�1+�/*�-(�*%�'"�$��50(�A<1�?:0�D>3�IC6�NG8�QJ:�VN=�_VC�cYE�mbK�vjQ�thP�znT�}pV�znT�ymT�vjR�thP�ncM�aXE�cZG�`WD�YQ@�aYE�WP?�TL<�JD7�C=2�A<1�?;0�=8.�84+�40(�3/'�,)"�?=:dSSS PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ RRR 355�"#�!$%�����!$%�%()�(+-�'+,�&)*�#''�#&'�%()�'+,�'+,�'+,�(+,�(+,�'+,�'+,�'+,�'*+�'+,�&*+�$'(�#''�"%'�"%&�!$%� #$� "#�!"�!"� !���������������		�		���
+����������#!�31)�RNC�uq`�ki^�����������������������������������������	
+
+�
+
+	�			�
+
+�
+
+
+�
+	�	
+	�	
+
+�
+
+�
+
+��
+�
+�
+���		�	
+
+����������������������������� �! �""�""�#"�$#�%#�%#�%$�%$�&%�'% �'& �)(!�*)"�+)#�,*$�-+$�/-&�0.&�/-%�/-%�0-&�1/'�20'�41)�63*�85,�96,�<9/�?;1�@=1�A>2�B>3�C>3�C?4�C?4�C?3�D@4�D?4�C?4�C?4�A=2�A=2�?;0�<9/�74+�((#�),,�$&%�!�!! �#$"�$%!�%%!�&% �� �.,#�-*"�,( �-) �+'������
+�	��	��
+�	������� �   ��QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ NOOMNNNNNMMMMMMMMMMMMMMMMNNNNNNNNNNNMNNNNNNNNNNONOONOOOOOOOPOOPOOOOPPOOOOPPPPPPPQPPQPQQPQQPPQQPQQQRQQQPQRQQRQQRPPPOPPNOONOOOOOONONNONOONOOMNNMMMNNNFGG?*,.������!"�(,.�.34�6<=�6;=�',-�!%'�&*+�031�9<9�JMH�cd^�krn�V`c�Xab�Yac�^gg�bjj�bik�epr�fop�kuw�q|}�irt�bjn�bmo�cop�blm�_gg�\eg�[ce�Zbd�Wbd�U]^�QYZ�PVY�OVX�MSV�LST�NUU�QXZ�PZZ�T\]�V]`�Zbf�_jl�cln�ist�gpr�cln�^fi�QXX�KTT�HMQ�HNP�LRS�QWX�QY[�T[^�X`a�V^b�Zbd�bkl�fps�o{�z���my{�#%&������������!"�"#�!$%�!$%� $$�!$%�!$%�!%%�"&'�"&(�#()�$()�$()�$')�#'(�!%&�!%&�!%&�!$&� $&�#$�#$�"$�#$�#$�"$�"$�"$�"$�!"�!"�!"�!#�!#�!#�!#�"$�"$�#%�#%�!$� "�"�"�!� � �"�!#�"$�"$�"$�!$�!$�"%�"%�"%�#&�$&�#&�"%�"%�#%�$&� $'�$&�!�/46�U^b�MUX�EMO�EMO�HPS�GOR�ELO�@FI�"')�"$�)/1�+02�"&(�"%� "��
+����	
+�����   �   �   �   �   �   �   �   �   �   ��NNNRRR QQQ QQsemver(1) -- The semantic versioner for npm
+===========================================
+
+## Install
+
+```bash
+npm install semver
+````
+
+## Usage
+
+As a node module:
+
+```js
+const semver = require('semver')
+
+semver.valid('1.2.3') // '1.2.3'
+semver.valid('a.b.c') // null
+semver.clean('  =v1.2.3   ') // '1.2.3'
+semver.satisfies('1.2.3', '1.x || >=2.5.0 || 5.0.0 - 7.2.3') // true
+semver.gt('1.2.3', '9.8.7') // false
+semver.lt('1.2.3', '9.8.7') // true
+semver.minVersion('>=1.0.0') // '1.0.0'
+semver.valid(semver.coerce('v2')) // '2.0.0'
+semver.valid(semver.coerce('42.6.7.9.3-alpha')) // '42.6.7'
+```
+
+As a command-line utility:
+
+```
+$ semver -h
+
+A JavaScript implementation of the https://semver.org/ specification
+Copyright Isaac Z. Schlueter
+
+Usage: semver [options] <version> [<version> [...]]
+Prints valid versions sorted by SemVer precedence
+
+Options:
+-r --range <range>
+        Print versions that match the specified range.
+
+-i --increment [<level>]
+        Increment a version by the specified level.  Level can
+        be one of: major, minor, patch, premajor, preminor,
+        prepatch, or prerelease.  Default level is 'patch'.
+        Only one version may be specified.
+
+--preid <identifier>
+        Identifier to be used to prefix premajor, preminor,
+        prepatch or prerelease version increments.
+
+-l --loose
+        Interpret versions and ranges loosely
+
+-p --include-prerelease
+        Always include prerelease versions in range matching
+
+-c --coerce
+        Coerce a string into SemVer if possible
+        (does not imply --loose)
+
+--rtl
+        Coerce version strings right to left
+
+--ltr
+        Coerce version strings left to right (default)
+
+Program exits successfully if any valid version satisfies
+all supplied ranges, and prints all satisfying versions.
+
+If no satisfying versions are found, then exits failure.
+
+Versions are printed in ascending order, so supplying
+multiple versions to the utility will just sort them.
+```
+
+## Versions
+
+A "version" is described by the `v2.0.0` specification found at
+<https://semver.org/>.
+
+A leading `"="` or `"v"` character is stripped off and ignored.
+
+## Ranges
+
+A `version range` is a set of `comparators` which specify versions
+that satisfy the range.
+
+A `comparator` is composed of an `operator` and a `version`.  The set
+of primitive `operators` is:
+
+* `<` Less than
+* `<=` Less than or equal to
+* `>` Greater than
+* `>=` Greater than or equal to
+* `=` Equal.  If no operator is specified, then equality is assumed,
+  so this operator is optional, but MAY be included.
+
+For example, the comparator `>=1.2.7` would match the versions
+`1.2.7`, `1.2.8`, `2.5.3`, and `1.3.9`, but not the versions `1.2.6`
+or `1.1.0`.
+
+Comparators can be joined by whitespace to form a `comparator set`,
+which is satisfied by the **intersection** of all of the comparators
+it includes.
+
+A range is composed of one or more comparator sets, joined by `||`.  A
+version matches a range if and only if every comparator in at least
+one of the `||`-separated comparator sets is satisfied by the version.
+
+For example, the range `>=1.2.7 <1.3.0` would match the versions
+`1.2.7`, `1.2.8`, and `1.2.99`, but not the versions `1.2.6`, `1.3.0`,
+or `1.1.0`.
+
+The range `1.2.7 || >=1.2.9 <2.0.0` would match the versions `1.2.7`,
+`1.2.9`, and `1.4.6`, but not the versions `1.2.8` or `2.0.0`.
+
+### Prerelease Tags
+
+If a version has a prerelease tag (for example, `1.2.3-alpha.3`) then
+it will only be allowed to satisfy comparator sets if at least one
+comparator with the same `[major, minor, patch]` tuple also has a
+prerelease tag.
+
+For example, the range `>1.2.3-alpha.3` would be allowed to match the
+version `1.2.3-alpha.7`, but it would *not* be satisfied by
+`3.4.5-alpha.9`, even though `3.4.5-alpha.9` is technically "greater
+than" `1.2.3-alpha.3` according to the SemVer sort rules.  The version
+range only accepts prerelease tags on the `1.2.3` version.  The
+version `3.4.5` *would* satisfy the range, because it does not have a
+prerelease flag, and `3.4.5` is greater than `1.2.3-alpha.7`.
+
+The purpose for this behavior is twofold.  First, prerelease versions
+frequently are updated very quickly, and contain many breaking changes
+that are (by the author's design) not yet fit for public consumption.
+Therefore, by default, they are excluded from range matching
+semantics.
+
+Second, a user who has opted into using a prerelease version has
+clearly indicated the intent to use *that specific* set of
+alpha/beta/rc versions.  By including a prerelease tag in the range,
+the user is indicating that they are aware of the risk.  However, it
+is still not appropriate to assume that they have opted into taking a
+similar risk on the *next* set of prerelease versions.
+
+Note that this behavior can be suppressed (treating all prerelease
+versions as if they were normal versions, for the purpose of range
+matching) by setting the `includePrerelease` flag on the options
+object to any
+[functions](https://github.com/npm/node-semver#functions) that do
+range matching.
+
+#### Prerelease Identifiers
+
+The method `.inc` takes an additional `identifier` string argument that
+will append the value of the string as a prerelease identifier:
+
+```javascript
+semver.inc('1.2.3', 'prerelease', 'beta')
+// '1.2.4-beta.0'
+```
+
+command-line example:
+
+```bash
+$ semver 1.2.3 -i prerelease --preid beta
+1.2.4-beta.0
+```
+
+Which then can be used to increment further:
+
+```bash
+$ semver 1.2.4-beta.0 -i prerelease
+1.2.4-beta.1
+```
+
+### Advanced Range Syntax
+
+Advanced range syntax desugars to primitive comparators in
+deterministic ways.
+
+Advanced ranges may be combined in the same way as primitive
+comparators using white space or `||`.
+
+#### Hyphen Ranges `X.Y.Z - A.B.C`
+
+Specifies an inclusive set.
+
+* `1.2.3 - 2.3.4` := `>=1.2.3 <=2.3.4`
+
+If a partial version is provided as the first version in the inclusive
+range, then the missing pieces are replaced with zeroes.
+
+* `1.2 - 2.3.4` := `>=1.2.0 <=2.3.4`
+
+If a partial version is provided as the second version in the
+inclusive range, then all versions that start with the supplied parts
+of the tuple are accepted, but nothing that would be greater than the
+provided tuple parts.
+
+* `1.2.3 - 2.3` := `>=1.2.3 <2.4.0`
+* `1.2.3 - 2` := `>=1.2.3 <3.0.0`
+
+#### X-Ranges `1.2.x` `1.X` `1.2.*` `*`
+
+Any of `X`, `x`, or `*` may be used to "stand in" for one of the
+numeric values in the `[major, minor, patch]` tuple.
+
+* `*` := `>=0.0.0` (Any version satisfies)
+* `1.x` := `>=1.0.0 <2.0.0` (Matching major version)
+* `1.2.x` := `>=1.2.0 <1.3.0` (Matching major and minor versions)
+
+A partial version range is treated as an X-Range, so the special
+character is in fact optional.
+
+* `""` (empty string) := `*` := `>=0.0.0`
+* `1` := `1.x.x` := `>=1.0.0 <2.0.0`
+* `1.2` := `1.2.x` := `>=1.2.0 <1.3.0`
+
+#### Tilde Ranges `~1.2.3` `~1.2` `~1`
+
+Allows patch-level changes if a minor version is specified on the
+comparator.  Allows minor-level changes if not.
+
+* `~1.2.3` := `>=1.2.3 <1.(2+1).0` := `>=1.2.3 <1.3.0`
+* `~1.2` := `>=1.2.0 <1.(2+1).0` := `>=1.2.0 <1.3.0` (Same as `1.2.x`)
+* `~1` := `>=1.0.0 <(1+1).0.0` := `>=1.0.0 <2.0.0` (Same as `1.x`)
+* `~0.2.3` := `>=0.2.3 <0.(2+1).0` := `>=0.2.3 <0.3.0`
+* `~0.2` := `>=0.2.0 <0.(2+1).0` := `>=0.2.0 <0.3.0` (Same as `0.2.x`)
+* `~0` := `>=0.0.0 <(0+1).0.0` := `>=0.0.0 <1.0.0` (Same as `0.x`)
+* `~1.2.3-beta.2` := `>=1.2.3-beta.2 <1.3.0` Note that prereleases in
+  the `1.2.3` version will be allowed, if they are greater than or
+  equal to `beta.2`.  So, `1.2.3-beta.4` would be allowed, but
+  `1.2.4-beta.2` would not, because it is a prerelease of a
+  different `[major, minor, patch]` tuple.
+
+#### Caret Ranges `^1.2.3` `^0.2.5` `^0.0.4`
+
+Allows changes that do not modify the left-most non-zero element in the
+`[major, minor, patch]` tuple.  In other words, this allows patch and
+minor updates for versions `1.0.0` and above, patch updates for
+versions `0.X >=0.1.0`, and *no* updates for versions `0.0.X`.
+
+Many authors treat a `0.x` version as if the `x` were the major
+"breaking-change" indicator.
+
+Caret ranges are ideal when an author may make breaking changes
+between `0.2.4` and `0.3.0` releases, which is a common practice.
+However, it presumes that there will *not* be breaking changes between
+`0.2.4` and `0.2.5`.  It allows for changes that are presumed to be
+additive (but non-breaking), according to commonly observed practices.
+
+* `^1.2.3` := `>=1.2.3 <2.0.0`
+* `^0.2.3` := `>=0.2.3 <0.3.0`
+* `^0.0.3` := `>=0.0.3 <0.0.4`
+* `^1.2.3-beta.2` := `>=1.2.3-beta.2 <2.0.0` Note that prereleases in
+  the `1.2.3` version will be allowed, if they are greater than or
+  equal to `beta.2`.  So, `1.2.3-beta.4` would be allowed, but
+  `1.2.4-beta.2` would not, because it is a prerelease of a
+  different `[major, minor, patch]` tuple.
+* `^0.0.3-beta` := `>=0.0.3-beta <0.0.4`  Note that prereleases in the
+  `0.0.3` version *only* will be allowed, if they are greater than or
+  equal to `beta`.  So, `0.0.3-pr.2` would be allowed.
+
+When parsing caret ranges, a missing `patch` value desugars to the
+number `0`, but will allow flexibility within that value, even if the
+major and minor versions are both `0`.
+
+* `^1.2.x` := `>=1.2.0 <2.0.0`
+* `^0.0.x` := `>=0.0.0 <0.1.0`
+* `^0.0` := `>=0.0.0 <0.1.0`
+
+A missing `minor` and `patch` values will desugar to zero, but also
+allow flexibility within those values, even if the major version is
+zero.
+
+* `^1.x` := `>=1.0.0 <2.0.0`
+* `^0.x` := `>=0.0.0 <1.0.0`
+
+### Range Grammar
+
+Putting all this together, here is a Backus-Naur grammar for ranges,
+for the benefit of parser authors:
+
+```bnf
+range-set  ::= range ( logical-or range ) *
+logical-or ::= ( ' ' ) * '||' ( ' ' ) *
+range      ::= hyphen | simple ( ' ' simple ) * | ''
+hyphen     ::= partial ' - ' partial
+simple     ::= primitive | partial | tilde | caret
+primitive  ::= ( '<' | '>' | '>=' | '<=' | '=' ) partial
+partial    ::= xr ( '.' xr ( '.' xr qualifier ? )? )?
+xr         ::= 'x' | 'X' | '*' | nr
+nr         ::= '0' | ['1'-'9'] ( ['0'-'9'] ) *
+tilde      ::= '~' partial
+caret      ::= '^' partial
+qualifier  ::= ( '-' pre )? ( '+' build )?
+pre        ::= parts
+build      ::= parts
+parts      ::= part ( '.' part ) *
+part       ::= nr | [-0-9A-Za-z]+
+```
+
+## Functions
+
+All methods and classes take a final `options` object argument.  All
+options in this object are `false` by default.  The options supported
+are:
+
+- `loose`  Be more forgiving about not-quite-valid semver strings.
+  (Any resulting output will always be 100% strict compliant, of
+  course.)  For backwards compatibility reasons, if the `options`
+  argument is a boolean value instead of an object, it is interpreted
+  to be the `loose` param.
+- `includePrerelease`  Set to suppress the [default
+  behavior](https://github.com/npm/node-semver#prerelease-tags) of
+  excluding prerelease tagged versions from ranges unless they are
+  explicitly opted into.
+
+Strict-mode Comparators and Ranges will be strict about the SemVer
+strings that they parse.
+
+* `valid(v)`: Return the parsed version, or null if it's not valid.
+* `inc(v, release)`: Return the version incremented by the release
+  type (`major`,   `premajor`, `minor`, `preminor`, `patch`,
+  `prepatch`, or `prerelease`), or null if it's not valid
+  * `premajor` in one call will bump the version up to the next major
+    version and down to a prerelease of that major version.
+    `preminor`, and `prepatch` work the same way.
+  * If called from a non-prerelease version, the `prerelease` will work the
+    same as `prepatch`. It increments the patch version, then makes a
+    prerelease. If the input version is already a prerelease it simply
+    increments it.
+* `prerelease(v)`: Returns an array of prerelease components, or null
+  if none exist. Example: `prerelease('1.2.3-alpha.1') -> ['alpha', 1]`
+* `major(v)`: Return the major version number.
+* `minor(v)`: Return the minor version number.
+* `patch(v)`: Return the patch version number.
+* `intersects(r1, r2, loose)`: Return true if the two supplied ranges
+  or comparators intersect.
+* `parse(v)`: Attempt to parse a string as a semantic version, returning either
+  a `SemVer` object or `null`.
+
+### Comparison
+
+* `gt(v1, v2)`: `v1 > v2`
+* `gte(v1, v2)`: `v1 >= v2`
+* `lt(v1, v2)`: `v1 < v2`
+* `lte(v1, v2)`: `v1 <= v2`
+* `eq(v1, v2)`: `v1 == v2` This is true if they're logically equivalent,
+  even if they're not the exact same string.  You already know how to
+  compare strings.
+* `neq(v1, v2)`: `v1 != v2` The opposite of `eq`.
+* `cmp(v1, comparator, v2)`: Pass in a comparison string, and it'll call
+  the corresponding function above.  `"==="` and `"!=="` do simple
+  string comparison, but are included for completeness.  Throws if an
+  invalid comparison string is provided.
+* `compare(v1, v2)`: Return `0` if `v1 == v2`, or `1` if `v1` is greater, or `-1` if
+  `v2` is greater.  Sorts in ascending order if passed to `Array.sort()`.
+* `rcompare(v1, v2)`: The reverse of compare.  Sorts an array of versions
+  in descending order when passed to `Array.sort()`.
+* `compareBuild(v1, v2)`: The same as `compare` but considers `build` when two versions
+  are equal.  Sorts in ascending order if passed to `Array.sort()`.
+  `v2` is greater.  Sorts in ascending order if passed to `Array.sort()`.
+* `diff(v1, v2)`: Returns difference between two versions by the release type
+  (`major`, `premajor`, `minor`, `preminor`, `patch`, `prepatch`, or `prerelease`),
+  or null if the versions are the same.
+
+### Comparators
+
+* `intersects(comparator)`: Return true if the comparators intersect
+
+### Ranges
+
+* `validRange(range)`: Return the valid range or null if it's not valid
+* `satisfies(version, range)`: Return true if the version satisfies the
+  range.
+* `maxSatisfying(versions, range)`: Return the highest version in the list
+  that satisfies the range, or `null` if none of them do.
+* `minSatisfying(versions, range)`: Return the lowest version in the list
+  that satisfies the range, or `null` if none of them do.
+* `minVersion(range)`: Return the lowest version that can possibly match
+  the given range.
+* `gtr(version, range)`: Return `true` if version is greater than all the
+  versions possible in the range.
+* `ltr(version, range)`: Return `true` if version is less than all the
+  versions possible in the range.
+* `outside(version, range, hilo)`: Return true if the version is outside
+  the bounds of the range in either the high or low direction.  The
+  `hilo` argument must be either the string `'>'` or `'<'`.  (This is
+  the function called by `gtr` and `ltr`.)
+* `intersects(range)`: Return true if any of the ranges comparators intersect
+
+Note that, since ranges may be non-contiguous, a version might not be
+greater than a range, less than a range, *or* satisfy a range!  For
+example, the range `1.2 <1.2.9 || >2.0.0` would have a hole from `1.2.9`
+until `2.0.0`, so the version `1.2.10` would not be greater than the
+range (because `2.0.1` satisfies, which is higher), nor less than the
+range (since `1.2.8` satisfies, which is lower), and it also does not
+satisfy the range.
+
+If you want to know if a version satisfies or does not satisfy a
+range, use the `satisfies(version, range)` function.
+
+### Coercion
+
+* `coerce(version, options)`: Coerces a string to semver if possible
+
+This aims to provide a very forgiving translation of a non-semver string to
+semver. It looks for the first digit in a string, and consumes all
+remaining characters which satisfy at least a partial semver (e.g., `1`,
+`1.2`, `1.2.3`) up to the max permitted length (256 characters).  Longer
+versions are simply truncated (`4.6.3.9.2-alpha2` becomes `4.6.3`).  All
+surrounding text is simply ignored (`v3.4 replaces v3.3.1` becomes
+`3.4.0`).  Only text which lacks digits will fail coercion (`version one`
+is not valid).  The maximum  length for any semver component considered for
+coercion is 16 characters; longer components will be ignored
+(`10000000000000000.4.7.4` becomes `4.7.4`).  The maximum value for any
+semver component is `Integer.MAX_SAFE_INTEGER || (2**53 - 1)`; higher value
+components are invalid (`9999999999999999.4.7.4` is likely invalid).
+
+If the `options.rtl` flag is set, then `coerce` will return the right-most
+coercible tuple that does not share an ending index with a longer coercible
+tuple.  For example, `1.2.3.4` will return `2.3.4` in rtl mode, not
+`4.0.0`.  `1.2.3/4` will return `4.0.0`, because the `4` is not a part of
+any other overlapping SemVer tuple.
+
+### Clean
+
+* `clean(version)`: Clean a string to be a valid semver if possible
+
+This will return a cleaned and trimmed semver version. If the provided version is not valid a null will be returned. This does not work for ranges. 
+
+ex.
+* `s.clean(' = v 2.1.5foo')`: `null`
+* `s.clean(' = v 2.1.5foo', { loose: true })`: `'2.1.5-foo'`
+* `s.clean(' = v 2.1.5-foo')`: `null`
+* `s.clean(' = v 2.1.5-foo', { loose: true })`: `'2.1.5-foo'`
+* `s.clean('=v2.1.5')`: `'2.1.5'`
+* `s.clean('  =v2.1.5')`: `2.1.5`
+* `s.clean('      2.1.5   ')`: `'2.1.5'`
+* `s.clean('~1.0.0')`: `null`
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  P PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP QQQ PQR#=CG�8=A�;AE�GNR�FOT�RZ_�:@E�5<A�6;A�6;@�<AE�>HL�>HM�>HM�DLP�DKO�ELN�GOS�HPU�EMR�<CG�6>B�49>�7<@�;BF�8@D�;BG�=DI�7>B�29>�4;>�/7:�S^e�o{��^hn�\ek�[di�Xbh�Xag�Wcg�Ycg�Xbg�V`e�V]b�W_d�MW[�ISX�JTX�MV[�Q[`�U^c�S\`�O[_�MUZ�LUZ�MUZ�PX\�SZ^�T\`�V^c�Z`e�hsy�AFK�Zdh�ajn��������CJN�CJM�CKJ�FNN�DKM�BJM�AIK�EMQ�MSX�HNR�CHK�@FG�;AC�BGH�KRT�GNQ�EMQ�GOT�HPS�CLP�GQS�HQU�@HL�DMO�fps�����������������������������������{�����������������������������������������������������������������������������������������������������������������������������y���q~�iuw�luw�my|�q}��y���y���{���~���z���s��x���y���z���~���}���x���y���x���z���w���iqr�hqr�gnr�MOQRUV)SUV'OPPQQQ QQQ QQQ QQQ QQQ QQP QQP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP KJJ LKJ ONM NMM ONM ONM ONN PNN ONN ONN NML KJI LKK QQQ QQQ PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP QPP QRR?CF�6<>�:@D�LTY�LTY�PX\�:AE�9@D�8>B�9>C�=CG�>GK�=FJ�AKP�GOS�DKN�CKN�GOR�EMP�CLQ�?HK�7?C�6<A�7>A�8?B�6?C�8@E�7>C�19=�*06�/5:�18<�FPV�]fm�MVZ�OY]�QY_�QZ^�Q[_�P[_�P[_�P[`�OY]�OX[�JTX�CMR�AKO�CLQ�GPU�JVZ�P[`�Q[^�MUY�HPT�FNS�JPV�LTY�KTX�LUY�NX[�P[_�cnt�AHL�U^b�enr�����emo���������������,//�JRT�ISW�CKO�@HM�@JN�AHL�AGL�T^c�s�����������}���{���~������������������z���y���������~���~���~���z���z���{�����������~�����������������������������������������������������������������������������|���w���q|�nx|�nw{�mwz�oz~�u���z���w���w���x���o|�t���w���v���w���}���y���w���t��s}�oxx�]fg�_gj�`dg]MLK OON ONN PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ PPP PPP PPP QQQ QQQ QQQ PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP QQQ SSS ?BB�167�7=?�KSX�MVY�JRV�=DG�>EH�=DH�=EI�@IM�CLO�AJM�CKO�BJO�@GK�@GK�BJL�GNQ�DKO�>FJ�8@C�7=B�:?E�7?A�6>A�:BE�?EH�7=?�59<�5:=�9=>�OY^�`lr�NUZ�MUZ�OX^�NV[�ISX�FPU�HSW�EPS�FPT�FPT�HRV�EPT�=IM�>IN�FOT�ISX�JW\�LX]�HPW�FOT�FOT�GPU�FOS�HQU�HRW�LVZ�R]b�ly�ENR�Q[^�jty�����Y`b�� "��!!�$&'� #%�!� #$�!"�!� �����'('�AHI�KTX�ELQ�DNQ�S\a�lx~��������������������}���|���������������|���x���s���u���v���z���~���y���w���|���{���~�����������������������������������������������������������������������������������|���{���z���y���x���w���w���x���{�����������y���t���z���y���{���z���u���x�������~���q|�jtv�bll�]eg�\dg�_cfMONN QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ QQQ PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPP PPexports = module.exports = SemVer
+
+var debug
+/* istanbul ignore next */
+if (typeof process === 'object' &&
+    process.env &&
+    process.env.NODE_DEBUG &&
+    /\bsemver\b/i.test(process.env.NODE_DEBUG)) {
+  debug = function () {
+    var args = Array.prototype.slice.call(arguments, 0)
+    args.unshift('SEMVER')
+    console.log.apply(console, args)
+  }
+} else {
+  debug = function () {}
+}
+
+// Note: this is the semver.org version of the spec that it implements
+// Not necessarily the package version of this code.
+exports.SEMVER_SPEC_VERSION = '2.0.0'
+
+var MAX_LENGTH = 256
+var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER ||
+  /* istanbul ignore next */ 9007199254740991
+
+// Max safe segment length for coercion.
+var MAX_SAFE_COMPONENT_LENGTH = 16
+
+// The actual regexps go on exports.re
+var re = exports.re = []
+var src = exports.src = []
+var t = exports.tokens = {}
+var R = 0
+
+function tok (n) {
+  t[n] = R++
+}
+
+// The following Regular Expressions can be used for tokenizing,
+// validating, and parsing SemVer version strings.
+
+// ## Numeric Identifier
+// A single `0`, or a non-zero digit followed by zero or more digits.
+
+tok('NUMERICIDENTIFIER')
+src[t.NUMERICIDENTIFIER] = '0|[1-9]\\d*'
+tok('NUMERICIDENTIFIERLOOSE')
+src[t.NUMERICIDENTIFIERLOOSE] = '[0-9]+'
+
+// ## Non-numeric Identifier
+// Zero or more digits, followed by a letter or hyphen, and then zero or
+// more letters, digits, or hyphens.
+
+tok('NONNUMERICIDENTIFIER')
+src[t.NONNUMERICIDENTIFIER] = '\\d*[a-zA-Z-][a-zA-Z0-9-]*'
+
+// ## Main Version
+// Three dot-separated numeric identifiers.
+
+tok('MAINVERSION')
+src[t.MAINVERSION] = '(' + src[t.NUMERICIDENTIFIER] + ')\\.' +
+                   '(' + src[t.NUMERICIDENTIFIER] + ')\\.' +
+                   '(' + src[t.NUMERICIDENTIFIER] + ')'
+
+tok('MAINVERSIONLOOSE')
+src[t.MAINVERSIONLOOSE] = '(' + src[t.NUMERICIDENTIFIERLOOSE] + ')\\.' +
+                        '(' + src[t.NUMERICIDENTIFIERLOOSE] + ')\\.' +
+                        '(' + src[t.NUMERICIDENTIFIERLOOSE] + ')'
+
+// ## Pre-release Version Identifier
+// A numeric identifier, or a non-numeric identifier.
+
+tok('PRERELEASEIDENTIFIER')
+src[t.PRERELEASEIDENTIFIER] = '(?:' + src[t.NUMERICIDENTIFIER] +
+                            '|' + src[t.NONNUMERICIDENTIFIER] + ')'
+
+tok('PRERELEASEIDENTIFIERLOOSE')
+src[t.PRERELEASEIDENTIFIERLOOSE] = '(?:' + src[t.NUMERICIDENTIFIERLOOSE] +
+                                 '|' + src[t.NONNUMERICIDENTIFIER] + ')'
+
+// ## Pre-release Version
+// Hyphen, followed by one or more dot-separated pre-release version
+// identifiers.
+
+tok('PRERELEASE')
+src[t.PRERELEASE] = '(?:-(' + src[t.PRERELEASEIDENTIFIER] +
+                  '(?:\\.' + src[t.PRERELEASEIDENTIFIER] + ')*))'
+
+tok('PRERELEASELOOSE')
+src[t.PRERELEASELOOSE] = '(?:-?(' + src[t.PRERELEASEIDENTIFIERLOOSE] +
+                       '(?:\\.' + src[t.PRERELEASEIDENTIFIERLOOSE] + ')*))'
+
+// ## Build Metadata Identifier
+// Any combination of digits, letters, or hyphens.
+
+tok('BUILDIDENTIFIER')
+src[t.BUILDIDENTIFIER] = '[0-9A-Za-z-]+'
+
+// ## Build Metadata
+// Plus sign, followed by one or more period-separated build metadata
+// identifiers.
+
+tok('BUILD')
+src[t.BUILD] = '(?:\\+(' + src[t.BUILDIDENTIFIER] +
+             '(?:\\.' + src[t.BUILDIDENTIFIER] + ')*))'
+
+// ## Full Version String
+// A main version, followed optionally by a pre-release version and
+// build metadata.
+
+// Note that the only major, minor, patch, and pre-release sections of
+// the version string are capturing groups.  The build metadata is not a
+// capturing group, because it should not ever be used in version
+// comparison.
+
+tok('FULL')
+tok('FULLPLAIN')
+src[t.FULLPLAIN] = 'v?' + src[t.MAINVERSION] +
+                  src[t.PRERELEASE] + '?' +
+                  src[t.BUILD] + '?'
+
+src[t.FULL] = '^' + src[t.FULLPLAIN] + '$'
+
+// like full, but allows v1.2.3 and =1.2.3, which people do sometimes.
+// also, 1.0.0alpha1 (prerelease without the hyphen) which is pretty
+// common in the npm registry.
+tok('LOOSEPLAIN')
+src[t.LOOSEPLAIN] = '[v=\\s]*' + src[t.MAINVERSIONLOOSE] +
+                  src[t.PRERELEASELOOSE] + '?' +
+                  src[t.BUILD] + '?'
+
+tok('LOOSE')
+src[t.LOOSE] = '^' + src[t.LOOSEPLAIN] + '$'
+
+tok('GTLT')
+src[t.GTLT] = '((?:<|>)?=?)'
+
+// Something like "2.*" or "1.2.x".
+// Note that "x.x" is a valid xRange identifer, meaning "any version"
+// Only the first item is strictly required.
+tok('XRANGEIDENTIFIERLOOSE')
+src[t.XRANGEIDENTIFIERLOOSE] = src[t.NUMERICIDENTIFIERLOOSE] + '|x|X|\\*'
+tok('XRANGEIDENTIFIER')
+src[t.XRANGEIDENTIFIER] = src[t.NUMERICIDENTIFIER] + '|x|X|\\*'
+
+tok('XRANGEPLAIN')
+src[t.XRANGEPLAIN] = '[v=\\s]*(' + src[t.XRANGEIDENTIFIER] + ')' +
+                   '(?:\\.(' + src[t.XRANGEIDENTIFIER] + ')' +
+                   '(?:\\.(' + src[t.XRANGEIDENTIFIER] + ')' +
+                   '(?:' + src[t.PRERELEASE] + ')?' +
+                   src[t.BUILD] + '?' +
+                   ')?)?'
+
+tok('XRANGEPLAINLOOSE')
+src[t.XRANGEPLAINLOOSE] = '[v=\\s]*(' + src[t.XRANGEIDENTIFIERLOOSE] + ')' +
+                        '(?:\\.(' + src[t.XRANGEIDENTIFIERLOOSE] + ')' +
+                        '(?:\\.(' + src[t.XRANGEIDENTIFIERLOOSE] + ')' +
+                        '(?:' + src[t.PRERELEASELOOSE] + ')?' +
+                        src[t.BUILD] + '?' +
+                        ')?)?'
+
+tok('XRANGE')
+src[t.XRANGE] = '^' + src[t.GTLT] + '\\s*' + src[t.XRANGEPLAIN] + '$'
+tok('XRANGELOOSE')
+src[t.XRANGELOOSE] = '^' + src[t.GTLT] + '\\s*' + src[t.XRANGEPLAINLOOSE] + '$'
+
+// Coercion.
+// Extract anything that could conceivably be a part of a valid semver
+tok('COERCE')
+src[t.COERCE] = '(^|[^\\d])' +
+              '(\\d{1,' + MAX_SAFE_COMPONENT_LENGTH + '})' +
+              '(?:\\.(\\d{1,' + MAX_SAFE_COMPONENT_LENGTH + '}))?' +
+              '(?:\\.(\\d{1,' + MAX_SAFE_COMPONENT_LENGTH + '}))?' +
+              '(?:$|[^\\d])'
+tok('COERCERTL')
+re[t.COERCERTL] = new RegExp(src[t.COERCE], 'g')
+
+// Tilde ranges.
+// Meaning is "reasonably at or greater than"
+tok('LONETILDE')
+src[t.LONETILDE] = '(?:~>?)'
+
+tok('TILDETRIM')
+src[t.TILDETRIM] = '(\\s*)' + src[t.LONETILDE] + '\\s+'
+re[t.TILDETRIM] = new RegExp(src[t.TILDETRIM], 'g')
+var tildeTrimReplace = '$1~'
+
+tok('TILDE')
+src[t.TILDE] = '^' + src[t.LONETILDE] + src[t.XRANGEPLAIN] + '$'
+tok('TILDELOOSE')
+src[t.TILDELOOSE] = '^' + src[t.LONETILDE] + src[t.XRANGEPLAINLOOSE] + '$'
+
+// Caret ranges.
+// Meaning is "at least and backwards compatible with"
+tok('LONECARET')
+src[t.LONECARET] = '(?:\\^)'
+
+tok('CARETTRIM')
+src[t.CARETTRIM] = '(\\s*)' + src[t.LONECARET] + '\\s+'
+re[t.CARETTRIM] = new RegExp(src[t.CARETTRIM], 'g')
+var caretTrimReplace = '$1^'
+
+tok('CARET')
+src[t.CARET] = '^' + src[t.LONECARET] + src[t.XRANGEPLAIN] + '$'
+tok('CARETLOOSE')
+src[t.CARETLOOSE] = '^' + src[t.LONECARET] + src[t.XRANGEPLAINLOOSE] + '$'
+
+// A simple gt/lt/eq thing, or just "" to indicate "any version"
+tok('COMPARATORLOOSE')
+src[t.COMPARATORLOOSE] = '^' + src[t.GTLT] + '\\s*(' + src[t.LOOSEPLAIN] + ')$|^$'
+tok('COMPARATOR')
+src[t.COMPARATOR] = '^' + src[t.GTLT] + '\\s*(' + src[t.FULLPLAIN] + ')$|^$'
+
+// An expression to strip any whitespace between the gtlt and the thing
+// it modifies, so that `> 1.2.3` ==> `>1.2.3`
+tok('COMPARATORTRIM')
+src[t.COMPARATORTRIM] = '(\\s*)' + src[t.GTLT] +
+                      '\\s*(' + src[t.LOOSEPLAIN] + '|' + src[t.XRANGEPLAIN] + ')'
+
+// this one has to use the /g flag
+re[t.COMPARATORTRIM] = new RegExp(src[t.COMPARATORTRIM], 'g')
+var comparatorTrimReplace = '$1$2$3'
+
+// Something like `1.2.3 - 1.2.4`
+// Note that these all use the loose form, because they'll be
+// checked against either the strict or loose comparator form
+// later.
+tok('HYPHENRANGE')
+src[t.HYPHENRANGE] = '^\\s*(' + src[t.XRANGEPLAIN] + ')' +
+                   '\\s+-\\s+' +
+                   '(' + src[t.XRANGEPLAIN] + ')' +
+                   '\\s*$'
+
+tok('HYPHENRANGELOOSE')
+src[t.HYPHENRANGELOOSE] = '^\\s*(' + src[t.XRANGEPLAINLOOSE] + ')' +
+                        '\\s+-\\s+' +
+                        '(' + src[t.XRANGEPLAINLOOSE] + ')' +
+                        '\\s*$'
+
+// Star ranges basically just allow anything at all.
+tok('STAR')
+src[t.STAR] = '(<|>)?=?\\s*\\*'
+
+// Compile to actual regexp objects.
+// All are flag-free, unless they were created above with a flag.
+for (var i = 0; i < R; i++) {
+  debug(i, src[i])
+  if (!re[i]) {
+    re[i] = new RegExp(src[i])
+  }
+}
+
+exports.parse = parse
+function parse (version, options) {
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+
+  if (version instanceof SemVer) {
+    return version
+  }
+
+  if (typeof version !== 'string') {
+    return null
+  }
+
+  if (version.length > MAX_LENGTH) {
+    return null
+  }
+
+  var r = options.loose ? re[t.LOOSE] : re[t.FULL]
+  if (!r.test(version)) {
+    return null
+  }
+
+  try {
+    return new SemVer(version, options)
+  } catch (er) {
+    return null
+  }
+}
+
+exports.valid = valid
+function valid (version, options) {
+  var v = parse(version, options)
+  return v ? v.version : null
+}
+
+exports.clean = clean
+function clean (version, options) {
+  var s = parse(version.trim().replace(/^[=v]+/, ''), options)
+  return s ? s.version : null
+}
+
+exports.SemVer = SemVer
+
+function SemVer (version, options) {
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+  if (version instanceof SemVer) {
+    if (version.loose === options.loose) {
+      return version
+    } else {
+      version = version.version
+    }
+  } else if (typeof version !== 'string') {
+    throw new TypeError('Invalid Version: ' + version)
+  }
+
+  if (version.length > MAX_LENGTH) {
+    throw new TypeError('version is longer than ' + MAX_LENGTH + ' characters')
+  }
+
+  if (!(this instanceof SemVer)) {
+    return new SemVer(version, options)
+  }
+
+  debug('SemVer', version, options)
+  this.options = options
+  this.loose = !!options.loose
+
+  var m = version.trim().match(options.loose ? re[t.LOOSE] : re[t.FULL])
+
+  if (!m) {
+    throw new TypeError('Invalid Version: ' + version)
+  }
+
+  this.raw = version
+
+  // these are actually numbers
+  this.major = +m[1]
+  this.minor = +m[2]
+  this.patch = +m[3]
+
+  if (this.major > MAX_SAFE_INTEGER || this.major < 0) {
+    throw new TypeError('Invalid major version')
+  }
+
+  if (this.minor > MAX_SAFE_INTEGER || this.minor < 0) {
+    throw new TypeError('Invalid minor version')
+  }
+
+  if (this.patch > MAX_SAFE_INTEGER || this.patch < 0) {
+    throw new TypeError('Invalid patch version')
+  }
+
+  // numberify any prerelease numeric ids
+  if (!m[4]) {
+    this.prerelease = []
+  } else {
+    this.prerelease = m[4].split('.').map(function (id) {
+      if (/^[0-9]+$/.test(id)) {
+        var num = +id
+        if (num >= 0 && num < MAX_SAFE_INTEGER) {
+          return num
+        }
+      }
+      return id
+    })
+  }
+
+  this.build = m[5] ? m[5].split('.') : []
+  this.format()
+}
+
+SemVer.prototype.format = function () {
+  this.version = this.major + '.' + this.minor + '.' + this.patch
+  if (this.prerelease.length) {
+    this.version += '-' + this.prerelease.join('.')
+  }
+  return this.version
+}
+
+SemVer.prototype.toString = function () {
+  return this.version
+}
+
+SemVer.prototype.compare = function (other) {
+  debug('SemVer.compare', this.version, this.options, other)
+  if (!(other instanceof SemVer)) {
+    other = new SemVer(other, this.options)
+  }
+
+  return this.compareMain(other) || this.comparePre(other)
+}
+
+SemVer.prototype.compareMain = function (other) {
+  if (!(other instanceof SemVer)) {
+    other = new SemVer(other, this.options)
+  }
+
+  return compareIdentifiers(this.major, other.major) ||
+         compareIdentifiers(this.minor, other.minor) ||
+         compareIdentifiers(this.patch, other.patch)
+}
+
+SemVer.prototype.comparePre = function (other) {
+  if (!(other instanceof SemVer)) {
+    other = new SemVer(other, this.options)
+  }
+
+  // NOT having a prerelease is > having one
+  if (this.prerelease.length && !other.prerelease.length) {
+    return -1
+  } else if (!this.prerelease.length && other.prerelease.length) {
+    return 1
+  } else if (!this.prerelease.length && !other.prerelease.length) {
+    return 0
+  }
+
+  var i = 0
+  do {
+    var a = this.prerelease[i]
+    var b = other.prerelease[i]
+    debug('prerelease compare', i, a, b)
+    if (a === undefined && b === undefined) {
+      return 0
+    } else if (b === undefined) {
+      return 1
+    } else if (a === undefined) {
+      return -1
+    } else if (a === b) {
+      continue
+    } else {
+      return compareIdentifiers(a, b)
+    }
+  } while (++i)
+}
+
+SemVer.prototype.compareBuild = function (other) {
+  if (!(other instanceof SemVer)) {
+    other = new SemVer(other, this.options)
+  }
+
+  var i = 0
+  do {
+    var a = this.build[i]
+    var b = other.build[i]
+    debug('prerelease compare', i, a, b)
+    if (a === undefined && b === undefined) {
+      return 0
+    } else if (b === undefined) {
+      return 1
+    } else if (a === undefined) {
+      return -1
+    } else if (a === b) {
+      continue
+    } else {
+      return compareIdentifiers(a, b)
+    }
+  } while (++i)
+}
+
+// preminor will bump the version up to the next minor release, and immediately
+// down to pre-release. premajor and prepatch work the same way.
+SemVer.prototype.inc = function (release, identifier) {
+  switch (release) {
+    case 'premajor':
+      this.prerelease.length = 0
+      this.patch = 0
+      this.minor = 0
+      this.major++
+      this.inc('pre', identifier)
+      break
+    case 'preminor':
+      this.prerelease.length = 0
+      this.patch = 0
+      this.minor++
+      this.inc('pre', identifier)
+      break
+    case 'prepatch':
+      // If this is already a prerelease, it will bump to the next version
+      // drop any prereleases that might already exist, since they are not
+      // relevant at this point.
+      this.prerelease.length = 0
+      this.inc('patch', identifier)
+      this.inc('pre', identifier)
+      break
+    // If the input is a non-prerelease version, this acts the same as
+    // prepatch.
+    case 'prerelease':
+      if (this.prerelease.length === 0) {
+        this.inc('patch', identifier)
+      }
+      this.inc('pre', identifier)
+      break
+
+    case 'major':
+      // If this is a pre-major version, bump up to the same major version.
+      // Otherwise increment major.
+      // 1.0.0-5 bumps to 1.0.0
+      // 1.1.0 bumps to 2.0.0
+      if (this.minor !== 0 ||
+          this.patch !== 0 ||
+          this.prerelease.length === 0) {
+        this.major++
+      }
+      this.minor = 0
+      this.patch = 0
+      this.prerelease = []
+      break
+    case 'minor':
+      // If this is a pre-minor version, bump up to the same minor version.
+      // Otherwise increment minor.
+      // 1.2.0-5 bumps to 1.2.0
+      // 1.2.1 bumps to 1.3.0
+      if (this.patch !== 0 || this.prerelease.length === 0) {
+        this.minor++
+      }
+      this.patch = 0
+      this.prerelease = []
+      break
+    case 'patch':
+      // If this is not a pre-release version, it will increment the patch.
+      // If it is a pre-release it will bump up to the same patch version.
+      // 1.2.0-5 patches to 1.2.0
+      // 1.2.0 patches to 1.2.1
+      if (this.prerelease.length === 0) {
+        this.patch++
+      }
+      this.prerelease = []
+      break
+    // This probably shouldn't be used publicly.
+    // 1.0.0 "pre" would become 1.0.0-0 which is the wrong direction.
+    case 'pre':
+      if (this.prerelease.length === 0) {
+        this.prerelease = [0]
+      } else {
+        var i = this.prerelease.length
+        while (--i >= 0) {
+          if (typeof this.prerelease[i] === 'number') {
+            this.prerelease[i]++
+            i = -2
+          }
+        }
+        if (i === -1) {
+          // didn't increment anything
+          this.prerelease.push(0)
+        }
+      }
+      if (identifier) {
+        // 1.2.0-beta.1 bumps to 1.2.0-beta.2,
+        // 1.2.0-beta.fooblz or 1.2.0-beta bumps to 1.2.0-beta.0
+        if (this.prerelease[0] === identifier) {
+          if (isNaN(this.prerelease[1])) {
+            this.prerelease = [identifier, 0]
+          }
+        } else {
+          this.prerelease = [identifier, 0]
+        }
+      }
+      break
+
+    default:
+      throw new Error('invalid increment argument: ' + release)
+  }
+  this.format()
+  this.raw = this.version
+  return this
+}
+
+exports.inc = inc
+function inc (version, release, loose, identifier) {
+  if (typeof (loose) === 'string') {
+    identifier = loose
+    loose = undefined
+  }
+
+  try {
+    return new SemVer(version, loose).inc(release, identifier).version
+  } catch (er) {
+    return null
+  }
+}
+
+exports.diff = diff
+function diff (version1, version2) {
+  if (eq(version1, version2)) {
+    return null
+  } else {
+    var v1 = parse(version1)
+    var v2 = parse(version2)
+    var prefix = ''
+    if (v1.prerelease.length || v2.prerelease.length) {
+      prefix = 'pre'
+      var defaultResult = 'prerelease'
+    }
+    for (var key in v1) {
+      if (key === 'major' || key === 'minor' || key === 'patch') {
+        if (v1[key] !== v2[key]) {
+          return prefix + key
+        }
+      }
+    }
+    return defaultResult // may be undefined
+  }
+}
+
+exports.compareIdentifiers = compareIdentifiers
+
+var numeric = /^[0-9]+$/
+function compareIdentifiers (a, b) {
+  var anum = numeric.test(a)
+  var bnum = numeric.test(b)
+
+  if (anum && bnum) {
+    a = +a
+    b = +b
+  }
+
+  return a === b ? 0
+    : (anum && !bnum) ? -1
+    : (bnum && !anum) ? 1
+    : a < b ? -1
+    : 1
+}
+
+exports.rcompareIdentifiers = rcompareIdentifiers
+function rcompareIdentifiers (a, b) {
+  return compareIdentifiers(b, a)
+}
+
+exports.major = major
+function major (a, loose) {
+  return new SemVer(a, loose).major
+}
+
+exports.minor = minor
+function minor (a, loose) {
+  return new SemVer(a, loose).minor
+}
+
+exports.patch = patch
+function patch (a, loose) {
+  return new SemVer(a, loose).patch
+}
+
+exports.compare = compare
+function compare (a, b, loose) {
+  return new SemVer(a, loose).compare(new SemVer(b, loose))
+}
+
+exports.compareLoose = compareLoose
+function compareLoose (a, b) {
+  return compare(a, b, true)
+}
+
+exports.compareBuild = compareBuild
+function compareBuild (a, b, loose) {
+  var versionA = new SemVer(a, loose)
+  var versionB = new SemVer(b, loose)
+  return versionA.compare(versionB) || versionA.compareBuild(versionB)
+}
+
+exports.rcompare = rcompare
+function rcompare (a, b, loose) {
+  return compare(b, a, loose)
+}
+
+exports.sort = sort
+function sort (list, loose) {
+  return list.sort(function (a, b) {
+    return exports.compareBuild(a, b, loose)
+  })
+}
+
+exports.rsort = rsort
+function rsort (list, loose) {
+  return list.sort(function (a, b) {
+    return exports.compareBuild(b, a, loose)
+  })
+}
+
+exports.gt = gt
+function gt (a, b, loose) {
+  return compare(a, b, loose) > 0
+}
+
+exports.lt = lt
+function lt (a, b, loose) {
+  return compare(a, b, loose) < 0
+}
+
+exports.eq = eq
+function eq (a, b, loose) {
+  return compare(a, b, loose) === 0
+}
+
+exports.neq = neq
+function neq (a, b, loose) {
+  return compare(a, b, loose) !== 0
+}
+
+exports.gte = gte
+function gte (a, b, loose) {
+  return compare(a, b, loose) >= 0
+}
+
+exports.lte = lte
+function lte (a, b, loose) {
+  return compare(a, b, loose) <= 0
+}
+
+exports.cmp = cmp
+function cmp (a, op, b, loose) {
+  switch (op) {
+    case '===':
+      if (typeof a === 'object')
+        a = a.version
+      if (typeof b === 'object')
+        b = b.version
+      return a === b
+
+    case '!==':
+      if (typeof a === 'object')
+        a = a.version
+      if (typeof b === 'object')
+        b = b.version
+      return a !== b
+
+    case '':
+    case '=':
+    case '==':
+      return eq(a, b, loose)
+
+    case '!=':
+      return neq(a, b, loose)
+
+    case '>':
+      return gt(a, b, loose)
+
+    case '>=':
+      return gte(a, b, loose)
+
+    case '<':
+      return lt(a, b, loose)
+
+    case '<=':
+      return lte(a, b, loose)
+
+    default:
+      throw new TypeError('Invalid operator: ' + op)
+  }
+}
+
+exports.Comparator = Comparator
+function Comparator (comp, options) {
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+
+  if (comp instanceof Comparator) {
+    if (comp.loose === !!options.loose) {
+      return comp
+    } else {
+      comp = comp.value
+    }
+  }
+
+  if (!(this instanceof Comparator)) {
+    return new Comparator(comp, options)
+  }
+
+  debug('comparator', comp, options)
+  this.options = options
+  this.loose = !!options.loose
+  this.parse(comp)
+
+  if (this.semver === ANY) {
+    this.value = ''
+  } else {
+    this.value = this.operator + this.semver.version
+  }
+
+  debug('comp', this)
+}
+
+var ANY = {}
+Comparator.prototype.parse = function (comp) {
+  var r = this.options.loose ? re[t.COMPARATORLOOSE] : re[t.COMPARATOR]
+  var m = comp.match(r)
+
+  if (!m) {
+    throw new TypeError('Invalid comparator: ' + comp)
+  }
+
+  this.operator = m[1] !== undefined ? m[1] : ''
+  if (this.operator === '=') {
+    this.operator = ''
+  }
+
+  // if it literally is just '>' or '' then allow anything.
+  if (!m[2]) {
+    this.semver = ANY
+  } else {
+    this.semver = new SemVer(m[2], this.options.loose)
+  }
+}
+
+Comparator.prototype.toString = function () {
+  return this.value
+}
+
+Comparator.prototype.test = function (version) {
+  debug('Comparator.test', version, this.options.loose)
+
+  if (this.semver === ANY || version === ANY) {
+    return true
+  }
+
+  if (typeof version === 'string') {
+    try {
+      version = new SemVer(version, this.options)
+    } catch (er) {
+      return false
+    }
+  }
+
+  return cmp(version, this.operator, this.semver, this.options)
+}
+
+Comparator.prototype.intersects = function (comp, options) {
+  if (!(comp instanceof Comparator)) {
+    throw new TypeError('a Comparator is required')
+  }
+
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+
+  var rangeTmp
+
+  if (this.operator === '') {
+    if (this.value === '') {
+      return true
+    }
+    rangeTmp = new Range(comp.value, options)
+    return satisfies(this.value, rangeTmp, options)
+  } else if (comp.operator === '') {
+    if (comp.value === '') {
+      return true
+    }
+    rangeTmp = new Range(this.value, options)
+    return satisfies(comp.semver, rangeTmp, options)
+  }
+
+  var sameDirectionIncreasing =
+    (this.operator === '>=' || this.operator === '>') &&
+    (comp.operator === '>=' || comp.operator === '>')
+  var sameDirectionDecreasing =
+    (this.operator === '<=' || this.operator === '<') &&
+    (comp.operator === '<=' || comp.operator === '<')
+  var sameSemVer = this.semver.version === comp.semver.version
+  var differentDirectionsInclusive =
+    (this.operator === '>=' || this.operator === '<=') &&
+    (comp.operator === '>=' || comp.operator === '<=')
+  var oppositeDirectionsLessThan =
+    cmp(this.semver, '<', comp.semver, options) &&
+    ((this.operator === '>=' || this.operator === '>') &&
+    (comp.operator === '<=' || comp.operator === '<'))
+  var oppositeDirectionsGreaterThan =
+    cmp(this.semver, '>', comp.semver, options) &&
+    ((this.operator === '<=' || this.operator === '<') &&
+    (comp.operator === '>=' || comp.operator === '>'))
+
+  return sameDirectionIncreasing || sameDirectionDecreasing ||
+    (sameSemVer && differentDirectionsInclusive) ||
+    oppositeDirectionsLessThan || oppositeDirectionsGreaterThan
+}
+
+exports.Range = Range
+function Range (range, options) {
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+
+  if (range instanceof Range) {
+    if (range.loose === !!options.loose &&
+        range.includePrerelease === !!options.includePrerelease) {
+      return range
+    } else {
+      return new Range(range.raw, options)
+    }
+  }
+
+  if (range instanceof Comparator) {
+    return new Range(range.value, options)
+  }
+
+  if (!(this instanceof Range)) {
+    return new Range(range, options)
+  }
+
+  this.options = options
+  this.loose = !!options.loose
+  this.includePrerelease = !!options.includePrerelease
+
+  // First, split based on boolean or ||
+  this.raw = range
+  this.set = range.split(/\s*\|\|\s*/).map(function (range) {
+    return this.parseRange(range.trim())
+  }, this).filter(function (c) {
+    // throw out any that are not relevant for whatever reason
+    return c.length
+  })
+
+  if (!this.set.length) {
+    throw new TypeError('Invalid SemVer Range: ' + range)
+  }
+
+  this.format()
+}
+
+Range.prototype.format = function () {
+  this.range = this.set.map(function (comps) {
+    return comps.join(' ').trim()
+  }).join('||').trim()
+  return this.range
+}
+
+Range.prototype.toString = function () {
+  return this.range
+}
+
+Range.prototype.parseRange = function (range) {
+  var loose = this.options.loose
+  range = range.trim()
+  // `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
+  var hr = loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE]
+  range = range.replace(hr, hyphenReplace)
+  debug('hyphen replace', range)
+  // `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
+  range = range.replace(re[t.COMPARATORTRIM], comparatorTrimReplace)
+  debug('comparator trim', range, re[t.COMPARATORTRIM])
+
+  // `~ 1.2.3` => `~1.2.3`
+  range = range.replace(re[t.TILDETRIM], tildeTrimReplace)
+
+  // `^ 1.2.3` => `^1.2.3`
+  range = range.replace(re[t.CARETTRIM], caretTrimReplace)
+
+  // normalize spaces
+  range = range.split(/\s+/).join(' ')
+
+  // At this point, the range is completely trimmed and
+  // ready to be split into comparators.
+
+  var compRe = loose ? re[t.COMPARATORLOOSE] : re[t.COMPARATOR]
+  var set = range.split(' ').map(function (comp) {
+    return parseComparator(comp, this.options)
+  }, this).join(' ').split(/\s+/)
+  if (this.options.loose) {
+    // in loose mode, throw out any that are not valid comparators
+    set = set.filter(function (comp) {
+      return !!comp.match(compRe)
+    })
+  }
+  set = set.map(function (comp) {
+    return new Comparator(comp, this.options)
+  }, this)
+
+  return set
+}
+
+Range.prototype.intersects = function (range, options) {
+  if (!(range instanceof Range)) {
+    throw new TypeError('a Range is required')
+  }
+
+  return this.set.some(function (thisComparators) {
+    return (
+      isSatisfiable(thisComparators, options) &&
+      range.set.some(function (rangeComparators) {
+        return (
+          isSatisfiable(rangeComparators, options) &&
+          thisComparators.every(function (thisComparator) {
+            return rangeComparators.every(function (rangeComparator) {
+              return thisComparator.intersects(rangeComparator, options)
+            })
+          })
+        )
+      })
+    )
+  })
+}
+
+// take a set of comparators and determine whether there
+// exists a version which can satisfy it
+function isSatisfiable (comparators, options) {
+  var result = true
+  var remainingComparators = comparators.slice()
+  var testComparator = remainingComparators.pop()
+
+  while (result && remainingComparators.length) {
+    result = remainingComparators.every(function (otherComparator) {
+      return testComparator.intersects(otherComparator, options)
+    })
+
+    testComparator = remainingComparators.pop()
+  }
+
+  return result
+}
+
+// Mostly just for testing and legacy API reasons
+exports.toComparators = toComparators
+function toComparators (range, options) {
+  return new Range(range, options).set.map(function (comp) {
+    return comp.map(function (c) {
+      return c.value
+    }).join(' ').trim().split(' ')
+  })
+}
+
+// comprised of xranges, tildes, stars, and gtlt's at this point.
+// already replaced the hyphen ranges
+// turn into a set of JUST comparators.
+function parseComparator (comp, options) {
+  debug('comp', comp, options)
+  comp = replaceCarets(comp, options)
+  debug('caret', comp)
+  comp = replaceTildes(comp, options)
+  debug('tildes', comp)
+  comp = replaceXRanges(comp, options)
+  debug('xrange', comp)
+  comp = replaceStars(comp, options)
+  debug('stars', comp)
+  return comp
+}
+
+function isX (id) {
+  return !id || id.toLowerCase() === 'x' || id === '*'
+}
+
+// ~, ~> --> * (any, kinda silly)
+// ~2, ~2.x, ~2.x.x, ~>2, ~>2.x ~>2.x.x --> >=2.0.0 <3.0.0
+// ~2.0, ~2.0.x, ~>2.0, ~>2.0.x --> >=2.0.0 <2.1.0
+// ~1.2, ~1.2.x, ~>1.2, ~>1.2.x --> >=1.2.0 <1.3.0
+// ~1.2.3, ~>1.2.3 --> >=1.2.3 <1.3.0
+// ~1.2.0, ~>1.2.0 --> >=1.2.0 <1.3.0
+function replaceTildes (comp, options) {
+  return comp.trim().split(/\s+/).map(function (comp) {
+    return replaceTilde(comp, options)
+  }).join(' ')
+}
+
+function replaceTilde (comp, options) {
+  var r = options.loose ? re[t.TILDELOOSE] : re[t.TILDE]
+  return comp.replace(r, function (_, M, m, p, pr) {
+    debug('tilde', comp, _, M, m, p, pr)
+    var ret
+
+    if (isX(M)) {
+      ret = ''
+    } else if (isX(m)) {
+      ret = '>=' + M + '.0.0 <' + (+M + 1) + '.0.0'
+    } else if (isX(p)) {
+      // ~1.2 == >=1.2.0 <1.3.0
+      ret = '>=' + M + '.' + m + '.0 <' + M + '.' + (+m + 1) + '.0'
+    } else if (pr) {
+      debug('replaceTilde pr', pr)
+      ret = '>=' + M + '.' + m + '.' + p + '-' + pr +
+            ' <' + M + '.' + (+m + 1) + '.0'
+    } else {
+      // ~1.2.3 == >=1.2.3 <1.3.0
+      ret = '>=' + M + '.' + m + '.' + p +
+            ' <' + M + '.' + (+m + 1) + '.0'
+    }
+
+    debug('tilde return', ret)
+    return ret
+  })
+}
+
+// ^ --> * (any, kinda silly)
+// ^2, ^2.x, ^2.x.x --> >=2.0.0 <3.0.0
+// ^2.0, ^2.0.x --> >=2.0.0 <3.0.0
+// ^1.2, ^1.2.x --> >=1.2.0 <2.0.0
+// ^1.2.3 --> >=1.2.3 <2.0.0
+// ^1.2.0 --> >=1.2.0 <2.0.0
+function replaceCarets (comp, options) {
+  return comp.trim().split(/\s+/).map(function (comp) {
+    return replaceCaret(comp, options)
+  }).join(' ')
+}
+
+function replaceCaret (comp, options) {
+  debug('caret', comp, options)
+  var r = options.loose ? re[t.CARETLOOSE] : re[t.CARET]
+  return comp.replace(r, function (_, M, m, p, pr) {
+    debug('caret', comp, _, M, m, p, pr)
+    var ret
+
+    if (isX(M)) {
+      ret = ''
+    } else if (isX(m)) {
+      ret = '>=' + M + '.0.0 <' + (+M + 1) + '.0.0'
+    } else if (isX(p)) {
+      if (M === '0') {
+        ret = '>=' + M + '.' + m + '.0 <' + M + '.' + (+m + 1) + '.0'
+      } else {
+        ret = '>=' + M + '.' + m + '.0 <' + (+M + 1) + '.0.0'
+      }
+    } else if (pr) {
+      debug('replaceCaret pr', pr)
+      if (M === '0') {
+        if (m === '0') {
+          ret = '>=' + M + '.' + m + '.' + p + '-' + pr +
+                ' <' + M + '.' + m + '.' + (+p + 1)
+        } else {
+          ret = '>=' + M + '.' + m + '.' + p + '-' + pr +
+                ' <' + M + '.' + (+m + 1) + '.0'
+        }
+      } else {
+        ret = '>=' + M + '.' + m + '.' + p + '-' + pr +
+              ' <' + (+M + 1) + '.0.0'
+      }
+    } else {
+      debug('no pr')
+      if (M === '0') {
+        if (m === '0') {
+          ret = '>=' + M + '.' + m + '.' + p +
+                ' <' + M + '.' + m + '.' + (+p + 1)
+        } else {
+          ret = '>=' + M + '.' + m + '.' + p +
+                ' <' + M + '.' + (+m + 1) + '.0'
+        }
+      } else {
+        ret = '>=' + M + '.' + m + '.' + p +
+              ' <' + (+M + 1) + '.0.0'
+      }
+    }
+
+    debug('caret return', ret)
+    return ret
+  })
+}
+
+function replaceXRanges (comp, options) {
+  debug('replaceXRanges', comp, options)
+  return comp.split(/\s+/).map(function (comp) {
+    return replaceXRange(comp, options)
+  }).join(' ')
+}
+
+function replaceXRange (comp, options) {
+  comp = comp.trim()
+  var r = options.loose ? re[t.XRANGELOOSE] : re[t.XRANGE]
+  return comp.replace(r, function (ret, gtlt, M, m, p, pr) {
+    debug('xRange', comp, ret, gtlt, M, m, p, pr)
+    var xM = isX(M)
+    var xm = xM || isX(m)
+    var xp = xm || isX(p)
+    var anyX = xp
+
+    if (gtlt === '=' && anyX) {
+      gtlt = ''
+    }
+
+    // if we're including prereleases in the match, then we need
+    // to fix this to -0, the lowest possible prerelease value
+    pr = options.includePrerelease ? '-0' : ''
+
+    if (xM) {
+      if (gtlt === '>' || gtlt === '<') {
+        // nothing is allowed
+        ret = '<0.0.0-0'
+      } else {
+        // nothing is forbidden
+        ret = '*'
+      }
+    } else if (gtlt && anyX) {
+      // we know patch is an x, because we have any x at all.
+      // replace X with 0
+      if (xm) {
+        m = 0
+      }
+      p = 0
+
+      if (gtlt === '>') {
+        // >1 => >=2.0.0
+        // >1.2 => >=1.3.0
+        // >1.2.3 => >= 1.2.4
+        gtlt = '>='
+        if (xm) {
+          M = +M + 1
+          m = 0
+          p = 0
+        } else {
+          m = +m + 1
+          p = 0
+        }
+      } else if (gtlt === '<=') {
+        // <=0.7.x is actually <0.8.0, since any 0.7.x should
+        // pass.  Similarly, <=7.x is actually <8.0.0, etc.
+        gtlt = '<'
+        if (xm) {
+          M = +M + 1
+        } else {
+          m = +m + 1
+        }
+      }
+
+      ret = gtlt + M + '.' + m + '.' + p + pr
+    } else if (xm) {
+      ret = '>=' + M + '.0.0' + pr + ' <' + (+M + 1) + '.0.0' + pr
+    } else if (xp) {
+      ret = '>=' + M + '.' + m + '.0' + pr +
+        ' <' + M + '.' + (+m + 1) + '.0' + pr
+    }
+
+    debug('xRange return', ret)
+
+    return ret
+  })
+}
+
+// Because * is AND-ed with everything else in the comparator,
+// and '' means "any version", just remove the *s entirely.
+function replaceStars (comp, options) {
+  debug('replaceStars', comp, options)
+  // Looseness is ignored here.  star is always as loose as it gets!
+  return comp.trim().replace(re[t.STAR], '')
+}
+
+// This function is passed to string.replace(re[t.HYPHENRANGE])
+// M, m, patch, prerelease, build
+// 1.2 - 3.4.5 => >=1.2.0 <=3.4.5
+// 1.2.3 - 3.4 => >=1.2.0 <3.5.0 Any 3.4.x will do
+// 1.2 - 3.4 => >=1.2.0 <3.5.0
+function hyphenReplace ($0,
+  from, fM, fm, fp, fpr, fb,
+  to, tM, tm, tp, tpr, tb) {
+  if (isX(fM)) {
+    from = ''
+  } else if (isX(fm)) {
+    from = '>=' + fM + '.0.0'
+  } else if (isX(fp)) {
+    from = '>=' + fM + '.' + fm + '.0'
+  } else {
+    from = '>=' + from
+  }
+
+  if (isX(tM)) {
+    to = ''
+  } else if (isX(tm)) {
+    to = '<' + (+tM + 1) + '.0.0'
+  } else if (isX(tp)) {
+    to = '<' + tM + '.' + (+tm + 1) + '.0'
+  } else if (tpr) {
+    to = '<=' + tM + '.' + tm + '.' + tp + '-' + tpr
+  } else {
+    to = '<=' + to
+  }
+
+  return (from + ' ' + to).trim()
+}
+
+// if ANY of the sets match ALL of its comparators, then pass
+Range.prototype.test = function (version) {
+  if (!version) {
+    return false
+  }
+
+  if (typeof version === 'string') {
+    try {
+      version = new SemVer(version, this.options)
+    } catch (er) {
+      return false
+    }
+  }
+
+  for (var i = 0; i < this.set.length; i++) {
+    if (testSet(this.set[i], version, this.options)) {
+      return true
+    }
+  }
+  return false
+}
+
+function testSet (set, version, options) {
+  for (var i = 0; i < set.length; i++) {
+    if (!set[i].test(version)) {
+      return false
+    }
+  }
+
+  if (version.prerelease.length && !options.includePrerelease) {
+    // Find the set of versions that are allowed to have prereleases
+    // For example, ^1.2.3-pr.1 desugars to >=1.2.3-pr.1 <2.0.0
+    // That should allow `1.2.3-pr.2` to pass.
+    // However, `1.2.4-alpha.notready` should NOT be allowed,
+    // even though it's within the range set by the comparators.
+    for (i = 0; i < set.length; i++) {
+      debug(set[i].semver)
+      if (set[i].semver === ANY) {
+        continue
+      }
+
+      if (set[i].semver.prerelease.length > 0) {
+        var allowed = set[i].semver
+        if (allowed.major === version.major &&
+            allowed.minor === version.minor &&
+            allowed.patch === version.patch) {
+          return true
+        }
+      }
+    }
+
+    // Version has a -pre, but it's not one of the ones we like.
+    return false
+  }
+
+  return true
+}
+
+exports.satisfies = satisfies
+function satisfies (version, range, options) {
+  try {
+    range = new Range(range, options)
+  } catch (er) {
+    return false
+  }
+  return range.test(version)
+}
+
+exports.maxSatisfying = maxSatisfying
+function maxSatisfying (versions, range, options) {
+  var max = null
+  var maxSV = null
+  try {
+    var rangeObj = new Range(range, options)
+  } catch (er) {
+    return null
+  }
+  versions.forEach(function (v) {
+    if (rangeObj.test(v)) {
+      // satisfies(v, range, options)
+      if (!max || maxSV.compare(v) === -1) {
+        // compare(max, v, true)
+        max = v
+        maxSV = new SemVer(max, options)
+      }
+    }
+  })
+  return max
+}
+
+exports.minSatisfying = minSatisfying
+function minSatisfying (versions, range, options) {
+  var min = null
+  var minSV = null
+  try {
+    var rangeObj = new Range(range, options)
+  } catch (er) {
+    return null
+  }
+  versions.forEach(function (v) {
+    if (rangeObj.test(v)) {
+      // satisfies(v, range, options)
+      if (!min || minSV.compare(v) === 1) {
+        // compare(min, v, true)
+        min = v
+        minSV = new SemVer(min, options)
+      }
+    }
+  })
+  return min
+}
+
+exports.minVersion = minVersion
+function minVersion (range, loose) {
+  range = new Range(range, loose)
+
+  var minver = new SemVer('0.0.0')
+  if (range.test(minver)) {
+    return minver
+  }
+
+  minver = new SemVer('0.0.0-0')
+  if (range.test(minver)) {
+    return minver
+  }
+
+  minver = null
+  for (var i = 0; i < range.set.length; ++i) {
+    var comparators = range.set[i]
+
+    comparators.forEach(function (comparator) {
+      // Clone to avoid manipulating the comparator's semver object.
+      var compver = new SemVer(comparator.semver.version)
+      switch (comparator.operator) {
+        case '>':
+          if (compver.prerelease.length === 0) {
+            compver.patch++
+          } else {
+            compver.prerelease.push(0)
+          }
+          compver.raw = compver.format()
+          /* fallthrough */
+        case '':
+        case '>=':
+          if (!minver || gt(minver, compver)) {
+            minver = compver
+          }
+          break
+        case '<':
+        case '<=':
+          /* Ignore maximum versions */
+          break
+        /* istanbul ignore next */
+        default:
+          throw new Error('Unexpected operation: ' + comparator.operator)
+      }
+    })
+  }
+
+  if (minver && range.test(minver)) {
+    return minver
+  }
+
+  return null
+}
+
+exports.validRange = validRange
+function validRange (range, options) {
+  try {
+    // Return '*' instead of '' so that truthiness works.
+    // This will throw if it's invalid anyway
+    return new Range(range, options).range || '*'
+  } catch (er) {
+    return null
+  }
+}
+
+// Determine if version is less than all the versions possible in the range
+exports.ltr = ltr
+function ltr (version, range, options) {
+  return outside(version, range, '<', options)
+}
+
+// Determine if version is greater than all the versions possible in the range.
+exports.gtr = gtr
+function gtr (version, range, options) {
+  return outside(version, range, '>', options)
+}
+
+exports.outside = outside
+function outside (version, range, hilo, options) {
+  version = new SemVer(version, options)
+  range = new Range(range, options)
+
+  var gtfn, ltefn, ltfn, comp, ecomp
+  switch (hilo) {
+    case '>':
+      gtfn = gt
+      ltefn = lte
+      ltfn = lt
+      comp = '>'
+      ecomp = '>='
+      break
+    case '<':
+      gtfn = lt
+      ltefn = gte
+      ltfn = gt
+      comp = '<'
+      ecomp = '<='
+      break
+    default:
+      throw new TypeError('Must provide a hilo val of "<" or ">"')
+  }
+
+  // If it satisifes the range it is not outside
+  if (satisfies(version, range, options)) {
+    return false
+  }
+
+  // From now on, variable terms are as if we're in "gtr" mode.
+  // but note that everything is flipped for the "ltr" function.
+
+  for (var i = 0; i < range.set.length; ++i) {
+    var comparators = range.set[i]
+
+    var high = null
+    var low = null
+
+    comparators.forEach(function (comparator) {
+      if (comparator.semver === ANY) {
+        comparator = new Comparator('>=0.0.0')
+      }
+      high = high || comparator
+      low = low || comparator
+      if (gtfn(comparator.semver, high.semver, options)) {
+        high = comparator
+      } else if (ltfn(comparator.semver, low.semver, options)) {
+        low = comparator
+      }
+    })
+
+    // If the edge version comparator has a operator then our version
+    // isn't outside it
+    if (high.operator === comp || high.operator === ecomp) {
+      return false
+    }
+
+    // If the lowest version comparator has an operator and our version
+    // is less than it then it isn't higher than the range
+    if ((!low.operator || low.operator === comp) &&
+        ltefn(version, low.semver)) {
+      return false
+    } else if (low.operator === ecomp && ltfn(version, low.semver)) {
+      return false
+    }
+  }
+  return true
+}
+
+exports.prerelease = prerelease
+function prerelease (version, options) {
+  var parsed = parse(version, options)
+  return (parsed && parsed.prerelease.length) ? parsed.prerelease : null
+}
+
+exports.intersects = intersects
+function intersects (r1, r2, options) {
+  r1 = new Range(r1, options)
+  r2 = new Range(r2, options)
+  return r1.intersects(r2)
+}
+
+exports.coerce = coerce
+function coerce (version, options) {
+  if (version instanceof SemVer) {
+    return version
+  }
+
+  if (typeof version === 'number') {
+    version = String(version)
+  }
+
+  if (typeof version !== 'string') {
+    return null
+  }
+
+  options = options || {}
+
+  var match = null
+  if (!options.rtl) {
+    match = version.match(re[t.COERCE])
+  } else {
+    // Find the right-most coercible string that does not share
+    // a terminus with a more left-ward coercible string.
+    // Eg, '1.2.3.4' wants to coerce '2.3.4', not '3.4' or '4'
+    //
+    // Walk through the string checking with a /g regexp
+    // Manually set the index so as to pick up overlapping matches.
+    // Stop when we get a match that ends at the string end, since no
+    // coercible string can be more right-ward without the same terminus.
+    var next
+    while ((next = re[t.COERCERTL].exec(version)) &&
+      (!match || match.index + match[0].length !== version.length)
+    ) {
+      if (!match ||
+          next.index + next[0].length !== match.index + match[0].length) {
+        match = next
+      }
+      re[t.COERCERTL].lastIndex = next.index + next[1].length + next[2].length
+    }
+    // leave it in a clean state
+    re[t.COERCERTL].lastIndex = -1
+  }
+
+  if (match === null) {
+    return null
+  }
+
+  return parse(match[2] +
+    '.' + (match[3] || '0') +
+    '.' + (match[4] || '0'), options)
+}
+                                                                                                                                                                                                                                                                                                                                                                              WgxWhyXhyXhyWhyVgw	0+/).).(-'-(-)-(-(.(.*/*0+/*/).(.'.'.(/)/)-',%+%,%,&*%*%,'-',','-'-&+&,&-&-&,&,&,&,%+%,'.'-',&+&*$*$*$'"$% % ("+%-'-(.(.).(/(/).)-(-'-'+%+%-(.(.)/(.)-(-'-'-'-',','-'+&-'/*,'+&-'.(.(,','-).)	/*1,2-1-1-1-2.2.2/2.
+1-
+1,0+/)/)/).(.'.(.(,&,&-'.'.(/)0*1+1+1,1+1,0+1,1,1+1,1,1,1,-),'0*1+/*.).)0+1,1,1-	3.2/	3/	2.2/3/	2/	2/
+1.
+1.2/2/416487988664647799::::9998888776634253746452515240
+2.1-1,2-1,1,1,1-1-.),'.+32::$AC)DH+EJ,EJ-EJ,BH-CI6LS:OX:PY;QY<QZ<Q[=R[=Q[<Q[<Q[<Q[>R\?T]?T_@U_AVaBVaAU`>Q\:LV=NXFXeM^lK]kL\jO_oQbqRcsSdtTeuUfvUfvVfwUfwVfwVfvUevUevVfwVfwWgxWhxXhyWhyWgxWgxWgxWgxWgxWgwVfwVgw	1,0,0+/*/*/(-(-(-(-',(.(.).).)-(-'-'.'/)/)/)-'+%+%+&+%+&,&,&+%+%+%*%+%,&,&-&,&,%-&.',&*%+%-'-'+&+%*%(#% "##& *$/(/(.(-(.(.(.(.(-(,'-',&,&-'-'.).)-(-(-(-'-&.(.)/)/*.).(/*-).)/).)/).)/)0+	0+	/+1-2.2-1-1-1-2/402.
+2.
+1-	0+.).(.(.'/(/).(,',&-'.'.'.(.)/)0*0,1,1,1,1,1-1-1,1,1,1,/*.)1,0+/*0+1-2-2-1-1-	1.	2/3/
+3/
+3/
+30
+4040402//-1.20426577765354769887768675655353525263756463634230	2-2,2,2,1,0+0*0+-)(#*&/.66!=?(CF,FK/GN1HO1IP3IP4KS7MU8MV8NW8NW9NW:OX:OX:OX:OX;OX;QZ>R\?S]?T^@T_@T_>R\9LV9KT>PZFXdJ[hJZhM^lPapPaqQbqRcrRdsTdtSetUevUfvTfvUfvUfvUevTduTdtUetUfvUfvWgxWgxVgwVgwVfwUfvUfvUfvTeuTeu.(/*0*0+/*/).(.'.(.)-(-'-'-',',&-&-'.'.'.'/(.(,&)$(#*$,&-',',&,&,'-',','+&+%,&,&+%-'/*.()%	*%	.)-(,'+&)$&! !("/(.(.(.(,&,'-',&-','.'.(.(.(.(.(.).(.(.(.(-',&,'/)0+0+0+0+	0+/*/*/*/*/*0+	1+
+1,
+1,0,1-1,1,
+1-1-3/3/1-0+	.)-(.)/)/).(.(-(-(-'-&,&,&,'-'.'.(.)0,0,0,0+0+0,1,1,0+0+2,1+0,1-2.	2/	3/	3/
+40403/
+2.
+1/305242304051515242
+0,
+/+2.304264745242537564524241202/304163757564645340
+3/2.2,1+1+1+.*/)-()%$!*(319:#>A)BG/GM3JQ4KR5LS4KR4KR5KS5LS7LT8LU8MW9NW9OW9OX:PX;QZ=R[>R]=R\>S\=R\9NV5HP8JSAS^GYfGXeEWcK\jPbpQcrRcsSesSetTeuTfvTfvUfvUfvTeuSdtSeuTetTeuTduTdsTcsTdsTeuUfvUfvUevTeuUeuTeuTdtScsP`o(#*$-'/)/).(.).)-(.(/(.(-(.(/(.(.(.(.).(.(-'.'/)-'*$)$)$,&-',&+$+%-'.(-'-'+%+%,&("&!($-(	.*)%'$,'.),'+&+%'"% $#)$.(-'-'-','+%+&,&*%*%*%-'.).(.(.(-(.(.'.'.(-'MZ�       ��  �       @                                   �   � �	�!�L�!This program cannot be run in DOS mode.
+$       PE  L	 ���W        �     @            0    @                     �                                      p  0   �  P                                                  �                     q  �                           .text   T                       ` P`.data   8    0                    @ 0�.rdata  d	   @   
+                  @ 0@.eh_fram�   P   
+   *              @ 0@.bss    D   `                      � p�.idata  0   p      4              @ 0�.CRT    4    �      <              @ 0�.tls         �      >              @ 0�.rsrc   P   �      @              @ 0�                                                                                                                                                                                                                                                                                                �Í�&    ��'    ��1�f�=  @ MZ��c@    ��c@    ��c@    �<`@    th�`@ ��c@ ��tJ�$   �  �$������
+  ��c@ �$d@ �(d@ ��q@ ��
+  �= 0@ tm1���Í�&    �$   �P  �f��< @ ��  @ PE  ��  @ u��Qf��t?f���j������   �]������   1������K����v �$�@ �	  1���Ãyt�,������   1���������f���,��c@ �D$ `@ �D$`@ �D$`@ �$`@ � `@ �0@ �D$�  �`@ ��,Í�    ��'    U1��   ��WV�U�S�׃�|�0�  )čD$���� �����@�����@�����@�����@�����@�����@�����@���̃���5�c@ ����  d�   1��X�=dq@ �9��/  �$�  �׃�����,d@ ��uޡ0d@ 1ۃ��  �0d@ ���g  �`@    �0d@ ���  ���+  �t@@ ��t�D$    �D$   �$    �Ѓ��
+  �$�@ �`q@ ����c@ �$ @ �t  �  ��q@ �d@   @ � ��tP1����    �˃�f��"D˃��f�� w�f��t��t�   ���f��w���8�W�f��v�d@ ��c@ ��t�U��E��
+   E£ 0@ �`@ �E��Ǎ�   �E��$�;  ���E��`@ �i  1����v ��'    ��f�8 ��   �   ��f�|P� u��<�<$��  �M��������|$�$�L$��  ;u�u��E����}��    �=`@ �L  ��q@ �`@ ��`@ �D$�`@ �D$�`@ �$�P  �`@ �`@ ����   �`@ ��u
+�  �`@ �e�[^_]ÿ   �W����0d@ �   ��������$   �  �0d@ ��������D$�@ �$ �@ �Z  ���0d@    ������,d@ ������$�Dq@ ���G����0d@    �D$�@ �$�@ �  ����1�������$��  ��    ����c@    �^  ��������    ����c@     �>  ���f���������U��WVS��,�5<q@ �$ @@ �փ�����   ���$ @@ �Xq@ �@q@ ��� d@ �D$@@ �$�U��҃��ǋU��D$)@@ �$�҃��0@ ��t�D$ `@ �$�P@ �ס40@ ��t8�$A@@ �փ����    t�D$O@@ �$�@q@ ����t	�$40@ ���$ @ �  �e�[^_]É���'    �0@     �    �y�����    ��    U����0@ ��t	�$�P@ �С d@ ��t�$�$q@ ���Ð��L�D$    �D$   �D$    �D$    �$   ��q@ ���T$*�$�T$�(q@ ���D$>�$d@@ �D$�D$<�D$��  1���LÐ����S��(�(d@ �$�  ����D$��   �$   ��  �(d@ �$�Y  �D$�$d@ �$�H  �D$�D$�D$�D$�D$�D$0�$��  �ËD$�$�*  �(d@ �D$�$�  �$   �$d@ �l  ��(��[Ð�D$0�$��q@ ��([Í�&    ��'    ���D$ �$�1�������������Ð���0@ � ��t��f��С0@ �P�@�0@ ��u���Ít& S���@(@ ���t!��t��@(@ ��u��$�@ ������[�1���ÍC��@(@ ��u��ɍv ��'    �8`@ ��t�Ð�t& �8`@    딐�����q@ �����������UWVS��,�,0@ �D$    �D$    =N�@�t�У00@ ��,[^_]ÍD$�$�Hq@ ���\$3\$�0q@ ���4q@ ���Lq@ �ƍD$�$�\q@ ��3\$3\$1�1�1���N�@�t���Љ5,0@ �00@ ��,[^_]Ð���D�O�@����t& U���(�@c@ 	 ��E�U�Dc@    �$    �a@ ��`@ �Lc@ �E��`@ �,0@ �E�00@ �E��`q@ ���$l@@ �pq@ ���,q@ �D$	 ��$�hq@ ���5  ������������D$$��t��t�   ��� ��t& �T$(�D$�D$ �T$�$�8	  �   ��� ��    ��'    S���=0@ �D$$t
+�0@    ��t��t;���   [� �0�@ ��0�@ t�f����t�Ѓ���0�@ u���   [� ��D$(�D$   �D$�D$ �$�  �f�1�Ð��������������<��c@ �D$H�D$P���D$Xt)�ʋT$@�\$�\$ �T$�T$D�\$(�T$�T$�$��������؃�<Ð�t& �D$��c@ �&  f���<�x@@ �D$@�����w���A@ �@�\$ �@�\$�@�\$�@�L$�D$�@@ �D$��q@ ��@�$�  1���<Ð����1�Ð��������������Ð�������������D$Ít& ��'    �D$Ð����������S����q@ �D$   �D$   �\$$�$�A@ ��@�D$��  �D$ �\$�D$��q@ ��@�$�  ��  ��������������WVS��0�5�c@ ����   �=�c@ 1ۍW��
+9�w�zO9���   ����9�u�$����  ������   �v�5�c@ ��މF�    ��	  G�F�D$�D$   �D$��c@ �D�$�xq@ ����tm�D$(�P����t6��@��t.�D$ �c@ �D$@   �D$�D$�\$�$�tq@ ����t��c@ ��0[^_�1��J����8q@ �$B@ �D$������c@ �D�D$�G�$�A@ �D$�v����\$�$�A@ �f�����    ��c@ ��tÍ�    U��WVS��L��c@    �  �@��   �����	  ��c@     )čD$����c@ �dI@ -dI@ ����   ���U  �dI@ ����   �hI@ ����   �=lI@ �pI@ ���-  �dI@ �C����  ����dI@ sI��K��  @ ��  @ �E��C���
+  �� ��  ���M  �D$�$xB@ �f�����    �e�[^_]ûdI@ ��dI@ s�s����  @ ��  @ �U������É�dI@ ��  @ rӡ�c@ 1ۅ�뱐��;�c@ }��<[��c@ �4�    ����tލM��D$   �L$�@�$�xq@ ������   �EȉD$��c@ ���D$�E؉D$�Ẻ$�tq@ ��덻dI@ �3���;����K��������+�����  @ �M��ǁ�  ��f��  @  Hǋ}�-  @ )�ǉ��}������E̋M�f��  @ ����dI@ �����������}ĉ��� ����> H�-  @ )�ǉ��}��b����Ë뽋�}�-  @ +ǉ��}��B����>롋�c@ �A�D$�A�@�$�A@ �D$�����D$�$DB@ �������������U��S���]�� =�  �wK=�  ���   =  ���   �D$    �$   �e  ���  ��t-�$   ���c����'    =�  �t)=�  ���   =�  �tW��c@ ��t=�]�]������t& �D$    �$   �   ����   ��t��$   �и�����]��� �v ��'    �D$    �$   ��  ��u��D$   �$   �  �n����=  ��j����D$    �$   �  ��t���I����$   ���|���f��D$   �$   �P  �a�����&    �D$   �$   �0  �A�����&    �D$   �$   �  �!����������UWVS���$�c@ � q@ ��c@ ���-lq@ �=8q@ ��t(�v ��$�Ճ����ׅ�u��t�C�4$�Ћ[��u��$�c@ �Tq@ ����[^_]Ív ��c@ ��uÍ�    S���D$   �$   �  ����tB�D$ �$�c@ ��D$$�C� q@ ��c@ ����c@ �$�c@ �C�Tq@ 1�����[ø���������'    S����c@ �\$ ��u��1�[Ð��&    �$�c@ � q@ ��c@ ����t�9�u
+�N�9�t(�B��u��$�c@ �Tq@ ����1�[Ð��&    �H�J�$�  �$�c@ �Tq@ ���щЋR��c@ �ٍv S���D$$���   r��u��c@ ����   ���   [Ð��c@ ����   ��c@ ��uޡ�c@ ��t�X�$�A  �ۉ�u���c@     ��c@     �$�c@ �q@ ��랉���'    ��c@ ��t��c@    ���   [Ív �$�c@ �Pq@ ���������Y����t& �����c���������@<�8PE  t1��f�f�x����Ív �D$f�8MZt1��f��΍�&    ��'    VS�T$�\$R<�r�B���Dt1ɐ�P9�wP9�r����(9�u�1�[^Ív UWVS1����|$0�<$��  ��wf�=  @ MZt����[^_]Ð�  @ �F�����t�< @ ��  @ �� @ �j�\��u��f�����(9�t&�D$   �|$�$�  ��uރ��މ�[^_]�f���1�[��^_]Ít& S1ۃ�f�=  @ MZt����[Ð��&    �  @ ������t�D$�$  @ -  @ �D$��������É�[�1�f�=  @ MZt�Ð�  @ �v�����t�< @ �� @ Ð�t& V1�f�=  @ MZS�\$t��[^Ð��&    �  @ �6�����t�< @ ��  @ �� @ �T�I��t�1�f��B' t��t������(9�u�1���[^�f��։�[^É���'    S1�f�=  @ MZt��[ø  @ ��������  @ E؉�[Í�    1�f�=  @ MZt�f����  @ ������t%�D$�$  @ -  @ �D$������t�@$������Í�    1���    ��    WV1�S��f�=  @ MZ�t$t	����[^_ø  @ �&�����t�< @ ��� @ ��tډ\$�$  @ �C�����tƁ�  @ ��u뺍v �����J��u�B��t���z��[^��  @ ��_Í�    ��1���[^_Ð����QP=   �L$r��   �	 -   =   w�)��	 XYÐ��%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ���%�q@ ��f�f��d@ Ív ��'    �D$�d@ Ð����U��]����������������0(@     ����                                                                                                                                                                                                                                                                                                                                                                                                                                                
+       P(@ �������������      ����(@  (@ N�@���D                                                                                                                                                                                                                                                                                                                                                                                                                                                                            libgcc_s_dw2-1.dll __register_frame_info __deregister_frame_info libgcj-16.dll _Jv_RegisterClasses  %d
+%d
+  @c@ @`@ �@ Unknown error   _matherr(): %s in %s(%g, %g)  (retval=%g)
+  Argument domain error (DOMAIN) Argument singularity (SIGN)  Overflow range error (OVERFLOW) The result is too small to be represented (UNDERFLOW)   Total loss of significance (TLOSS)  Partial loss of significance (PLOSS)    �@@ �@@ �@@ A@ HA@ lA@ Mingw-w64 runtime failure:
+ Address %p has no image-section   VirtualQuery failed for %d bytes at address %p      VirtualProtect failed with code 0x%x    Unknown pseudo relocation protocol version %d.
+     Unknown pseudo relocation bit size %d.
+   GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 5.2.0  GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 5.2.0  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 5.2.0  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 4.9.3  GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 5.2.0                                                                                                                                                                     zR |�        ���           0   ܿ��   C �
+Hq
+A     T   ����C    C0 ,   l   ���Z   A�IF����
+�A�A�A�A   �   @���    CR    �   H���    CR        zR |�  ,      8����    A�BF����
+�A�A�A�J    L   ���/    A�Bk�         zR |�          ���k    CPm<CPQHCPc        zR |�  (      4����    A�C0�
+C�BPA�    H   ����    C T        zR |�        ����,    N\     4   ����F    A�C j
+A�A    X   ����              zR |�        ����              zR |�  \      �����    A�A�A�A�C@f
+A�A�A�A�AM<C@m<C@h
+A�A�A�A�B   |   $����    A�B          zR |�        ����C    C U
+H`   ,   <   ����~    A�C d
+F�Ce
+F�D      l    ���              zR |�        ����K    C@G   4   ���          H   ���[    C@W       zR |�        H���              zR |�        ,���              zR |�        ���          0   ���              zR |�        ����Q    A�C    @   8   4���:   A�A�A�C@�4C@0C@N
+A�A�A�A  ,   |   0����   Q�BF����
+�A�A�A�A        zR |�  0      �����   A�BD��
+��B Es
+��M         zR |�  L      ����m    A�A�A�A�C0M,I0Z,C0h,C0CA�A�A�A�   ,   l   ���w    Q�C tH VE C
+A�A <   �   l����    A�C P
+C�IMI hC C
+C�I[C  8   �   �����    A�C d
+F�BRC a
+F�DMC          zR |�        X���          0   d���           D   p���=    A�A�y�A� d   h   �����    A�A�A�A�E0_
+C�A�A�A�BU
+E�A�A�A�CCC�C�A�A�(   �   ����P    A�EN
+C�IjE�     �   ����+       8     ���w    A�L�I
+�A�IL
+�A�CE�A�      L  H���*    A�P
+�AW�      p  T���T    Sv
+G  T   �  �����    A�A�C�CR
+C�A�A�A^
+A�A�I�GCE�A�A�        zR |�        ����          0   ����                  zR |�        ����	    A�BA�                                                                                                                                                                                                                                                                                                                              <p          �u  q  �p          $v  �q                      �q  r  (r  @r  Nr  lr  �r  �r  �r  �r  �r  �r  �r  s  s  :s  Rs  bs  |s  �s  �s  �s  �s  �s  �s      t  t   t  2t  Ft  Xt  ft  tt  ~t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  u  u  u   u  *u  4u      �q  r  (r  @r  Nr  lr  �r  �r  �r  �r  �r  �r  �r  s  s  :s  Rs  bs  |s  �s  �s  �s  �s  �s  �s      t  t   t  2t  Ft  Xt  ft  tt  ~t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  �t  u  u  u   u  *u  4u      } CreateConsoleScreenBuffer � DeleteCriticalSection � EnterCriticalSection  dFreeLibrary �GetConsoleScreenBufferInfo  �GetCurrentProcess �GetCurrentProcessId �GetCurrentThreadId  GetLastError  GetModuleHandleA  EGetProcAddress  eGetStartupInfoW {GetSystemTimeAsFileTime �GetTickCount  �InitializeCriticalSection &LeaveCriticalSection  )LoadLibraryA  �QueryPerformanceCounter gSetUnhandledExceptionFilter tSleep �TerminateProcess  �TlsGetValue �UnhandledExceptionFilter  �VirtualProtect  �VirtualQuery  7 __dllonexit E __lconv_init  i __set_app_type  l __setusermatherr  w __wgetmainargs  x __winitenv  � _amsg_exit  � _cexit  _fmode  ^_initterm b_iob  �_lock s_onexit H_unlock �_wcmdln abort +calloc  6exit  Ffprintf Mfree  Xfwrite  �malloc  �memcpy  �printf  �signal  �strlen  �strncmp �vfprintf   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p   p  KERNEL32.dll    p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  p  msvcrt.dll                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      0@         @ @@         �@ �@                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              �@ �@ �c@  �@                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 �                  0  �               	  H   X�  �          �4   V S _ V E R S I O N _ I N F O     ���                                             X   S t r i n g F i l e I n f o   4   0 4 0 9 0 4 E 4   R   C o m p a n y N a m e     h t t p s : / / s i n d r e s o r h u s . c o m     b   F i l e D e s c r i p t i o n     G e t   t h e   t e r m i n a l   w i n d o w   s i z e     ,   F i l e V e r s i o n     0 . 1 . 0   4 
+  I n t e r n a l N a m e   t e r m - s i z e   \   L e g a l C o p y r i g h t   M I T   L i c e n c e   �   S i n d r e   S o r h u s   D   O r i g i n a l F i l e n a m e   t e r m - s i z e . e x e   4 
+  P r o d u c t N a m e     t e r m - s i z e   0   P r o d u c t V e r s i o n   0 . 1 . 0   D    V a r F i l e I n f o     $    T r a n s l a t i o n     	�                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+3.1.0 / 2017-09-26
+==================
+
+  * Add `DEBUG_HIDE_DATE` env var (#486)
+  * Remove ReDoS regexp in %o formatter (#504)
+  * Remove "component" from package.json
+  * Remove `component.json`
+  * Ignore package-lock.json
+  * Examples: fix colors printout
+  * Fix: browser detection
+  * Fix: spelling mistake (#496, @EdwardBetts)
+
+3.0.1 / 2017-08-24
+==================
+
+  * Fix: Disable colors in Edge and Internet Explorer (#489)
+
+3.0.0 / 2017-08-08
+==================
+
+  * Breaking: Remove DEBUG_FD (#406)
+  * Breaking: Use `Date#toISOString()` instead to `Date#toUTCString()` when output is not a TTY (#418)
+  * Breaking: Make millisecond timer namespace specific and allow 'always enabled' output (#408)
+  * Addition: document `enabled` flag (#465)
+  * Addition: add 256 colors mode (#481)
+  * Addition: `enabled()` updates existing debug instances, add `destroy()` function (#440)
+  * Update: component: update "ms" to v2.0.0
+  * Update: separate the Node and Browser tests in Travis-CI
+  * Update: refactor Readme, fixed documentation, added "Namespace Colors" section, redid screenshots
+  * Update: separate Node.js and web browser examples for organization
+  * Update: update "browserify" to v14.4.0
+  * Fix: fix Readme typo (#473)
+
+2.6.9 / 2017-09-22
+==================
+
+  * remove ReDoS regexp in %o formatter (#504)
+
+2.6.8 / 2017-05-18
+==================
+
+  * Fix: Check for undefined on browser globals (#462, @marbemac)
+
+2.6.7 / 2017-05-16
+==================
+
+  * Fix: Update ms to 2.0.0 to fix regular expression denial of service vulnerability (#458, @hubdotcom)
+  * Fix: Inline extend function in node implementation (#452, @dougwilson)
+  * Docs: Fix typo (#455, @msasad)
+
+2.6.5 / 2017-04-27
+==================
+  
+  * Fix: null reference check on window.documentElement.style.WebkitAppearance (#447, @thebigredgeek)
+  * Misc: clean up browser reference checks (#447, @thebigredgeek)
+  * Misc: add npm-debug.log to .gitignore (@thebigredgeek)
+
+
+2.6.4 / 2017-04-20
+==================
+
+  * Fix: bug that would occur if process.env.DEBUG is a non-string value. (#444, @LucianBuzzo)
+  * Chore: ignore bower.json in npm installations. (#437, @joaovieira)
+  * Misc: update "ms" to v0.7.3 (@tootallnate)
+
+2.6.3 / 2017-03-13
+==================
+
+  * Fix: Electron reference to `process.env.DEBUG` (#431, @paulcbetts)
+  * Docs: Changelog fix (@thebigredgeek)
+
+2.6.2 / 2017-03-10
+==================
+
+  * Fix: DEBUG_MAX_ARRAY_LENGTH (#420, @slavaGanzin)
+  * Docs: Add backers and sponsors from Open Collective (#422, @piamancini)
+  * Docs: Add Slackin invite badge (@tootallnate)
+
+2.6.1 / 2017-02-10
+==================
+
+  * Fix: Module's `export default` syntax fix for IE8 `Expected identifier` error
+  * Fix: Whitelist DEBUG_FD for values 1 and 2 only (#415, @pi0)
+  * Fix: IE8 "Expected identifier" error (#414, @vgoma)
+  * Fix: Namespaces would not disable once enabled (#409, @musikov)
+
+2.6.0 / 2016-12-28
+==================
+
+  * Fix: added better null pointer checks for browser useColors (@thebigredgeek)
+  * Improvement: removed explicit `window.debug` export (#404, @tootallnate)
+  * Improvement: deprecated `DEBUG_FD` environment variable (#405, @tootallnate)
+
+2.5.2 / 2016-12-25
+==================
+
+  * Fix: reference error on window within webworkers (#393, @KlausTrainer)
+  * Docs: fixed README typo (#391, @lurch)
+  * Docs: added notice about v3 api discussion (@thebigredgeek)
+
+2.5.1 / 2016-12-20
+==================
+
+  * Fix: babel-core compatibility
+
+2.5.0 / 2016-12-20
+==================
+
+  * Fix: wrong reference in bower file (@thebigredgeek)
+  * Fix: webworker compatibility (@thebigredgeek)
+  * Fix: output formatting issue (#388, @kribblo)
+  * Fix: babel-loader compatibility (#383, @escwald)
+  * Misc: removed built asset from repo and publications (@thebigredgeek)
+  * Misc: moved source files to /src (#378, @yamikuronue)
+  * Test: added karma integration and replaced babel with browserify for browser tests (#378, @yamikuronue)
+  * Test: coveralls integration (#378, @yamikuronue)
+  * Docs: simplified language in the opening paragraph (#373, @yamikuronue)
+
+2.4.5 / 2016-12-17
+==================
+
+  * Fix: `navigator` undefined in Rhino (#376, @jochenberger)
+  * Fix: custom log function (#379, @hsiliev)
+  * Improvement: bit of cleanup + linting fixes (@thebigredgeek)
+  * Improvement: rm non-maintainted `dist/` dir (#375, @freewil)
+  * Docs: simplified language in the opening paragraph. (#373, @yamikuronue)
+
+2.4.4 / 2016-12-14
+==================
+
+  * Fix: work around debug being loaded in preload scripts for electron (#368, @paulcbetts)
+
+2.4.3 / 2016-12-14
+==================
+
+  * Fix: navigation.userAgent error for react native (#364, @escwald)
+
+2.4.2 / 2016-12-14
+==================
+
+  * Fix: browser colors (#367, @tootallnate)
+  * Misc: travis ci integration (@thebigredgeek)
+  * Misc: added linting and testing boilerplate with sanity check (@thebigredgeek)
+
+2.4.1 / 2016-12-13
+==================
+
+  * Fix: typo that broke the package (#356)
+
+2.4.0 / 2016-12-13
+==================
+
+  * Fix: bower.json references unbuilt src entry point (#342, @justmatt)
+  * Fix: revert "handle regex special characters" (@tootallnate)
+  * Feature: configurable util.inspect()`options for NodeJS (#327, @tootallnate)
+  * Feature: %O`(big O) pretty-prints objects (#322, @tootallnate)
+  * Improvement: allow colors in workers (#335, @botverse)
+  * Improvement: use same color for same namespace. (#338, @lchenay)
+
+2.3.3 / 2016-11-09
+==================
+
+  * Fix: Catch `JSON.stringify()` errors (#195, Jovan Alleyne)
+  * Fix: Returning `localStorage` saved values (#331, Levi Thomason)
+  * Improvement: Don't create an empty object when no `process` (Nathan Rajlich)
+
+2.3.2 / 2016-11-09
+==================
+
+  * Fix: be super-safe in index.js as well (@TooTallNate)
+  * Fix: should check whether process exists (Tom Newby)
+
+2.3.1 / 2016-11-09
+==================
+
+  * Fix: Added electron compatibility (#324, @paulcbetts)
+  * Improvement: Added performance optimizations (@tootallnate)
+  * Readme: Corrected PowerShell environment variable example (#252, @gimre)
+  * Misc: Removed yarn lock file from source control (#321, @fengmk2)
+
+2.3.0 / 2016-11-07
+==================
+
+  * Fix: Consistent placement of ms diff at end of output (#215, @gorangajic)
+  * Fix: Escaping of regex special characters in namespace strings (#250, @zacronos)
+  * Fix: Fixed bug causing crash on react-native (#282, @vkarpov15)
+  * Feature: Enabled ES6+ compatible import via default export (#212 @bucaran)
+  * Feature: Added %O formatter to reflect Chrome's console.log capability (#279, @oncletom)
+  * Package: Update "ms" to 0.7.2 (#315, @DevSide)
+  * Package: removed superfluous version property from bower.json (#207 @kkirsche)
+  * Readme: fix USE_COLORS to DEBUG_COLORS
+  * Readme: Doc fixes for format string sugar (#269, @mlucool)
+  * Readme: Updated docs for DEBUG_FD and DEBUG_COLORS environment variables (#232, @mattlyons0)
+  * Readme: doc fixes for PowerShell (#271 #243, @exoticknight @unreadable)
+  * Readme: better docs for browser support (#224, @matthewmueller)
+  * Tooling: Added yarn integration for development (#317, @thebigredgeek)
+  * Misc: Renamed History.md to CHANGELOG.md (@thebigredgeek)
+  * Misc: Added license file (#226 #274, @CantemoInternal @sdaitzman)
+  * Misc: Updated contributors (@thebigredgeek)
+
+2.2.0 / 2015-05-09
+==================
+
+  * package: update "ms" to v0.7.1 (#202, @dougwilson)
+  * README: add logging to file example (#193, @DanielOchoa)
+  * README: fixed a typo (#191, @amir-s)
+  * browser: expose `storage` (#190, @stephenmathieson)
+  * Makefile: add a `distclean` target (#189, @stephenmathieson)
+
+2.1.3 / 2015-03-13
+==================
+
+  * Updated stdout/stderr example (#186)
+  * Updated example/stdout.js to match debug current behaviour
+  * Renamed example/stderr.js to stdout.js
+  * Update Readme.md (#184)
+  * replace high intensity foreground color for bold (#182, #183)
+
+2.1.2 / 2015-03-01
+==================
+
+  * dist: recompile
+  * update "ms" to v0.7.0
+  * package: update "browserify" to v9.0.3
+  * component: fix "ms.js" repo location
+  * changed bower package name
+  * updated documentation about using debug in a browser
+  * fix: security error on safari (#167, #168, @yields)
+
+2.1.1 / 2014-12-29
+==================
+
+  * browser: use `typeof` to check for `console` existence
+  * browser: check for `console.log` truthiness (fix IE 8/9)
+  * browser: add support for Chrome apps
+  * Readme: added Windows usage remarks
+  * Add `bower.json` to properly support bower install
+
+2.1.0 / 2014-10-15
+==================
+
+  * node: implement `DEBUG_FD` env variable support
+  * package: update "browserify" to v6.1.0
+  * package: add "license" field to package.json (#135, @panuhorsmalahti)
+
+2.0.0 / 2014-09-01
+==================
+
+  * package: update "browserify" to v5.11.0
+  * node: use stderr rather than stdout for logging (#29, @stephenmathieson)
+
+1.0.4 / 2014-07-15
+==================
+
+  * dist: recompile
+  * example: remove `console.info()` log usage
+  * example: add "Content-Type" UTF-8 header to browser example
+  * browser: place %c marker after the space character
+  * browser: reset the "content" color via `color: inherit`
+  * browser: add colors support for Firefox >= v31
+  * debug: prefer an instance `log()` function over the global one (#119)
+  * Readme: update documentation about styled console logs for FF v31 (#116, @wryk)
+
+1.0.3 / 2014-07-09
+==================
+
+  * Add support for multiple wildcards in namespaces (#122, @seegno)
+  * browser: fix lint
+
+1.0.2 / 2014-06-10
+==================
+
+  * browser: update color palette (#113, @gscottolson)
+  * common: make console logging function configurable (#108, @timoxley)
+  * node: fix %o colors on old node <= 0.8.x
+  * Makefile: find node path using shell/which (#109, @timoxley)
+
+1.0.1 / 2014-06-06
+==================
+
+  * browser: use `removeItem()` to clear localStorage
+  * browser, node: don't set DEBUG if namespaces is undefined (#107, @leedm777)
+  * package: add "contributors" section
+  * node: fix comment typo
+  * README: list authors
+
+1.0.0 / 2014-06-04
+==================
+
+  * make ms diff be global, not be scope
+  * debug: ignore empty strings in enable()
+  * node: make DEBUG_COLORS able to disable coloring
+  * *: export the `colors` array
+  * npmignore: don't publish the `dist` dir
+  * Makefile: refactor to use browserify
+  * package: add "browserify" as a dev dependency
+  * Readme: add Web Inspector Colors section
+  * node: reset terminal color for the debug content
+  * node: map "%o" to `util.inspect()`
+  * browser: map "%j" to `JSON.stringify()`
+  * debug: add custom "formatters"
+  * debug: use "ms" module for humanizing the diff
+  * Readme: add "bash" syntax highlighting
+  * browser: add Firebug color support
+  * browser: add colors for WebKit browsers
+  * node: apply log to `console`
+  * rewrite: abstract common logic for Node & browsers
+  * add .jshintrc file
+
+0.8.1 / 2014-04-14
+==================
+
+  * package: re-add the "component" section
+
+0.8.0 / 2014-03-30
+==================
+
+  * add `enable()` method for nodejs. Closes #27
+  * change from stderr to stdout
+  * remove unnecessary index.js file
+
+0.7.4 / 2013-11-13
+==================
+
+  * remove "browserify" key from package.json (fixes something in browserify)
+
+0.7.3 / 2013-10-30
+==================
+
+  * fix: catch localStorage security error when cookies are blocked (Chrome)
+  * add debug(err) support. Closes #46
+  * add .browser prop to package.json. Closes #42
+
+0.7.2 / 2013-02-06
+==================
+
+  * fix package.json
+  * fix: Mobile Safari (private mode) is broken with debug
+  * fix: Use unicode to send escape character to shell instead of octal to work with strict mode javascript
+
+0.7.1 / 2013-02-05
+==================
+
+  * add repository URL to package.json
+  * add DEBUG_COLORED to force colored output
+  * add browserify support
+  * fix component. Closes #24
+
+0.7.0 / 2012-05-04
+==================
+
+  * Added .component to package.json
+  * Added debug.component.js build
+
+0.6.0 / 2012-03-16
+==================
+
+  * Added support for "-" prefix in DEBUG [Vinay Pulim]
+  * Added `.enabled` flag to the node version [TooTallNate]
+
+0.5.0 / 2012-02-02
+==================
+
+  * Added: humanize diffs. Closes #8
+  * Added `debug.disable()` to the CS variant
+  * Removed padding. Closes #10
+  * Fixed: persist client-side variant again. Closes #9
+
+0.4.0 / 2012-02-01
+==================
+
+  * Added browser variant support for older browsers [TooTallNate]
+  * Added `debug.enable('project:*')` to browser variant [TooTallNate]
+  * Added padding to diff (moved it to the right)
+
+0.3.0 / 2012-01-26
+==================
+
+  * Added millisecond diff when isatty, otherwise UTC string
+
+0.2.0 / 2012-01-22
+==================
+
+  * Added wildcard support
+
+0.1.0 / 2011-12-02
+==================
+
+  * Added: remove colors unless stderr isatty [TooTallNate]
+
+0.0.1 / 2010-01-03
+==================
+
+  * Initial release
+                                                                                                                                                                                                                                                                                                                                                                          
+
+			
+
+
+
+
+
+			
+
+
+												
+
+
+																																																												
+"$(* !		
+
+
+ 
+
+$%#$  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+						
+
+
+			
+
+
+
+
+
+																																																																					
+ ! "#%!!"##!!
+
+		
+
+
+
+!!"#!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+			
+
+
+
+
+
+			
+
+
+												
+
+
+									
+
+
+																																																									
+   "$#%$&(+"$"$! "#
+			
+  ""!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+			
+
+
+						
+
+
+						
+
+
+			
+
+
+
+
+
+												
+
+
+																																																															
+
+  !!  #%$&"#"#&(&(#$   	
+		
+
+! "! "!"!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	[
+["0","\u0000",128],
+["a1","｡",62],
+["8140","　、。，．・：；？！゛゜´｀¨＾￣＿ヽヾゝゞ〃仝々〆〇ー―‐／＼～∥｜…‥‘’“”（）〔〕［］｛｝〈",9,"＋－±×"],
+["8180","÷＝≠＜＞≦≧∞∴♂♀°′″℃￥＄￠￡％＃＆＊＠§☆★○●◎◇◆□■△▲▽▼※〒→←↑↓〓"],
+["81b8","∈∋⊆⊇⊂⊃∪∩"],
+["81c8","∧∨￢⇒⇔∀∃"],
+["81da","∠⊥⌒∂∇≡≒≪≫√∽∝∵∫∬"],
+["81f0","Å‰♯♭♪†‡¶"],
+["81fc","◯"],
+["824f","０",9],
+["8260","Ａ",25],
+["8281","ａ",25],
+["829f","ぁ",82],
+["8340","ァ",62],
+["8380","ム",22],
+["839f","Α",16,"Σ",6],
+["83bf","α",16,"σ",6],
+["8440","А",5,"ЁЖ",25],
+["8470","а",5,"ёж",7],
+["8480","о",17],
+["849f","─│┌┐┘└├┬┤┴┼━┃┏┓┛┗┣┳┫┻╋┠┯┨┷┿┝┰┥┸╂"],
+["8740","①",19,"Ⅰ",9],
+["875f","㍉㌔㌢㍍㌘㌧㌃㌶㍑㍗㌍㌦㌣㌫㍊㌻㎜㎝㎞㎎㎏㏄㎡"],
+["877e","㍻"],
+["8780","〝〟№㏍℡㊤",4,"㈱㈲㈹㍾㍽㍼≒≡∫∮∑√⊥∠∟⊿∵∩∪"],
+["889f","亜唖娃阿哀愛挨姶逢葵茜穐悪握渥旭葦芦鯵梓圧斡扱宛姐虻飴絢綾鮎或粟袷安庵按暗案闇鞍杏以伊位依偉囲夷委威尉惟意慰易椅為畏異移維緯胃萎衣謂違遺医井亥域育郁磯一壱溢逸稲茨芋鰯允印咽員因姻引飲淫胤蔭"],
+["8940","院陰隠韻吋右宇烏羽迂雨卯鵜窺丑碓臼渦嘘唄欝蔚鰻姥厩浦瓜閏噂云運雲荏餌叡営嬰影映曳栄永泳洩瑛盈穎頴英衛詠鋭液疫益駅悦謁越閲榎厭円"],
+["8980","園堰奄宴延怨掩援沿演炎焔煙燕猿縁艶苑薗遠鉛鴛塩於汚甥凹央奥往応押旺横欧殴王翁襖鴬鴎黄岡沖荻億屋憶臆桶牡乙俺卸恩温穏音下化仮何伽価佳加可嘉夏嫁家寡科暇果架歌河火珂禍禾稼箇花苛茄荷華菓蝦課嘩貨迦過霞蚊俄峨我牙画臥芽蛾賀雅餓駕介会解回塊壊廻快怪悔恢懐戒拐改"],
+["8a40","魁晦械海灰界皆絵芥蟹開階貝凱劾外咳害崖慨概涯碍蓋街該鎧骸浬馨蛙垣柿蛎鈎劃嚇各廓拡撹格核殻獲確穫覚角赫較郭閣隔革学岳楽額顎掛笠樫"],
+["8a80","橿梶鰍潟割喝恰括活渇滑葛褐轄且鰹叶椛樺鞄株兜竃蒲釜鎌噛鴨栢茅萱粥刈苅瓦乾侃冠寒刊勘勧巻喚堪姦完官寛干幹患感慣憾換敢柑桓棺款歓汗漢澗潅環甘監看竿管簡緩缶翰肝艦莞観諌貫還鑑間閑関陥韓館舘丸含岸巌玩癌眼岩翫贋雁頑顔願企伎危喜器基奇嬉寄岐希幾忌揮机旗既期棋棄"],
+["8b40","機帰毅気汽畿祈季稀紀徽規記貴起軌輝飢騎鬼亀偽儀妓宜戯技擬欺犠疑祇義蟻誼議掬菊鞠吉吃喫桔橘詰砧杵黍却客脚虐逆丘久仇休及吸宮弓急救"],
+["8b80","朽求汲泣灸球究窮笈級糾給旧牛去居巨拒拠挙渠虚許距鋸漁禦魚亨享京供侠僑兇競共凶協匡卿叫喬境峡強彊怯恐恭挟教橋況狂狭矯胸脅興蕎郷鏡響饗驚仰凝尭暁業局曲極玉桐粁僅勤均巾錦斤欣欽琴禁禽筋緊芹菌衿襟謹近金吟銀九倶句区狗玖矩苦躯駆駈駒具愚虞喰空偶寓遇隅串櫛釧屑屈"],
+["8c40","掘窟沓靴轡窪熊隈粂栗繰桑鍬勲君薫訓群軍郡卦袈祁係傾刑兄啓圭珪型契形径恵慶慧憩掲携敬景桂渓畦稽系経継繋罫茎荊蛍計詣警軽頚鶏芸迎鯨"],
+["8c80","劇戟撃激隙桁傑欠決潔穴結血訣月件倹倦健兼券剣喧圏堅嫌建憲懸拳捲検権牽犬献研硯絹県肩見謙賢軒遣鍵険顕験鹸元原厳幻弦減源玄現絃舷言諺限乎個古呼固姑孤己庫弧戸故枯湖狐糊袴股胡菰虎誇跨鈷雇顧鼓五互伍午呉吾娯後御悟梧檎瑚碁語誤護醐乞鯉交佼侯候倖光公功効勾厚口向"],
+["8d40","后喉坑垢好孔孝宏工巧巷幸広庚康弘恒慌抗拘控攻昂晃更杭校梗構江洪浩港溝甲皇硬稿糠紅紘絞綱耕考肯肱腔膏航荒行衡講貢購郊酵鉱砿鋼閤降"],
+["8d80","項香高鴻剛劫号合壕拷濠豪轟麹克刻告国穀酷鵠黒獄漉腰甑忽惚骨狛込此頃今困坤墾婚恨懇昏昆根梱混痕紺艮魂些佐叉唆嵯左差査沙瑳砂詐鎖裟坐座挫債催再最哉塞妻宰彩才採栽歳済災采犀砕砦祭斎細菜裁載際剤在材罪財冴坂阪堺榊肴咲崎埼碕鷺作削咋搾昨朔柵窄策索錯桜鮭笹匙冊刷"],
+["8e40","察拶撮擦札殺薩雑皐鯖捌錆鮫皿晒三傘参山惨撒散桟燦珊産算纂蚕讃賛酸餐斬暫残仕仔伺使刺司史嗣四士始姉姿子屍市師志思指支孜斯施旨枝止"],
+["8e80","死氏獅祉私糸紙紫肢脂至視詞詩試誌諮資賜雌飼歯事似侍児字寺慈持時次滋治爾璽痔磁示而耳自蒔辞汐鹿式識鴫竺軸宍雫七叱執失嫉室悉湿漆疾質実蔀篠偲柴芝屡蕊縞舎写射捨赦斜煮社紗者謝車遮蛇邪借勺尺杓灼爵酌釈錫若寂弱惹主取守手朱殊狩珠種腫趣酒首儒受呪寿授樹綬需囚収周"],
+["8f40","宗就州修愁拾洲秀秋終繍習臭舟蒐衆襲讐蹴輯週酋酬集醜什住充十従戎柔汁渋獣縦重銃叔夙宿淑祝縮粛塾熟出術述俊峻春瞬竣舜駿准循旬楯殉淳"],
+["8f80","準潤盾純巡遵醇順処初所暑曙渚庶緒署書薯藷諸助叙女序徐恕鋤除傷償勝匠升召哨商唱嘗奨妾娼宵将小少尚庄床廠彰承抄招掌捷昇昌昭晶松梢樟樵沼消渉湘焼焦照症省硝礁祥称章笑粧紹肖菖蒋蕉衝裳訟証詔詳象賞醤鉦鍾鐘障鞘上丈丞乗冗剰城場壌嬢常情擾条杖浄状畳穣蒸譲醸錠嘱埴飾"],
+["9040","拭植殖燭織職色触食蝕辱尻伸信侵唇娠寝審心慎振新晋森榛浸深申疹真神秦紳臣芯薪親診身辛進針震人仁刃塵壬尋甚尽腎訊迅陣靭笥諏須酢図厨"],
+["9080","逗吹垂帥推水炊睡粋翠衰遂酔錐錘随瑞髄崇嵩数枢趨雛据杉椙菅頗雀裾澄摺寸世瀬畝是凄制勢姓征性成政整星晴棲栖正清牲生盛精聖声製西誠誓請逝醒青静斉税脆隻席惜戚斥昔析石積籍績脊責赤跡蹟碩切拙接摂折設窃節説雪絶舌蝉仙先千占宣専尖川戦扇撰栓栴泉浅洗染潜煎煽旋穿箭線"],
+["9140","繊羨腺舛船薦詮賎践選遷銭銑閃鮮前善漸然全禅繕膳糎噌塑岨措曾曽楚狙疏疎礎祖租粗素組蘇訴阻遡鼠僧創双叢倉喪壮奏爽宋層匝惣想捜掃挿掻"],
+["9180","操早曹巣槍槽漕燥争痩相窓糟総綜聡草荘葬蒼藻装走送遭鎗霜騒像増憎臓蔵贈造促側則即息捉束測足速俗属賊族続卒袖其揃存孫尊損村遜他多太汰詑唾堕妥惰打柁舵楕陀駄騨体堆対耐岱帯待怠態戴替泰滞胎腿苔袋貸退逮隊黛鯛代台大第醍題鷹滝瀧卓啄宅托択拓沢濯琢託鐸濁諾茸凧蛸只"],
+["9240","叩但達辰奪脱巽竪辿棚谷狸鱈樽誰丹単嘆坦担探旦歎淡湛炭短端箪綻耽胆蛋誕鍛団壇弾断暖檀段男談値知地弛恥智池痴稚置致蜘遅馳築畜竹筑蓄"],
+["9280","逐秩窒茶嫡着中仲宙忠抽昼柱注虫衷註酎鋳駐樗瀦猪苧著貯丁兆凋喋寵帖帳庁弔張彫徴懲挑暢朝潮牒町眺聴脹腸蝶調諜超跳銚長頂鳥勅捗直朕沈珍賃鎮陳津墜椎槌追鎚痛通塚栂掴槻佃漬柘辻蔦綴鍔椿潰坪壷嬬紬爪吊釣鶴亭低停偵剃貞呈堤定帝底庭廷弟悌抵挺提梯汀碇禎程締艇訂諦蹄逓"],
+["9340","邸鄭釘鼎泥摘擢敵滴的笛適鏑溺哲徹撤轍迭鉄典填天展店添纏甜貼転顛点伝殿澱田電兎吐堵塗妬屠徒斗杜渡登菟賭途都鍍砥砺努度土奴怒倒党冬"],
+["9380","凍刀唐塔塘套宕島嶋悼投搭東桃梼棟盗淘湯涛灯燈当痘祷等答筒糖統到董蕩藤討謄豆踏逃透鐙陶頭騰闘働動同堂導憧撞洞瞳童胴萄道銅峠鴇匿得徳涜特督禿篤毒独読栃橡凸突椴届鳶苫寅酉瀞噸屯惇敦沌豚遁頓呑曇鈍奈那内乍凪薙謎灘捺鍋楢馴縄畷南楠軟難汝二尼弐迩匂賑肉虹廿日乳入"],
+["9440","如尿韮任妊忍認濡禰祢寧葱猫熱年念捻撚燃粘乃廼之埜嚢悩濃納能脳膿農覗蚤巴把播覇杷波派琶破婆罵芭馬俳廃拝排敗杯盃牌背肺輩配倍培媒梅"],
+["9480","楳煤狽買売賠陪這蝿秤矧萩伯剥博拍柏泊白箔粕舶薄迫曝漠爆縛莫駁麦函箱硲箸肇筈櫨幡肌畑畠八鉢溌発醗髪伐罰抜筏閥鳩噺塙蛤隼伴判半反叛帆搬斑板氾汎版犯班畔繁般藩販範釆煩頒飯挽晩番盤磐蕃蛮匪卑否妃庇彼悲扉批披斐比泌疲皮碑秘緋罷肥被誹費避非飛樋簸備尾微枇毘琵眉美"],
+["9540","鼻柊稗匹疋髭彦膝菱肘弼必畢筆逼桧姫媛紐百謬俵彪標氷漂瓢票表評豹廟描病秒苗錨鋲蒜蛭鰭品彬斌浜瀕貧賓頻敏瓶不付埠夫婦富冨布府怖扶敷"],
+["9580","斧普浮父符腐膚芙譜負賦赴阜附侮撫武舞葡蕪部封楓風葺蕗伏副復幅服福腹複覆淵弗払沸仏物鮒分吻噴墳憤扮焚奮粉糞紛雰文聞丙併兵塀幣平弊柄並蔽閉陛米頁僻壁癖碧別瞥蔑箆偏変片篇編辺返遍便勉娩弁鞭保舗鋪圃捕歩甫補輔穂募墓慕戊暮母簿菩倣俸包呆報奉宝峰峯崩庖抱捧放方朋"],
+["9640","法泡烹砲縫胞芳萌蓬蜂褒訪豊邦鋒飽鳳鵬乏亡傍剖坊妨帽忘忙房暴望某棒冒紡肪膨謀貌貿鉾防吠頬北僕卜墨撲朴牧睦穆釦勃没殆堀幌奔本翻凡盆"],
+["9680","摩磨魔麻埋妹昧枚毎哩槙幕膜枕鮪柾鱒桝亦俣又抹末沫迄侭繭麿万慢満漫蔓味未魅巳箕岬密蜜湊蓑稔脈妙粍民眠務夢無牟矛霧鵡椋婿娘冥名命明盟迷銘鳴姪牝滅免棉綿緬面麺摸模茂妄孟毛猛盲網耗蒙儲木黙目杢勿餅尤戻籾貰問悶紋門匁也冶夜爺耶野弥矢厄役約薬訳躍靖柳薮鑓愉愈油癒"],
+["9740","諭輸唯佑優勇友宥幽悠憂揖有柚湧涌猶猷由祐裕誘遊邑郵雄融夕予余与誉輿預傭幼妖容庸揚揺擁曜楊様洋溶熔用窯羊耀葉蓉要謡踊遥陽養慾抑欲"],
+["9780","沃浴翌翼淀羅螺裸来莱頼雷洛絡落酪乱卵嵐欄濫藍蘭覧利吏履李梨理璃痢裏裡里離陸律率立葎掠略劉流溜琉留硫粒隆竜龍侶慮旅虜了亮僚両凌寮料梁涼猟療瞭稜糧良諒遼量陵領力緑倫厘林淋燐琳臨輪隣鱗麟瑠塁涙累類令伶例冷励嶺怜玲礼苓鈴隷零霊麗齢暦歴列劣烈裂廉恋憐漣煉簾練聯"],
+["9840","蓮連錬呂魯櫓炉賂路露労婁廊弄朗楼榔浪漏牢狼篭老聾蝋郎六麓禄肋録論倭和話歪賄脇惑枠鷲亙亘鰐詫藁蕨椀湾碗腕"],
+["989f","弌丐丕个丱丶丼丿乂乖乘亂亅豫亊舒弍于亞亟亠亢亰亳亶从仍仄仆仂仗仞仭仟价伉佚估佛佝佗佇佶侈侏侘佻佩佰侑佯來侖儘俔俟俎俘俛俑俚俐俤俥倚倨倔倪倥倅伜俶倡倩倬俾俯們倆偃假會偕偐偈做偖偬偸傀傚傅傴傲"],
+["9940","僉僊傳僂僖僞僥僭僣僮價僵儉儁儂儖儕儔儚儡儺儷儼儻儿兀兒兌兔兢竸兩兪兮冀冂囘册冉冏冑冓冕冖冤冦冢冩冪冫决冱冲冰况冽凅凉凛几處凩凭"],
+["9980","凰凵凾刄刋刔刎刧刪刮刳刹剏剄剋剌剞剔剪剴剩剳剿剽劍劔劒剱劈劑辨辧劬劭劼劵勁勍勗勞勣勦飭勠勳勵勸勹匆匈甸匍匐匏匕匚匣匯匱匳匸區卆卅丗卉卍凖卞卩卮夘卻卷厂厖厠厦厥厮厰厶參簒雙叟曼燮叮叨叭叺吁吽呀听吭吼吮吶吩吝呎咏呵咎呟呱呷呰咒呻咀呶咄咐咆哇咢咸咥咬哄哈咨"],
+["9a40","咫哂咤咾咼哘哥哦唏唔哽哮哭哺哢唹啀啣啌售啜啅啖啗唸唳啝喙喀咯喊喟啻啾喘喞單啼喃喩喇喨嗚嗅嗟嗄嗜嗤嗔嘔嗷嘖嗾嗽嘛嗹噎噐營嘴嘶嘲嘸"],
+["9a80","噫噤嘯噬噪嚆嚀嚊嚠嚔嚏嚥嚮嚶嚴囂嚼囁囃囀囈囎囑囓囗囮囹圀囿圄圉圈國圍圓團圖嗇圜圦圷圸坎圻址坏坩埀垈坡坿垉垓垠垳垤垪垰埃埆埔埒埓堊埖埣堋堙堝塲堡塢塋塰毀塒堽塹墅墹墟墫墺壞墻墸墮壅壓壑壗壙壘壥壜壤壟壯壺壹壻壼壽夂夊夐夛梦夥夬夭夲夸夾竒奕奐奎奚奘奢奠奧奬奩"],
+["9b40","奸妁妝佞侫妣妲姆姨姜妍姙姚娥娟娑娜娉娚婀婬婉娵娶婢婪媚媼媾嫋嫂媽嫣嫗嫦嫩嫖嫺嫻嬌嬋嬖嬲嫐嬪嬶嬾孃孅孀孑孕孚孛孥孩孰孳孵學斈孺宀"],
+["9b80","它宦宸寃寇寉寔寐寤實寢寞寥寫寰寶寳尅將專對尓尠尢尨尸尹屁屆屎屓屐屏孱屬屮乢屶屹岌岑岔妛岫岻岶岼岷峅岾峇峙峩峽峺峭嶌峪崋崕崗嵜崟崛崑崔崢崚崙崘嵌嵒嵎嵋嵬嵳嵶嶇嶄嶂嶢嶝嶬嶮嶽嶐嶷嶼巉巍巓巒巖巛巫已巵帋帚帙帑帛帶帷幄幃幀幎幗幔幟幢幤幇幵并幺麼广庠廁廂廈廐廏"],
+["9c40","廖廣廝廚廛廢廡廨廩廬廱廳廰廴廸廾弃弉彝彜弋弑弖弩弭弸彁彈彌彎弯彑彖彗彙彡彭彳彷徃徂彿徊很徑徇從徙徘徠徨徭徼忖忻忤忸忱忝悳忿怡恠"],
+["9c80","怙怐怩怎怱怛怕怫怦怏怺恚恁恪恷恟恊恆恍恣恃恤恂恬恫恙悁悍惧悃悚悄悛悖悗悒悧悋惡悸惠惓悴忰悽惆悵惘慍愕愆惶惷愀惴惺愃愡惻惱愍愎慇愾愨愧慊愿愼愬愴愽慂慄慳慷慘慙慚慫慴慯慥慱慟慝慓慵憙憖憇憬憔憚憊憑憫憮懌懊應懷懈懃懆憺懋罹懍懦懣懶懺懴懿懽懼懾戀戈戉戍戌戔戛"],
+["9d40","戞戡截戮戰戲戳扁扎扞扣扛扠扨扼抂抉找抒抓抖拔抃抔拗拑抻拏拿拆擔拈拜拌拊拂拇抛拉挌拮拱挧挂挈拯拵捐挾捍搜捏掖掎掀掫捶掣掏掉掟掵捫"],
+["9d80","捩掾揩揀揆揣揉插揶揄搖搴搆搓搦搶攝搗搨搏摧摯摶摎攪撕撓撥撩撈撼據擒擅擇撻擘擂擱擧舉擠擡抬擣擯攬擶擴擲擺攀擽攘攜攅攤攣攫攴攵攷收攸畋效敖敕敍敘敞敝敲數斂斃變斛斟斫斷旃旆旁旄旌旒旛旙无旡旱杲昊昃旻杳昵昶昴昜晏晄晉晁晞晝晤晧晨晟晢晰暃暈暎暉暄暘暝曁暹曉暾暼"],
+["9e40","曄暸曖曚曠昿曦曩曰曵曷朏朖朞朦朧霸朮朿朶杁朸朷杆杞杠杙杣杤枉杰枩杼杪枌枋枦枡枅枷柯枴柬枳柩枸柤柞柝柢柮枹柎柆柧檜栞框栩桀桍栲桎"],
+["9e80","梳栫桙档桷桿梟梏梭梔條梛梃檮梹桴梵梠梺椏梍桾椁棊椈棘椢椦棡椌棍棔棧棕椶椒椄棗棣椥棹棠棯椨椪椚椣椡棆楹楷楜楸楫楔楾楮椹楴椽楙椰楡楞楝榁楪榲榮槐榿槁槓榾槎寨槊槝榻槃榧樮榑榠榜榕榴槞槨樂樛槿權槹槲槧樅榱樞槭樔槫樊樒櫁樣樓橄樌橲樶橸橇橢橙橦橈樸樢檐檍檠檄檢檣"],
+["9f40","檗蘗檻櫃櫂檸檳檬櫞櫑櫟檪櫚櫪櫻欅蘖櫺欒欖鬱欟欸欷盜欹飮歇歃歉歐歙歔歛歟歡歸歹歿殀殄殃殍殘殕殞殤殪殫殯殲殱殳殷殼毆毋毓毟毬毫毳毯"],
+["9f80","麾氈氓气氛氤氣汞汕汢汪沂沍沚沁沛汾汨汳沒沐泄泱泓沽泗泅泝沮沱沾沺泛泯泙泪洟衍洶洫洽洸洙洵洳洒洌浣涓浤浚浹浙涎涕濤涅淹渕渊涵淇淦涸淆淬淞淌淨淒淅淺淙淤淕淪淮渭湮渮渙湲湟渾渣湫渫湶湍渟湃渺湎渤滿渝游溂溪溘滉溷滓溽溯滄溲滔滕溏溥滂溟潁漑灌滬滸滾漿滲漱滯漲滌"],
+["e040","漾漓滷澆潺潸澁澀潯潛濳潭澂潼潘澎澑濂潦澳澣澡澤澹濆澪濟濕濬濔濘濱濮濛瀉瀋濺瀑瀁瀏濾瀛瀚潴瀝瀘瀟瀰瀾瀲灑灣炙炒炯烱炬炸炳炮烟烋烝"],
+["e080","烙焉烽焜焙煥煕熈煦煢煌煖煬熏燻熄熕熨熬燗熹熾燒燉燔燎燠燬燧燵燼燹燿爍爐爛爨爭爬爰爲爻爼爿牀牆牋牘牴牾犂犁犇犒犖犢犧犹犲狃狆狄狎狒狢狠狡狹狷倏猗猊猜猖猝猴猯猩猥猾獎獏默獗獪獨獰獸獵獻獺珈玳珎玻珀珥珮珞璢琅瑯琥珸琲琺瑕琿瑟瑙瑁瑜瑩瑰瑣瑪瑶瑾璋璞璧瓊瓏瓔珱"],
+["e140","瓠瓣瓧瓩瓮瓲瓰瓱瓸瓷甄甃甅甌甎甍甕甓甞甦甬甼畄畍畊畉畛畆畚畩畤畧畫畭畸當疆疇畴疊疉疂疔疚疝疥疣痂疳痃疵疽疸疼疱痍痊痒痙痣痞痾痿"],
+["e180","痼瘁痰痺痲痳瘋瘍瘉瘟瘧瘠瘡瘢瘤瘴瘰瘻癇癈癆癜癘癡癢癨癩癪癧癬癰癲癶癸發皀皃皈皋皎皖皓皙皚皰皴皸皹皺盂盍盖盒盞盡盥盧盪蘯盻眈眇眄眩眤眞眥眦眛眷眸睇睚睨睫睛睥睿睾睹瞎瞋瞑瞠瞞瞰瞶瞹瞿瞼瞽瞻矇矍矗矚矜矣矮矼砌砒礦砠礪硅碎硴碆硼碚碌碣碵碪碯磑磆磋磔碾碼磅磊磬"],
+["e240","磧磚磽磴礇礒礑礙礬礫祀祠祗祟祚祕祓祺祿禊禝禧齋禪禮禳禹禺秉秕秧秬秡秣稈稍稘稙稠稟禀稱稻稾稷穃穗穉穡穢穩龝穰穹穽窈窗窕窘窖窩竈窰"],
+["e280","窶竅竄窿邃竇竊竍竏竕竓站竚竝竡竢竦竭竰笂笏笊笆笳笘笙笞笵笨笶筐筺笄筍笋筌筅筵筥筴筧筰筱筬筮箝箘箟箍箜箚箋箒箏筝箙篋篁篌篏箴篆篝篩簑簔篦篥籠簀簇簓篳篷簗簍篶簣簧簪簟簷簫簽籌籃籔籏籀籐籘籟籤籖籥籬籵粃粐粤粭粢粫粡粨粳粲粱粮粹粽糀糅糂糘糒糜糢鬻糯糲糴糶糺紆"],
+["e340","紂紜紕紊絅絋紮紲紿紵絆絳絖絎絲絨絮絏絣經綉絛綏絽綛綺綮綣綵緇綽綫總綢綯緜綸綟綰緘緝緤緞緻緲緡縅縊縣縡縒縱縟縉縋縢繆繦縻縵縹繃縷"],
+["e380","縲縺繧繝繖繞繙繚繹繪繩繼繻纃緕繽辮繿纈纉續纒纐纓纔纖纎纛纜缸缺罅罌罍罎罐网罕罔罘罟罠罨罩罧罸羂羆羃羈羇羌羔羞羝羚羣羯羲羹羮羶羸譱翅翆翊翕翔翡翦翩翳翹飜耆耄耋耒耘耙耜耡耨耿耻聊聆聒聘聚聟聢聨聳聲聰聶聹聽聿肄肆肅肛肓肚肭冐肬胛胥胙胝胄胚胖脉胯胱脛脩脣脯腋"],
+["e440","隋腆脾腓腑胼腱腮腥腦腴膃膈膊膀膂膠膕膤膣腟膓膩膰膵膾膸膽臀臂膺臉臍臑臙臘臈臚臟臠臧臺臻臾舁舂舅與舊舍舐舖舩舫舸舳艀艙艘艝艚艟艤"],
+["e480","艢艨艪艫舮艱艷艸艾芍芒芫芟芻芬苡苣苟苒苴苳苺莓范苻苹苞茆苜茉苙茵茴茖茲茱荀茹荐荅茯茫茗茘莅莚莪莟莢莖茣莎莇莊荼莵荳荵莠莉莨菴萓菫菎菽萃菘萋菁菷萇菠菲萍萢萠莽萸蔆菻葭萪萼蕚蒄葷葫蒭葮蒂葩葆萬葯葹萵蓊葢蒹蒿蒟蓙蓍蒻蓚蓐蓁蓆蓖蒡蔡蓿蓴蔗蔘蔬蔟蔕蔔蓼蕀蕣蕘蕈"],
+["e540","蕁蘂蕋蕕薀薤薈薑薊薨蕭薔薛藪薇薜蕷蕾薐藉薺藏薹藐藕藝藥藜藹蘊蘓蘋藾藺蘆蘢蘚蘰蘿虍乕虔號虧虱蚓蚣蚩蚪蚋蚌蚶蚯蛄蛆蚰蛉蠣蚫蛔蛞蛩蛬"],
+["e580","蛟蛛蛯蜒蜆蜈蜀蜃蛻蜑蜉蜍蛹蜊蜴蜿蜷蜻蜥蜩蜚蝠蝟蝸蝌蝎蝴蝗蝨蝮蝙蝓蝣蝪蠅螢螟螂螯蟋螽蟀蟐雖螫蟄螳蟇蟆螻蟯蟲蟠蠏蠍蟾蟶蟷蠎蟒蠑蠖蠕蠢蠡蠱蠶蠹蠧蠻衄衂衒衙衞衢衫袁衾袞衵衽袵衲袂袗袒袮袙袢袍袤袰袿袱裃裄裔裘裙裝裹褂裼裴裨裲褄褌褊褓襃褞褥褪褫襁襄褻褶褸襌褝襠襞"],
+["e640","襦襤襭襪襯襴襷襾覃覈覊覓覘覡覩覦覬覯覲覺覽覿觀觚觜觝觧觴觸訃訖訐訌訛訝訥訶詁詛詒詆詈詼詭詬詢誅誂誄誨誡誑誥誦誚誣諄諍諂諚諫諳諧"],
+["e680","諤諱謔諠諢諷諞諛謌謇謚諡謖謐謗謠謳鞫謦謫謾謨譁譌譏譎證譖譛譚譫譟譬譯譴譽讀讌讎讒讓讖讙讚谺豁谿豈豌豎豐豕豢豬豸豺貂貉貅貊貍貎貔豼貘戝貭貪貽貲貳貮貶賈賁賤賣賚賽賺賻贄贅贊贇贏贍贐齎贓賍贔贖赧赭赱赳趁趙跂趾趺跏跚跖跌跛跋跪跫跟跣跼踈踉跿踝踞踐踟蹂踵踰踴蹊"],
+["e740","蹇蹉蹌蹐蹈蹙蹤蹠踪蹣蹕蹶蹲蹼躁躇躅躄躋躊躓躑躔躙躪躡躬躰軆躱躾軅軈軋軛軣軼軻軫軾輊輅輕輒輙輓輜輟輛輌輦輳輻輹轅轂輾轌轉轆轎轗轜"],
+["e780","轢轣轤辜辟辣辭辯辷迚迥迢迪迯邇迴逅迹迺逑逕逡逍逞逖逋逧逶逵逹迸遏遐遑遒逎遉逾遖遘遞遨遯遶隨遲邂遽邁邀邊邉邏邨邯邱邵郢郤扈郛鄂鄒鄙鄲鄰酊酖酘酣酥酩酳酲醋醉醂醢醫醯醪醵醴醺釀釁釉釋釐釖釟釡釛釼釵釶鈞釿鈔鈬鈕鈑鉞鉗鉅鉉鉤鉈銕鈿鉋鉐銜銖銓銛鉚鋏銹銷鋩錏鋺鍄錮"],
+["e840","錙錢錚錣錺錵錻鍜鍠鍼鍮鍖鎰鎬鎭鎔鎹鏖鏗鏨鏥鏘鏃鏝鏐鏈鏤鐚鐔鐓鐃鐇鐐鐶鐫鐵鐡鐺鑁鑒鑄鑛鑠鑢鑞鑪鈩鑰鑵鑷鑽鑚鑼鑾钁鑿閂閇閊閔閖閘閙"],
+["e880","閠閨閧閭閼閻閹閾闊濶闃闍闌闕闔闖關闡闥闢阡阨阮阯陂陌陏陋陷陜陞陝陟陦陲陬隍隘隕隗險隧隱隲隰隴隶隸隹雎雋雉雍襍雜霍雕雹霄霆霈霓霎霑霏霖霙霤霪霰霹霽霾靄靆靈靂靉靜靠靤靦靨勒靫靱靹鞅靼鞁靺鞆鞋鞏鞐鞜鞨鞦鞣鞳鞴韃韆韈韋韜韭齏韲竟韶韵頏頌頸頤頡頷頽顆顏顋顫顯顰"],
+["e940","顱顴顳颪颯颱颶飄飃飆飩飫餃餉餒餔餘餡餝餞餤餠餬餮餽餾饂饉饅饐饋饑饒饌饕馗馘馥馭馮馼駟駛駝駘駑駭駮駱駲駻駸騁騏騅駢騙騫騷驅驂驀驃"],
+["e980","騾驕驍驛驗驟驢驥驤驩驫驪骭骰骼髀髏髑髓體髞髟髢髣髦髯髫髮髴髱髷髻鬆鬘鬚鬟鬢鬣鬥鬧鬨鬩鬪鬮鬯鬲魄魃魏魍魎魑魘魴鮓鮃鮑鮖鮗鮟鮠鮨鮴鯀鯊鮹鯆鯏鯑鯒鯣鯢鯤鯔鯡鰺鯲鯱鯰鰕鰔鰉鰓鰌鰆鰈鰒鰊鰄鰮鰛鰥鰤鰡鰰鱇鰲鱆鰾鱚鱠鱧鱶鱸鳧鳬鳰鴉鴈鳫鴃鴆鴪鴦鶯鴣鴟鵄鴕鴒鵁鴿鴾鵆鵈"],
+["ea40","鵝鵞鵤鵑鵐鵙鵲鶉鶇鶫鵯鵺鶚鶤鶩鶲鷄鷁鶻鶸鶺鷆鷏鷂鷙鷓鷸鷦鷭鷯鷽鸚鸛鸞鹵鹹鹽麁麈麋麌麒麕麑麝麥麩麸麪麭靡黌黎黏黐黔黜點黝黠黥黨黯"],
+["ea80","黴黶黷黹黻黼黽鼇鼈皷鼕鼡鼬鼾齊齒齔齣齟齠齡齦齧齬齪齷齲齶龕龜龠堯槇遙瑤凜熙"],
+["ed40","纊褜鍈銈蓜俉炻昱棈鋹曻彅丨仡仼伀伃伹佖侒侊侚侔俍偀倢俿倞偆偰偂傔僴僘兊兤冝冾凬刕劜劦勀勛匀匇匤卲厓厲叝﨎咜咊咩哿喆坙坥垬埈埇﨏"],
+["ed80","塚增墲夋奓奛奝奣妤妺孖寀甯寘寬尞岦岺峵崧嵓﨑嵂嵭嶸嶹巐弡弴彧德忞恝悅悊惞惕愠惲愑愷愰憘戓抦揵摠撝擎敎昀昕昻昉昮昞昤晥晗晙晴晳暙暠暲暿曺朎朗杦枻桒柀栁桄棏﨓楨﨔榘槢樰橫橆橳橾櫢櫤毖氿汜沆汯泚洄涇浯涖涬淏淸淲淼渹湜渧渼溿澈澵濵瀅瀇瀨炅炫焏焄煜煆煇凞燁燾犱"],
+["ee40","犾猤猪獷玽珉珖珣珒琇珵琦琪琩琮瑢璉璟甁畯皂皜皞皛皦益睆劯砡硎硤硺礰礼神祥禔福禛竑竧靖竫箞精絈絜綷綠緖繒罇羡羽茁荢荿菇菶葈蒴蕓蕙"],
+["ee80","蕫﨟薰蘒﨡蠇裵訒訷詹誧誾諟諸諶譓譿賰賴贒赶﨣軏﨤逸遧郞都鄕鄧釚釗釞釭釮釤釥鈆鈐鈊鈺鉀鈼鉎鉙鉑鈹鉧銧鉷鉸鋧鋗鋙鋐﨧鋕鋠鋓錥錡鋻﨨錞鋿錝錂鍰鍗鎤鏆鏞鏸鐱鑅鑈閒隆﨩隝隯霳霻靃靍靏靑靕顗顥飯飼餧館馞驎髙髜魵魲鮏鮱鮻鰀鵰鵫鶴鸙黑"],
+["eeef","ⅰ",9,"￢￤＇＂"],
+["f040","",62],
+["f080","",124],
+["f140","",62],
+["f180","",124],
+["f240","",62],
+["f280","",124],
+["f340","",62],
+["f380","",124],
+["f440","",62],
+["f480","",124],
+["f540","",62],
+["f580","",124],
+["f640","",62],
+["f680","",124],
+["f740","",62],
+["f780","",124],
+["f840","",62],
+["f880","",124],
+["f940",""],
+["fa40","ⅰ",9,"Ⅰ",9,"￢￤＇＂㈱№℡∵纊褜鍈銈蓜俉炻昱棈鋹曻彅丨仡仼伀伃伹佖侒侊侚侔俍偀倢俿倞偆偰偂傔僴僘兊"],
+["fa80","兤冝冾凬刕劜劦勀勛匀匇匤卲厓厲叝﨎咜咊咩哿喆坙坥垬埈埇﨏塚增墲夋奓奛奝奣妤妺孖寀甯寘寬尞岦岺峵崧嵓﨑嵂嵭嶸嶹巐弡弴彧德忞恝悅悊惞惕愠惲愑愷愰憘戓抦揵摠撝擎敎昀昕昻昉昮昞昤晥晗晙晴晳暙暠暲暿曺朎朗杦枻桒柀栁桄棏﨓楨﨔榘槢樰橫橆橳橾櫢櫤毖氿汜沆汯泚洄涇浯"],
+["fb40","涖涬淏淸淲淼渹湜渧渼溿澈澵濵瀅瀇瀨炅炫焏焄煜煆煇凞燁燾犱犾猤猪獷玽珉珖珣珒琇珵琦琪琩琮瑢璉璟甁畯皂皜皞皛皦益睆劯砡硎硤硺礰礼神"],
+["fb80","祥禔福禛竑竧靖竫箞精絈絜綷綠緖繒罇羡羽茁荢荿菇菶葈蒴蕓蕙蕫﨟薰蘒﨡蠇裵訒訷詹誧誾諟諸諶譓譿賰賴贒赶﨣軏﨤逸遧郞都鄕鄧釚釗釞釭釮釤釥鈆鈐鈊鈺鉀鈼鉎鉙鉑鈹鉧銧鉷鉸鋧鋗鋙鋐﨧鋕鋠鋓錥錡鋻﨨錞鋿錝錂鍰鍗鎤鏆鏞鏸鐱鑅鑈閒隆﨩隝隯霳霻靃靍靏靑靕顗顥飯飼餧館馞驎髙"],
+["fc40","髜魵魲鮏鮱鮻鰀鵰鵫鶴鸙黑"]
+]
+                                                                                                                                                                                                                                                                                                    /34�-01��	������	�21�-?G�FKj��#%$��   ��
+��  �=T{�d���\x��i���a���J`��J[��Mc��=Sm�3>[�+2H�&-;�!#4�!,�%�#� ����'�"4�"*>�*9�&*<�1:� ���DGH�3                                                                                                                                                                                                                                                                                                      semver(1) -- The semantic versioner for npm
+===========================================
+
+## Install
+
+```bash
+npm install semver
+````
+
+## Usage
+
+As a node module:
+
+```js
+const semver = require('semver')
+
+semver.valid('1.2.3') // '1.2.3'
+semver.valid('a.b.c') // null
+semver.clean('  =v1.2.3   ') // '1.2.3'
+semver.satisfies('1.2.3', '1.x || >=2.5.0 || 5.0.0 - 7.2.3') // true
+semver.gt('1.2.3', '9.8.7') // false
+semver.lt('1.2.3', '9.8.7') // true
+semver.minVersion('>=1.0.0') // '1.0.0'
+semver.valid(semver.coerce('v2')) // '2.0.0'
+semver.valid(semver.coerce('42.6.7.9.3-alpha')) // '42.6.7'
+```
+
+As a command-line utility:
+
+```
+$ semver -h
+
+A JavaScript implementation of the https://semver.org/ specification
+Copyright Isaac Z. Schlueter
+
+Usage: semver [options] <version> [<version> [...]]
+Prints valid versions sorted by SemVer precedence
+
+Options:
+-r --range <range>
+        Print versions that match the specified range.
+
+-i --increment [<level>]
+        Increment a version by the specified level.  Level can
+        be one of: major, minor, patch, premajor, preminor,
+        prepatch, or prerelease.  Default level is 'patch'.
+        Only one version may be specified.
+
+--preid <identifier>
+        Identifier to be used to prefix premajor, preminor,
+        prepatch or prerelease version increments.
+
+-l --loose
+        Interpret versions and ranges loosely
+
+-p --include-prerelease
+        Always include prerelease versions in range matching
+
+-c --coerce
+        Coerce a string into SemVer if possible
+        (does not imply --loose)
+
+--rtl
+        Coerce version strings right to left
+
+--ltr
+        Coerce version strings left to right (default)
+
+Program exits successfully if any valid version satisfies
+all supplied ranges, and prints all satisfying versions.
+
+If no satisfying versions are found, then exits failure.
+
+Versions are printed in ascending order, so supplying
+multiple versions to the utility will just sort them.
+```
+
+## Versions
+
+A "version" is described by the `v2.0.0` specification found at
+<https://semver.org/>.
+
+A leading `"="` or `"v"` character is stripped off and ignored.
+
+## Ranges
+
+A `version range` is a set of `comparators` which specify versions
+that satisfy the range.
+
+A `comparator` is composed of an `operator` and a `version`.  The set
+of primitive `operators` is:
+
+* `<` Less than
+* `<=` Less than or equal to
+* `>` Greater than
+* `>=` Greater than or equal to
+* `=` Equal.  If no operator is specified, then equality is assumed,
+  so this operator is optional, but MAY be included.
+
+For example, the comparator `>=1.2.7` would match the versions
+`1.2.7`, `1.2.8`, `2.5.3`, and `1.3.9`, but not the versions `1.2.6`
+or `1.1.0`.
+
+Comparators can be joined by whitespace to form a `comparator set`,
+which is satisfied by the **intersection** of all of the comparators
+it includes.
+
+A range is composed of one or more comparator sets, joined by `||`.  A
+version matches a range if and only if every comparator in at least
+one of the `||`-separated comparator sets is satisfied by the version.
+
+For example, the range `>=1.2.7 <1.3.0` would match the versions
+`1.2.7`, `1.2.8`, and `1.2.99`, but not the versions `1.2.6`, `1.3.0`,
+or `1.1.0`.
+
+The range `1.2.7 || >=1.2.9 <2.0.0` would match the versions `1.2.7`,
+`1.2.9`, and `1.4.6`, but not the versions `1.2.8` or `2.0.0`.
+
+### Prerelease Tags
+
+If a version has a prerelease tag (for example, `1.2.3-alpha.3`) then
+it will only be allowed to satisfy comparator sets if at least one
+comparator with the same `[major, minor, patch]` tuple also has a
+prerelease tag.
+
+For example, the range `>1.2.3-alpha.3` would be allowed to match the
+version `1.2.3-alpha.7`, but it would *not* be satisfied by
+`3.4.5-alpha.9`, even though `3.4.5-alpha.9` is technically "greater
+than" `1.2.3-alpha.3` according to the SemVer sort rules.  The version
+range only accepts prerelease tags on the `1.2.3` version.  The
+version `3.4.5` *would* satisfy the range, because it does not have a
+prerelease flag, and `3.4.5` is greater than `1.2.3-alpha.7`.
+
+The purpose for this behavior is twofold.  First, prerelease versions
+frequently are updated very quickly, and contain many breaking changes
+that are (by the author's design) not yet fit for public consumption.
+Therefore, by default, they are excluded from range matching
+semantics.
+
+Second, a user who has opted into using a prerelease version has
+clearly indicated the intent to use *that specific* set of
+alpha/beta/rc versions.  By including a prerelease tag in the range,
+the user is indicating that they are aware of the risk.  However, it
+is still not appropriate to assume that they have opted into taking a
+similar risk on the *next* set of prerelease versions.
+
+Note that this behavior can be suppressed (treating all prerelease
+versions as if they were normal versions, for the purpose of range
+matching) by setting the `includePrerelease` flag on the options
+object to any
+[functions](https://github.com/npm/node-semver#functions) that do
+range matching.
+
+#### Prerelease Identifiers
+
+The method `.inc` takes an additional `identifier` string argument that
+will append the value of the string as a prerelease identifier:
+
+```javascript
+semver.inc('1.2.3', 'prerelease', 'beta')
+// '1.2.4-beta.0'
+```
+
+command-line example:
+
+```bash
+$ semver 1.2.3 -i prerelease --preid beta
+1.2.4-beta.0
+```
+
+Which then can be used to increment further:
+
+```bash
+$ semver 1.2.4-beta.0 -i prerelease
+1.2.4-beta.1
+```
+
+### Advanced Range Syntax
+
+Advanced range syntax desugars to primitive comparators in
+deterministic ways.
+
+Advanced ranges may be combined in the same way as primitive
+comparators using white space or `||`.
+
+#### Hyphen Ranges `X.Y.Z - A.B.C`
+
+Specifies an inclusive set.
+
+* `1.2.3 - 2.3.4` := `>=1.2.3 <=2.3.4`
+
+If a partial version is provided as the first version in the inclusive
+range, then the missing pieces are replaced with zeroes.
+
+* `1.2 - 2.3.4` := `>=1.2.0 <=2.3.4`
+
+If a partial version is provided as the second version in the
+inclusive range, then all versions that start with the supplied parts
+of the tuple are accepted, but nothing that would be greater than the
+provided tuple parts.
+
+* `1.2.3 - 2.3` := `>=1.2.3 <2.4.0`
+* `1.2.3 - 2` := `>=1.2.3 <3.0.0`
+
+#### X-Ranges `1.2.x` `1.X` `1.2.*` `*`
+
+Any of `X`, `x`, or `*` may be used to "stand in" for one of the
+numeric values in the `[major, minor, patch]` tuple.
+
+* `*` := `>=0.0.0` (Any version satisfies)
+* `1.x` := `>=1.0.0 <2.0.0` (Matching major version)
+* `1.2.x` := `>=1.2.0 <1.3.0` (Matching major and minor versions)
+
+A partial version range is treated as an X-Range, so the special
+character is in fact optional.
+
+* `""` (empty string) := `*` := `>=0.0.0`
+* `1` := `1.x.x` := `>=1.0.0 <2.0.0`
+* `1.2` := `1.2.x` := `>=1.2.0 <1.3.0`
+
+#### Tilde Ranges `~1.2.3` `~1.2` `~1`
+
+Allows patch-level changes if a minor version is specified on the
+comparator.  Allows minor-level changes if not.
+
+* `~1.2.3` := `>=1.2.3 <1.(2+1).0` := `>=1.2.3 <1.3.0`
+* `~1.2` := `>=1.2.0 <1.(2+1).0` := `>=1.2.0 <1.3.0` (Same as `1.2.x`)
+* `~1` := `>=1.0.0 <(1+1).0.0` := `>=1.0.0 <2.0.0` (Same as `1.x`)
+* `~0.2.3` := `>=0.2.3 <0.(2+1).0` := `>=0.2.3 <0.3.0`
+* `~0.2` := `>=0.2.0 <0.(2+1).0` := `>=0.2.0 <0.3.0` (Same as `0.2.x`)
+* `~0` := `>=0.0.0 <(0+1).0.0` := `>=0.0.0 <1.0.0` (Same as `0.x`)
+* `~1.2.3-beta.2` := `>=1.2.3-beta.2 <1.3.0` Note that prereleases in
+  the `1.2.3` version will be allowed, if they are greater than or
+  equal to `beta.2`.  So, `1.2.3-beta.4` would be allowed, but
+  `1.2.4-beta.2` would not, because it is a prerelease of a
+  different `[major, minor, patch]` tuple.
+
+#### Caret Ranges `^1.2.3` `^0.2.5` `^0.0.4`
+
+Allows changes that do not modify the left-most non-zero element in the
+`[major, minor, patch]` tuple.  In other words, this allows patch and
+minor updates for versions `1.0.0` and above, patch updates for
+versions `0.X >=0.1.0`, and *no* updates for versions `0.0.X`.
+
+Many authors treat a `0.x` version as if the `x` were the major
+"breaking-change" indicator.
+
+Caret ranges are ideal when an author may make breaking changes
+between `0.2.4` and `0.3.0` releases, which is a common practice.
+However, it presumes that there will *not* be breaking changes between
+`0.2.4` and `0.2.5`.  It allows for changes that are presumed to be
+additive (but non-breaking), according to commonly observed practices.
+
+* `^1.2.3` := `>=1.2.3 <2.0.0`
+* `^0.2.3` := `>=0.2.3 <0.3.0`
+* `^0.0.3` := `>=0.0.3 <0.0.4`
+* `^1.2.3-beta.2` := `>=1.2.3-beta.2 <2.0.0` Note that prereleases in
+  the `1.2.3` version will be allowed, if they are greater than or
+  equal to `beta.2`.  So, `1.2.3-beta.4` would be allowed, but
+  `1.2.4-beta.2` would not, because it is a prerelease of a
+  different `[major, minor, patch]` tuple.
+* `^0.0.3-beta` := `>=0.0.3-beta <0.0.4`  Note that prereleases in the
+  `0.0.3` version *only* will be allowed, if they are greater than or
+  equal to `beta`.  So, `0.0.3-pr.2` would be allowed.
+
+When parsing caret ranges, a missing `patch` value desugars to the
+number `0`, but will allow flexibility within that value, even if the
+major and minor versions are both `0`.
+
+* `^1.2.x` := `>=1.2.0 <2.0.0`
+* `^0.0.x` := `>=0.0.0 <0.1.0`
+* `^0.0` := `>=0.0.0 <0.1.0`
+
+A missing `minor` and `patch` values will desugar to zero, but also
+allow flexibility within those values, even if the major version is
+zero.
+
+* `^1.x` := `>=1.0.0 <2.0.0`
+* `^0.x` := `>=0.0.0 <1.0.0`
+
+### Range Grammar
+
+Putting all this together, here is a Backus-Naur grammar for ranges,
+for the benefit of parser authors:
+
+```bnf
+range-set  ::= range ( logical-or range ) *
+logical-or ::= ( ' ' ) * '||' ( ' ' ) *
+range      ::= hyphen | simple ( ' ' simple ) * | ''
+hyphen     ::= partial ' - ' partial
+simple     ::= primitive | partial | tilde | caret
+primitive  ::= ( '<' | '>' | '>=' | '<=' | '=' ) partial
+partial    ::= xr ( '.' xr ( '.' xr qualifier ? )? )?
+xr         ::= 'x' | 'X' | '*' | nr
+nr         ::= '0' | ['1'-'9'] ( ['0'-'9'] ) *
+tilde      ::= '~' partial
+caret      ::= '^' partial
+qualifier  ::= ( '-' pre )? ( '+' build )?
+pre        ::= parts
+build      ::= parts
+parts      ::= part ( '.' part ) *
+part       ::= nr | [-0-9A-Za-z]+
+```
+
+## Functions
+
+All methods and classes take a final `options` object argument.  All
+options in this object are `false` by default.  The options supported
+are:
+
+- `loose`  Be more forgiving about not-quite-valid semver strings.
+  (Any resulting output will always be 100% strict compliant, of
+  course.)  For backwards compatibility reasons, if the `options`
+  argument is a boolean value instead of an object, it is interpreted
+  to be the `loose` param.
+- `includePrerelease`  Set to suppress the [default
+  behavior](https://github.com/npm/node-semver#prerelease-tags) of
+  excluding prerelease tagged versions from ranges unless they are
+  explicitly opted into.
+
+Strict-mode Comparators and Ranges will be strict about the SemVer
+strings that they parse.
+
+* `valid(v)`: Return the parsed version, or null if it's not valid.
+* `inc(v, release)`: Return the version incremented by the release
+  type (`major`,   `premajor`, `minor`, `preminor`, `patch`,
+  `prepatch`, or `prerelease`), or null if it's not valid
+  * `premajor` in one call will bump the version up to the next major
+    version and down to a prerelease of that major version.
+    `preminor`, and `prepatch` work the same way.
+  * If called from a non-prerelease version, the `prerelease` will work the
+    same as `prepatch`. It increments the patch version, then makes a
+    prerelease. If the input version is already a prerelease it simply
+    increments it.
+* `prerelease(v)`: Returns an array of prerelease components, or null
+  if none exist. Example: `prerelease('1.2.3-alpha.1') -> ['alpha', 1]`
+* `major(v)`: Return the major version number.
+* `minor(v)`: Return the minor version number.
+* `patch(v)`: Return the patch version number.
+* `intersects(r1, r2, loose)`: Return true if the two supplied ranges
+  or comparators intersect.
+* `parse(v)`: Attempt to parse a string as a semantic version, returning either
+  a `SemVer` object or `null`.
+
+### Comparison
+
+* `gt(v1, v2)`: `v1 > v2`
+* `gte(v1, v2)`: `v1 >= v2`
+* `lt(v1, v2)`: `v1 < v2`
+* `lte(v1, v2)`: `v1 <= v2`
+* `eq(v1, v2)`: `v1 == v2` This is true if they're logically equivalent,
+  even if they're not the exact same string.  You already know how to
+  compare strings.
+* `neq(v1, v2)`: `v1 != v2` The opposite of `eq`.
+* `cmp(v1, comparator, v2)`: Pass in a comparison string, and it'll call
+  the corresponding function above.  `"==="` and `"!=="` do simple
+  string comparison, but are included for completeness.  Throws if an
+  invalid comparison string is provided.
+* `compare(v1, v2)`: Return `0` if `v1 == v2`, or `1` if `v1` is greater, or `-1` if
+  `v2` is greater.  Sorts in ascending order if passed to `Array.sort()`.
+* `rcompare(v1, v2)`: The reverse of compare.  Sorts an array of versions
+  in descending order when passed to `Array.sort()`.
+* `compareBuild(v1, v2)`: The same as `compare` but considers `build` when two versions
+  are equal.  Sorts in ascending order if passed to `Array.sort()`.
+  `v2` is greater.  Sorts in ascending order if passed to `Array.sort()`.
+* `diff(v1, v2)`: Returns difference between two versions by the release type
+  (`major`, `premajor`, `minor`, `preminor`, `patch`, `prepatch`, or `prerelease`),
+  or null if the versions are the same.
+
+### Comparators
+
+* `intersects(comparator)`: Return true if the comparators intersect
+
+### Ranges
+
+* `validRange(range)`: Return the valid range or null if it's not valid
+* `satisfies(version, range)`: Return true if the version satisfies the
+  range.
+* `maxSatisfying(versions, range)`: Return the highest version in the list
+  that satisfies the range, or `null` if none of them do.
+* `minSatisfying(versions, range)`: Return the lowest version in the list
+  that satisfies the range, or `null` if none of them do.
+* `minVersion(range)`: Return the lowest version that can possibly match
+  the given range.
+* `gtr(version, range)`: Return `true` if version is greater than all the
+  versions possible in the range.
+* `ltr(version, range)`: Return `true` if version is less than all the
+  versions possible in the range.
+* `outside(version, range, hilo)`: Return true if the version is outside
+  the bounds of the range in either the high or low direction.  The
+  `hilo` argument must be either the string `'>'` or `'<'`.  (This is
+  the function called by `gtr` and `ltr`.)
+* `intersects(range)`: Return true if any of the ranges comparators intersect
+
+Note that, since ranges may be non-contiguous, a version might not be
+greater than a range, less than a range, *or* satisfy a range!  For
+example, the range `1.2 <1.2.9 || >2.0.0` would have a hole from `1.2.9`
+until `2.0.0`, so the version `1.2.10` would not be greater than the
+range (because `2.0.1` satisfies, which is higher), nor less than the
+range (since `1.2.8` satisfies, which is lower), and it also does not
+satisfy the range.
+
+If you want to know if a version satisfies or does not satisfy a
+range, use the `satisfies(version, range)` function.
+
+### Coercion
+
+* `coerce(version, options)`: Coerces a string to semver if possible
+
+This aims to provide a very forgiving translation of a non-semver string to
+semver. It looks for the first digit in a string, and consumes all
+remaining characters which satisfy at least a partial semver (e.g., `1`,
+`1.2`, `1.2.3`) up to the max permitted length (256 characters).  Longer
+versions are simply truncated (`4.6.3.9.2-alpha2` becomes `4.6.3`).  All
+surrounding text is simply ignored (`v3.4 replaces v3.3.1` becomes
+`3.4.0`).  Only text which lacks digits will fail coercion (`version one`
+is not valid).  The maximum  length for any semver component considered for
+coercion is 16 characters; longer components will be ignored
+(`10000000000000000.4.7.4` becomes `4.7.4`).  The maximum value for any
+semver component is `Integer.MAX_SAFE_INTEGER || (2**53 - 1)`; higher value
+components are invalid (`9999999999999999.4.7.4` is likely invalid).
+
+If the `options.rtl` flag is set, then `coerce` will return the right-most
+coercible tuple that does not share an ending index with a longer coercible
+tuple.  For example, `1.2.3.4` will return `2.3.4` in rtl mode, not
+`4.0.0`.  `1.2.3/4` will return `4.0.0`, because the `4` is not a part of
+any other overlapping SemVer tuple.
+
+### Clean
+
+* `clean(version)`: Clean a string to be a valid semver if possible
+
+This will return a cleaned and trimmed semver version. If the provided version is not valid a null will be returned. This does not work for ranges. 
+
+ex.
+* `s.clean(' = v 2.1.5foo')`: `null`
+* `s.clean(' = v 2.1.5foo', { loose: true })`: `'2.1.5-foo'`
+* `s.clean(' = v 2.1.5-foo')`: `null`
+* `s.clean(' = v 2.1.5-foo', { loose: true })`: `'2.1.5-foo'`
+* `s.clean('=v2.1.5')`: `'2.1.5'`
+* `s.clean('  =v2.1.5')`: `2.1.5`
+* `s.clean('      2.1.5   ')`: `'2.1.5'`
+* `s.clean('~1.0.0')`: `null`
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  Q QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ QQQ QQQ QQQ PPP PPP QQQ QQQ PPP PPP QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ PPP PPP QQQ QQQ PPP QQQ QQQ PPP QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ RRR GIJO:@B�BIK�BIL�IPR�IQS�HOQ�HOR�JQS�JRT�W`c�OWY�JRT�JQS�JQT�IQS�FMP�FMO�ELN�EKM�CJL�BIK�BHJ�AGI�?EG�>DF�=CE�<BD�:@B�9?@�7<>�6<>�8>@�49;�056�6;=�KQR�SVQ�NQL�KMH�LMH�LMG�LMG�JJE�KLE�MNG�UUM�abY�llc�wyo���������lok���������������355�-;m�	=��K��G��F��A��9��<��C��C��A��=��=��9��
+2��	/��*z�'l�%g�]�Q�C�>� .� �� #%�KPU�]dk�V[a�?CG�QW\�@EI�7;>�GLP�./3�BEI�\ae�PUZ�=?D�?@E�<>C�9;?�8:>�:=?�DEFSSR QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ PPP QQQ QQQ PPP PPP PPP RRR IIJ/68=�	��		��:;;MTTT QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ MMM:>>�]fh�x���q}��nz}�ly|�nz~�p}��u�������y���v���v���{���{���{���|���}���������������������������������������������������������������������������������������������������������������������������������������[bd���������������acd�D`��
+\��w��t��s��r��t��n��k��g��g��m��n��k��e��a��]��\��]��c��b��^��g��Y��EXz�HIF�Z]cΗ�����������������������������������������������������������������������^^^OOO QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ RRQ FFJ�
+�
+
+��:::PTTT QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP PPP QQQ PPP PPP PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP PPP QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ PPP QQQ PPP Y\]1cij|]bc�]ce�_eg�`fg�bhj�dkm�eln�ipr�mtw�nuw�pxz�t|~�v~��x���y���}���������������������������������������������������������������������������������������������������������������������������������w[^^���---�IJK5HII@>@@x&)*�����������`t��)b��2v��5z��4z��4��3���2}��3}��4z��6}��6���9���9���8���6���5���4y��9{��?���>���<���A���@�����������iiiAFFE JII JII LKK JII KJJ LKK LLL MMM JJJ JII JJJ JJJ JJJ KJJ KJJ KJJ JJJ OOO QQQ QQQ PPP PPP QQQ PPP PPP QQQ QQQ QQQ PPP QQQ QQQ QQQ QQQ QQQ PPP QQQ PPP QQQ PPP PPP QQQ QQQ RRR NOP--2����999TTTT PPP QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQQ QQexports = module.exports = SemVer
+
+var debug
+/* istanbul ignore next */
+if (typeof process === 'object' &&
+    process.env &&
+    process.env.NODE_DEBUG &&
+    /\bsemver\b/i.test(process.env.NODE_DEBUG)) {
+  debug = function () {
+    var args = Array.prototype.slice.call(arguments, 0)
+    args.unshift('SEMVER')
+    console.log.apply(console, args)
+  }
+} else {
+  debug = function () {}
+}
+
+// Note: this is the semver.org version of the spec that it implements
+// Not necessarily the package version of this code.
+exports.SEMVER_SPEC_VERSION = '2.0.0'
+
+var MAX_LENGTH = 256
+var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER ||
+  /* istanbul ignore next */ 9007199254740991
+
+// Max safe segment length for coercion.
+var MAX_SAFE_COMPONENT_LENGTH = 16
+
+// The actual regexps go on exports.re
+var re = exports.re = []
+var src = exports.src = []
+var t = exports.tokens = {}
+var R = 0
+
+function tok (n) {
+  t[n] = R++
+}
+
+// The following Regular Expressions can be used for tokenizing,
+// validating, and parsing SemVer version strings.
+
+// ## Numeric Identifier
+// A single `0`, or a non-zero digit followed by zero or more digits.
+
+tok('NUMERICIDENTIFIER')
+src[t.NUMERICIDENTIFIER] = '0|[1-9]\\d*'
+tok('NUMERICIDENTIFIERLOOSE')
+src[t.NUMERICIDENTIFIERLOOSE] = '[0-9]+'
+
+// ## Non-numeric Identifier
+// Zero or more digits, followed by a letter or hyphen, and then zero or
+// more letters, digits, or hyphens.
+
+tok('NONNUMERICIDENTIFIER')
+src[t.NONNUMERICIDENTIFIER] = '\\d*[a-zA-Z-][a-zA-Z0-9-]*'
+
+// ## Main Version
+// Three dot-separated numeric identifiers.
+
+tok('MAINVERSION')
+src[t.MAINVERSION] = '(' + src[t.NUMERICIDENTIFIER] + ')\\.' +
+                   '(' + src[t.NUMERICIDENTIFIER] + ')\\.' +
+                   '(' + src[t.NUMERICIDENTIFIER] + ')'
+
+tok('MAINVERSIONLOOSE')
+src[t.MAINVERSIONLOOSE] = '(' + src[t.NUMERICIDENTIFIERLOOSE] + ')\\.' +
+                        '(' + src[t.NUMERICIDENTIFIERLOOSE] + ')\\.' +
+                        '(' + src[t.NUMERICIDENTIFIERLOOSE] + ')'
+
+// ## Pre-release Version Identifier
+// A numeric identifier, or a non-numeric identifier.
+
+tok('PRERELEASEIDENTIFIER')
+src[t.PRERELEASEIDENTIFIER] = '(?:' + src[t.NUMERICIDENTIFIER] +
+                            '|' + src[t.NONNUMERICIDENTIFIER] + ')'
+
+tok('PRERELEASEIDENTIFIERLOOSE')
+src[t.PRERELEASEIDENTIFIERLOOSE] = '(?:' + src[t.NUMERICIDENTIFIERLOOSE] +
+                                 '|' + src[t.NONNUMERICIDENTIFIER] + ')'
+
+// ## Pre-release Version
+// Hyphen, followed by one or more dot-separated pre-release version
+// identifiers.
+
+tok('PRERELEASE')
+src[t.PRERELEASE] = '(?:-(' + src[t.PRERELEASEIDENTIFIER] +
+                  '(?:\\.' + src[t.PRERELEASEIDENTIFIER] + ')*))'
+
+tok('PRERELEASELOOSE')
+src[t.PRERELEASELOOSE] = '(?:-?(' + src[t.PRERELEASEIDENTIFIERLOOSE] +
+                       '(?:\\.' + src[t.PRERELEASEIDENTIFIERLOOSE] + ')*))'
+
+// ## Build Metadata Identifier
+// Any combination of digits, letters, or hyphens.
+
+tok('BUILDIDENTIFIER')
+src[t.BUILDIDENTIFIER] = '[0-9A-Za-z-]+'
+
+// ## Build Metadata
+// Plus sign, followed by one or more period-separated build metadata
+// identifiers.
+
+tok('BUILD')
+src[t.BUILD] = '(?:\\+(' + src[t.BUILDIDENTIFIER] +
+             '(?:\\.' + src[t.BUILDIDENTIFIER] + ')*))'
+
+// ## Full Version String
+// A main version, followed optionally by a pre-release version and
+// build metadata.
+
+// Note that the only major, minor, patch, and pre-release sections of
+// the version string are capturing groups.  The build metadata is not a
+// capturing group, because it should not ever be used in version
+// comparison.
+
+tok('FULL')
+tok('FULLPLAIN')
+src[t.FULLPLAIN] = 'v?' + src[t.MAINVERSION] +
+                  src[t.PRERELEASE] + '?' +
+                  src[t.BUILD] + '?'
+
+src[t.FULL] = '^' + src[t.FULLPLAIN] + '$'
+
+// like full, but allows v1.2.3 and =1.2.3, which people do sometimes.
+// also, 1.0.0alpha1 (prerelease without the hyphen) which is pretty
+// common in the npm registry.
+tok('LOOSEPLAIN')
+src[t.LOOSEPLAIN] = '[v=\\s]*' + src[t.MAINVERSIONLOOSE] +
+                  src[t.PRERELEASELOOSE] + '?' +
+                  src[t.BUILD] + '?'
+
+tok('LOOSE')
+src[t.LOOSE] = '^' + src[t.LOOSEPLAIN] + '$'
+
+tok('GTLT')
+src[t.GTLT] = '((?:<|>)?=?)'
+
+// Something like "2.*" or "1.2.x".
+// Note that "x.x" is a valid xRange identifer, meaning "any version"
+// Only the first item is strictly required.
+tok('XRANGEIDENTIFIERLOOSE')
+src[t.XRANGEIDENTIFIERLOOSE] = src[t.NUMERICIDENTIFIERLOOSE] + '|x|X|\\*'
+tok('XRANGEIDENTIFIER')
+src[t.XRANGEIDENTIFIER] = src[t.NUMERICIDENTIFIER] + '|x|X|\\*'
+
+tok('XRANGEPLAIN')
+src[t.XRANGEPLAIN] = '[v=\\s]*(' + src[t.XRANGEIDENTIFIER] + ')' +
+                   '(?:\\.(' + src[t.XRANGEIDENTIFIER] + ')' +
+                   '(?:\\.(' + src[t.XRANGEIDENTIFIER] + ')' +
+                   '(?:' + src[t.PRERELEASE] + ')?' +
+                   src[t.BUILD] + '?' +
+                   ')?)?'
+
+tok('XRANGEPLAINLOOSE')
+src[t.XRANGEPLAINLOOSE] = '[v=\\s]*(' + src[t.XRANGEIDENTIFIERLOOSE] + ')' +
+                        '(?:\\.(' + src[t.XRANGEIDENTIFIERLOOSE] + ')' +
+                        '(?:\\.(' + src[t.XRANGEIDENTIFIERLOOSE] + ')' +
+                        '(?:' + src[t.PRERELEASELOOSE] + ')?' +
+                        src[t.BUILD] + '?' +
+                        ')?)?'
+
+tok('XRANGE')
+src[t.XRANGE] = '^' + src[t.GTLT] + '\\s*' + src[t.XRANGEPLAIN] + '$'
+tok('XRANGELOOSE')
+src[t.XRANGELOOSE] = '^' + src[t.GTLT] + '\\s*' + src[t.XRANGEPLAINLOOSE] + '$'
+
+// Coercion.
+// Extract anything that could conceivably be a part of a valid semver
+tok('COERCE')
+src[t.COERCE] = '(^|[^\\d])' +
+              '(\\d{1,' + MAX_SAFE_COMPONENT_LENGTH + '})' +
+              '(?:\\.(\\d{1,' + MAX_SAFE_COMPONENT_LENGTH + '}))?' +
+              '(?:\\.(\\d{1,' + MAX_SAFE_COMPONENT_LENGTH + '}))?' +
+              '(?:$|[^\\d])'
+tok('COERCERTL')
+re[t.COERCERTL] = new RegExp(src[t.COERCE], 'g')
+
+// Tilde ranges.
+// Meaning is "reasonably at or greater than"
+tok('LONETILDE')
+src[t.LONETILDE] = '(?:~>?)'
+
+tok('TILDETRIM')
+src[t.TILDETRIM] = '(\\s*)' + src[t.LONETILDE] + '\\s+'
+re[t.TILDETRIM] = new RegExp(src[t.TILDETRIM], 'g')
+var tildeTrimReplace = '$1~'
+
+tok('TILDE')
+src[t.TILDE] = '^' + src[t.LONETILDE] + src[t.XRANGEPLAIN] + '$'
+tok('TILDELOOSE')
+src[t.TILDELOOSE] = '^' + src[t.LONETILDE] + src[t.XRANGEPLAINLOOSE] + '$'
+
+// Caret ranges.
+// Meaning is "at least and backwards compatible with"
+tok('LONECARET')
+src[t.LONECARET] = '(?:\\^)'
+
+tok('CARETTRIM')
+src[t.CARETTRIM] = '(\\s*)' + src[t.LONECARET] + '\\s+'
+re[t.CARETTRIM] = new RegExp(src[t.CARETTRIM], 'g')
+var caretTrimReplace = '$1^'
+
+tok('CARET')
+src[t.CARET] = '^' + src[t.LONECARET] + src[t.XRANGEPLAIN] + '$'
+tok('CARETLOOSE')
+src[t.CARETLOOSE] = '^' + src[t.LONECARET] + src[t.XRANGEPLAINLOOSE] + '$'
+
+// A simple gt/lt/eq thing, or just "" to indicate "any version"
+tok('COMPARATORLOOSE')
+src[t.COMPARATORLOOSE] = '^' + src[t.GTLT] + '\\s*(' + src[t.LOOSEPLAIN] + ')$|^$'
+tok('COMPARATOR')
+src[t.COMPARATOR] = '^' + src[t.GTLT] + '\\s*(' + src[t.FULLPLAIN] + ')$|^$'
+
+// An expression to strip any whitespace between the gtlt and the thing
+// it modifies, so that `> 1.2.3` ==> `>1.2.3`
+tok('COMPARATORTRIM')
+src[t.COMPARATORTRIM] = '(\\s*)' + src[t.GTLT] +
+                      '\\s*(' + src[t.LOOSEPLAIN] + '|' + src[t.XRANGEPLAIN] + ')'
+
+// this one has to use the /g flag
+re[t.COMPARATORTRIM] = new RegExp(src[t.COMPARATORTRIM], 'g')
+var comparatorTrimReplace = '$1$2$3'
+
+// Something like `1.2.3 - 1.2.4`
+// Note that these all use the loose form, because they'll be
+// checked against either the strict or loose comparator form
+// later.
+tok('HYPHENRANGE')
+src[t.HYPHENRANGE] = '^\\s*(' + src[t.XRANGEPLAIN] + ')' +
+                   '\\s+-\\s+' +
+                   '(' + src[t.XRANGEPLAIN] + ')' +
+                   '\\s*$'
+
+tok('HYPHENRANGELOOSE')
+src[t.HYPHENRANGELOOSE] = '^\\s*(' + src[t.XRANGEPLAINLOOSE] + ')' +
+                        '\\s+-\\s+' +
+                        '(' + src[t.XRANGEPLAINLOOSE] + ')' +
+                        '\\s*$'
+
+// Star ranges basically just allow anything at all.
+tok('STAR')
+src[t.STAR] = '(<|>)?=?\\s*\\*'
+
+// Compile to actual regexp objects.
+// All are flag-free, unless they were created above with a flag.
+for (var i = 0; i < R; i++) {
+  debug(i, src[i])
+  if (!re[i]) {
+    re[i] = new RegExp(src[i])
+  }
+}
+
+exports.parse = parse
+function parse (version, options) {
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+
+  if (version instanceof SemVer) {
+    return version
+  }
+
+  if (typeof version !== 'string') {
+    return null
+  }
+
+  if (version.length > MAX_LENGTH) {
+    return null
+  }
+
+  var r = options.loose ? re[t.LOOSE] : re[t.FULL]
+  if (!r.test(version)) {
+    return null
+  }
+
+  try {
+    return new SemVer(version, options)
+  } catch (er) {
+    return null
+  }
+}
+
+exports.valid = valid
+function valid (version, options) {
+  var v = parse(version, options)
+  return v ? v.version : null
+}
+
+exports.clean = clean
+function clean (version, options) {
+  var s = parse(version.trim().replace(/^[=v]+/, ''), options)
+  return s ? s.version : null
+}
+
+exports.SemVer = SemVer
+
+function SemVer (version, options) {
+  if (!options || typeof options !== 'object') {
+    options = {
+      loose: !!options,
+      includePrerelease: false
+    }
+  }
+  if (version instanceof SemVer) {
+    if (version.loose === options.loose) {
+      return version
+    } else {
+      version = version.version
+    }
+  } else if (typeof version !== 'string') {
+    throw new TypeError('Invalid Version: ' + version)
+  }
+
+  if (version.length > MAX_LENGTH) {
+    throw new TypeError('version is longer than ' + MAX_LENGTH + ' characters')
+  }
+
+  if (!(this instanceof SemVer)) {
+    return new SemVer(version, options)
+  }
+
+  debug('SemVer', version, options)
+  this.options = options
+  this.loose = !!options.loose
+
+  var m = version.trim().match(options.loose ? re[t.LOOSE] : re[t.FULL])
+
+  if (!m) {
+    throw new TypeError('Invalid Version: ' + version)
+  }
+
+  this.raw = version
+
+  // these are actually numbers
+  this.major = +m[1]
+  this.minor = +m[2]
+  this.patch = +m[3]
+
+  if (this.major > MAX_SAFE_INTEGER || this.major < 0) {
+    throw new TypeError('Invalid major version')
+  }
+
+  if (this.minor > MAX_SAFE_INTEGER || this.minor < 0) {
+    throw new TypeError('Invalid minor version')
+  }
+
+  if (this.patch > MAX_SAFE_INTEGER || this.patch < 0) {
+    throw new TypeError('Invalid patch version')
+  }
+
+  // numberify any prerelease numeric ids
+  if (!m[4]) {
+    this.prerelease = []
+  } else {
+    this.prerelease = m[4].split('.').map(function (id) {
+      if (/^[0-9]+$/.test(id)) {
+        var num = +id
+        if (num >= 0 && num < MAX_SAFE_INTEGER) {
+          return num
+        }
+      }
+      return id
+    })
+  }
+
+  this.build = m[5] ? m[5].split('.') : []
+  this.format()

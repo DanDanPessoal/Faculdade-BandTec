@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+
+</head>
+
+<body>
+
+    Digite o nome de um time de futebol que você acha bom: <br>
+
+    <input id="input_time_bom" autofocus><br><br>
+
+    Digite o nome de um time de futebol que você acha ruim: <br>
+
+    <input id="input_time_ruim"><br><br>
+
+    <button onclick="repetir()">Repetir a realidade!</button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+
+</html>
+
+<script>
+
+    function repetir(){
+
+        var time_bom = input_time_bom.value;
+        var time_ruim = input_time_ruim.value;
+
+        var contador = 0;
+
+        div_msg.innerHTML == ``;
+
+        while( contador < 10 ){
+
+            div_msg.innerHTML += `${time_bom.toUpperCase()} é melhor que ${time_ruim.toUpperCase()}<br>`
+
+            contador++;
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Aula 40 - Vetor </title>
+
+</head>
+
+<body>
+
+    <input placeholder="Digite uma fruta" id="input_fruta">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <br><br>
+
+    <input placeholder="Qual fruta quer achar" id="input_pesquisa">
+
+    <button onclick="pesquisar()">Pesquisar</button>
+
+    <br><br>
+
+    <div id="div_pesquisa"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    // Aqui criamos um VETOR
+    var frutas = [];    // VETOR É sempre definido como par de colchetes.
+
+    function cadastrar(){
+
+        var nova_fruta = input_fruta.value;
+
+        // Aqui estamos inserindo um elemento no vetor.
+        frutas.push(nova_fruta);
+
+    }
+
+    function pesquisar(){
+
+        var pesquisa = Number(input_pesquisa.value);
+        var valor_pesquisa = pesquisa - 1;
+
+        var fruta_encontrada = frutas[valor_pesquisa];
+
+        
+        if(pesquisa <= frutas.length){
+            
+            div_pesquisa.innerHTML = `A ${pesquisa}ª fruta cadastrada foi: ${fruta_encontrada}`;
+
+        }else{
+
+            div_pesquisa.innerHTML = `Não existe uma ${pesquisa}ª fruta cadastrada`;
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+
+<body>
+
+    Digite o saldo da conta: <input id="input_saldo" placeholder="Ex: 200.00">
+    
+    <br><br>
+
+    Digite o valor do débito: <input id="input_debito" placeholder="Ex: 100.00">
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar conta</button>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar(){
+
+        var saldo = input_saldo.value;
+        var debito = input_debito.value;
+
+        var novo_saldo = saldo - debito;
+
+        novo_saldo < 0 ? 
+        div_msg.innerHTML = `<b style="color:red">O saldo atual da conta é: ${novo_saldo.toFixed(2)}</b>` : 
+        div_msg.innerHTML = `<i style="color:blue">O saldo atual da conta é: ${novo_saldo.toFixed(2)}</i>`
+         
+    }
+
+</script>

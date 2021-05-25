@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+
+</head>
+
+<body>
+
+    Digite o Login: <input id="input_login" placeholder="Digite seu login" autofocus>
+    <br>
+    Digite a Senha: <input id="input_senha" placeholder="Digite sua Senha" autofocus>
+    <br><br>
+    <button id="but_entrar" onclick="entrar()">Entrar</button>
+    <br>
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function entrar(){
+
+        var login = input_login.value;
+        var senha = input_senha.value;
+
+        var vereficar_login = login != 'aidimin';
+        var vereficar_senha = senha != 'seinha';
+
+    if( vereficar_login && vereficar_senha == false ){
+
+        div_msg.innerHTML = `Seu login está inválido!`;
+
+        div_msg.style.color = `red`;
+
+    }else if( vereficar_senha && vereficar_login == false ){
+
+        div_msg.innerHTML = `Sua senha está inválida!`;
+
+        div_msg.style.color = `red`;
+
+        alert('Entre em contato com o suporte para recuperar sua senha');
+
+    }else if( vereficar_senha && vereficar_login ){
+
+        div_msg.innerHTML = `Seu login está inválido!<br>Sua senha está inválida!`;
+
+    }else{
+
+        div_msg.innerHTML = `Usuário autenticado com sucesso`;
+
+        div_msg.style.color = `blue`;
+
+    }
+
+    }
+
+</script>

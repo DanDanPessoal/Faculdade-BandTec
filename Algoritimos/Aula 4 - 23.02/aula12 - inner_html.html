@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>inner HTML</title>
+</head>
+<body>
+    
+    <h1>Qual a real de cada time</h1>
+
+        <button onclick="santos()">Santos</button>
+        <button onclick="Corinthias()">Corinthias</button>
+        <button onclick="Sp()">São paulo</button>
+        <button onclick="palmeiras()">Palmeiras</button>
+
+        <br><br>
+
+    <div id="div_msg"> Aqui será exibido a mensagem de cada time</div>
+
+</body>
+
+<script>
+
+    function santos(){
+
+        div_msg.innerHTML = "Dá-lhe <b> peixe </b>";
+
+    }
+
+    function Sp(){
+
+        div_msg.innerHTML = "Salve o <i>tricolor</i> paulista!";
+
+    }
+    
+    function Corinthias(){
+
+        div_msg.innerHTML = "<h1>Vai corinthias!</h1>";
+
+    }
+
+    function palmeiras(){
+
+        div_msg.innerHTML = "Verdão elétrico: <br> Parmeira não tem mundial";
+
+    }
+
+</script>
+
+</html>

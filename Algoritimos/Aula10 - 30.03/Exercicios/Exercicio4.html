@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+
+</head>
+
+<body>
+
+    O que você come no café da manha?
+    
+    <br>
+
+    <select id="select_cafe_manha">
+
+        <option value="">- selecione uma das opções -</option>
+        <option value="1">Ovos</option>
+        <option value="2">Leite de arroz</option>
+        <option value="3">Bacon</option>
+
+    </select>
+
+    <br><br>
+
+    O que você come no almoço?
+
+    <br>
+
+    <select id="select_almoco">
+
+        <option value="">- selecione uma das opções -</option>
+        <option value="1">Bife</option>
+        <option value="2">Hamburger de soja</option>
+        <option value="3">Frango grelhado</option>
+
+    </select>
+
+    <br><br>
+
+    O que você come na janta?
+    
+    <br>
+
+    <select id="select_janta">
+
+        <option value="">- selecione uma das opções -</option>
+        <option value="1">Picanha de soja</option>
+        <option value="2">Cupim</option>
+        <option value="3">Coração</option>
+
+    </select>
+
+    <br><br>
+
+    <button onclick="but_vegano()">Sou vegano?</button>
+</body>
+
+</html>
+
+<script>
+
+    function but_vegano(){
+
+        if(select_cafe_manha.value == '2' && select_almoco.value == '2' 
+        && select_janta.value == '1'){
+
+            alert('Sim, você é vegano!');
+
+        }else{
+
+            alert('Não, você não é vegano');
+
+        }
+    }
+
+</script>

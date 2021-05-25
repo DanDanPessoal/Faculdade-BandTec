@@ -1,0 +1,98 @@
+create database aluno_representante;
+
+use aluno_representante;
+
+create table ALUNO(
+
+ID_ALUNO INT AUTO_INCREMENT,
+NOME_ALUNO VARCHAR(45),
+TELEFONE_ALUNO VARCHAR(12),
+FK_PROJETO INT,
+
+PRIMARY KEY (ID_ALUNO)
+
+);
+
+create table REPRESENTANTE(
+
+ID_REPRESENTANTE INT AUTO_INCREMENT,
+NOME_REPRESENTANTE VARCHAR(45),
+FK_ALUNO INT,
+
+PRIMARY KEY (ID_REPRESENTANTE),
+FOREIGN KEY (FK_ALUNO) REFERENCES ALUNO(ID_ALUNO)
+
+);
+
+create table OCORRENCIA(
+
+FK_REPRESENTANTE INT,
+FK_ALUNO INT,
+DESC_OCORRENCIA VARCHAR(45),
+HORA_OCORRENCIA DATETIME,
+
+FOREIGN KEY (FK_REPRESENTANTE) REFERENCES REPRESENTANTE(ID_REPRESENTANTE),
+FOREIGN KEY (FK_ALUNO) REFERENCES ALUNO(ID_ALUNO)
+
+);
+
+create table ACOMPANHANTES(
+
+ID_ACOMPANHANTE INT AUTO_INCREMENT,
+NOME_ACOMPANHANTE VARCHAR(45),
+TIPO_RELACAO VARCHAR(45),
+FK_ALUNO INT,
+
+PRIMARY KEY (ID_ACOMPANHANTE),
+FOREIGN KEY (FK_ALUNO) REFERENCES ALUNO(ID_ALUNO)
+
+);
+
+create table PROJETO(
+
+ID_PROJETO INT AUTO_INCREMENT,
+NOME_PROJETO VARCHAR(45),
+DESC_PROJETO VARCHAR(45),
+
+PRIMARY KEY (ID_PROJETO)
+
+);
+
+INSERT INTO ALUNO values (NULL, 'Daniel K', '11972728082', 1), (NULL, 'Kennedy', '11988718082', 4), 
+						  (NULL, 'Samuel T', '11996929941', 2), (NULL, 'Vitor Herculano', '11972728054', 3), 
+						  (NULL, 'Claudio da silva', '11976124082', 1), (NULL, 'Lucas', '119125422082', 2), 
+						  (NULL, 'Katye Esaka', '11938722085', 4), (NULL, 'Roberto carlos', '119237928082', 2);
+                          
+INSERT INTO REPRESENTANTE VALUES (NULL, 'Daniel K', 1), (NULL, 'Samuel T', 3), (NULL, 'Claudio da silva', 5), (NULL, 'Katye Esaka', 7);
+				
+INSERT INTO OCORRENCIA VALUES (1, 2, 'Ocorrencia1', now()), (2, 4, 'Ocorrencia2', now()), (3, 6, 'Ocorrencia3', now()),
+							  (4, 8, 'Ocorrencia4', now());
+                              
+INSERT INTO PROJETO VALUES (NULL, 'AlfaCompany', 'Projeto voltado para alface'), (NULL, 'PitaCompany', 'Projeto voltado para Pitaia'),
+						   (NULL, 'MaCompany', 'Projeto voltado para Maça'), (NULL, 'LaraCompany', 'Projeto voltado para laranja');
+
+INSERT INTO ACOMPANHANTES VALUES (NULL, 'Sandro marcelo', 'Pai', 1),  (NULL, 'Marcelo sandro', 'Pai', 3),
+								 (NULL, 'José', 'Tio', 4), (NULL, 'Aline de almeida', 'Mãe', 7);
+
+select * from ALUNO;
+
+select * from REPRESENTANTE;
+
+select * from OCORRENCIA;
+
+select * from PROJETO;
+
+select * from ACOMPANHANTES;
+
+select * from ALUNO A JOIN PROJETO P on P.ID_PROJETO = A.FK_PROJETO;
+
+select * from ALUNO A JOIN ACOMPANHANTES AC on A.ID_ALUNO = AC.FK_ALUNO;
+
+select * from ALUNO A JOIN REPRESENTANTE R ON A.ID_ALUNO = R.FK_ALUNO;
+
+select * from OCORRENCIA O JOIN REPRESENTANTE R ON R.ID_REPRESENTANTE = O.FK_REPRESENTANTE JOIN ALUNO A ON A.ID_ALUNO = O.FK_ALUNO;
+
+select * from ALUNO A JOIN PROJETO P on P.ID_PROJETO = A.FK_PROJETO where P.NOME_PROJETO = 'AlfaCompany';
+
+select A.NOME_ALUNO, A.TELEFONE_ALUNO, P.NOME_PROJETO, P.DESC_PROJETO, AC.NOME_ACOMPANHANTE, AC.TIPO_RELACAO
+from ALUNO A JOIN PROJETO P on P.ID_PROJETO = A.FK_PROJETO JOIN ACOMPANHANTES AC ON A.ID_ALUNO = AC.FK_ALUNO;
