@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 3 sprint</title>
+
+</head>
+
+<body>
+    
+    <h1>Pedra-Papel-Tesoura</h1>
+
+    <br><br>
+
+    <button onclick="jokenpo()">Jo Ken Po!</button>
+
+    <br><br>
+    
+            <img src="" alt="" id="img1" style="width:100px">
+    
+            <img src="" alt="" id="img2" style="width:100px" float="left">
+    
+    <div id="div_resultado"></div>
+    
+    <br><br>
+
+    <div id="div_intervalo" style="display: none">
+
+        De: <input id="input_de"> até: <input id="input_ate">
+
+        <button onclick="intervalo()">Intervalo</button>
+
+    </div>
+
+    <br><br>
+
+    <div id="div_resultado2"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var rodada = 0;
+    var jogadores = [];
+    var figuras = [];
+
+    function jokenpo(){
+    
+        // 0 = pedra, 1 = papel, 2 = tesoura
+
+        var src_img1 = '';
+        var src_img2 = '';
+        var resutado = '';
+
+        var sorteio1 = parseInt(Math.random() * 3);
+        var sorteio2 = parseInt(Math.random() * 3);
+
+        if(sorteio1 == 0 && sorteio2 == 0){
+
+            src_img1 = `jkp_pedra.jpg`;
+            src_img2 = `jkp_pedra.jpg`;
+            resutado = 'Empate';
+
+            figuras.push('Pedra X Pedra');
+            jogadores.push('Empate');
+
+        }else if(sorteio1 == 0 && sorteio2 == 1){
+
+            src_img1 = `jkp_pedra.jpg`;
+            src_img2 = `jkp_papel.png`;
+            resutado = 'Jogador 2 venceu porque papel cobre a pedra';
+
+            figuras.push('Pedra X Papel');
+            jogadores.push('Jogador 2 venceu');
+
+        }else if(sorteio1 == 0 && sorteio2 ==2){
+
+            src_img1 = `jkp_pedra.jpg`;
+            src_img2 = `jkp_tesoura.png`;
+            resutado = 'jogador 1 venceu porque pedra quebra tesoura';
+
+            figuras.push('Pedra X Tesoura');
+            jogadores.push('Jogador 1 venceu');
+
+        }else if(sorteio1 == 1 && sorteio2 == 0){
+
+            src_img1 = `jkp_papel.png`;
+            src_img2 = `jkp_pedra.jpg`;
+            resutado = 'Jogador 1 venceu porque papel cobre tesoura';
+
+            figuras.push('Papel X Pedra');
+            jogadores.push('Jogador 1 venceu');
+            
+        }else if(sorteio1 == 1 && sorteio2 == 1){
+
+            src_img1 = `jkp_papel.png`;
+            src_img2 = `jkp_papel.png`;
+            resutado = 'Empate';
+
+            figuras.push('Papel X Papel');
+            jogadores.push('Empate');
+
+        }else if(sorteio1 == 1 && sorteio2 == 2){
+
+            src_img1 = `jkp_papel.png`;
+            src_img2 = `jkp_tesoura.png`;
+            resutado = 'Jogador 2 venceu porque tesoura corta papel';
+
+            figuras.push('Papel X Tesoura');
+            jogadores.push('Jogador 2 venceu');
+
+        }else if(sorteio1 == 2 && sorteio2 == 0){
+
+            src_img1 = `jkp_tesoura.png`;
+            src_img2 = `jkp_pedra.jpg`;
+            resutado = 'jogador 2 venceu porque pedra quebra tesoura';
+            
+            figuras.push('Tesoura X Pedra');
+            jogadores.push('Jogador 2 venceu');
+
+        }else if(sorteio1 == 2 && sorteio2 == 1){
+            
+            src_img1 = `jkp_tesoura.png`;
+            src_img2 = `jkp_papel.png`;
+            resutado = 'Jogador 1 venceu porque tesoura corta papel';
+
+            figuras.push('Tesoura X Papel');
+            jogadores.push('Jogador 1 venceu');
+
+        }else if(sorteio1 == 2 && sorteio2 == 2){
+
+            src_img1 = `jkp_tesoura.png`;
+            src_img2 = `jkp_tesoura.png`;
+            resutado = 'Empate';
+
+            figuras.push('Tesoura X Tesoura');
+            jogadores.push('Empate');
+
+        }
+
+        img1.src = src_img1;
+        img2.src = src_img2;
+
+        rodada++;
+
+        div_resultado.innerHTML = `Resultado: <b>${resutado}</b>`
+        div_intervalo.style.display = `block`;
+
+    }
+
+    function intervalo(){
+
+        var de = Number(input_de.value);
+        var ate = Number(input_ate.value);
+
+        
+        if(de > 0 && ate <= rodada && de<=ate){
+            
+            div_resultado2.innerHTML = '';
+
+            for( var cont = de - 1 ; cont < ate ; cont++ ){
+
+                div_resultado2.innerHTML += `Rodada ${cont + 1} - ${figuras[cont]} - ${jogadores[cont]}<br><br>`; 
+
+            }
+
+        }else{
+
+            alert("Intervalo inválido");
+
+        }
+
+
+    }   
+
+</script>
