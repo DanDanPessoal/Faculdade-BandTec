@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 44 - JSON</title>
+
+</head>
+
+<body>
+    
+    <h2>Campanha de times</h2>
+
+    <input placeholder="Nome do time" id="input_nome">
+    <input placeholder="Vitórias" id="input_vitoria">
+    <input placeholder="Empate" id="input_empate">
+    <input placeholder="Derrota" id="input_derrota">
+
+    <br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <br><br>
+
+    <input placeholder="Qual cadastro quer ver?" id="input_pesquisa">
+
+    <button onclick="pesquisar(Number(input_pesquisa.value))">Pesquisar</button>
+
+    <br>
+
+    <div id="div_pesquisa"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    const campanhas = [];
+
+    function cadastrar(){
+
+        // JSON
+
+        const nova_campanha = {
+
+            time: input_nome.value,
+            vitorias: Number(input_vitoria.value),
+            empates: Number(input_empate.value),
+            derrotas: Number(input_derrota.value)
+
+        };
+
+        campanhas.push(nova_campanha);
+
+    }
+
+    function pesquisar(posicao){
+
+        const campanha_encontrada = campanhas[posicao-1]
+
+        div_pesquisa.innerHTML = `Time: ${campanha_encontrada.time}<br>
+                                 Vitorias: ${campanha_encontrada.vitorias}<br>
+                                 Empates: ${campanha_encontrada.empates}<br>
+                                 Derrotas: ${campanha_encontrada.derrotas}`;
+
+    }
+
+</script>

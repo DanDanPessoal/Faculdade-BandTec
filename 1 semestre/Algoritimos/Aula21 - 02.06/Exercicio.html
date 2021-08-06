@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    digite sua idade: <input  id="input_idade">
+
+    <br>
+
+    <select id="sel_sexo">
+
+        <option value="Masculino">masculino</option>
+        <option value="Feminino">Feminino</option>
+        
+    </select>
+
+    <br>
+
+    <button onclick="calcular(Number(input_idade.value), sel_sexo.value)">
+
+        Calcular aposentadoria
+
+    </button>
+
+    <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular(idade, sexo){
+
+        if( idade <= 65 && sexo == 'Masculino' ){
+
+            div_msg.innerHTML = `Faltam ${65-idade} anos para se aposentar`;
+
+        }else if(idade > 65 && sexo == 'Masculino'){
+
+            div_msg.innerHTML = `Você ja se aposentou há ${idade - 65} anos`;
+
+        }else if( idade <= 60 && sexo == 'Feminino' ){
+
+            div_msg.innerHTML = `Faltam ${60 - idade} anos para se aposentar`;
+
+        }else{
+
+            div_msg.innerHTML = `Você ja se aposentou há ${idade - 60} anos`;
+
+        }
+
+    }
+
+</script>

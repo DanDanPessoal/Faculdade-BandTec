@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 41 - parametros</title>
+
+</head>
+
+<body>
+
+    <h2>Cofrinho do meu S2</h2>
+    
+    Saldo: <b id="b_saldo">0,00</b>
+
+    <br>
+
+    Meta: <b id="b_meta">?</b> <br>
+
+    <input placeholder="informe sua meta" id="input_meta">
+
+    <input placeholder="informe seu objetivo" id="input_objetivo">
+
+    <br>
+
+    <button onclick="definir(Number(input_meta.value))">Definir meta</button>
+
+    <button onclick="definir_geral(Number(input_meta.value), input_objetivo.value)">Definir meta geral</button>
+
+    <br><br>
+
+    <button onclick="operar(10)">Depositar 10</button>
+    <button onclick="operar(-3)">Tirar 3</button>
+    <button onclick="operar(1.5)">Depositar 1.5</button>
+    <button onclick="operar(-7.5)">Tirar 7.5</button>
+
+</body>
+
+</html>
+
+<script>
+
+    saldo = 0
+
+    function operar(valor){
+
+        saldo += valor;
+    
+        b_saldo.innerHTML = saldo.toFixed(2);
+
+    }
+
+    function definir(nova_meta){
+
+        b_meta.innerHTML = nova_meta.toFixed(2);
+
+    }
+
+    function definir_geral(nova_meta, objetivo){
+
+
+
+    }
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 42 - Let e var</title>
+
+</head>
+
+<body>
+
+    <h2 id="h_numero" onclick="exibir()">Clica nimin</h2>
+    
+</body>
+
+</html>
+
+<script>
+
+    function exibir(){
+
+        // let 'nome-variavel'
+        // let tem o comportamento parecido com outras linguagens
+        // a variavel criada com let só existe apartir da linha que ela é criada
+        
+        // var 'nome-variavel'
+        // já a variavel 'var' ela funcionaria mesmo antes da linha que ela foi criada,
+        // entretanto mostraria 'undefined'
+
+        /* h_numero.innerHTML = numero;
+        
+        Imagine a linha de cima sendo executada -- nesse caso, mesmo a variavel sendo criada na linha 39, 
+        ele daria certo e mostraria 'undefined' -- entretando se eu mudasse para let na linha 39
+        daria erro e não executaria mais, porque como a varivel nao existe ainda, sendo que ela só é 
+        criada na linha abaixo*/
+
+        for(var numero = 0; numero < 4 ; numero++){
+            
+            alert(numero);
+        }
+        
+        h_numero.innerHTML = numero;
+        
+    } 
+
+</script>

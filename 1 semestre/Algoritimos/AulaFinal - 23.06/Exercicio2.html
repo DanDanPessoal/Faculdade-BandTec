@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+</head>
+
+<body>
+
+    <select id="sel_nota_saque">
+
+        <option value="">- Selecione uma opção -</option>
+        <option value="2">2</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+
+    </select>
+
+    <button onclick="register(sel_nota_saque.value)">Registrar Nota</button>
+
+    <br><br>
+
+    <div id="div_saque" style="display: none;">
+
+    Digite o valor que deseja sacar: <input id="input_valor_sacar">
+    
+    <br><br>
+
+    <button onclick="solicitar(input_valor_sacar.value)">
+        Solicitar saque
+    </button>
+
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    let notas_disponiveis = [];
+
+    function register(nota_saque){
+
+        // for(let cont = 0 ; notas_disponiveis.length > cont ; cont++){
+
+        //     if(nota_saque == notas_disponiveis[cont]){
+
+        //         alert('z')
+
+        //     }
+
+        // }
+
+            notas_disponiveis.push(nota_saque);
+
+            div_saque.style.display = 'block';
+
+    }
+
+    function solicitar(valor_sacar){
+
+        if(notas_disponiveis.indexOf("2") >= 0){
+            
+            let resto_nota_2 = valor_sacar % 2;
+            let resto_nota_5 = valor_sacar % 5;
+            let tudo_okay;
+
+            if(notas_disponiveis.indexOf("5") >= 0 && notas_disponiveis.indexOf("10") >= 0
+            && notas_disponiveis.indexOf("20") >= 0 && notas_disponiveis.indexOf("50") >= 0
+            && notas_disponiveis.indexOf("100") >= 0){
+
+                let resto_soma = (valor_sacar - 5) % 2;
+
+                if(resto_soma == 0){
+
+                    tudo_okay = 0;
+
+                }else{
+
+                    tudo_okay = 1
+
+                }
+
+            }else if(notas_disponiveis.indexOf("5") >= 0 && notas_disponiveis.indexOf("10") >= 0
+            && notas_disponiveis.indexOf("20") >= 0 && notas_disponiveis.indexOf("50") >= 0
+            && notas_disponiveis.indexOf("100") >= 0)
+
+
+            if(tudo_okay == 0){
+
+                alert('Saque OK');
+
+            }else{
+
+                alert('Valor impossivel sacar devido ás notas disponiveis');
+
+            }
+
+        }else if(notas_disponiveis.indexOf("5")){
+
+            let resto_nota = valor_sacar % 5;
+        
+            if(resto_nota == 0){
+
+                alert('Saque OK');
+
+            }else{
+
+                alert('Valor impossivel sacar devido ás notas disponiveis');
+
+            }
+
+        }else if(notas_disponiveis.indexOf("10")){
+
+            let resto_nota = valor_sacar % 10;
+            
+            if(resto_nota == 0){
+                
+                alert('Saque OK');
+                
+            }else{
+                
+                alert('Valor impossivel sacar devido ás notas disponiveis');
+                
+            }
+            
+        }else if(notas_disponiveis.indexOf("20")){
+ 
+            let resto_nota = valor_sacar % 20;
+            
+            if(resto_nota == 0){
+                
+                alert('Saque OK');
+                
+            }else{
+                
+                alert('Valor impossivel sacar devido ás notas disponiveis');
+                
+            }
+
+            
+        }else if(notas_disponiveis.indexOf("50")){
+
+            let resto_nota = valor_sacar % 50;
+
+            if(resto_nota == 0){
+                
+                alert('Saque OK');
+                
+            }else{
+                
+                alert('Valor impossivel sacar devido ás notas disponiveis');
+                
+            }
+            
+        }else if(notas_disponiveis.indexOf("100")){
+            
+            let resto_nota = valor_sacar % 100;
+
+            if(resto_nota == 0){
+                
+                alert('Saque OK');
+                
+            }else{
+                
+                alert('Valor impossivel sacar devido ás notas disponiveis');
+                
+            }
+
+        }
+
+    }
+
+</script>

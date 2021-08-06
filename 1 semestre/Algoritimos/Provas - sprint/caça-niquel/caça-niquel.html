@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça niquel</title>
+
+</head>
+
+<body>
+
+    <h2>Vamos testar sua sorte?</h2>
+    
+    Qual fruta você escolhe?
+
+    <select id="sel_frutas">
+
+        <option value="0">Melancia</option>
+        <option value="1">Banana</option>
+        <option value="2">Cereja</option>
+        <option value="3">Laranja</option>
+
+    </select>
+
+    <br><br>
+
+    <button onclick="but_pay2()">Pagar R$2.00 e sortear</button>
+    <button onclick="but_encerrar()">Encerrar a noitada</button>
+
+    <br><br>
+
+    <img src="" alt="" id="img1" style="height: 100px;">
+    <img src="" alt="" id="img2" style="height: 100px; float: left;">
+    <img src="" alt="" id="img3" style="height: 100px; float: left;">
+    <img src="" alt="" id="img4" style="height: 100px; float: left;">
+
+    <div id="div_msg"></div>
+
+    <div id="div_msg2" style="display: none;">
+
+        <h3><u>RESUMO DA NOITADA</u></h3>
+
+        <br>
+
+        Você participou de <span id="n_rodada"></span> rodadas <br>
+        O valor que você gastou foi de R$ <span id="valor_gasto"></span> <br>
+        O valor que você ganhou foi de R$ <span id="valor_ganho"></span> <br>
+
+        <h4>
+            <b id="b_ganho_perda"></b>
+        </h4>
+
+        <h3><u>DETALHES DA NOITADA</u></h3>
+
+        <div id="detalhes"></div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var saldo = 0;
+    var rodada = 0;
+    var dados = [];
+    
+    function but_pay2(){
+        
+        var fruta_selecionada = sel_frutas.value;
+        var salvar_sorteio = '';
+        var salvar_fruta = '';
+        var salvar_saldo = 0;
+        var saldo_rodada = 0;
+        var source1 = '';
+        var source2 = '';
+        var source3 = '';
+        var source4 = '';
+
+        // Melancia = 0 ; 
+        // Banana = 1 ; 
+        // Cereja = 2 ; 
+        // Laranja = 3 ; 
+        
+        var sorteio1 = parseInt(Math.random() * 4);
+        var sorteio2 = parseInt(Math.random() * 4);
+        var sorteio3 = parseInt(Math.random() * 4);
+        var sorteio4 = parseInt(Math.random() * 4);
+
+        if(Number(fruta_selecionada) == 0){
+
+            salvar_fruta = 'Melancia';
+
+        }else if(Number(fruta_selecionada) == 1){
+
+            salvar_fruta = 'Banana';
+
+        }else if(Number(fruta_selecionada) == 2){
+
+            salvar_fruta = 'Cereja';
+
+        }else if(Number(fruta_selecionada) == 3){
+
+            salvar_fruta = 'Laranja';
+
+        }
+
+        //vereficando sorteio 1
+
+        if(sorteio1 == 0){
+
+            source1 = `melancia.png`;
+            salvar_sorteio += 'Melancia,';
+
+        }else if(sorteio1 == 1){
+
+            source1 = `banana.png`;
+            salvar_sorteio += 'Banana,';
+
+        }else if(sorteio1 == 2){
+
+            source1 = `cereja.png`;
+            salvar_sorteio += 'Cereja,';
+
+        }else if(sorteio1 == 3){
+
+            source1 = `laranja.png`;
+            salvar_sorteio += 'Laranja,';
+
+        }
+
+        //vereficando sorteio 2
+
+        if(sorteio2 == 0){
+
+            source2 = `melancia.png`;
+            salvar_sorteio += 'Melancia,';
+
+        }else if(sorteio2 == 1){
+
+            source2 = `banana.png`;
+            salvar_sorteio += 'Banana,';
+
+        }else if(sorteio2 == 2){
+
+            source2 = `cereja.png`;
+            salvar_sorteio += 'Cereja,';
+
+        }else if(sorteio2 == 3){
+
+            source2 = `laranja.png`;
+            salvar_sorteio += 'Laranja,';
+
+        }
+
+        //vereficando sorteio 3
+
+        if(sorteio3 == 0){
+
+            source3 = `melancia.png`;
+            salvar_sorteio += 'Melancia,';
+
+        }else if(sorteio3 == 1){
+
+            source3 = `banana.png`;
+            salvar_sorteio += 'Banana,';
+
+        }else if(sorteio3 == 2){
+
+            source3 = `cereja.png`;
+            salvar_sorteio += 'Cereja,';
+
+        }else if(sorteio3 == 3){
+
+            source3 = `laranja.png`;
+            salvar_sorteio += 'Laranja,';
+
+        }
+
+        //vereficando sorteio 4
+
+        if(sorteio4 == 0){
+
+            source4 = `melancia.png`;
+            salvar_sorteio += 'Melancia';
+
+        }else if(sorteio4 == 1){
+
+            source4 = `banana.png`;
+            salvar_sorteio += 'Banana';
+
+        }else if(sorteio4 == 2){
+
+            source4 = `cereja.png`;
+            salvar_sorteio += 'Cereja';
+
+        }else if(sorteio4 == 3){
+
+            source4 = `laranja.png`;
+            salvar_sorteio += 'Laranja';
+
+        }
+
+        img1.src = source1;
+        img2.src = source2;
+        img3.src = source3;
+        img4.src = source4;
+
+        if(sorteio1 == Number(fruta_selecionada) &&
+           sorteio2 == Number(fruta_selecionada) &&
+           sorteio3 == Number(fruta_selecionada) &&
+           sorteio4 == Number(fruta_selecionada)){
+
+            saldo += 50.00;
+            saldo_rodada += 50.00;
+            salvar_saldo = 50.00;
+
+        }else if( (sorteio1 == Number(fruta_selecionada) && 
+            sorteio2 == Number(fruta_selecionada) &&
+            sorteio3 == Number(fruta_selecionada)) ||
+                   
+            (sorteio1 == Number(fruta_selecionada) &&
+            sorteio3 == Number(fruta_selecionada) &&
+            sorteio4 == Number(fruta_selecionada)) ||
+                   
+            (sorteio2 == Number(fruta_selecionada) &&
+            sorteio1 == Number(fruta_selecionada) &&
+            sorteio3 == Number(fruta_selecionada)) ||
+                   
+            (sorteio2 == Number(fruta_selecionada) &&
+            sorteio3 == Number(fruta_selecionada) &&
+            sorteio4 == Number(fruta_selecionada)) ||
+                   
+            (sorteio3 == Number(fruta_selecionada) &&
+            sorteio1 == Number(fruta_selecionada) &&
+            sorteio2 == Number(fruta_selecionada)) ||
+
+            (sorteio3 == Number(fruta_selecionada) &&
+            sorteio2 == Number(fruta_selecionada) &&
+            sorteio4 == Number(fruta_selecionada)) ||
+
+            (sorteio4 == Number(fruta_selecionada) &&
+            sorteio1 == Number(fruta_selecionada) &&
+            sorteio2 == Number(fruta_selecionada)) ||
+                
+            (sorteio4 == Number(fruta_selecionada) &&
+            sorteio2 == Number(fruta_selecionada) &&
+            sorteio3 == Number(fruta_selecionada))){
+
+            saldo += 21.00;
+            saldo_rodada += 21.00;
+            salvar_saldo = 21.00;
+
+        }else if( (sorteio1 == Number(fruta_selecionada) && sorteio2 == Number(fruta_selecionada)) ||
+                (sorteio1 == Number(fruta_selecionada) && sorteio3 == Number(fruta_selecionada)) || 
+                (sorteio1 == Number(fruta_selecionada) && sorteio4 == Number(fruta_selecionada)) ||
+
+                (sorteio2 == Number(fruta_selecionada) && sorteio1 == Number(fruta_selecionada)) ||
+                (sorteio2 == Number(fruta_selecionada) && sorteio3 == Number(fruta_selecionada)) ||
+                (sorteio2 == Number(fruta_selecionada) && sorteio4 == Number(fruta_selecionada)) ||
+
+                (sorteio3 == Number(fruta_selecionada) && sorteio1 == Number(fruta_selecionada)) ||
+                (sorteio3 == Number(fruta_selecionada) && sorteio2 == Number(fruta_selecionada)) ||
+                (sorteio3 == Number(fruta_selecionada) && sorteio4 == Number(fruta_selecionada)) ||
+        
+                (sorteio4 == Number(fruta_selecionada) && sorteio1 == Number(fruta_selecionada)) ||
+                (sorteio4 == Number(fruta_selecionada) && sorteio2 == Number(fruta_selecionada)) ||
+                (sorteio4 == Number(fruta_selecionada) && sorteio3 == Number(fruta_selecionada)) ){
+
+            saldo += 5.00;
+            saldo_rodada += 5.00;
+            salvar_saldo = 5.00;
+
+        }else if(sorteio1 == Number(fruta_selecionada)){
+            
+            saldo += 1.50;
+            saldo_rodada += 1.50;
+            salvar_saldo = 1.50;
+
+        }else if(sorteio2 == Number(fruta_selecionada)){
+
+            saldo += 1.50;
+            saldo_rodada += 1.50;
+            salvar_saldo = 1.50;
+
+        }else if(sorteio3 == Number(fruta_selecionada)){
+
+            saldo += 1.50;
+            saldo_rodada += 1.50;
+            salvar_saldo = 1.50;
+
+        }else if(sorteio4 == Number(fruta_selecionada)){
+
+            saldo += 1.50;
+            saldo_rodada += 1.50;
+            salvar_saldo = 1.50;
+
+        }
+
+        div_msg.innerHTML = `Nesta Rodada você ganhou R$${saldo_rodada}`;
+
+        rodada++;
+
+        let dados_rodada = {
+
+            rodada: rodada,
+            fruta_escolhida: salvar_fruta,
+            frutas_sorteadas: salvar_sorteio,
+            saldo: salvar_saldo
+
+        };
+
+        dados.push(dados_rodada);
+
+    }
+
+    function but_encerrar(){
+
+        var gasto = rodada * 2.0;
+        var msg = '';
+
+        div_msg2.style.display = 'block';
+
+        n_rodada.innerHTML = rodada;
+        valor_gasto.innerHTML = gasto
+        valor_ganho.innerHTML = saldo;
+
+        if( gasto > saldo){
+
+            msg = `Vá ao caixa e PAGUE R$ ${gasto - saldo}`;
+
+        }else if(saldo > gasto){
+
+            msg = `Vá ao caixa e RECEBA R$ ${saldo - gasto}`;
+
+        }else{
+
+            msg = `Incrível... Você nem ganhou e nem perdeu!!!!`;
+
+        }
+
+        b_ganho_perda.innerHTML = msg;
+
+        detalhes.innerHTML = '';
+
+        for(var i = 0 ; i < dados.length ; i++){
+
+           var numero_rodada = dados[i].rodada;
+           var fruta = dados[i].fruta_escolhida;
+           var fruta_sorteio = dados[i].frutas_sorteadas;
+           var ganho_rodada = dados[i].saldo;
+
+           detalhes.innerHTML += `Rodada ${numero_rodada} - A fruta escolhida foi ${fruta}
+                                 e as frutas sorteadas foram: ${fruta_sorteio}
+                                 e você ganhou nessa rodada R$${ganho_rodada.toFixed(2)}<br>`;
+
+        }
+
+    }
+
+</script>

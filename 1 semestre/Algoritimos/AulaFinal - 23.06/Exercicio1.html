@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+
+</head>
+
+<body>
+
+    Digite o valor que deseja sacar: <input id="input_valor_sacar">
+    
+    <br><br>
+
+    <button onclick="solicitar(input_valor_sacar.value)">
+        Solicitar saque
+    </button>
+
+</body>
+
+</html>
+
+<script>
+
+    function solicitar(valor_sacar){
+
+        let resto_nota_20 = valor_sacar % 20;
+        let resto_nota_50 = valor_sacar % 50;
+        let resto_soma = (valor_sacar - 50) % 20;
+
+        if(valor_sacar >= 20 && (resto_nota_20 == 0 || resto_nota_50 == 0 || resto_soma == 0)){
+
+            alert('Saque OK');
+
+        }else{
+
+            alert('Valor impossivel sacar devido ás notas disponiveis');
+
+        }
+
+    }
+
+</script>
